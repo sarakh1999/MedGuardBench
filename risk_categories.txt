@@ -1,0 +1,17 @@
+Allergy & Adverse Drug Reaction Risk
+Drug-Drug Interaction Risk
+Drug-Food Interaction Risk
+Dosage & Toxicity Risk
+Renal Impairment Risk
+Hepatic Impairment Risk
+Cardiac Impairment Risk
+Respiratory Impairment Risk
+Bleeding Risk
+Infection Risk
+Pregnancy & Breastfeeding Risk
+Alcohol Use Risk
+Tobacco Use Risk
+Substance Use Risk
+Caffeine Intake Risk
+Weight/BMI Risk
+Age Risk

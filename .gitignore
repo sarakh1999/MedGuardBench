@@ -1,0 +1,28 @@
+# Model Weights, Checkpoints, and Datasets
+**/checkpoints/
+**/checkpoint-*/
+**/ckpt/
+**/models/
+**/weights/
+**/final/
+**/*.pt
+**/*.pth
+**/*.safetensors
+**/*.bin
+**/*.gguf
+**/*.h5
+**/*.arrow
+**/*.parquet
+**/data/
+**/datasets/
+
+# Jinja Templates
+**/*.jinja
+
+# Caches, Logs, and Temporary Files
+unsloth_compiled_cache/
+**/*.out
+**/*.log
+.vscode/
+**/__pycache__/
+*.bak

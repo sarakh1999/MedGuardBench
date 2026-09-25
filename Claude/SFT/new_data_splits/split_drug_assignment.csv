@@ -1,0 +1,118 @@
+drug_or_group,component,split,rows_in_component
+Buspirone,drug:Buspirone,test,55
+Doxepin,drug:Doxepin,test,255
+Finasteride,drug:Terazosin,test,128
+Fluoxetine,drug:Fluoxetine,test,88
+Loperamide,drug:Loperamide,test,19
+Phenelzine,drug:Phenelzine,test,55
+Sumatriptan,drug:Sumatriptan,test,48
+Tamsulosin,drug:Terazosin,test,128
+Terazosin,drug:Terazosin,test,128
+Valacyclovir,drug:Valacyclovir,test,40
+Valsartan,drug:Valsartan,test,39
+add gatifloxacin,nodrug:add gatifloxacin,test,1
+bupropion sr,nodrug:bupropion sr,test,3
+continue both as prescribed,nodrug:continue both as prescribed,test,1
+continue both as-is,nodrug:continue both as-is,test,1
+continue current regimen,nodrug:continue current regimen,test,1
+continues all three products,nodrug:continues all three products,test,1
+danazol,nodrug:danazol,test,1
+fenofibrate,nodrug:fenofibrate,test,1
+gemfibrozil,nodrug:gemfibrozil,test,1
+hemangeol,nodrug:hemangeol,test,3
+infants' tylenol 40 mg (parent self-medicating),nodrug:infants' tylenol 40 mg (parent self-medicating),test,1
+itraconazole,nodrug:itraconazole,test,1
+nefazodone,nodrug:nefazodone,test,1
+resume on-demand breastfeeding,nodrug:resume on-demand breastfeeding,test,1
+rifampin (in ripe regimen),nodrug:rifampin (in ripe regimen),test,1
+self-administered (overuse),nodrug:self-administered (overuse),test,1
+self-medicating combination,nodrug:self-medicating combination,test,1
+self-medicating otc tylenol,nodrug:self-medicating otc tylenol,test,1
+simvastatin,nodrug:simvastatin,test,1
+supportive care,nodrug:supportive care,test,1
+tylenol extra strength 1000 mg,nodrug:tylenol extra strength 1000 mg,test,1
+tylenol extra strength 500 mg adult caplets,nodrug:tylenol extra strength 500 mg adult caplets,test,1
+voriconazole,nodrug:voriconazole,test,1
+Acetaminophen,drug:Dapagliflozin,train,134
+Acyclovir,drug:Acyclovir,train,15
+Adalimumab,drug:Adalimumab,train,58
+Albuterol,drug:Albuterol,train,30
+Alprazolam,drug:Alprazolam,train,27
+Amiodarone,drug:Amiodarone,train,64
+Amlodipine,drug:Losartan,train,72
+Cefdinir,drug:Cefdinir,train,59
+Celecoxib,drug:Celecoxib,train,66
+Ciprofloxacin,drug:Ciprofloxacin,train,31
+Clindamycin,drug:Clindamycin,train,28
+Clonidine,drug:Clonidine,train,51
+Clozaril,drug:Clozaril,train,58
+Dapagliflozin,drug:Dapagliflozin,train,134
+Desvenlafaxine,drug:Desvenlafaxine,train,27
+Diazepam,drug:Diazepam,train,101
+Dicyclomine,drug:Dicyclomine,train,23
+Dulaglutide,drug:Dulaglutide,train,40
+Empagliflozin,drug:Empagliflozin,train,22
+Erythromycin,drug:Erythromycin,train,95
+Escitalopram,drug:Escitalopram,train,91
+Fluconazole,drug:Warfarin,train,286
+Folic Acid,drug:Folic Acid,train,9
+Gabapentin,drug:Pregabalin,train,84
+Hydrochlorothiazide,drug:Losartan,train,72
+Hydrocodone,drug:Dapagliflozin,train,134
+Ibuprofen,drug:Ibuprofen,train,167
+Isosorbide,drug:Isosorbide,train,31
+Isotretinoin,drug:Isotretinoin,train,34
+Ivermectin,drug:Ivermectin,train,36
+Ketotifen,drug:Ketotifen,train,41
+Lactulose,drug:Lactulose,train,57
+Liothyronine,drug:Liothyronine,train,19
+Lisinopril,drug:Lisinopril,train,80
+Losartan,drug:Losartan,train,72
+Melatonin,drug:Melatonin,train,48
+Memantine,drug:Memantine,train,23
+Metformin,drug:Metformin,train,59
+Methadone,drug:Methadone,train,60
+Methylphenidate,drug:Methylphenidate,train,79
+Metoprolol,drug:Metoprolol,train,63
+Mirtazapine,drug:Mirtazapine,train,68
+Morphine,drug:Morphine,train,189
+Mounjaro,drug:Mounjaro,train,55
+Nabumetone,drug:Nabumetone,train,29
+Naproxen,drug:Naproxen,train,221
+Niacin,drug:Niacin,train,101
+Olanzapine,drug:Olanzapine,train,159
+Oseltamivir,drug:Oseltamivir,train,30
+Phenazopyridine,drug:Phenazopyridine,train,34
+Pimozide,drug:Pimozide,train,32
+Pregabalin,drug:Pregabalin,train,84
+Promethazine,drug:Promethazine,train,38
+Propranolol,drug:Propranolol,train,96
+Sertraline,drug:Sertraline,train,60
+Sevelamer,drug:Sevelamer,train,22
+Sildenafil,drug:Sildenafil,train,54
+Spironolactone,drug:Spironolactone,train,24
+Synthroid,drug:Synthroid,train,27
+Terbinafine,drug:Terbinafine,train,7
+Tramadol,drug:Warfarin,train,286
+Trazodone,drug:Trazodone,train,143
+Warfarin,drug:Warfarin,train,286
+bupropion (zyban),nodrug:bupropion (zyban),train,3
+bupropion xl,nodrug:bupropion xl,train,13
+colchicine,nodrug:colchicine,train,1
+continue clozapine 350 mg unchanged,nodrug:continue clozapine 350 mg unchanged,train,1
+excedrin migraine (apap 250 mg/aspirin 250 mg/caffeine 65 mg),nodrug:excedrin migraine (apap 250 mg/aspirin 250 mg/caffeine 65 mg),train,1
+ketoconazole,nodrug:ketoconazole,train,1
+percocet (oxycodone 5 mg/apap 325 mg),nodrug:percocet (oxycodone 5 mg/apap 325 mg),train,1
+prednisolone (oral),nodrug:prednisolone (oral),train,93
+telaprevir,nodrug:telaprevir,train,1
+Amoxicillin,drug:Furosemide,val,274
+Atorvastatin,drug:Atorvastatin,val,45
+Citalopram,drug:Citalopram,val,59
+Clarithromycin,drug:Furosemide,val,274
+Digoxin,drug:Furosemide,val,274
+Furosemide,drug:Furosemide,val,274
+Indomethacin,drug:Indomethacin,val,59
+Lovastatin,drug:Lovastatin,val,45
+Nifedipine,drug:Nifedipine,val,21
+Omeprazole,drug:Furosemide,val,274
+Quinidine,drug:Furosemide,val,274
