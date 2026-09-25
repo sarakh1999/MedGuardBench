@@ -378,7 +378,7 @@ def main():
             lr_scheduler_type            = "cosine",
             optim                        = "adamw_8bit",
             weight_decay                 = 0.01,
-            output_dir                   = "SFT/new_outputs/Qwen3Guard-Gen-4B",
+            output_dir                   = "Claude/SFT/new_outputs/Qwen3Guard-Gen-4B",
             save_strategy                = "steps",
             save_steps                   = 50,
             save_total_limit             = 50,
