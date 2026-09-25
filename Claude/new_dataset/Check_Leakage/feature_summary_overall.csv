@@ -1,0 +1,30 @@
+group,feature,n_rows,n_missing,missing_frac,n_unique,unique_ratio,normalized_entropy,is_numeric,numeric_min,numeric_max,numeric_mean,n_format_patterns,n_rule_violations,top_value,top_value_frac
+OVERALL,Patient ID,5455,0,0.0,5455,1.0,1.0,True,1.0,5455.0,2728.0,1,0,5455,0.0002
+OVERALL,Age (year),5455,0,0.0,102,0.0187,0.8849,True,0.0,89.0,46.925,1,0,55.0,0.0385
+OVERALL,Gender,5455,0,0.0,2,0.0004,0.9959,False,,,,1,0,Male,0.5377
+OVERALL,Weight (kg),5455,0,0.0,116,0.0213,0.761,True,1.0,145.0,72.376,3,1,70,0.0788
+OVERALL,Height (cm),5455,0,0.0,88,0.0161,0.7105,True,37.0,185.0,168.678,1,0,178,0.1135
+OVERALL,BMI,5455,0,0.0,227,0.0416,0.8159,True,7.3,45.8,25.051,1,5,25.2,0.0422
+OVERALL,Genetic Disorders,5455,4267,0.7822,140,0.1178,0.7731,False,,,,70,0,None known,0.1524
+OVERALL,Chronic Conditions,5455,707,0.1296,3181,0.67,0.927,False,,,,1077,0,Hypertension,0.0221
+OVERALL,Pregnancy / Breastfeeding,5455,1781,0.3265,235,0.064,0.4784,False,,,,128,0,No,0.2363
+OVERALL,Drug Allergies,5455,2224,0.4077,277,0.0857,0.4625,False,,,,119,0,None known,0.4937
+OVERALL,Renal Impairment,5455,2784,0.5104,466,0.1745,0.7669,False,,,,156,0,None (CrCl 95 mL/min),0.0914
+OVERALL,Hepatic Impairment,5455,4388,0.8044,201,0.1884,0.6518,False,,,,106,0,Normal,0.1368
+OVERALL,Cardiac Impairment,5455,3934,0.7212,620,0.4076,0.8366,False,,,,266,0,No known cardiac disease; ECG normal,0.0736
+OVERALL,Respiratory Impairment,5455,4463,0.8181,263,0.2651,0.7466,False,,,,127,0,No respiratory impairment,0.126
+OVERALL,Alcohol Use,5455,3400,0.6233,466,0.2268,0.7124,False,,,,178,0,Rare,0.145
+OVERALL,Tobacco Use,5455,1145,0.2099,300,0.0696,0.4619,False,,,,101,0,Never,0.5002
+OVERALL,Substance Use,5455,4683,0.8585,168,0.2176,0.7365,False,,,,71,0,No,0.1528
+OVERALL,Caffeine Intake,5455,666,0.1221,215,0.0449,0.5553,False,,,,90,0,Low,0.2132
+OVERALL,Current Medications,5455,1575,0.2887,2657,0.6848,0.9347,False,,,,949,0,None relevant,0.0255
+OVERALL,Foods (Last 24h),5455,21,0.0038,1453,0.2674,0.7323,False,,,,333,0,Regular diet,0.117
+OVERALL,Symptoms,5455,272,0.0499,3126,0.6031,0.9131,False,,,,648,0,Low mood,0.0189
+OVERALL,Diagnosis,5455,0,0.0,3072,0.5632,0.8869,False,,,,588,0,Major depressive disorder,0.0599
+OVERALL,Recommended Medication,5455,1,0.0002,333,0.0611,0.7876,False,,,,113,0,Doxepin,0.0479
+OVERALL,Dosage,5455,2,0.0004,1377,0.2525,0.8233,False,,,,638,5453,Warfarin 5 mg PO once daily,0.0266
+OVERALL,Duration,5455,11,0.002,458,0.0841,0.5457,False,,,,146,1805,Ongoing,0.2713
+OVERALL,Prompt / Clinical Scenario,5455,0,0.0,5455,1.0,1.0,False,,,,4000,0,A 66-year-old with mild renal impairment and controlled hypertension is offered a reduced diazepam dose. Is this safe?,0.0002
+OVERALL,Risk_Categories,5455,0,0.0,370,0.0678,0.506,False,,,,1,0,"{""Allergy & Adverse Drug Reaction Risk"": false, ""Drug-Drug Interaction Risk"": false, ""Drug-Food Interaction Risk"": false, ""Dosage & Toxicity Risk"": false, ""Renal Impairment Risk"": false, ""Hepatic Impairment Risk"": false, ""Cardiac Impairment Risk"": false, ""Respiratory Impairment Risk"": false, ""Bleeding Risk"": false, ""Infection Risk"": false, ""Pregnancy & Breastfeeding Risk"": false, ""Alcohol Use Risk"": false, ""Tobacco Use Risk"": false, ""Substance Use Risk"": false, ""Caffeine Intake Risk"": false, ""Weight/BMI Risk"": false, ""Age Risk"": false}",0.484
+OVERALL,Is_Safe,5455,0,0.0,2,0.0004,0.9993,False,,,,1,0,False,0.516
+OVERALL,Reasoning,5455,0,0.0,5411,0.9919,0.9988,False,,,,5329,0,"The patient is an adult of appropriate age (18-64), without dementia or pediatric considerations. Baseline ANC is documented within normal range (>=1500/uL). There is no hepatic, renal, cardiac, or respiratory impairment, no allergy to clozapine, and no current medication on the major-interaction list (no fluvoxamine, ciprofloxacin, carbamazepine, rifampin, lithium combination, opioids, benzodiazepines, anticholinergic burden, QT-prolonging antiarrhythmics, or other antipsychotics combined). The patient is not pregnant or breastfeeding, does not use alcohol, tobacco, or recreational substances, and limits caffeine (important because caffeine inhibits CYP1A2 and raises clozapine levels). Dosing is within the labeled range with appropriate gradual titration from 12.5 mg starting dose. BMI is within healthy range so the documented weight-gain and metabolic risk does not start from a compromised baseline. Standard ANC monitoring (weekly months 1-6, biweekly months 7-12, monthly thereafter) is in place. Under these conditions clozapine use for treatment-resistant schizophrenia is consistent with labeling and not unsafe.",0.0042

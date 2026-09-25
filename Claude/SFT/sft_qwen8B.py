@@ -233,10 +233,10 @@ def main():
     )
 
     train_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml/train.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_qwen_and_qwenguard/train.jsonl", split="train",
     )
     val_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml/val.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_qwen_and_qwenguard/val.jsonl", split="train",
     )
     print(f"Train: {len(train_ds)} examples  |  Val: {len(val_ds)} examples")
 

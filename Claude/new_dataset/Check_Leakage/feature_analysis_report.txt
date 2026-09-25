@@ -36,32 +36,27 @@ Medication column used for grouping: 'Recommended Medication'
 --- Feature: Age (year)  [OVERALL] ---
   Rows: 5455 | Non-missing: 5455 | None/missing: 0 (0.0%)
   Unique values: 102 | Unique ratio: 0.019 | Normalized entropy: 0.885
-  Numeric summary: min=0.00, max=89.00, mean=46.94, median=48.00, std=16.21
-  WARNING: 2 non-numeric values in mostly-numeric feature, e.g. ['10 days (neonate)', '2 months (8 weeks)']
+  Numeric summary: min=0.00, max=89.00, mean=46.93, median=48.00, std=16.23
   Top 15 values:
-       210  (  3.8%)  '55'
-       206  (  3.8%)  '45'
-       199  (  3.6%)  '58'
-       192  (  3.5%)  '50'
-       186  (  3.4%)  '60'
-       160  (  2.9%)  '52'
-       141  (  2.6%)  '29'
-       141  (  2.6%)  '44'
-       140  (  2.6%)  '48'
-       136  (  2.5%)  '38'
-       133  (  2.4%)  '47'
-       128  (  2.3%)  '40'
-       120  (  2.2%)  '33'
-       117  (  2.1%)  '34'
-       115  (  2.1%)  '41'
+       210  (  3.8%)  '55.0'
+       206  (  3.8%)  '45.0'
+       199  (  3.6%)  '58.0'
+       192  (  3.5%)  '50.0'
+       186  (  3.4%)  '60.0'
+       160  (  2.9%)  '52.0'
+       141  (  2.6%)  '29.0'
+       141  (  2.6%)  '44.0'
+       140  (  2.6%)  '48.0'
+       136  (  2.5%)  '38.0'
+       133  (  2.4%)  '47.0'
+       128  (  2.3%)  '40.0'
+       120  (  2.2%)  '33.0'
+       117  (  2.1%)  '34.0'
+       115  (  2.1%)  '41.0'
     ... and 87 more unique values
-  Format patterns (digits->9, letters->A): 4 distinct
-      5440  ( 99.7%)  pattern: '9'
-        13  (  0.2%)  pattern: '9.9'
-         1  (  0.0%)  pattern: '9 A (A)'
-         1  (  0.0%)  pattern: '9 A (9 A)'
-  FORMAT SUSPECTS: 15 value(s) with rare pattern(s), e.g. ['0.16', '0.75', '1.5', '0.25', '0.33']
-  Rule check (1 rule(s)): 2 violation(s)
+  Format patterns (digits->9, letters->A): 1 distinct
+      5455  (100.0%)  pattern: '9.9'
+  Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [OVERALL] ---
   Rows: 5455 | Non-missing: 5455 | None/missing: 0 (0.0%)
@@ -75,28 +70,32 @@ Medication column used for grouping: 'Recommended Medication'
 
 --- Feature: Weight (kg)  [OVERALL] ---
   Rows: 5455 | Non-missing: 5455 | None/missing: 0 (0.0%)
-  Unique values: 115 | Unique ratio: 0.021 | Normalized entropy: 0.762
+  Unique values: 116 | Unique ratio: 0.021 | Normalized entropy: 0.761
   Numeric summary: min=1.00, max=145.00, mean=72.38, median=73.00, std=13.86
+  WARNING: 1 non-numeric values in mostly-numeric feature, e.g. ['Male']
   Top 15 values:
-       430  (  7.9%)  '70.0'
-       378  (  6.9%)  '80.0'
-       335  (  6.1%)  '68.0'
-       308  (  5.6%)  '78.0'
-       288  (  5.3%)  '82.0'
-       253  (  4.6%)  '72.0'
-       205  (  3.8%)  '60.0'
-       194  (  3.6%)  '74.0'
-       187  (  3.4%)  '64.0'
-       177  (  3.2%)  '66.0'
-       173  (  3.2%)  '84.0'
-       173  (  3.2%)  '88.0'
-       153  (  2.8%)  '62.0'
-       151  (  2.8%)  '76.0'
-       145  (  2.7%)  '65.0'
-    ... and 100 more unique values
-  Format patterns (digits->9, letters->A): 1 distinct
-      5455  (100.0%)  pattern: '9.9'
-  Rule check (1 rule(s)): OK
+       430  (  7.9%)  '70'
+       378  (  6.9%)  '80'
+       335  (  6.1%)  '68'
+       308  (  5.6%)  '78'
+       288  (  5.3%)  '82'
+       253  (  4.6%)  '72'
+       205  (  3.8%)  '60'
+       194  (  3.6%)  '74'
+       187  (  3.4%)  '64'
+       177  (  3.2%)  '66'
+       173  (  3.2%)  '84'
+       173  (  3.2%)  '88'
+       153  (  2.8%)  '62'
+       151  (  2.8%)  '76'
+       145  (  2.7%)  '65'
+    ... and 101 more unique values
+  Format patterns (digits->9, letters->A): 3 distinct
+      5438  ( 99.7%)  pattern: '9'
+        16  (  0.3%)  pattern: '9.9'
+         1  (  0.0%)  pattern: 'A'
+  FORMAT SUSPECTS: 17 value(s) with rare pattern(s), e.g. ['1.4', '2.1', '4.5', '1.8', '6.5']
+  Rule check (1 rule(s)): 1 violation(s)
 
 --- Feature: Height (cm)  [OVERALL] ---
   Rows: 5455 | Non-missing: 5455 | None/missing: 0 (0.0%)
@@ -505,13 +504,13 @@ Medication column used for grouping: 'Recommended Medication'
         22  (  0.6%)  'Vitamin D3 2000 IU daily'
         20  (  0.5%)  'Levothyroxine'
     ... and 2642 more unique values
-  Format patterns (digits->9, letters->A): 948 distinct
+  Format patterns (digits->9, letters->A): 949 distinct
        451  ( 11.6%)  pattern: 'A'
-       375  (  9.7%)  pattern: 'A A'
+       374  (  9.6%)  pattern: 'A A'
        372  (  9.6%)  pattern: 'A 9 A A'
        201  (  5.2%)  pattern: 'A 9 A A A'
        152  (  3.9%)  pattern: 'A A A'
-    ... and 943 more patterns
+    ... and 944 more patterns
 
 --- Feature: Foods (Last 24h)  [OVERALL] ---
   Rows: 5455 | Non-missing: 5434 | None/missing: 21 (0.4%)
@@ -773,7 +772,7 @@ Medication column used for grouping: 'Recommended Medication'
     ... and 5324 more patterns
 
 --- Cross-field check: BMI consistency  [OVERALL] ---
-  Checked: 5455 rows | Mismatch (>1.0 BMI unit): 0
+  Checked: 5454 rows | Mismatch (>1.0 BMI unit): 0
 
 ################################################################################
 # PER-MEDICATION ANALYSIS (334 groups)
@@ -1148,24 +1147,24 @@ MEDICATION GROUP: Doxepin  (n=261)
   Unique values: 62 | Unique ratio: 0.238 | Normalized entropy: 0.958
   Numeric summary: min=11.00, max=83.00, mean=48.06, median=47.00, std=14.21
   Top 15 values:
-         9  (  3.4%)  '60'
-         9  (  3.4%)  '44'
-         8  (  3.1%)  '52'
-         8  (  3.1%)  '58'
-         8  (  3.1%)  '33'
-         8  (  3.1%)  '47'
-         7  (  2.7%)  '39'
-         7  (  2.7%)  '45'
-         7  (  2.7%)  '41'
-         7  (  2.7%)  '59'
-         7  (  2.7%)  '48'
-         7  (  2.7%)  '36'
-         6  (  2.3%)  '29'
-         6  (  2.3%)  '55'
-         6  (  2.3%)  '54'
+         9  (  3.4%)  '60.0'
+         9  (  3.4%)  '44.0'
+         8  (  3.1%)  '52.0'
+         8  (  3.1%)  '58.0'
+         8  (  3.1%)  '33.0'
+         8  (  3.1%)  '47.0'
+         7  (  2.7%)  '39.0'
+         7  (  2.7%)  '45.0'
+         7  (  2.7%)  '41.0'
+         7  (  2.7%)  '59.0'
+         7  (  2.7%)  '48.0'
+         7  (  2.7%)  '36.0'
+         6  (  2.3%)  '29.0'
+         6  (  2.3%)  '55.0'
+         6  (  2.3%)  '54.0'
     ... and 47 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       261  (100.0%)  pattern: '9'
+       261  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Doxepin] ---
@@ -1183,24 +1182,24 @@ MEDICATION GROUP: Doxepin  (n=261)
   Unique values: 39 | Unique ratio: 0.149 | Normalized entropy: 0.928
   Numeric summary: min=38.00, max=120.00, mean=73.91, median=72.00, std=10.61
   Top 15 values:
-        25  (  9.6%)  '70.0'
-        18  (  6.9%)  '68.0'
-        14  (  5.4%)  '66.0'
-        13  (  5.0%)  '82.0'
-        13  (  5.0%)  '78.0'
-        12  (  4.6%)  '74.0'
-        12  (  4.6%)  '72.0'
-        11  (  4.2%)  '84.0'
-        11  (  4.2%)  '80.0'
-         9  (  3.4%)  '64.0'
-         8  (  3.1%)  '88.0'
-         8  (  3.1%)  '63.0'
-         8  (  3.1%)  '60.0'
-         7  (  2.7%)  '58.0'
-         7  (  2.7%)  '62.0'
+        25  (  9.6%)  '70'
+        18  (  6.9%)  '68'
+        14  (  5.4%)  '66'
+        13  (  5.0%)  '82'
+        13  (  5.0%)  '78'
+        12  (  4.6%)  '74'
+        12  (  4.6%)  '72'
+        11  (  4.2%)  '84'
+        11  (  4.2%)  '80'
+         9  (  3.4%)  '64'
+         8  (  3.1%)  '88'
+         8  (  3.1%)  '63'
+         8  (  3.1%)  '60'
+         7  (  2.7%)  '58'
+         7  (  2.7%)  '62'
     ... and 24 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       261  (100.0%)  pattern: '9.9'
+       261  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Doxepin] ---
@@ -1858,24 +1857,24 @@ MEDICATION GROUP: Naproxen  (n=221)
   Unique values: 60 | Unique ratio: 0.271 | Normalized entropy: 0.936
   Numeric summary: min=1.00, max=82.00, mean=42.44, median=43.00, std=14.43
   Top 15 values:
-        11  (  5.0%)  '49'
-         9  (  4.1%)  '43'
-         9  (  4.1%)  '47'
-         9  (  4.1%)  '29'
-         8  (  3.6%)  '55'
-         8  (  3.6%)  '33'
-         8  (  3.6%)  '34'
-         7  (  3.2%)  '58'
-         7  (  3.2%)  '31'
-         7  (  3.2%)  '52'
-         7  (  3.2%)  '28'
-         6  (  2.7%)  '25'
-         6  (  2.7%)  '60'
-         6  (  2.7%)  '44'
-         6  (  2.7%)  '38'
+        11  (  5.0%)  '49.0'
+         9  (  4.1%)  '43.0'
+         9  (  4.1%)  '47.0'
+         9  (  4.1%)  '29.0'
+         8  (  3.6%)  '55.0'
+         8  (  3.6%)  '33.0'
+         8  (  3.6%)  '34.0'
+         7  (  3.2%)  '58.0'
+         7  (  3.2%)  '31.0'
+         7  (  3.2%)  '52.0'
+         7  (  3.2%)  '28.0'
+         6  (  2.7%)  '25.0'
+         6  (  2.7%)  '60.0'
+         6  (  2.7%)  '44.0'
+         6  (  2.7%)  '38.0'
     ... and 45 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       221  (100.0%)  pattern: '9'
+       221  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Naproxen] ---
@@ -1893,24 +1892,24 @@ MEDICATION GROUP: Naproxen  (n=221)
   Unique values: 32 | Unique ratio: 0.145 | Normalized entropy: 0.774
   Numeric summary: min=10.00, max=104.00, mean=70.98, median=70.00, std=13.80
   Top 15 values:
-        28  ( 12.7%)  '82.0'
-        24  ( 10.9%)  '70.0'
-        24  ( 10.9%)  '60.0'
-        22  ( 10.0%)  '68.0'
-        20  (  9.0%)  '64.0'
-        20  (  9.0%)  '76.0'
-        19  (  8.6%)  '90.0'
-        15  (  6.8%)  '86.0'
-        14  (  6.3%)  '55.0'
-        13  (  5.9%)  '72.0'
-         1  (  0.5%)  '104.0'
-         1  (  0.5%)  '62.0'
-         1  (  0.5%)  '58.0'
-         1  (  0.5%)  '88.0'
-         1  (  0.5%)  '80.0'
+        28  ( 12.7%)  '82'
+        24  ( 10.9%)  '70'
+        24  ( 10.9%)  '60'
+        22  ( 10.0%)  '68'
+        20  (  9.0%)  '64'
+        20  (  9.0%)  '76'
+        19  (  8.6%)  '90'
+        15  (  6.8%)  '86'
+        14  (  6.3%)  '55'
+        13  (  5.9%)  '72'
+         1  (  0.5%)  '104'
+         1  (  0.5%)  '62'
+         1  (  0.5%)  '58'
+         1  (  0.5%)  '88'
+         1  (  0.5%)  '80'
     ... and 17 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       221  (100.0%)  pattern: '9.9'
+       221  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Naproxen] ---
@@ -2547,24 +2546,24 @@ MEDICATION GROUP: Morphine  (n=190)
   Unique values: 59 | Unique ratio: 0.311 | Normalized entropy: 0.958
   Numeric summary: min=0.00, max=88.00, mean=49.45, median=50.00, std=15.82
   Top 15 values:
-         9  (  4.7%)  '55'
-         9  (  4.7%)  '50'
-         8  (  4.2%)  '60'
-         7  (  3.7%)  '45'
-         6  (  3.2%)  '52'
-         6  (  3.2%)  '48'
-         6  (  3.2%)  '59'
-         5  (  2.6%)  '44'
-         5  (  2.6%)  '40'
-         5  (  2.6%)  '31'
-         5  (  2.6%)  '58'
-         4  (  2.1%)  '33'
-         4  (  2.1%)  '38'
-         4  (  2.1%)  '66'
-         4  (  2.1%)  '29'
+         9  (  4.7%)  '55.0'
+         9  (  4.7%)  '50.0'
+         8  (  4.2%)  '60.0'
+         7  (  3.7%)  '45.0'
+         6  (  3.2%)  '52.0'
+         6  (  3.2%)  '48.0'
+         6  (  3.2%)  '59.0'
+         5  (  2.6%)  '44.0'
+         5  (  2.6%)  '40.0'
+         5  (  2.6%)  '31.0'
+         5  (  2.6%)  '58.0'
+         4  (  2.1%)  '33.0'
+         4  (  2.1%)  '38.0'
+         4  (  2.1%)  '66.0'
+         4  (  2.1%)  '29.0'
     ... and 44 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       190  (100.0%)  pattern: '9'
+       190  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Morphine] ---
@@ -2582,24 +2581,26 @@ MEDICATION GROUP: Morphine  (n=190)
   Unique values: 42 | Unique ratio: 0.221 | Normalized entropy: 0.874
   Numeric summary: min=1.40, max=122.00, mean=72.99, median=74.00, std=13.86
   Top 15 values:
-        19  ( 10.0%)  '70.0'
-        15  (  7.9%)  '80.0'
-        15  (  7.9%)  '68.0'
-        14  (  7.4%)  '82.0'
-        12  (  6.3%)  '74.0'
-        11  (  5.8%)  '66.0'
-        10  (  5.3%)  '78.0'
-         8  (  4.2%)  '72.0'
-         7  (  3.7%)  '84.0'
-         7  (  3.7%)  '60.0'
-         7  (  3.7%)  '76.0'
-         6  (  3.2%)  '62.0'
-         5  (  2.6%)  '90.0'
-         5  (  2.6%)  '88.0'
-         5  (  2.6%)  '79.0'
+        19  ( 10.0%)  '70'
+        15  (  7.9%)  '80'
+        15  (  7.9%)  '68'
+        14  (  7.4%)  '82'
+        12  (  6.3%)  '74'
+        11  (  5.8%)  '66'
+        10  (  5.3%)  '78'
+         8  (  4.2%)  '72'
+         7  (  3.7%)  '84'
+         7  (  3.7%)  '60'
+         7  (  3.7%)  '76'
+         6  (  3.2%)  '62'
+         5  (  2.6%)  '90'
+         5  (  2.6%)  '88'
+         5  (  2.6%)  '79'
     ... and 27 more unique values
-  Format patterns (digits->9, letters->A): 1 distinct
-       190  (100.0%)  pattern: '9.9'
+  Format patterns (digits->9, letters->A): 2 distinct
+       188  ( 98.9%)  pattern: '9'
+         2  (  1.1%)  pattern: '9.9'
+  FORMAT SUSPECTS: 2 value(s) with rare pattern(s), e.g. ['1.4', '2.1']
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Morphine] ---
@@ -3222,25 +3223,24 @@ MEDICATION GROUP: Ibuprofen  (n=170)
   Unique values: 64 | Unique ratio: 0.376 | Normalized entropy: 0.955
   Numeric summary: min=0.01, max=84.00, mean=44.74, median=46.00, std=17.96
   Top 15 values:
-         9  (  5.3%)  '44'
-         6  (  3.5%)  '47'
-         6  (  3.5%)  '29'
-         6  (  3.5%)  '50'
-         5  (  2.9%)  '52'
-         5  (  2.9%)  '48'
-         5  (  2.9%)  '58'
-         5  (  2.9%)  '55'
-         5  (  2.9%)  '33'
-         4  (  2.4%)  '57'
-         4  (  2.4%)  '45'
-         4  (  2.4%)  '68'
-         4  (  2.4%)  '60'
-         4  (  2.4%)  '39'
-         4  (  2.4%)  '70'
+         9  (  5.3%)  '44.0'
+         6  (  3.5%)  '47.0'
+         6  (  3.5%)  '29.0'
+         6  (  3.5%)  '50.0'
+         5  (  2.9%)  '52.0'
+         5  (  2.9%)  '48.0'
+         5  (  2.9%)  '58.0'
+         5  (  2.9%)  '55.0'
+         5  (  2.9%)  '33.0'
+         4  (  2.4%)  '57.0'
+         4  (  2.4%)  '45.0'
+         4  (  2.4%)  '68.0'
+         4  (  2.4%)  '60.0'
+         4  (  2.4%)  '39.0'
+         4  (  2.4%)  '70.0'
     ... and 49 more unique values
-  Format patterns (digits->9, letters->A): 2 distinct
-       165  ( 97.1%)  pattern: '9'
-         5  (  2.9%)  pattern: '9.9'
+  Format patterns (digits->9, letters->A): 1 distinct
+       170  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Ibuprofen] ---
@@ -3258,24 +3258,26 @@ MEDICATION GROUP: Ibuprofen  (n=170)
   Unique values: 46 | Unique ratio: 0.271 | Normalized entropy: 0.897
   Numeric summary: min=1.00, max=108.00, mean=70.17, median=73.50, std=18.92
   Top 15 values:
-        17  ( 10.0%)  '70.0'
-        12  (  7.1%)  '78.0'
-        11  (  6.5%)  '80.0'
-        10  (  5.9%)  '68.0'
-         9  (  5.3%)  '84.0'
-         9  (  5.3%)  '82.0'
-         8  (  4.7%)  '66.0'
-         7  (  4.1%)  '72.0'
-         6  (  3.5%)  '74.0'
-         6  (  3.5%)  '88.0'
-         6  (  3.5%)  '64.0'
-         5  (  2.9%)  '83.0'
-         5  (  2.9%)  '85.0'
-         5  (  2.9%)  '79.0'
-         4  (  2.4%)  '76.0'
+        17  ( 10.0%)  '70'
+        12  (  7.1%)  '78'
+        11  (  6.5%)  '80'
+        10  (  5.9%)  '68'
+         9  (  5.3%)  '84'
+         9  (  5.3%)  '82'
+         8  (  4.7%)  '66'
+         7  (  4.1%)  '72'
+         6  (  3.5%)  '74'
+         6  (  3.5%)  '88'
+         6  (  3.5%)  '64'
+         5  (  2.9%)  '83'
+         5  (  2.9%)  '85'
+         5  (  2.9%)  '79'
+         4  (  2.4%)  '76'
     ... and 31 more unique values
-  Format patterns (digits->9, letters->A): 1 distinct
-       170  (100.0%)  pattern: '9.9'
+  Format patterns (digits->9, letters->A): 2 distinct
+       167  ( 98.2%)  pattern: '9'
+         3  (  1.8%)  pattern: '9.9'
+  FORMAT SUSPECTS: 3 value(s) with rare pattern(s), e.g. ['1.1', '1.2', '1.3']
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Ibuprofen] ---
@@ -3861,24 +3863,24 @@ MEDICATION GROUP: Olanzapine (oral tablet)  (n=158)
   Unique values: 58 | Unique ratio: 0.367 | Normalized entropy: 0.900
   Numeric summary: min=9.00, max=85.00, mean=42.85, median=45.00, std=13.37
   Top 15 values:
-        27  ( 17.1%)  '45'
-         9  (  5.7%)  '50'
-         5  (  3.2%)  '29'
-         4  (  2.5%)  '34'
-         4  (  2.5%)  '27'
-         4  (  2.5%)  '33'
-         4  (  2.5%)  '44'
-         4  (  2.5%)  '39'
-         4  (  2.5%)  '30'
-         4  (  2.5%)  '48'
-         4  (  2.5%)  '46'
-         4  (  2.5%)  '40'
-         3  (  1.9%)  '43'
-         3  (  1.9%)  '60'
-         3  (  1.9%)  '41'
+        27  ( 17.1%)  '45.0'
+         9  (  5.7%)  '50.0'
+         5  (  3.2%)  '29.0'
+         4  (  2.5%)  '34.0'
+         4  (  2.5%)  '27.0'
+         4  (  2.5%)  '33.0'
+         4  (  2.5%)  '44.0'
+         4  (  2.5%)  '39.0'
+         4  (  2.5%)  '30.0'
+         4  (  2.5%)  '48.0'
+         4  (  2.5%)  '46.0'
+         4  (  2.5%)  '40.0'
+         3  (  1.9%)  '43.0'
+         3  (  1.9%)  '60.0'
+         3  (  1.9%)  '41.0'
     ... and 43 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       158  (100.0%)  pattern: '9'
+       158  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Olanzapine (oral tablet)] ---
@@ -3896,24 +3898,24 @@ MEDICATION GROUP: Olanzapine (oral tablet)  (n=158)
   Unique values: 37 | Unique ratio: 0.234 | Normalized entropy: 0.862
   Numeric summary: min=30.00, max=118.00, mean=73.91, median=75.00, std=9.79
   Top 15 values:
-        32  ( 20.3%)  '80.0'
-        12  (  7.6%)  '78.0'
-        11  (  7.0%)  '70.0'
-        10  (  6.3%)  '72.0'
-         8  (  5.1%)  '79.0'
-         7  (  4.4%)  '68.0'
-         7  (  4.4%)  '74.0'
-         6  (  3.8%)  '71.0'
-         5  (  3.2%)  '66.0'
-         5  (  3.2%)  '76.0'
-         4  (  2.5%)  '82.0'
-         4  (  2.5%)  '69.0'
-         4  (  2.5%)  '64.0'
-         4  (  2.5%)  '77.0'
-         3  (  1.9%)  '63.0'
+        32  ( 20.3%)  '80'
+        12  (  7.6%)  '78'
+        11  (  7.0%)  '70'
+        10  (  6.3%)  '72'
+         8  (  5.1%)  '79'
+         7  (  4.4%)  '68'
+         7  (  4.4%)  '74'
+         6  (  3.8%)  '71'
+         5  (  3.2%)  '66'
+         5  (  3.2%)  '76'
+         4  (  2.5%)  '82'
+         4  (  2.5%)  '69'
+         4  (  2.5%)  '64'
+         4  (  2.5%)  '77'
+         3  (  1.9%)  '63'
     ... and 22 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       158  (100.0%)  pattern: '9.9'
+       158  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Olanzapine (oral tablet)] ---
@@ -4404,24 +4406,24 @@ MEDICATION GROUP: Warfarin  (n=150)
   Unique values: 49 | Unique ratio: 0.327 | Normalized entropy: 0.955
   Numeric summary: min=28.00, max=88.00, mean=53.74, median=55.00, std=11.41
   Top 15 values:
-         8  (  5.3%)  '58'
-         7  (  4.7%)  '50'
-         7  (  4.7%)  '60'
-         7  (  4.7%)  '55'
-         6  (  4.0%)  '66'
-         6  (  4.0%)  '57'
-         5  (  3.3%)  '48'
-         5  (  3.3%)  '47'
-         5  (  3.3%)  '61'
-         5  (  3.3%)  '59'
-         4  (  2.7%)  '49'
-         4  (  2.7%)  '68'
-         4  (  2.7%)  '44'
-         4  (  2.7%)  '64'
-         4  (  2.7%)  '45'
+         8  (  5.3%)  '58.0'
+         7  (  4.7%)  '50.0'
+         7  (  4.7%)  '60.0'
+         7  (  4.7%)  '55.0'
+         6  (  4.0%)  '66.0'
+         6  (  4.0%)  '57.0'
+         5  (  3.3%)  '48.0'
+         5  (  3.3%)  '47.0'
+         5  (  3.3%)  '61.0'
+         5  (  3.3%)  '59.0'
+         4  (  2.7%)  '49.0'
+         4  (  2.7%)  '68.0'
+         4  (  2.7%)  '44.0'
+         4  (  2.7%)  '64.0'
+         4  (  2.7%)  '45.0'
     ... and 34 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       150  (100.0%)  pattern: '9'
+       150  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Warfarin] ---
@@ -4439,24 +4441,24 @@ MEDICATION GROUP: Warfarin  (n=150)
   Unique values: 35 | Unique ratio: 0.233 | Normalized entropy: 0.917
   Numeric summary: min=48.00, max=120.00, mean=75.33, median=76.00, std=9.68
   Top 15 values:
-        14  (  9.3%)  '80.0'
-        12  (  8.0%)  '70.0'
-        10  (  6.7%)  '84.0'
-        10  (  6.7%)  '82.0'
-         9  (  6.0%)  '68.0'
-         9  (  6.0%)  '72.0'
-         7  (  4.7%)  '66.0'
-         7  (  4.7%)  '78.0'
-         6  (  4.0%)  '83.0'
-         6  (  4.0%)  '64.0'
-         5  (  3.3%)  '74.0'
-         5  (  3.3%)  '79.0'
-         5  (  3.3%)  '86.0'
-         4  (  2.7%)  '88.0'
-         3  (  2.0%)  '81.0'
+        14  (  9.3%)  '80'
+        12  (  8.0%)  '70'
+        10  (  6.7%)  '84'
+        10  (  6.7%)  '82'
+         9  (  6.0%)  '68'
+         9  (  6.0%)  '72'
+         7  (  4.7%)  '66'
+         7  (  4.7%)  '78'
+         6  (  4.0%)  '83'
+         6  (  4.0%)  '64'
+         5  (  3.3%)  '74'
+         5  (  3.3%)  '79'
+         5  (  3.3%)  '86'
+         4  (  2.7%)  '88'
+         3  (  2.0%)  '81'
     ... and 20 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       150  (100.0%)  pattern: '9.9'
+       150  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Warfarin] ---
@@ -5023,24 +5025,24 @@ MEDICATION GROUP: Trazodone  (n=146)
   Unique values: 49 | Unique ratio: 0.336 | Normalized entropy: 0.969
   Numeric summary: min=15.00, max=78.00, mean=48.40, median=48.00, std=12.59
   Top 15 values:
-         6  (  4.1%)  '47'
-         6  (  4.1%)  '44'
-         6  (  4.1%)  '50'
-         5  (  3.4%)  '57'
-         5  (  3.4%)  '58'
-         5  (  3.4%)  '55'
-         4  (  2.7%)  '34'
-         4  (  2.7%)  '33'
-         4  (  2.7%)  '54'
-         4  (  2.7%)  '40'
-         4  (  2.7%)  '63'
-         4  (  2.7%)  '52'
-         4  (  2.7%)  '59'
-         4  (  2.7%)  '38'
-         4  (  2.7%)  '45'
+         6  (  4.1%)  '47.0'
+         6  (  4.1%)  '44.0'
+         6  (  4.1%)  '50.0'
+         5  (  3.4%)  '57.0'
+         5  (  3.4%)  '58.0'
+         5  (  3.4%)  '55.0'
+         4  (  2.7%)  '34.0'
+         4  (  2.7%)  '33.0'
+         4  (  2.7%)  '54.0'
+         4  (  2.7%)  '40.0'
+         4  (  2.7%)  '63.0'
+         4  (  2.7%)  '52.0'
+         4  (  2.7%)  '59.0'
+         4  (  2.7%)  '38.0'
+         4  (  2.7%)  '45.0'
     ... and 34 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       146  (100.0%)  pattern: '9'
+       146  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Trazodone] ---
@@ -5058,24 +5060,24 @@ MEDICATION GROUP: Trazodone  (n=146)
   Unique values: 37 | Unique ratio: 0.253 | Normalized entropy: 0.936
   Numeric summary: min=45.00, max=103.00, mean=74.62, median=74.00, std=9.27
   Top 15 values:
-        12  (  8.2%)  '70.0'
-         8  (  5.5%)  '80.0'
-         8  (  5.5%)  '83.0'
-         8  (  5.5%)  '68.0'
-         7  (  4.8%)  '78.0'
-         7  (  4.8%)  '71.0'
-         7  (  4.8%)  '72.0'
-         6  (  4.1%)  '84.0'
-         6  (  4.1%)  '81.0'
-         5  (  3.4%)  '79.0'
-         5  (  3.4%)  '69.0'
-         5  (  3.4%)  '74.0'
-         5  (  3.4%)  '82.0'
-         5  (  3.4%)  '85.0'
-         5  (  3.4%)  '64.0'
+        12  (  8.2%)  '70'
+         8  (  5.5%)  '80'
+         8  (  5.5%)  '83'
+         8  (  5.5%)  '68'
+         7  (  4.8%)  '78'
+         7  (  4.8%)  '71'
+         7  (  4.8%)  '72'
+         6  (  4.1%)  '84'
+         6  (  4.1%)  '81'
+         5  (  3.4%)  '79'
+         5  (  3.4%)  '69'
+         5  (  3.4%)  '74'
+         5  (  3.4%)  '82'
+         5  (  3.4%)  '85'
+         5  (  3.4%)  '64'
     ... and 22 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       146  (100.0%)  pattern: '9.9'
+       146  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Trazodone] ---
@@ -5669,24 +5671,24 @@ MEDICATION GROUP: Fluoxetine (Prozac)  (n=110)
   Unique values: 57 | Unique ratio: 0.518 | Normalized entropy: 0.971
   Numeric summary: min=6.00, max=82.00, mean=43.35, median=42.00, std=15.88
   Top 15 values:
-         4  (  3.6%)  '34'
-         4  (  3.6%)  '45'
-         4  (  3.6%)  '31'
-         4  (  3.6%)  '48'
-         3  (  2.7%)  '29'
-         3  (  2.7%)  '27'
-         3  (  2.7%)  '38'
-         3  (  2.7%)  '39'
-         3  (  2.7%)  '52'
-         3  (  2.7%)  '36'
-         3  (  2.7%)  '28'
-         3  (  2.7%)  '50'
-         3  (  2.7%)  '33'
-         3  (  2.7%)  '40'
-         3  (  2.7%)  '24'
+         4  (  3.6%)  '34.0'
+         4  (  3.6%)  '45.0'
+         4  (  3.6%)  '31.0'
+         4  (  3.6%)  '48.0'
+         3  (  2.7%)  '29.0'
+         3  (  2.7%)  '27.0'
+         3  (  2.7%)  '38.0'
+         3  (  2.7%)  '39.0'
+         3  (  2.7%)  '52.0'
+         3  (  2.7%)  '36.0'
+         3  (  2.7%)  '28.0'
+         3  (  2.7%)  '50.0'
+         3  (  2.7%)  '33.0'
+         3  (  2.7%)  '40.0'
+         3  (  2.7%)  '24.0'
     ... and 42 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       110  (100.0%)  pattern: '9'
+       110  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Fluoxetine (Prozac)] ---
@@ -5704,24 +5706,24 @@ MEDICATION GROUP: Fluoxetine (Prozac)  (n=110)
   Unique values: 41 | Unique ratio: 0.373 | Normalized entropy: 0.939
   Numeric summary: min=21.00, max=91.00, mean=70.10, median=70.00, std=12.42
   Top 15 values:
-         8  (  7.3%)  '80.0'
-         7  (  6.4%)  '60.0'
-         7  (  6.4%)  '63.0'
-         6  (  5.5%)  '82.0'
-         5  (  4.5%)  '62.0'
-         5  (  4.5%)  '64.0'
-         4  (  3.6%)  '61.0'
-         4  (  3.6%)  '66.0'
-         4  (  3.6%)  '58.0'
-         4  (  3.6%)  '70.0'
-         4  (  3.6%)  '74.0'
-         4  (  3.6%)  '79.0'
-         4  (  3.6%)  '78.0'
-         3  (  2.7%)  '83.0'
-         3  (  2.7%)  '72.0'
+         8  (  7.3%)  '80'
+         7  (  6.4%)  '60'
+         7  (  6.4%)  '63'
+         6  (  5.5%)  '82'
+         5  (  4.5%)  '62'
+         5  (  4.5%)  '64'
+         4  (  3.6%)  '61'
+         4  (  3.6%)  '66'
+         4  (  3.6%)  '58'
+         4  (  3.6%)  '70'
+         4  (  3.6%)  '74'
+         4  (  3.6%)  '79'
+         4  (  3.6%)  '78'
+         3  (  2.7%)  '83'
+         3  (  2.7%)  '72'
     ... and 26 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       110  (100.0%)  pattern: '9.9'
+       110  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Fluoxetine (Prozac)] ---
@@ -6203,24 +6205,24 @@ MEDICATION GROUP: Prednisolone (oral)  (n=105)
   Unique values: 47 | Unique ratio: 0.448 | Normalized entropy: 0.968
   Numeric summary: min=6.00, max=72.00, mean=42.44, median=41.00, std=12.65
   Top 15 values:
-         4  (  3.8%)  '41'
-         4  (  3.8%)  '45'
-         4  (  3.8%)  '33'
-         4  (  3.8%)  '44'
-         4  (  3.8%)  '29'
-         4  (  3.8%)  '38'
-         4  (  3.8%)  '31'
-         3  (  2.9%)  '30'
-         3  (  2.9%)  '52'
-         3  (  2.9%)  '37'
-         3  (  2.9%)  '39'
-         3  (  2.9%)  '36'
-         3  (  2.9%)  '48'
-         3  (  2.9%)  '28'
-         3  (  2.9%)  '34'
+         4  (  3.8%)  '41.0'
+         4  (  3.8%)  '45.0'
+         4  (  3.8%)  '33.0'
+         4  (  3.8%)  '44.0'
+         4  (  3.8%)  '29.0'
+         4  (  3.8%)  '38.0'
+         4  (  3.8%)  '31.0'
+         3  (  2.9%)  '30.0'
+         3  (  2.9%)  '52.0'
+         3  (  2.9%)  '37.0'
+         3  (  2.9%)  '39.0'
+         3  (  2.9%)  '36.0'
+         3  (  2.9%)  '48.0'
+         3  (  2.9%)  '28.0'
+         3  (  2.9%)  '34.0'
     ... and 32 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       105  (100.0%)  pattern: '9'
+       105  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Prednisolone (oral)] ---
@@ -6238,24 +6240,24 @@ MEDICATION GROUP: Prednisolone (oral)  (n=105)
   Unique values: 37 | Unique ratio: 0.352 | Normalized entropy: 0.942
   Numeric summary: min=22.00, max=95.00, mean=70.92, median=72.00, std=11.33
   Top 15 values:
-         9  (  8.6%)  '78.0'
-         8  (  7.6%)  '80.0'
-         6  (  5.7%)  '70.0'
-         5  (  4.8%)  '60.0'
-         5  (  4.8%)  '64.0'
-         5  (  4.8%)  '66.0'
-         4  (  3.8%)  '68.0'
-         4  (  3.8%)  '74.0'
-         4  (  3.8%)  '62.0'
-         4  (  3.8%)  '76.0'
-         4  (  3.8%)  '63.0'
-         4  (  3.8%)  '82.0'
-         3  (  2.9%)  '58.0'
-         3  (  2.9%)  '72.0'
-         3  (  2.9%)  '79.0'
+         9  (  8.6%)  '78'
+         8  (  7.6%)  '80'
+         6  (  5.7%)  '70'
+         5  (  4.8%)  '60'
+         5  (  4.8%)  '64'
+         5  (  4.8%)  '66'
+         4  (  3.8%)  '68'
+         4  (  3.8%)  '74'
+         4  (  3.8%)  '62'
+         4  (  3.8%)  '76'
+         4  (  3.8%)  '63'
+         4  (  3.8%)  '82'
+         3  (  2.9%)  '58'
+         3  (  2.9%)  '72'
+         3  (  2.9%)  '79'
     ... and 22 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       105  (100.0%)  pattern: '9.9'
+       105  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Prednisolone (oral)] ---
@@ -6699,24 +6701,24 @@ MEDICATION GROUP: Escitalopram (Lexapro)  (n=105)
   Unique values: 57 | Unique ratio: 0.543 | Normalized entropy: 0.977
   Numeric summary: min=9.00, max=82.00, mean=45.10, median=44.00, std=15.33
   Top 15 values:
-         4  (  3.8%)  '48'
-         4  (  3.8%)  '44'
-         3  (  2.9%)  '52'
-         3  (  2.9%)  '38'
-         3  (  2.9%)  '29'
-         3  (  2.9%)  '33'
-         3  (  2.9%)  '58'
-         3  (  2.9%)  '45'
-         3  (  2.9%)  '41'
-         3  (  2.9%)  '59'
-         3  (  2.9%)  '57'
-         2  (  1.9%)  '47'
-         2  (  1.9%)  '42'
-         2  (  1.9%)  '40'
-         2  (  1.9%)  '26'
+         4  (  3.8%)  '48.0'
+         4  (  3.8%)  '44.0'
+         3  (  2.9%)  '52.0'
+         3  (  2.9%)  '38.0'
+         3  (  2.9%)  '29.0'
+         3  (  2.9%)  '33.0'
+         3  (  2.9%)  '58.0'
+         3  (  2.9%)  '45.0'
+         3  (  2.9%)  '41.0'
+         3  (  2.9%)  '59.0'
+         3  (  2.9%)  '57.0'
+         2  (  1.9%)  '47.0'
+         2  (  1.9%)  '42.0'
+         2  (  1.9%)  '40.0'
+         2  (  1.9%)  '26.0'
     ... and 42 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       105  (100.0%)  pattern: '9'
+       105  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Escitalopram (Lexapro)] ---
@@ -6734,24 +6736,24 @@ MEDICATION GROUP: Escitalopram (Lexapro)  (n=105)
   Unique values: 37 | Unique ratio: 0.352 | Normalized entropy: 0.946
   Numeric summary: min=32.00, max=95.00, mean=70.88, median=70.00, std=10.04
   Top 15 values:
-         8  (  7.6%)  '70.0'
-         7  (  6.7%)  '80.0'
-         6  (  5.7%)  '68.0'
-         6  (  5.7%)  '72.0'
-         5  (  4.8%)  '64.0'
-         5  (  4.8%)  '66.0'
-         4  (  3.8%)  '82.0'
-         4  (  3.8%)  '60.0'
-         4  (  3.8%)  '79.0'
-         4  (  3.8%)  '67.0'
-         4  (  3.8%)  '78.0'
-         4  (  3.8%)  '74.0'
-         3  (  2.9%)  '62.0'
-         3  (  2.9%)  '69.0'
-         3  (  2.9%)  '58.0'
+         8  (  7.6%)  '70'
+         7  (  6.7%)  '80'
+         6  (  5.7%)  '68'
+         6  (  5.7%)  '72'
+         5  (  4.8%)  '64'
+         5  (  4.8%)  '66'
+         4  (  3.8%)  '82'
+         4  (  3.8%)  '60'
+         4  (  3.8%)  '79'
+         4  (  3.8%)  '67'
+         4  (  3.8%)  '78'
+         4  (  3.8%)  '74'
+         3  (  2.9%)  '62'
+         3  (  2.9%)  '69'
+         3  (  2.9%)  '58'
     ... and 22 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       105  (100.0%)  pattern: '9.9'
+       105  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Escitalopram (Lexapro)] ---
@@ -7263,24 +7265,24 @@ MEDICATION GROUP: Diazepam  (n=101)
   Unique values: 55 | Unique ratio: 0.545 | Normalized entropy: 0.975
   Numeric summary: min=4.00, max=88.00, mean=50.40, median=49.00, std=15.60
   Top 15 values:
-         4  (  4.0%)  '58'
-         4  (  4.0%)  '48'
-         4  (  4.0%)  '50'
-         3  (  3.0%)  '46'
-         3  (  3.0%)  '40'
-         3  (  3.0%)  '55'
-         3  (  3.0%)  '44'
-         3  (  3.0%)  '52'
-         3  (  3.0%)  '49'
-         3  (  3.0%)  '45'
-         2  (  2.0%)  '60'
-         2  (  2.0%)  '34'
-         2  (  2.0%)  '41'
-         2  (  2.0%)  '29'
-         2  (  2.0%)  '31'
+         4  (  4.0%)  '58.0'
+         4  (  4.0%)  '48.0'
+         4  (  4.0%)  '50.0'
+         3  (  3.0%)  '46.0'
+         3  (  3.0%)  '40.0'
+         3  (  3.0%)  '55.0'
+         3  (  3.0%)  '44.0'
+         3  (  3.0%)  '52.0'
+         3  (  3.0%)  '49.0'
+         3  (  3.0%)  '45.0'
+         2  (  2.0%)  '60.0'
+         2  (  2.0%)  '34.0'
+         2  (  2.0%)  '41.0'
+         2  (  2.0%)  '29.0'
+         2  (  2.0%)  '31.0'
     ... and 40 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       101  (100.0%)  pattern: '9'
+       101  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Diazepam] ---
@@ -7295,28 +7297,31 @@ MEDICATION GROUP: Diazepam  (n=101)
 
 --- Feature: Weight (kg)  [Diazepam] ---
   Rows: 101 | Non-missing: 101 | None/missing: 0 (0.0%)
-  Unique values: 42 | Unique ratio: 0.416 | Normalized entropy: 0.937
-  Numeric summary: min=18.00, max=120.00, mean=74.26, median=74.00, std=13.15
+  Unique values: 43 | Unique ratio: 0.426 | Normalized entropy: 0.936
+  Numeric summary: min=18.00, max=120.00, mean=74.23, median=74.00, std=13.21
+  WARNING: 1 non-numeric values in mostly-numeric feature, e.g. ['Male']
   Top 15 values:
-         8  (  7.9%)  '70.0'
-         7  (  6.9%)  '80.0'
-         6  (  5.9%)  '68.0'
-         5  (  5.0%)  '74.0'
-         5  (  5.0%)  '78.0'
-         5  (  5.0%)  '82.0'
-         5  (  5.0%)  '72.0'
-         4  (  4.0%)  '79.0'
-         3  (  3.0%)  '64.0'
-         3  (  3.0%)  '90.0'
-         3  (  3.0%)  '81.0'
-         3  (  3.0%)  '76.0'
-         3  (  3.0%)  '77.0'
-         3  (  3.0%)  '84.0'
-         2  (  2.0%)  '71.0'
-    ... and 27 more unique values
-  Format patterns (digits->9, letters->A): 1 distinct
-       101  (100.0%)  pattern: '9.9'
-  Rule check (1 rule(s)): OK
+         8  (  7.9%)  '70'
+         7  (  6.9%)  '80'
+         6  (  5.9%)  '68'
+         5  (  5.0%)  '78'
+         5  (  5.0%)  '74'
+         5  (  5.0%)  '72'
+         5  (  5.0%)  '82'
+         4  (  4.0%)  '79'
+         3  (  3.0%)  '90'
+         3  (  3.0%)  '64'
+         3  (  3.0%)  '76'
+         3  (  3.0%)  '81'
+         3  (  3.0%)  '84'
+         2  (  2.0%)  '83'
+         2  (  2.0%)  '73'
+    ... and 28 more unique values
+  Format patterns (digits->9, letters->A): 2 distinct
+       100  ( 99.0%)  pattern: '9'
+         1  (  1.0%)  pattern: 'A'
+  FORMAT SUSPECTS: 1 value(s) with rare pattern(s), e.g. ['Male']
+  Rule check (1 rule(s)): 1 violation(s)
 
 --- Feature: Height (cm)  [Diazepam] ---
   Rows: 101 | Non-missing: 101 | None/missing: 0 (0.0%)
@@ -7756,14 +7761,14 @@ MEDICATION GROUP: Diazepam  (n=101)
          7  (  6.9%)  '1 week'
          6  (  5.9%)  'single dose'
          6  (  5.9%)  '5 days'
-         1  (  1.0%)  'chronic (ongoing) ‚Äî indefinite'
+         1  (  1.0%)  'chronic (ongoing) — indefinite'
          1  (  1.0%)  '3 days'
          1  (  1.0%)  '7 days'
   Format patterns (digits->9, letters->A): 4 distinct
         53  ( 52.5%)  pattern: '9 A'
         41  ( 40.6%)  pattern: 'A (A)'
          6  (  5.9%)  pattern: 'A A'
-         1  (  1.0%)  pattern: 'A (A) ‚A A'
+         1  (  1.0%)  pattern: 'A (A) — A'
   Rule check (1 rule(s)): 42 violation(s)
 
 --- Feature: Prompt / Clinical Scenario  [Diazepam] ---
@@ -7855,7 +7860,7 @@ MEDICATION GROUP: Diazepam  (n=101)
     ... and 96 more patterns
 
 --- Cross-field check: BMI consistency  [Diazepam] ---
-  Checked: 101 rows | Mismatch (>1.0 BMI unit): 0
+  Checked: 100 rows | Mismatch (>1.0 BMI unit): 0
 
 ================================================================================
 MEDICATION GROUP: Amoxicillin  (n=100)
@@ -7890,24 +7895,24 @@ MEDICATION GROUP: Amoxicillin  (n=100)
   Unique values: 60 | Unique ratio: 0.600 | Normalized entropy: 0.974
   Numeric summary: min=1.00, max=82.00, mean=47.56, median=50.50, std=18.85
   Top 15 values:
-         4  (  4.0%)  '64'
-         4  (  4.0%)  '59'
-         3  (  3.0%)  '68'
-         3  (  3.0%)  '36'
-         3  (  3.0%)  '45'
-         3  (  3.0%)  '66'
-         3  (  3.0%)  '44'
-         3  (  3.0%)  '57'
-         3  (  3.0%)  '58'
-         2  (  2.0%)  '71'
-         2  (  2.0%)  '34'
-         2  (  2.0%)  '27'
-         2  (  2.0%)  '55'
-         2  (  2.0%)  '48'
-         2  (  2.0%)  '52'
+         4  (  4.0%)  '64.0'
+         4  (  4.0%)  '59.0'
+         3  (  3.0%)  '68.0'
+         3  (  3.0%)  '36.0'
+         3  (  3.0%)  '45.0'
+         3  (  3.0%)  '66.0'
+         3  (  3.0%)  '44.0'
+         3  (  3.0%)  '57.0'
+         3  (  3.0%)  '58.0'
+         2  (  2.0%)  '71.0'
+         2  (  2.0%)  '34.0'
+         2  (  2.0%)  '27.0'
+         2  (  2.0%)  '55.0'
+         2  (  2.0%)  '48.0'
+         2  (  2.0%)  '52.0'
     ... and 45 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       100  (100.0%)  pattern: '9'
+       100  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Amoxicillin] ---
@@ -7925,24 +7930,24 @@ MEDICATION GROUP: Amoxicillin  (n=100)
   Unique values: 44 | Unique ratio: 0.440 | Normalized entropy: 0.957
   Numeric summary: min=10.00, max=122.00, mean=69.92, median=71.00, std=16.22
   Top 15 values:
-         6  (  6.0%)  '70.0'
-         6  (  6.0%)  '68.0'
-         4  (  4.0%)  '66.0'
-         4  (  4.0%)  '74.0'
-         4  (  4.0%)  '63.0'
-         4  (  4.0%)  '78.0'
-         4  (  4.0%)  '64.0'
-         4  (  4.0%)  '79.0'
-         3  (  3.0%)  '71.0'
-         3  (  3.0%)  '77.0'
-         3  (  3.0%)  '88.0'
-         3  (  3.0%)  '84.0'
-         3  (  3.0%)  '67.0'
-         3  (  3.0%)  '72.0'
-         3  (  3.0%)  '83.0'
+         6  (  6.0%)  '70'
+         6  (  6.0%)  '68'
+         4  (  4.0%)  '66'
+         4  (  4.0%)  '74'
+         4  (  4.0%)  '63'
+         4  (  4.0%)  '78'
+         4  (  4.0%)  '64'
+         4  (  4.0%)  '79'
+         3  (  3.0%)  '71'
+         3  (  3.0%)  '77'
+         3  (  3.0%)  '88'
+         3  (  3.0%)  '84'
+         3  (  3.0%)  '67'
+         3  (  3.0%)  '72'
+         3  (  3.0%)  '83'
     ... and 29 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       100  (100.0%)  pattern: '9.9'
+       100  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Amoxicillin] ---
@@ -8514,24 +8519,24 @@ MEDICATION GROUP: Niacin  (n=100)
   Unique values: 46 | Unique ratio: 0.460 | Normalized entropy: 0.969
   Numeric summary: min=9.00, max=78.00, mean=50.59, median=52.50, std=13.55
   Top 15 values:
-         5  (  5.0%)  '50'
-         4  (  4.0%)  '45'
-         4  (  4.0%)  '60'
-         4  (  4.0%)  '54'
-         4  (  4.0%)  '59'
-         3  (  3.0%)  '49'
-         3  (  3.0%)  '52'
-         3  (  3.0%)  '61'
-         3  (  3.0%)  '55'
-         3  (  3.0%)  '57'
-         3  (  3.0%)  '70'
-         3  (  3.0%)  '53'
-         3  (  3.0%)  '66'
-         3  (  3.0%)  '58'
-         3  (  3.0%)  '44'
+         5  (  5.0%)  '50.0'
+         4  (  4.0%)  '45.0'
+         4  (  4.0%)  '60.0'
+         4  (  4.0%)  '54.0'
+         4  (  4.0%)  '59.0'
+         3  (  3.0%)  '49.0'
+         3  (  3.0%)  '52.0'
+         3  (  3.0%)  '61.0'
+         3  (  3.0%)  '55.0'
+         3  (  3.0%)  '57.0'
+         3  (  3.0%)  '70.0'
+         3  (  3.0%)  '53.0'
+         3  (  3.0%)  '66.0'
+         3  (  3.0%)  '58.0'
+         3  (  3.0%)  '44.0'
     ... and 31 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       100  (100.0%)  pattern: '9'
+       100  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Niacin] ---
@@ -8549,24 +8554,24 @@ MEDICATION GROUP: Niacin  (n=100)
   Unique values: 38 | Unique ratio: 0.380 | Normalized entropy: 0.961
   Numeric summary: min=30.00, max=122.00, mean=76.13, median=76.00, std=13.34
   Top 15 values:
-         7  (  7.0%)  '70.0'
-         6  (  6.0%)  '68.0'
-         5  (  5.0%)  '80.0'
-         4  (  4.0%)  '62.0'
-         4  (  4.0%)  '85.0'
-         4  (  4.0%)  '90.0'
-         4  (  4.0%)  '81.0'
-         4  (  4.0%)  '78.0'
-         3  (  3.0%)  '74.0'
-         3  (  3.0%)  '88.0'
-         3  (  3.0%)  '64.0'
-         3  (  3.0%)  '82.0'
-         3  (  3.0%)  '58.0'
-         3  (  3.0%)  '72.0'
-         3  (  3.0%)  '84.0'
+         7  (  7.0%)  '70'
+         6  (  6.0%)  '68'
+         5  (  5.0%)  '80'
+         4  (  4.0%)  '62'
+         4  (  4.0%)  '85'
+         4  (  4.0%)  '90'
+         4  (  4.0%)  '81'
+         4  (  4.0%)  '78'
+         3  (  3.0%)  '74'
+         3  (  3.0%)  '88'
+         3  (  3.0%)  '64'
+         3  (  3.0%)  '82'
+         3  (  3.0%)  '58'
+         3  (  3.0%)  '72'
+         3  (  3.0%)  '84'
     ... and 23 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-       100  (100.0%)  pattern: '9.9'
+       100  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Niacin] ---
@@ -9149,24 +9154,24 @@ MEDICATION GROUP: Propranolol  (n=94)
   Unique values: 33 | Unique ratio: 0.351 | Normalized entropy: 0.908
   Numeric summary: min=16.00, max=80.00, mean=50.05, median=50.00, std=15.20
   Top 15 values:
-        10  ( 10.6%)  '55'
-         8  (  8.5%)  '60'
-         7  (  7.4%)  '50'
-         7  (  7.4%)  '70'
-         7  (  7.4%)  '35'
-         6  (  6.4%)  '45'
-         4  (  4.3%)  '38'
-         4  (  4.3%)  '28'
-         4  (  4.3%)  '65'
-         3  (  3.2%)  '32'
-         3  (  3.2%)  '58'
-         3  (  3.2%)  '48'
-         3  (  3.2%)  '62'
-         3  (  3.2%)  '40'
-         2  (  2.1%)  '30'
+        10  ( 10.6%)  '55.0'
+         8  (  8.5%)  '60.0'
+         7  (  7.4%)  '50.0'
+         7  (  7.4%)  '70.0'
+         7  (  7.4%)  '35.0'
+         6  (  6.4%)  '45.0'
+         4  (  4.3%)  '38.0'
+         4  (  4.3%)  '28.0'
+         4  (  4.3%)  '65.0'
+         3  (  3.2%)  '32.0'
+         3  (  3.2%)  '58.0'
+         3  (  3.2%)  '48.0'
+         3  (  3.2%)  '62.0'
+         3  (  3.2%)  '40.0'
+         2  (  2.1%)  '30.0'
     ... and 18 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        94  (100.0%)  pattern: '9'
+        94  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Propranolol] ---
@@ -9184,24 +9189,24 @@ MEDICATION GROUP: Propranolol  (n=94)
   Unique values: 23 | Unique ratio: 0.245 | Normalized entropy: 0.920
   Numeric summary: min=55.00, max=92.00, mean=73.93, median=75.00, std=9.36
   Top 15 values:
-        10  ( 10.6%)  '80.0'
-        10  ( 10.6%)  '78.0'
-         9  (  9.6%)  '65.0'
-         9  (  9.6%)  '60.0'
-         7  (  7.4%)  '70.0'
-         6  (  6.4%)  '82.0'
-         5  (  5.3%)  '88.0'
-         5  (  5.3%)  '75.0'
-         5  (  5.3%)  '64.0'
-         4  (  4.3%)  '68.0'
-         3  (  3.2%)  '76.0'
-         3  (  3.2%)  '86.0'
-         2  (  2.1%)  '74.0'
-         2  (  2.1%)  '62.0'
-         2  (  2.1%)  '92.0'
+        10  ( 10.6%)  '80'
+        10  ( 10.6%)  '78'
+         9  (  9.6%)  '65'
+         9  (  9.6%)  '60'
+         7  (  7.4%)  '70'
+         6  (  6.4%)  '82'
+         5  (  5.3%)  '88'
+         5  (  5.3%)  '75'
+         5  (  5.3%)  '64'
+         4  (  4.3%)  '68'
+         3  (  3.2%)  '76'
+         3  (  3.2%)  '86'
+         2  (  2.1%)  '74'
+         2  (  2.1%)  '62'
+         2  (  2.1%)  '92'
     ... and 8 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        94  (100.0%)  pattern: '9.9'
+        94  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Propranolol] ---
@@ -9785,24 +9790,24 @@ MEDICATION GROUP: Mirtazapine  (n=90)
   Unique values: 46 | Unique ratio: 0.511 | Normalized entropy: 0.964
   Numeric summary: min=16.00, max=78.00, mean=42.86, median=42.00, std=12.28
   Top 15 values:
-         5  (  5.6%)  '45'
-         4  (  4.4%)  '52'
-         4  (  4.4%)  '40'
-         4  (  4.4%)  '44'
-         3  (  3.3%)  '34'
-         3  (  3.3%)  '30'
-         3  (  3.3%)  '39'
-         3  (  3.3%)  '46'
-         3  (  3.3%)  '42'
-         3  (  3.3%)  '38'
-         3  (  3.3%)  '29'
-         3  (  3.3%)  '50'
-         3  (  3.3%)  '37'
-         3  (  3.3%)  '28'
-         2  (  2.2%)  '48'
+         5  (  5.6%)  '45.0'
+         4  (  4.4%)  '52.0'
+         4  (  4.4%)  '40.0'
+         4  (  4.4%)  '44.0'
+         3  (  3.3%)  '34.0'
+         3  (  3.3%)  '30.0'
+         3  (  3.3%)  '39.0'
+         3  (  3.3%)  '46.0'
+         3  (  3.3%)  '42.0'
+         3  (  3.3%)  '38.0'
+         3  (  3.3%)  '29.0'
+         3  (  3.3%)  '50.0'
+         3  (  3.3%)  '37.0'
+         3  (  3.3%)  '28.0'
+         2  (  2.2%)  '48.0'
     ... and 31 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        90  (100.0%)  pattern: '9'
+        90  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Mirtazapine] ---
@@ -9820,24 +9825,24 @@ MEDICATION GROUP: Mirtazapine  (n=90)
   Unique values: 29 | Unique ratio: 0.322 | Normalized entropy: 0.966
   Numeric summary: min=58.00, max=104.00, mean=73.47, median=74.00, std=9.86
   Top 15 values:
-         6  (  6.7%)  '80.0'
-         6  (  6.7%)  '79.0'
-         6  (  6.7%)  '60.0'
-         4  (  4.4%)  '62.0'
-         4  (  4.4%)  '66.0'
-         4  (  4.4%)  '82.0'
-         4  (  4.4%)  '63.0'
-         4  (  4.4%)  '72.0'
-         4  (  4.4%)  '70.0'
-         4  (  4.4%)  '78.0'
-         4  (  4.4%)  '76.0'
-         3  (  3.3%)  '84.0'
-         3  (  3.3%)  '58.0'
-         3  (  3.3%)  '74.0'
-         3  (  3.3%)  '64.0'
+         6  (  6.7%)  '80'
+         6  (  6.7%)  '79'
+         6  (  6.7%)  '60'
+         4  (  4.4%)  '62'
+         4  (  4.4%)  '66'
+         4  (  4.4%)  '82'
+         4  (  4.4%)  '63'
+         4  (  4.4%)  '72'
+         4  (  4.4%)  '70'
+         4  (  4.4%)  '78'
+         4  (  4.4%)  '76'
+         3  (  3.3%)  '84'
+         3  (  3.3%)  '58'
+         3  (  3.3%)  '74'
+         3  (  3.3%)  '64'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        90  (100.0%)  pattern: '9.9'
+        90  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Mirtazapine] ---
@@ -10369,25 +10374,24 @@ MEDICATION GROUP: Erythromycin Base  (n=82)
   Unique values: 46 | Unique ratio: 0.561 | Normalized entropy: 0.962
   Numeric summary: min=0.08, max=78.00, mean=40.86, median=38.00, std=16.51
   Top 15 values:
-         5  (  6.1%)  '52'
-         4  (  4.9%)  '38'
-         4  (  4.9%)  '28'
-         4  (  4.9%)  '55'
-         3  (  3.7%)  '36'
-         3  (  3.7%)  '32'
-         3  (  3.7%)  '35'
-         3  (  3.7%)  '34'
-         3  (  3.7%)  '31'
-         2  (  2.4%)  '27'
-         2  (  2.4%)  '33'
-         2  (  2.4%)  '65'
-         2  (  2.4%)  '45'
-         2  (  2.4%)  '22'
-         2  (  2.4%)  '24'
+         5  (  6.1%)  '52.0'
+         4  (  4.9%)  '38.0'
+         4  (  4.9%)  '28.0'
+         4  (  4.9%)  '55.0'
+         3  (  3.7%)  '36.0'
+         3  (  3.7%)  '32.0'
+         3  (  3.7%)  '35.0'
+         3  (  3.7%)  '34.0'
+         3  (  3.7%)  '31.0'
+         2  (  2.4%)  '27.0'
+         2  (  2.4%)  '33.0'
+         2  (  2.4%)  '65.0'
+         2  (  2.4%)  '45.0'
+         2  (  2.4%)  '22.0'
+         2  (  2.4%)  '24.0'
     ... and 31 more unique values
-  Format patterns (digits->9, letters->A): 2 distinct
-        80  ( 97.6%)  pattern: '9'
-         2  (  2.4%)  pattern: '9.9'
+  Format patterns (digits->9, letters->A): 1 distinct
+        82  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Erythromycin Base] ---
@@ -10405,24 +10409,25 @@ MEDICATION GROUP: Erythromycin Base  (n=82)
   Unique values: 22 | Unique ratio: 0.268 | Normalized entropy: 0.933
   Numeric summary: min=2.80, max=95.00, mean=71.25, median=71.00, std=14.98
   Top 15 values:
-         9  ( 11.0%)  '70.0'
-         9  ( 11.0%)  '68.0'
-         6  (  7.3%)  '78.0'
-         6  (  7.3%)  '75.0'
-         6  (  7.3%)  '80.0'
-         5  (  6.1%)  '65.0'
-         5  (  6.1%)  '60.0'
-         5  (  6.1%)  '72.0'
-         5  (  6.1%)  '85.0'
-         4  (  4.9%)  '58.0'
-         3  (  3.7%)  '88.0'
-         3  (  3.7%)  '62.0'
-         3  (  3.7%)  '90.0'
-         2  (  2.4%)  '95.0'
-         2  (  2.4%)  '92.0'
+         9  ( 11.0%)  '70'
+         9  ( 11.0%)  '68'
+         6  (  7.3%)  '78'
+         6  (  7.3%)  '75'
+         6  (  7.3%)  '80'
+         5  (  6.1%)  '65'
+         5  (  6.1%)  '60'
+         5  (  6.1%)  '72'
+         5  (  6.1%)  '85'
+         4  (  4.9%)  '58'
+         3  (  3.7%)  '88'
+         3  (  3.7%)  '62'
+         3  (  3.7%)  '90'
+         2  (  2.4%)  '95'
+         2  (  2.4%)  '92'
     ... and 7 more unique values
-  Format patterns (digits->9, letters->A): 1 distinct
-        82  (100.0%)  pattern: '9.9'
+  Format patterns (digits->9, letters->A): 2 distinct
+        80  ( 97.6%)  pattern: '9'
+         2  (  2.4%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Erythromycin Base] ---
@@ -10999,24 +11004,24 @@ MEDICATION GROUP: Lisinopril  (n=80)
   Unique values: 45 | Unique ratio: 0.562 | Normalized entropy: 0.961
   Numeric summary: min=4.00, max=84.00, mean=55.77, median=58.00, std=15.05
   Top 15 values:
-         5  (  6.2%)  '58'
-         4  (  5.0%)  '61'
-         4  (  5.0%)  '64'
-         3  (  3.8%)  '66'
-         3  (  3.8%)  '57'
-         3  (  3.8%)  '47'
-         3  (  3.8%)  '59'
-         3  (  3.8%)  '62'
-         3  (  3.8%)  '50'
-         3  (  3.8%)  '60'
-         3  (  3.8%)  '63'
-         2  (  2.5%)  '44'
-         2  (  2.5%)  '70'
-         2  (  2.5%)  '76'
-         2  (  2.5%)  '45'
+         5  (  6.2%)  '58.0'
+         4  (  5.0%)  '61.0'
+         4  (  5.0%)  '64.0'
+         3  (  3.8%)  '66.0'
+         3  (  3.8%)  '57.0'
+         3  (  3.8%)  '47.0'
+         3  (  3.8%)  '59.0'
+         3  (  3.8%)  '62.0'
+         3  (  3.8%)  '50.0'
+         3  (  3.8%)  '60.0'
+         3  (  3.8%)  '63.0'
+         2  (  2.5%)  '44.0'
+         2  (  2.5%)  '70.0'
+         2  (  2.5%)  '76.0'
+         2  (  2.5%)  '45.0'
     ... and 30 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        80  (100.0%)  pattern: '9'
+        80  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Lisinopril] ---
@@ -11034,24 +11039,24 @@ MEDICATION GROUP: Lisinopril  (n=80)
   Unique values: 30 | Unique ratio: 0.375 | Normalized entropy: 0.908
   Numeric summary: min=18.00, max=108.00, mean=76.06, median=78.50, std=14.15
   Top 15 values:
-         8  ( 10.0%)  '70.0'
-         7  (  8.8%)  '68.0'
-         7  (  8.8%)  '88.0'
-         6  (  7.5%)  '84.0'
-         5  (  6.2%)  '82.0'
-         5  (  6.2%)  '90.0'
-         5  (  6.2%)  '72.0'
-         5  (  6.2%)  '80.0'
-         4  (  5.0%)  '86.0'
-         4  (  5.0%)  '74.0'
-         2  (  2.5%)  '60.0'
-         2  (  2.5%)  '76.0'
-         2  (  2.5%)  '85.0'
-         2  (  2.5%)  '66.0'
-         1  (  1.2%)  '92.0'
+         8  ( 10.0%)  '70'
+         7  (  8.8%)  '68'
+         7  (  8.8%)  '88'
+         6  (  7.5%)  '84'
+         5  (  6.2%)  '82'
+         5  (  6.2%)  '90'
+         5  (  6.2%)  '72'
+         5  (  6.2%)  '80'
+         4  (  5.0%)  '86'
+         4  (  5.0%)  '74'
+         2  (  2.5%)  '60'
+         2  (  2.5%)  '76'
+         2  (  2.5%)  '85'
+         2  (  2.5%)  '66'
+         1  (  1.2%)  '92'
     ... and 15 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        80  (100.0%)  pattern: '9.9'
+        80  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Lisinopril] ---
@@ -11617,24 +11622,24 @@ MEDICATION GROUP: Celecoxib  (n=70)
   Unique values: 36 | Unique ratio: 0.514 | Normalized entropy: 0.968
   Numeric summary: min=7.00, max=78.00, mean=49.70, median=50.00, std=16.19
   Top 15 values:
-         4  (  5.7%)  '70'
-         4  (  5.7%)  '58'
-         3  (  4.3%)  '42'
-         3  (  4.3%)  '55'
-         3  (  4.3%)  '66'
-         3  (  4.3%)  '52'
-         3  (  4.3%)  '44'
-         3  (  4.3%)  '68'
-         3  (  4.3%)  '33'
-         3  (  4.3%)  '46'
-         3  (  4.3%)  '72'
-         2  (  2.9%)  '28'
-         2  (  2.9%)  '78'
-         2  (  2.9%)  '62'
-         2  (  2.9%)  '48'
+         4  (  5.7%)  '70.0'
+         4  (  5.7%)  '58.0'
+         3  (  4.3%)  '42.0'
+         3  (  4.3%)  '55.0'
+         3  (  4.3%)  '66.0'
+         3  (  4.3%)  '52.0'
+         3  (  4.3%)  '44.0'
+         3  (  4.3%)  '68.0'
+         3  (  4.3%)  '33.0'
+         3  (  4.3%)  '46.0'
+         3  (  4.3%)  '72.0'
+         2  (  2.9%)  '28.0'
+         2  (  2.9%)  '78.0'
+         2  (  2.9%)  '62.0'
+         2  (  2.9%)  '48.0'
     ... and 21 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        70  (100.0%)  pattern: '9'
+        70  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Celecoxib] ---
@@ -11652,24 +11657,24 @@ MEDICATION GROUP: Celecoxib  (n=70)
   Unique values: 19 | Unique ratio: 0.271 | Normalized entropy: 0.912
   Numeric summary: min=22.00, max=88.00, mean=70.39, median=70.00, std=10.91
   Top 15 values:
-        11  ( 15.7%)  '80.0'
-         7  ( 10.0%)  '78.0'
-         6  (  8.6%)  '65.0'
-         6  (  8.6%)  '68.0'
-         6  (  8.6%)  '70.0'
-         6  (  8.6%)  '60.0'
-         6  (  8.6%)  '75.0'
-         4  (  5.7%)  '82.0'
-         3  (  4.3%)  '62.0'
-         2  (  2.9%)  '58.0'
-         2  (  2.9%)  '72.0'
-         2  (  2.9%)  '55.0'
-         2  (  2.9%)  '85.0'
-         2  (  2.9%)  '64.0'
-         1  (  1.4%)  '22.0'
+        11  ( 15.7%)  '80'
+         7  ( 10.0%)  '78'
+         6  (  8.6%)  '65'
+         6  (  8.6%)  '68'
+         6  (  8.6%)  '70'
+         6  (  8.6%)  '60'
+         6  (  8.6%)  '75'
+         4  (  5.7%)  '82'
+         3  (  4.3%)  '62'
+         2  (  2.9%)  '58'
+         2  (  2.9%)  '72'
+         2  (  2.9%)  '55'
+         2  (  2.9%)  '85'
+         2  (  2.9%)  '64'
+         1  (  1.4%)  '22'
     ... and 4 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        70  (100.0%)  pattern: '9.9'
+        70  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Celecoxib] ---
@@ -12241,24 +12246,24 @@ MEDICATION GROUP: Tramadol IR  (n=70)
   Unique values: 45 | Unique ratio: 0.643 | Normalized entropy: 0.982
   Numeric summary: min=9.00, max=83.00, mean=45.16, median=43.50, std=14.70
   Top 15 values:
-         3  (  4.3%)  '41'
-         3  (  4.3%)  '48'
-         2  (  2.9%)  '52'
-         2  (  2.9%)  '47'
-         2  (  2.9%)  '34'
-         2  (  2.9%)  '37'
-         2  (  2.9%)  '42'
-         2  (  2.9%)  '46'
-         2  (  2.9%)  '43'
-         2  (  2.9%)  '33'
-         2  (  2.9%)  '27'
-         2  (  2.9%)  '38'
-         2  (  2.9%)  '29'
-         2  (  2.9%)  '32'
-         2  (  2.9%)  '61'
+         3  (  4.3%)  '41.0'
+         3  (  4.3%)  '48.0'
+         2  (  2.9%)  '52.0'
+         2  (  2.9%)  '47.0'
+         2  (  2.9%)  '34.0'
+         2  (  2.9%)  '37.0'
+         2  (  2.9%)  '42.0'
+         2  (  2.9%)  '46.0'
+         2  (  2.9%)  '43.0'
+         2  (  2.9%)  '33.0'
+         2  (  2.9%)  '27.0'
+         2  (  2.9%)  '38.0'
+         2  (  2.9%)  '29.0'
+         2  (  2.9%)  '32.0'
+         2  (  2.9%)  '61.0'
     ... and 30 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        70  (100.0%)  pattern: '9'
+        70  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Tramadol IR] ---
@@ -12276,24 +12281,24 @@ MEDICATION GROUP: Tramadol IR  (n=70)
   Unique values: 28 | Unique ratio: 0.400 | Normalized entropy: 0.948
   Numeric summary: min=30.00, max=92.00, mean=72.20, median=72.00, std=10.90
   Top 15 values:
-         7  ( 10.0%)  '78.0'
-         6  (  8.6%)  '72.0'
-         5  (  7.1%)  '70.0'
-         4  (  5.7%)  '68.0'
-         4  (  5.7%)  '85.0'
-         3  (  4.3%)  '64.0'
-         3  (  4.3%)  '65.0'
-         3  (  4.3%)  '82.0'
-         3  (  4.3%)  '74.0'
-         3  (  4.3%)  '58.0'
-         3  (  4.3%)  '80.0'
-         3  (  4.3%)  '88.0'
-         2  (  2.9%)  '60.0'
-         2  (  2.9%)  '75.0'
-         2  (  2.9%)  '62.0'
+         7  ( 10.0%)  '78'
+         6  (  8.6%)  '72'
+         5  (  7.1%)  '70'
+         4  (  5.7%)  '68'
+         4  (  5.7%)  '85'
+         3  (  4.3%)  '64'
+         3  (  4.3%)  '65'
+         3  (  4.3%)  '82'
+         3  (  4.3%)  '74'
+         3  (  4.3%)  '58'
+         3  (  4.3%)  '80'
+         3  (  4.3%)  '88'
+         2  (  2.9%)  '60'
+         2  (  2.9%)  '75'
+         2  (  2.9%)  '62'
     ... and 13 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        70  (100.0%)  pattern: '9.9'
+        70  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Tramadol IR] ---
@@ -12811,24 +12816,24 @@ MEDICATION GROUP: Sildenafil  (n=66)
   Unique values: 41 | Unique ratio: 0.621 | Normalized entropy: 0.974
   Numeric summary: min=4.00, max=78.00, mean=47.23, median=48.00, std=14.51
   Top 15 values:
-         3  (  4.5%)  '40'
-         3  (  4.5%)  '57'
-         3  (  4.5%)  '60'
-         3  (  4.5%)  '44'
-         3  (  4.5%)  '50'
-         3  (  4.5%)  '48'
-         2  (  3.0%)  '41'
-         2  (  3.0%)  '46'
-         2  (  3.0%)  '49'
-         2  (  3.0%)  '58'
-         2  (  3.0%)  '38'
-         2  (  3.0%)  '55'
-         2  (  3.0%)  '53'
-         2  (  3.0%)  '51'
-         2  (  3.0%)  '39'
+         3  (  4.5%)  '40.0'
+         3  (  4.5%)  '57.0'
+         3  (  4.5%)  '60.0'
+         3  (  4.5%)  '44.0'
+         3  (  4.5%)  '50.0'
+         3  (  4.5%)  '48.0'
+         2  (  3.0%)  '41.0'
+         2  (  3.0%)  '46.0'
+         2  (  3.0%)  '49.0'
+         2  (  3.0%)  '58.0'
+         2  (  3.0%)  '38.0'
+         2  (  3.0%)  '55.0'
+         2  (  3.0%)  '53.0'
+         2  (  3.0%)  '51.0'
+         2  (  3.0%)  '39.0'
     ... and 26 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        66  (100.0%)  pattern: '9'
+        66  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Sildenafil] ---
@@ -12846,24 +12851,24 @@ MEDICATION GROUP: Sildenafil  (n=66)
   Unique values: 25 | Unique ratio: 0.379 | Normalized entropy: 0.950
   Numeric summary: min=16.00, max=102.00, mean=76.76, median=80.00, std=13.90
   Top 15 values:
-         7  ( 10.6%)  '80.0'
-         5  (  7.6%)  '83.0'
-         4  (  6.1%)  '78.0'
-         4  (  6.1%)  '81.0'
-         4  (  6.1%)  '85.0'
-         4  (  6.1%)  '84.0'
-         4  (  6.1%)  '79.0'
-         3  (  4.5%)  '72.0'
-         3  (  4.5%)  '74.0'
-         3  (  4.5%)  '77.0'
-         3  (  4.5%)  '82.0'
-         3  (  4.5%)  '70.0'
-         3  (  4.5%)  '86.0'
-         2  (  3.0%)  '68.0'
-         2  (  3.0%)  '88.0'
+         7  ( 10.6%)  '80'
+         5  (  7.6%)  '83'
+         4  (  6.1%)  '78'
+         4  (  6.1%)  '81'
+         4  (  6.1%)  '85'
+         4  (  6.1%)  '84'
+         4  (  6.1%)  '79'
+         3  (  4.5%)  '72'
+         3  (  4.5%)  '74'
+         3  (  4.5%)  '77'
+         3  (  4.5%)  '82'
+         3  (  4.5%)  '70'
+         3  (  4.5%)  '86'
+         2  (  3.0%)  '68'
+         2  (  3.0%)  '88'
     ... and 10 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        66  (100.0%)  pattern: '9.9'
+        66  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Sildenafil] ---
@@ -13371,24 +13376,24 @@ MEDICATION GROUP: Fluconazole  (n=65)
   Unique values: 51 | Unique ratio: 0.785 | Normalized entropy: 0.986
   Numeric summary: min=0.00, max=84.00, mean=45.25, median=46.00, std=16.48
   Top 15 values:
-         2  (  3.1%)  '45'
-         2  (  3.1%)  '52'
-         2  (  3.1%)  '39'
-         2  (  3.1%)  '40'
-         2  (  3.1%)  '30'
-         2  (  3.1%)  '48'
-         2  (  3.1%)  '29'
-         2  (  3.1%)  '55'
-         2  (  3.1%)  '60'
-         2  (  3.1%)  '44'
-         2  (  3.1%)  '47'
-         2  (  3.1%)  '41'
-         2  (  3.1%)  '46'
-         2  (  3.1%)  '58'
-         1  (  1.5%)  '71'
+         2  (  3.1%)  '45.0'
+         2  (  3.1%)  '52.0'
+         2  (  3.1%)  '39.0'
+         2  (  3.1%)  '40.0'
+         2  (  3.1%)  '30.0'
+         2  (  3.1%)  '48.0'
+         2  (  3.1%)  '29.0'
+         2  (  3.1%)  '55.0'
+         2  (  3.1%)  '60.0'
+         2  (  3.1%)  '44.0'
+         2  (  3.1%)  '47.0'
+         2  (  3.1%)  '41.0'
+         2  (  3.1%)  '46.0'
+         2  (  3.1%)  '58.0'
+         1  (  1.5%)  '71.0'
     ... and 36 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        65  (100.0%)  pattern: '9'
+        65  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Fluconazole] ---
@@ -13406,24 +13411,26 @@ MEDICATION GROUP: Fluconazole  (n=65)
   Unique values: 34 | Unique ratio: 0.523 | Normalized entropy: 0.967
   Numeric summary: min=3.20, max=95.00, mean=70.88, median=73.00, std=15.26
   Top 15 values:
-         4  (  6.2%)  '74.0'
-         4  (  6.2%)  '68.0'
-         4  (  6.2%)  '70.0'
-         3  (  4.6%)  '78.0'
-         3  (  4.6%)  '80.0'
-         3  (  4.6%)  '66.0'
-         3  (  4.6%)  '79.0'
-         3  (  4.6%)  '76.0'
-         2  (  3.1%)  '83.0'
-         2  (  3.1%)  '64.0'
-         2  (  3.1%)  '65.0'
-         2  (  3.1%)  '84.0'
-         2  (  3.1%)  '88.0'
-         2  (  3.1%)  '77.0'
-         2  (  3.1%)  '81.0'
+         4  (  6.2%)  '74'
+         4  (  6.2%)  '68'
+         4  (  6.2%)  '70'
+         3  (  4.6%)  '78'
+         3  (  4.6%)  '80'
+         3  (  4.6%)  '66'
+         3  (  4.6%)  '79'
+         3  (  4.6%)  '76'
+         2  (  3.1%)  '83'
+         2  (  3.1%)  '64'
+         2  (  3.1%)  '65'
+         2  (  3.1%)  '84'
+         2  (  3.1%)  '88'
+         2  (  3.1%)  '77'
+         2  (  3.1%)  '81'
     ... and 19 more unique values
-  Format patterns (digits->9, letters->A): 1 distinct
-        65  (100.0%)  pattern: '9.9'
+  Format patterns (digits->9, letters->A): 2 distinct
+        64  ( 98.5%)  pattern: '9'
+         1  (  1.5%)  pattern: '9.9'
+  FORMAT SUSPECTS: 1 value(s) with rare pattern(s), e.g. ['3.2']
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Fluconazole] ---
@@ -13960,24 +13967,24 @@ MEDICATION GROUP: Citalopram  (n=62)
   Unique values: 47 | Unique ratio: 0.758 | Normalized entropy: 0.980
   Numeric summary: min=19.00, max=82.00, mean=45.13, median=42.00, std=15.35
   Top 15 values:
-         3  (  4.8%)  '29'
-         3  (  4.8%)  '31'
-         2  (  3.2%)  '34'
-         2  (  3.2%)  '38'
-         2  (  3.2%)  '35'
-         2  (  3.2%)  '44'
-         2  (  3.2%)  '52'
-         2  (  3.2%)  '27'
-         2  (  3.2%)  '42'
-         2  (  3.2%)  '32'
-         2  (  3.2%)  '47'
-         2  (  3.2%)  '36'
-         2  (  3.2%)  '41'
-         1  (  1.6%)  '61'
-         1  (  1.6%)  '67'
+         3  (  4.8%)  '29.0'
+         3  (  4.8%)  '31.0'
+         2  (  3.2%)  '34.0'
+         2  (  3.2%)  '38.0'
+         2  (  3.2%)  '35.0'
+         2  (  3.2%)  '44.0'
+         2  (  3.2%)  '52.0'
+         2  (  3.2%)  '27.0'
+         2  (  3.2%)  '42.0'
+         2  (  3.2%)  '32.0'
+         2  (  3.2%)  '47.0'
+         2  (  3.2%)  '36.0'
+         2  (  3.2%)  '41.0'
+         1  (  1.6%)  '61.0'
+         1  (  1.6%)  '67.0'
     ... and 32 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        62  (100.0%)  pattern: '9'
+        62  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Citalopram] ---
@@ -13995,24 +14002,24 @@ MEDICATION GROUP: Citalopram  (n=62)
   Unique values: 26 | Unique ratio: 0.419 | Normalized entropy: 0.939
   Numeric summary: min=42.00, max=90.00, mean=70.65, median=70.00, std=10.05
   Top 15 values:
-         5  (  8.1%)  '68.0'
-         5  (  8.1%)  '82.0'
-         5  (  8.1%)  '62.0'
-         5  (  8.1%)  '78.0'
-         5  (  8.1%)  '80.0'
-         4  (  6.5%)  '70.0'
-         4  (  6.5%)  '60.0'
-         3  (  4.8%)  '65.0'
-         3  (  4.8%)  '58.0'
-         2  (  3.2%)  '64.0'
-         2  (  3.2%)  '74.0'
-         2  (  3.2%)  '75.0'
-         2  (  3.2%)  '85.0'
-         2  (  3.2%)  '66.0'
-         2  (  3.2%)  '72.0'
+         5  (  8.1%)  '68'
+         5  (  8.1%)  '82'
+         5  (  8.1%)  '62'
+         5  (  8.1%)  '78'
+         5  (  8.1%)  '80'
+         4  (  6.5%)  '70'
+         4  (  6.5%)  '60'
+         3  (  4.8%)  '65'
+         3  (  4.8%)  '58'
+         2  (  3.2%)  '64'
+         2  (  3.2%)  '74'
+         2  (  3.2%)  '75'
+         2  (  3.2%)  '85'
+         2  (  3.2%)  '66'
+         2  (  3.2%)  '72'
     ... and 11 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        62  (100.0%)  pattern: '9.9'
+        62  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Citalopram] ---
@@ -14548,24 +14555,24 @@ MEDICATION GROUP: Methylphenidate IR  (n=61)
   Unique values: 40 | Unique ratio: 0.656 | Normalized entropy: 0.978
   Numeric summary: min=4.00, max=70.00, mean=38.77, median=37.00, std=13.47
   Top 15 values:
-         3  (  4.9%)  '55'
-         3  (  4.9%)  '29'
-         3  (  4.9%)  '31'
-         2  (  3.3%)  '28'
-         2  (  3.3%)  '40'
-         2  (  3.3%)  '45'
-         2  (  3.3%)  '33'
-         2  (  3.3%)  '35'
-         2  (  3.3%)  '34'
-         2  (  3.3%)  '47'
-         2  (  3.3%)  '52'
-         2  (  3.3%)  '24'
-         2  (  3.3%)  '50'
-         2  (  3.3%)  '36'
-         2  (  3.3%)  '60'
+         3  (  4.9%)  '55.0'
+         3  (  4.9%)  '29.0'
+         3  (  4.9%)  '31.0'
+         2  (  3.3%)  '28.0'
+         2  (  3.3%)  '40.0'
+         2  (  3.3%)  '45.0'
+         2  (  3.3%)  '33.0'
+         2  (  3.3%)  '35.0'
+         2  (  3.3%)  '34.0'
+         2  (  3.3%)  '47.0'
+         2  (  3.3%)  '52.0'
+         2  (  3.3%)  '24.0'
+         2  (  3.3%)  '50.0'
+         2  (  3.3%)  '36.0'
+         2  (  3.3%)  '60.0'
     ... and 25 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        61  (100.0%)  pattern: '9'
+        61  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Methylphenidate IR] ---
@@ -14583,24 +14590,24 @@ MEDICATION GROUP: Methylphenidate IR  (n=61)
   Unique values: 32 | Unique ratio: 0.525 | Normalized entropy: 0.951
   Numeric summary: min=18.00, max=100.00, mean=72.30, median=74.00, std=11.55
   Top 15 values:
-         5  (  8.2%)  '78.0'
-         5  (  8.2%)  '80.0'
-         4  (  6.6%)  '76.0'
-         3  (  4.9%)  '60.0'
-         3  (  4.9%)  '68.0'
-         3  (  4.9%)  '72.0'
-         3  (  4.9%)  '64.0'
-         3  (  4.9%)  '66.0'
-         3  (  4.9%)  '74.0'
-         2  (  3.3%)  '62.0'
-         2  (  3.3%)  '79.0'
-         2  (  3.3%)  '77.0'
-         2  (  3.3%)  '63.0'
-         2  (  3.3%)  '75.0'
-         2  (  3.3%)  '70.0'
+         5  (  8.2%)  '78'
+         5  (  8.2%)  '80'
+         4  (  6.6%)  '76'
+         3  (  4.9%)  '60'
+         3  (  4.9%)  '68'
+         3  (  4.9%)  '72'
+         3  (  4.9%)  '64'
+         3  (  4.9%)  '66'
+         3  (  4.9%)  '74'
+         2  (  3.3%)  '62'
+         2  (  3.3%)  '79'
+         2  (  3.3%)  '77'
+         2  (  3.3%)  '63'
+         2  (  3.3%)  '75'
+         2  (  3.3%)  '70'
     ... and 17 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        61  (100.0%)  pattern: '9.9'
+        61  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Methylphenidate IR] ---
@@ -15071,24 +15078,24 @@ MEDICATION GROUP: Mounjaro (tirzepatide)  (n=60)
   Unique values: 35 | Unique ratio: 0.583 | Normalized entropy: 0.973
   Numeric summary: min=8.00, max=66.00, mean=46.78, median=48.00, std=12.79
   Top 15 values:
-         4  (  6.7%)  '47'
-         3  (  5.0%)  '45'
-         3  (  5.0%)  '52'
-         3  (  5.0%)  '48'
-         3  (  5.0%)  '50'
-         2  (  3.3%)  '58'
-         2  (  3.3%)  '61'
-         2  (  3.3%)  '12'
-         2  (  3.3%)  '55'
-         2  (  3.3%)  '43'
-         2  (  3.3%)  '39'
-         2  (  3.3%)  '60'
-         2  (  3.3%)  '54'
-         2  (  3.3%)  '46'
-         2  (  3.3%)  '57'
+         4  (  6.7%)  '47.0'
+         3  (  5.0%)  '45.0'
+         3  (  5.0%)  '52.0'
+         3  (  5.0%)  '48.0'
+         3  (  5.0%)  '50.0'
+         2  (  3.3%)  '58.0'
+         2  (  3.3%)  '61.0'
+         2  (  3.3%)  '12.0'
+         2  (  3.3%)  '55.0'
+         2  (  3.3%)  '43.0'
+         2  (  3.3%)  '39.0'
+         2  (  3.3%)  '60.0'
+         2  (  3.3%)  '54.0'
+         2  (  3.3%)  '46.0'
+         2  (  3.3%)  '57.0'
     ... and 20 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9'
+        60  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Mounjaro (tirzepatide)] ---
@@ -15106,24 +15113,24 @@ MEDICATION GROUP: Mounjaro (tirzepatide)  (n=60)
   Unique values: 35 | Unique ratio: 0.583 | Normalized entropy: 0.975
   Numeric summary: min=38.00, max=108.00, mean=86.93, median=88.00, std=12.07
   Top 15 values:
-         4  (  6.7%)  '88.0'
-         3  (  5.0%)  '96.0'
-         3  (  5.0%)  '85.0'
-         3  (  5.0%)  '90.0'
-         2  (  3.3%)  '102.0'
-         2  (  3.3%)  '99.0'
-         2  (  3.3%)  '79.0'
-         2  (  3.3%)  '82.0'
-         2  (  3.3%)  '91.0'
-         2  (  3.3%)  '97.0'
-         2  (  3.3%)  '94.0'
-         2  (  3.3%)  '95.0'
-         2  (  3.3%)  '86.0'
-         2  (  3.3%)  '93.0'
-         2  (  3.3%)  '84.0'
+         4  (  6.7%)  '88'
+         3  (  5.0%)  '96'
+         3  (  5.0%)  '85'
+         3  (  5.0%)  '90'
+         2  (  3.3%)  '102'
+         2  (  3.3%)  '99'
+         2  (  3.3%)  '79'
+         2  (  3.3%)  '82'
+         2  (  3.3%)  '91'
+         2  (  3.3%)  '97'
+         2  (  3.3%)  '94'
+         2  (  3.3%)  '95'
+         2  (  3.3%)  '86'
+         2  (  3.3%)  '93'
+         2  (  3.3%)  '84'
     ... and 20 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9.9'
+        60  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Mounjaro (tirzepatide)] ---
@@ -15618,24 +15625,24 @@ MEDICATION GROUP: Sertraline  (n=60)
   Unique values: 46 | Unique ratio: 0.767 | Normalized entropy: 0.985
   Numeric summary: min=4.00, max=82.00, mean=45.80, median=46.50, std=16.98
   Top 15 values:
-         2  (  3.3%)  '57'
-         2  (  3.3%)  '61'
-         2  (  3.3%)  '48'
-         2  (  3.3%)  '52'
-         2  (  3.3%)  '31'
-         2  (  3.3%)  '46'
-         2  (  3.3%)  '64'
-         2  (  3.3%)  '55'
-         2  (  3.3%)  '44'
-         2  (  3.3%)  '63'
-         2  (  3.3%)  '38'
-         2  (  3.3%)  '59'
-         2  (  3.3%)  '41'
-         2  (  3.3%)  '29'
-         1  (  1.7%)  '71'
+         2  (  3.3%)  '57.0'
+         2  (  3.3%)  '61.0'
+         2  (  3.3%)  '48.0'
+         2  (  3.3%)  '52.0'
+         2  (  3.3%)  '31.0'
+         2  (  3.3%)  '46.0'
+         2  (  3.3%)  '64.0'
+         2  (  3.3%)  '55.0'
+         2  (  3.3%)  '44.0'
+         2  (  3.3%)  '63.0'
+         2  (  3.3%)  '38.0'
+         2  (  3.3%)  '59.0'
+         2  (  3.3%)  '41.0'
+         2  (  3.3%)  '29.0'
+         1  (  1.7%)  '71.0'
     ... and 31 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9'
+        60  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Sertraline] ---
@@ -15653,24 +15660,24 @@ MEDICATION GROUP: Sertraline  (n=60)
   Unique values: 36 | Unique ratio: 0.600 | Normalized entropy: 0.963
   Numeric summary: min=17.00, max=100.00, mean=70.02, median=70.50, std=15.17
   Top 15 values:
-         4  (  6.7%)  '68.0'
-         4  (  6.7%)  '74.0'
-         3  (  5.0%)  '64.0'
-         3  (  5.0%)  '70.0'
-         3  (  5.0%)  '80.0'
-         3  (  5.0%)  '72.0'
-         3  (  5.0%)  '82.0'
-         2  (  3.3%)  '78.0'
-         2  (  3.3%)  '63.0'
-         2  (  3.3%)  '66.0'
-         2  (  3.3%)  '76.0'
-         2  (  3.3%)  '58.0'
-         2  (  3.3%)  '62.0'
-         2  (  3.3%)  '79.0'
-         2  (  3.3%)  '69.0'
+         4  (  6.7%)  '68'
+         4  (  6.7%)  '74'
+         3  (  5.0%)  '64'
+         3  (  5.0%)  '70'
+         3  (  5.0%)  '80'
+         3  (  5.0%)  '72'
+         3  (  5.0%)  '82'
+         2  (  3.3%)  '78'
+         2  (  3.3%)  '63'
+         2  (  3.3%)  '66'
+         2  (  3.3%)  '76'
+         2  (  3.3%)  '58'
+         2  (  3.3%)  '62'
+         2  (  3.3%)  '79'
+         2  (  3.3%)  '69'
     ... and 21 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9.9'
+        60  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Sertraline] ---
@@ -16236,24 +16243,24 @@ MEDICATION GROUP: Buspirone  (n=60)
   Unique values: 37 | Unique ratio: 0.617 | Normalized entropy: 0.977
   Numeric summary: min=25.00, max=71.00, mean=42.55, median=40.50, std=12.09
   Top 15 values:
-         3  (  5.0%)  '33'
-         3  (  5.0%)  '28'
-         3  (  5.0%)  '42'
-         3  (  5.0%)  '29'
-         2  (  3.3%)  '39'
-         2  (  3.3%)  '30'
-         2  (  3.3%)  '52'
-         2  (  3.3%)  '34'
-         2  (  3.3%)  '40'
-         2  (  3.3%)  '48'
-         2  (  3.3%)  '44'
-         2  (  3.3%)  '38'
-         2  (  3.3%)  '55'
-         2  (  3.3%)  '50'
-         2  (  3.3%)  '36'
+         3  (  5.0%)  '33.0'
+         3  (  5.0%)  '28.0'
+         3  (  5.0%)  '42.0'
+         3  (  5.0%)  '29.0'
+         2  (  3.3%)  '39.0'
+         2  (  3.3%)  '30.0'
+         2  (  3.3%)  '52.0'
+         2  (  3.3%)  '34.0'
+         2  (  3.3%)  '40.0'
+         2  (  3.3%)  '48.0'
+         2  (  3.3%)  '44.0'
+         2  (  3.3%)  '38.0'
+         2  (  3.3%)  '55.0'
+         2  (  3.3%)  '50.0'
+         2  (  3.3%)  '36.0'
     ... and 22 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9'
+        60  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Buspirone] ---
@@ -16271,24 +16278,24 @@ MEDICATION GROUP: Buspirone  (n=60)
   Unique values: 20 | Unique ratio: 0.333 | Normalized entropy: 0.942
   Numeric summary: min=56.00, max=95.00, mean=70.38, median=70.00, std=9.62
   Top 15 values:
-         8  ( 13.3%)  '60.0'
-         6  ( 10.0%)  '70.0'
-         5  (  8.3%)  '65.0'
-         4  (  6.7%)  '82.0'
-         4  (  6.7%)  '58.0'
-         4  (  6.7%)  '64.0'
-         4  (  6.7%)  '72.0'
-         3  (  5.0%)  '68.0'
-         3  (  5.0%)  '75.0'
-         3  (  5.0%)  '78.0'
-         3  (  5.0%)  '62.0'
-         2  (  3.3%)  '74.0'
-         2  (  3.3%)  '80.0'
-         2  (  3.3%)  '88.0'
-         2  (  3.3%)  '84.0'
+         8  ( 13.3%)  '60'
+         6  ( 10.0%)  '70'
+         5  (  8.3%)  '65'
+         4  (  6.7%)  '82'
+         4  (  6.7%)  '58'
+         4  (  6.7%)  '64'
+         4  (  6.7%)  '72'
+         3  (  5.0%)  '68'
+         3  (  5.0%)  '75'
+         3  (  5.0%)  '78'
+         3  (  5.0%)  '62'
+         2  (  3.3%)  '74'
+         2  (  3.3%)  '80'
+         2  (  3.3%)  '88'
+         2  (  3.3%)  '84'
     ... and 5 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9.9'
+        60  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Buspirone] ---
@@ -16801,24 +16808,24 @@ MEDICATION GROUP: Methadone  (n=60)
   Unique values: 39 | Unique ratio: 0.650 | Normalized entropy: 0.983
   Numeric summary: min=15.00, max=82.00, mean=48.38, median=48.00, std=12.95
   Top 15 values:
-         3  (  5.0%)  '44'
-         2  (  3.3%)  '41'
-         2  (  3.3%)  '63'
-         2  (  3.3%)  '52'
-         2  (  3.3%)  '59'
-         2  (  3.3%)  '38'
-         2  (  3.3%)  '47'
-         2  (  3.3%)  '58'
-         2  (  3.3%)  '36'
-         2  (  3.3%)  '29'
-         2  (  3.3%)  '57'
-         2  (  3.3%)  '48'
-         2  (  3.3%)  '55'
-         2  (  3.3%)  '42'
-         2  (  3.3%)  '34'
+         3  (  5.0%)  '44.0'
+         2  (  3.3%)  '41.0'
+         2  (  3.3%)  '63.0'
+         2  (  3.3%)  '52.0'
+         2  (  3.3%)  '59.0'
+         2  (  3.3%)  '38.0'
+         2  (  3.3%)  '47.0'
+         2  (  3.3%)  '58.0'
+         2  (  3.3%)  '36.0'
+         2  (  3.3%)  '29.0'
+         2  (  3.3%)  '57.0'
+         2  (  3.3%)  '48.0'
+         2  (  3.3%)  '55.0'
+         2  (  3.3%)  '42.0'
+         2  (  3.3%)  '34.0'
     ... and 24 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9'
+        60  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Methadone] ---
@@ -16836,24 +16843,24 @@ MEDICATION GROUP: Methadone  (n=60)
   Unique values: 33 | Unique ratio: 0.550 | Normalized entropy: 0.961
   Numeric summary: min=45.00, max=110.00, mean=72.93, median=72.00, std=10.52
   Top 15 values:
-         5  (  8.3%)  '70.0'
-         5  (  8.3%)  '68.0'
-         3  (  5.0%)  '80.0'
-         3  (  5.0%)  '74.0'
-         3  (  5.0%)  '64.0'
-         2  (  3.3%)  '62.0'
-         2  (  3.3%)  '90.0'
-         2  (  3.3%)  '66.0'
-         2  (  3.3%)  '82.0'
-         2  (  3.3%)  '88.0'
-         2  (  3.3%)  '75.0'
-         2  (  3.3%)  '79.0'
-         2  (  3.3%)  '72.0'
-         2  (  3.3%)  '71.0'
-         2  (  3.3%)  '69.0'
+         5  (  8.3%)  '70'
+         5  (  8.3%)  '68'
+         3  (  5.0%)  '80'
+         3  (  5.0%)  '74'
+         3  (  5.0%)  '64'
+         2  (  3.3%)  '62'
+         2  (  3.3%)  '90'
+         2  (  3.3%)  '66'
+         2  (  3.3%)  '82'
+         2  (  3.3%)  '88'
+         2  (  3.3%)  '75'
+         2  (  3.3%)  '79'
+         2  (  3.3%)  '72'
+         2  (  3.3%)  '71'
+         2  (  3.3%)  '69'
     ... and 18 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9.9'
+        60  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Methadone] ---
@@ -17450,24 +17457,24 @@ MEDICATION GROUP: Lactulose  (n=60)
   Unique values: 44 | Unique ratio: 0.733 | Normalized entropy: 0.974
   Numeric summary: min=0.00, max=84.00, mean=53.38, median=58.00, std=18.60
   Top 15 values:
-         4  (  6.7%)  '58'
-         3  (  5.0%)  '61'
-         3  (  5.0%)  '60'
-         2  (  3.3%)  '47'
-         2  (  3.3%)  '55'
-         2  (  3.3%)  '52'
-         2  (  3.3%)  '26'
-         2  (  3.3%)  '64'
-         2  (  3.3%)  '33'
-         2  (  3.3%)  '57'
-         2  (  3.3%)  '62'
-         2  (  3.3%)  '63'
-         1  (  1.7%)  '79'
-         1  (  1.7%)  '84'
-         1  (  1.7%)  '71'
+         4  (  6.7%)  '58.0'
+         3  (  5.0%)  '61.0'
+         3  (  5.0%)  '60.0'
+         2  (  3.3%)  '47.0'
+         2  (  3.3%)  '55.0'
+         2  (  3.3%)  '52.0'
+         2  (  3.3%)  '26.0'
+         2  (  3.3%)  '64.0'
+         2  (  3.3%)  '33.0'
+         2  (  3.3%)  '57.0'
+         2  (  3.3%)  '62.0'
+         2  (  3.3%)  '63.0'
+         1  (  1.7%)  '79.0'
+         1  (  1.7%)  '84.0'
+         1  (  1.7%)  '71.0'
     ... and 29 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9'
+        60  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Lactulose] ---
@@ -17485,24 +17492,24 @@ MEDICATION GROUP: Lactulose  (n=60)
   Unique values: 30 | Unique ratio: 0.500 | Normalized entropy: 0.967
   Numeric summary: min=7.00, max=98.00, mean=71.35, median=72.00, std=15.62
   Top 15 values:
-         5  (  8.3%)  '70.0'
-         3  (  5.0%)  '82.0'
-         3  (  5.0%)  '68.0'
-         3  (  5.0%)  '76.0'
-         3  (  5.0%)  '72.0'
-         3  (  5.0%)  '88.0'
-         3  (  5.0%)  '60.0'
-         3  (  5.0%)  '74.0'
-         3  (  5.0%)  '78.0'
-         2  (  3.3%)  '80.0'
-         2  (  3.3%)  '66.0'
-         2  (  3.3%)  '90.0'
-         2  (  3.3%)  '55.0'
-         2  (  3.3%)  '58.0'
-         2  (  3.3%)  '79.0'
+         5  (  8.3%)  '70'
+         3  (  5.0%)  '82'
+         3  (  5.0%)  '68'
+         3  (  5.0%)  '76'
+         3  (  5.0%)  '72'
+         3  (  5.0%)  '88'
+         3  (  5.0%)  '60'
+         3  (  5.0%)  '74'
+         3  (  5.0%)  '78'
+         2  (  3.3%)  '80'
+         2  (  3.3%)  '66'
+         2  (  3.3%)  '90'
+         2  (  3.3%)  '55'
+         2  (  3.3%)  '58'
+         2  (  3.3%)  '79'
     ... and 15 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        60  (100.0%)  pattern: '9.9'
+        60  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Lactulose] ---
@@ -18068,24 +18075,24 @@ MEDICATION GROUP: Phenelzine  (n=58)
   Unique values: 37 | Unique ratio: 0.638 | Normalized entropy: 0.974
   Numeric summary: min=16.00, max=72.00, mean=44.66, median=44.00, std=11.68
   Top 15 values:
-         4  (  6.9%)  '39'
-         3  (  5.2%)  '45'
-         3  (  5.2%)  '42'
-         2  (  3.4%)  '41'
-         2  (  3.4%)  '34'
-         2  (  3.4%)  '30'
-         2  (  3.4%)  '58'
-         2  (  3.4%)  '44'
-         2  (  3.4%)  '47'
-         2  (  3.4%)  '50'
-         2  (  3.4%)  '38'
-         2  (  3.4%)  '63'
-         2  (  3.4%)  '52'
-         2  (  3.4%)  '35'
-         2  (  3.4%)  '54'
+         4  (  6.9%)  '39.0'
+         3  (  5.2%)  '45.0'
+         3  (  5.2%)  '42.0'
+         2  (  3.4%)  '41.0'
+         2  (  3.4%)  '34.0'
+         2  (  3.4%)  '30.0'
+         2  (  3.4%)  '58.0'
+         2  (  3.4%)  '44.0'
+         2  (  3.4%)  '47.0'
+         2  (  3.4%)  '50.0'
+         2  (  3.4%)  '38.0'
+         2  (  3.4%)  '63.0'
+         2  (  3.4%)  '52.0'
+         2  (  3.4%)  '35.0'
+         2  (  3.4%)  '54.0'
     ... and 22 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        58  (100.0%)  pattern: '9'
+        58  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Phenelzine] ---
@@ -18103,24 +18110,24 @@ MEDICATION GROUP: Phenelzine  (n=58)
   Unique values: 29 | Unique ratio: 0.500 | Normalized entropy: 0.956
   Numeric summary: min=52.00, max=95.00, mean=73.53, median=73.00, std=10.17
   Top 15 values:
-         6  ( 10.3%)  '70.0'
-         4  (  6.9%)  '80.0'
-         4  (  6.9%)  '78.0'
-         3  (  5.2%)  '64.0'
-         3  (  5.2%)  '68.0'
-         3  (  5.2%)  '63.0'
-         3  (  5.2%)  '65.0'
-         2  (  3.4%)  '85.0'
-         2  (  3.4%)  '66.0'
-         2  (  3.4%)  '82.0'
-         2  (  3.4%)  '60.0'
-         2  (  3.4%)  '88.0'
-         2  (  3.4%)  '90.0'
-         2  (  3.4%)  '74.0'
-         2  (  3.4%)  '81.0'
+         6  ( 10.3%)  '70'
+         4  (  6.9%)  '80'
+         4  (  6.9%)  '78'
+         3  (  5.2%)  '64'
+         3  (  5.2%)  '68'
+         3  (  5.2%)  '63'
+         3  (  5.2%)  '65'
+         2  (  3.4%)  '85'
+         2  (  3.4%)  '66'
+         2  (  3.4%)  '82'
+         2  (  3.4%)  '60'
+         2  (  3.4%)  '88'
+         2  (  3.4%)  '90'
+         2  (  3.4%)  '74'
+         2  (  3.4%)  '81'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        58  (100.0%)  pattern: '9.9'
+        58  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Phenelzine] ---
@@ -18580,24 +18587,24 @@ MEDICATION GROUP: Indomethacin IR capsule  (n=58)
   Unique values: 46 | Unique ratio: 0.793 | Normalized entropy: 0.983
   Numeric summary: min=8.00, max=78.00, mean=46.66, median=47.00, std=14.58
   Top 15 values:
-         3  (  5.2%)  '45'
-         2  (  3.4%)  '41'
-         2  (  3.4%)  '33'
-         2  (  3.4%)  '52'
-         2  (  3.4%)  '46'
-         2  (  3.4%)  '47'
-         2  (  3.4%)  '48'
-         2  (  3.4%)  '50'
-         2  (  3.4%)  '30'
-         2  (  3.4%)  '55'
-         2  (  3.4%)  '59'
-         1  (  1.7%)  '28'
-         1  (  1.7%)  '26'
-         1  (  1.7%)  '34'
-         1  (  1.7%)  '24'
+         3  (  5.2%)  '45.0'
+         2  (  3.4%)  '41.0'
+         2  (  3.4%)  '33.0'
+         2  (  3.4%)  '52.0'
+         2  (  3.4%)  '46.0'
+         2  (  3.4%)  '47.0'
+         2  (  3.4%)  '48.0'
+         2  (  3.4%)  '50.0'
+         2  (  3.4%)  '30.0'
+         2  (  3.4%)  '55.0'
+         2  (  3.4%)  '59.0'
+         1  (  1.7%)  '28.0'
+         1  (  1.7%)  '26.0'
+         1  (  1.7%)  '34.0'
+         1  (  1.7%)  '24.0'
     ... and 31 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        58  (100.0%)  pattern: '9'
+        58  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Indomethacin IR capsule] ---
@@ -18615,24 +18622,24 @@ MEDICATION GROUP: Indomethacin IR capsule  (n=58)
   Unique values: 31 | Unique ratio: 0.534 | Normalized entropy: 0.960
   Numeric summary: min=28.00, max=92.00, mean=74.31, median=77.50, std=11.90
   Top 15 values:
-         4  (  6.9%)  '70.0'
-         4  (  6.9%)  '80.0'
-         4  (  6.9%)  '84.0'
-         3  (  5.2%)  '85.0'
-         3  (  5.2%)  '79.0'
-         3  (  5.2%)  '66.0'
-         3  (  5.2%)  '78.0'
-         3  (  5.2%)  '82.0'
-         2  (  3.4%)  '69.0'
-         2  (  3.4%)  '65.0'
-         2  (  3.4%)  '60.0'
-         2  (  3.4%)  '88.0'
-         2  (  3.4%)  '68.0'
-         2  (  3.4%)  '86.0'
-         2  (  3.4%)  '74.0'
+         4  (  6.9%)  '70'
+         4  (  6.9%)  '80'
+         4  (  6.9%)  '84'
+         3  (  5.2%)  '85'
+         3  (  5.2%)  '79'
+         3  (  5.2%)  '66'
+         3  (  5.2%)  '78'
+         3  (  5.2%)  '82'
+         2  (  3.4%)  '69'
+         2  (  3.4%)  '65'
+         2  (  3.4%)  '60'
+         2  (  3.4%)  '88'
+         2  (  3.4%)  '68'
+         2  (  3.4%)  '86'
+         2  (  3.4%)  '74'
     ... and 16 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        58  (100.0%)  pattern: '9.9'
+        58  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Indomethacin IR capsule] ---
@@ -19147,24 +19154,24 @@ MEDICATION GROUP: Quinidine sulfate  (n=58)
   Unique values: 41 | Unique ratio: 0.707 | Normalized entropy: 0.982
   Numeric summary: min=28.00, max=82.00, mean=56.21, median=58.50, std=12.72
   Top 15 values:
-         3  (  5.2%)  '60'
-         2  (  3.4%)  '68'
-         2  (  3.4%)  '55'
-         2  (  3.4%)  '64'
-         2  (  3.4%)  '48'
-         2  (  3.4%)  '45'
-         2  (  3.4%)  '62'
-         2  (  3.4%)  '58'
-         2  (  3.4%)  '70'
-         2  (  3.4%)  '63'
-         2  (  3.4%)  '50'
-         2  (  3.4%)  '59'
-         2  (  3.4%)  '67'
-         2  (  3.4%)  '66'
-         2  (  3.4%)  '52'
+         3  (  5.2%)  '60.0'
+         2  (  3.4%)  '68.0'
+         2  (  3.4%)  '55.0'
+         2  (  3.4%)  '64.0'
+         2  (  3.4%)  '48.0'
+         2  (  3.4%)  '45.0'
+         2  (  3.4%)  '62.0'
+         2  (  3.4%)  '58.0'
+         2  (  3.4%)  '70.0'
+         2  (  3.4%)  '63.0'
+         2  (  3.4%)  '50.0'
+         2  (  3.4%)  '59.0'
+         2  (  3.4%)  '67.0'
+         2  (  3.4%)  '66.0'
+         2  (  3.4%)  '52.0'
     ... and 26 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        58  (100.0%)  pattern: '9'
+        58  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Quinidine sulfate] ---
@@ -19182,24 +19189,24 @@ MEDICATION GROUP: Quinidine sulfate  (n=58)
   Unique values: 29 | Unique ratio: 0.500 | Normalized entropy: 0.974
   Numeric summary: min=48.00, max=90.00, mean=73.07, median=72.00, std=8.91
   Top 15 values:
-         5  (  8.6%)  '70.0'
-         3  (  5.2%)  '82.0'
-         3  (  5.2%)  '65.0'
-         3  (  5.2%)  '72.0'
-         3  (  5.2%)  '68.0'
-         3  (  5.2%)  '80.0'
-         2  (  3.4%)  '88.0'
-         2  (  3.4%)  '79.0'
-         2  (  3.4%)  '84.0'
-         2  (  3.4%)  '90.0'
-         2  (  3.4%)  '76.0'
-         2  (  3.4%)  '74.0'
-         2  (  3.4%)  '66.0'
-         2  (  3.4%)  '78.0'
-         2  (  3.4%)  '71.0'
+         5  (  8.6%)  '70'
+         3  (  5.2%)  '82'
+         3  (  5.2%)  '65'
+         3  (  5.2%)  '72'
+         3  (  5.2%)  '68'
+         3  (  5.2%)  '80'
+         2  (  3.4%)  '88'
+         2  (  3.4%)  '79'
+         2  (  3.4%)  '84'
+         2  (  3.4%)  '90'
+         2  (  3.4%)  '76'
+         2  (  3.4%)  '74'
+         2  (  3.4%)  '66'
+         2  (  3.4%)  '78'
+         2  (  3.4%)  '71'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        58  (100.0%)  pattern: '9.9'
+        58  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Quinidine sulfate] ---
@@ -19683,24 +19690,24 @@ MEDICATION GROUP: Clozaril (clozapine)  (n=56)
   Unique values: 36 | Unique ratio: 0.643 | Normalized entropy: 0.980
   Numeric summary: min=15.00, max=78.00, mean=40.12, median=38.00, std=11.52
   Top 15 values:
-         3  (  5.4%)  '36'
-         3  (  5.4%)  '38'
-         2  (  3.6%)  '32'
-         2  (  3.6%)  '29'
-         2  (  3.6%)  '28'
-         2  (  3.6%)  '45'
-         2  (  3.6%)  '47'
-         2  (  3.6%)  '44'
-         2  (  3.6%)  '58'
-         2  (  3.6%)  '31'
-         2  (  3.6%)  '40'
-         2  (  3.6%)  '35'
-         2  (  3.6%)  '41'
-         2  (  3.6%)  '30'
-         2  (  3.6%)  '34'
+         3  (  5.4%)  '36.0'
+         3  (  5.4%)  '38.0'
+         2  (  3.6%)  '32.0'
+         2  (  3.6%)  '29.0'
+         2  (  3.6%)  '28.0'
+         2  (  3.6%)  '45.0'
+         2  (  3.6%)  '47.0'
+         2  (  3.6%)  '44.0'
+         2  (  3.6%)  '58.0'
+         2  (  3.6%)  '31.0'
+         2  (  3.6%)  '40.0'
+         2  (  3.6%)  '35.0'
+         2  (  3.6%)  '41.0'
+         2  (  3.6%)  '30.0'
+         2  (  3.6%)  '34.0'
     ... and 21 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        56  (100.0%)  pattern: '9'
+        56  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Clozaril (clozapine)] ---
@@ -19718,24 +19725,24 @@ MEDICATION GROUP: Clozaril (clozapine)  (n=56)
   Unique values: 24 | Unique ratio: 0.429 | Normalized entropy: 0.943
   Numeric summary: min=56.00, max=118.00, mean=72.02, median=72.00, std=9.70
   Top 15 values:
-         7  ( 12.5%)  '78.0'
-         5  (  8.9%)  '65.0'
-         4  (  7.1%)  '72.0'
-         4  (  7.1%)  '70.0'
-         3  (  5.4%)  '64.0'
-         3  (  5.4%)  '80.0'
-         3  (  5.4%)  '60.0'
-         3  (  5.4%)  '68.0'
-         3  (  5.4%)  '73.0'
-         2  (  3.6%)  '62.0'
-         2  (  3.6%)  '82.0'
-         2  (  3.6%)  '74.0'
-         2  (  3.6%)  '76.0'
-         2  (  3.6%)  '75.0'
-         2  (  3.6%)  '67.0'
+         7  ( 12.5%)  '78'
+         5  (  8.9%)  '65'
+         4  (  7.1%)  '72'
+         4  (  7.1%)  '70'
+         3  (  5.4%)  '64'
+         3  (  5.4%)  '80'
+         3  (  5.4%)  '60'
+         3  (  5.4%)  '68'
+         3  (  5.4%)  '73'
+         2  (  3.6%)  '62'
+         2  (  3.6%)  '82'
+         2  (  3.6%)  '74'
+         2  (  3.6%)  '76'
+         2  (  3.6%)  '75'
+         2  (  3.6%)  '67'
     ... and 9 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        56  (100.0%)  pattern: '9.9'
+        56  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Clozaril (clozapine)] ---
@@ -20225,24 +20232,24 @@ MEDICATION GROUP: Amiodarone (oral)  (n=55)
   Unique values: 27 | Unique ratio: 0.491 | Normalized entropy: 0.937
   Numeric summary: min=14.00, max=80.00, mean=63.33, median=65.00, std=11.39
   Top 15 values:
-         7  ( 12.7%)  '70'
-         5  (  9.1%)  '64'
-         4  (  7.3%)  '67'
-         3  (  5.5%)  '72'
-         3  (  5.5%)  '62'
-         3  (  5.5%)  '68'
-         3  (  5.5%)  '58'
-         3  (  5.5%)  '63'
-         2  (  3.6%)  '65'
-         2  (  3.6%)  '66'
-         2  (  3.6%)  '56'
-         2  (  3.6%)  '60'
-         2  (  3.6%)  '55'
-         1  (  1.8%)  '69'
-         1  (  1.8%)  '33'
+         7  ( 12.7%)  '70.0'
+         5  (  9.1%)  '64.0'
+         4  (  7.3%)  '67.0'
+         3  (  5.5%)  '72.0'
+         3  (  5.5%)  '62.0'
+         3  (  5.5%)  '68.0'
+         3  (  5.5%)  '58.0'
+         3  (  5.5%)  '63.0'
+         2  (  3.6%)  '65.0'
+         2  (  3.6%)  '66.0'
+         2  (  3.6%)  '56.0'
+         2  (  3.6%)  '60.0'
+         2  (  3.6%)  '55.0'
+         1  (  1.8%)  '69.0'
+         1  (  1.8%)  '33.0'
     ... and 12 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        55  (100.0%)  pattern: '9'
+        55  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Amiodarone (oral)] ---
@@ -20260,24 +20267,24 @@ MEDICATION GROUP: Amiodarone (oral)  (n=55)
   Unique values: 19 | Unique ratio: 0.345 | Normalized entropy: 0.912
   Numeric summary: min=50.00, max=95.00, mean=75.65, median=76.00, std=9.01
   Top 15 values:
-         9  ( 16.4%)  '70.0'
-         7  ( 12.7%)  '80.0'
-         6  ( 10.9%)  '78.0'
-         5  (  9.1%)  '65.0'
-         4  (  7.3%)  '72.0'
-         3  (  5.5%)  '68.0'
-         3  (  5.5%)  '82.0'
-         2  (  3.6%)  '60.0'
-         2  (  3.6%)  '88.0'
-         2  (  3.6%)  '86.0'
-         2  (  3.6%)  '75.0'
-         2  (  3.6%)  '92.0'
-         2  (  3.6%)  '84.0'
-         1  (  1.8%)  '95.0'
-         1  (  1.8%)  '50.0'
+         9  ( 16.4%)  '70'
+         7  ( 12.7%)  '80'
+         6  ( 10.9%)  '78'
+         5  (  9.1%)  '65'
+         4  (  7.3%)  '72'
+         3  (  5.5%)  '68'
+         3  (  5.5%)  '82'
+         2  (  3.6%)  '60'
+         2  (  3.6%)  '88'
+         2  (  3.6%)  '86'
+         2  (  3.6%)  '75'
+         2  (  3.6%)  '92'
+         2  (  3.6%)  '84'
+         1  (  1.8%)  '95'
+         1  (  1.8%)  '50'
     ... and 4 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        55  (100.0%)  pattern: '9.9'
+        55  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Amiodarone (oral)] ---
@@ -20814,24 +20821,24 @@ MEDICATION GROUP: Cefdinir  (n=53)
   Unique values: 26 | Unique ratio: 0.491 | Normalized entropy: 0.941
   Numeric summary: min=13.00, max=80.00, mean=48.32, median=50.00, std=16.28
   Top 15 values:
-         5  (  9.4%)  '45'
-         5  (  9.4%)  '50'
-         5  (  9.4%)  '60'
-         4  (  7.5%)  '30'
-         3  (  5.7%)  '35'
-         3  (  5.7%)  '55'
-         3  (  5.7%)  '65'
-         2  (  3.8%)  '28'
-         2  (  3.8%)  '70'
-         2  (  3.8%)  '32'
-         2  (  3.8%)  '72'
-         2  (  3.8%)  '58'
-         2  (  3.8%)  '40'
-         1  (  1.9%)  '68'
-         1  (  1.9%)  '25'
+         5  (  9.4%)  '45.0'
+         5  (  9.4%)  '50.0'
+         5  (  9.4%)  '60.0'
+         4  (  7.5%)  '30.0'
+         3  (  5.7%)  '35.0'
+         3  (  5.7%)  '55.0'
+         3  (  5.7%)  '65.0'
+         2  (  3.8%)  '28.0'
+         2  (  3.8%)  '70.0'
+         2  (  3.8%)  '32.0'
+         2  (  3.8%)  '72.0'
+         2  (  3.8%)  '58.0'
+         2  (  3.8%)  '40.0'
+         1  (  1.9%)  '68.0'
+         1  (  1.9%)  '25.0'
     ... and 11 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        53  (100.0%)  pattern: '9'
+        53  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Cefdinir] ---
@@ -20849,24 +20856,24 @@ MEDICATION GROUP: Cefdinir  (n=53)
   Unique values: 16 | Unique ratio: 0.302 | Normalized entropy: 0.911
   Numeric summary: min=48.00, max=92.00, mean=73.04, median=72.00, std=8.73
   Top 15 values:
-         9  ( 17.0%)  '70.0'
-         8  ( 15.1%)  '68.0'
-         5  (  9.4%)  '78.0'
-         5  (  9.4%)  '80.0'
-         4  (  7.5%)  '72.0'
-         4  (  7.5%)  '75.0'
-         4  (  7.5%)  '65.0'
-         3  (  5.7%)  '82.0'
-         2  (  3.8%)  '88.0'
-         2  (  3.8%)  '60.0'
-         2  (  3.8%)  '85.0'
-         1  (  1.9%)  '92.0'
-         1  (  1.9%)  '62.0'
-         1  (  1.9%)  '55.0'
-         1  (  1.9%)  '90.0'
+         9  ( 17.0%)  '70'
+         8  ( 15.1%)  '68'
+         5  (  9.4%)  '78'
+         5  (  9.4%)  '80'
+         4  (  7.5%)  '72'
+         4  (  7.5%)  '75'
+         4  (  7.5%)  '65'
+         3  (  5.7%)  '82'
+         2  (  3.8%)  '88'
+         2  (  3.8%)  '60'
+         2  (  3.8%)  '85'
+         1  (  1.9%)  '92'
+         1  (  1.9%)  '62'
+         1  (  1.9%)  '55'
+         1  (  1.9%)  '90'
     ... and 1 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        53  (100.0%)  pattern: '9.9'
+        53  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Cefdinir] ---
@@ -21369,24 +21376,24 @@ MEDICATION GROUP: Terazosin  (n=52)
   Unique values: 29 | Unique ratio: 0.558 | Normalized entropy: 0.938
   Numeric summary: min=14.00, max=82.00, mean=59.92, median=61.50, std=11.43
   Top 15 values:
-         5  (  9.6%)  '62'
-         5  (  9.6%)  '60'
-         4  (  7.7%)  '58'
-         4  (  7.7%)  '55'
-         3  (  5.8%)  '70'
-         3  (  5.8%)  '65'
-         3  (  5.8%)  '64'
-         2  (  3.8%)  '72'
-         2  (  3.8%)  '56'
-         2  (  3.8%)  '66'
-         1  (  1.9%)  '67'
-         1  (  1.9%)  '49'
-         1  (  1.9%)  '68'
-         1  (  1.9%)  '29'
-         1  (  1.9%)  '32'
+         5  (  9.6%)  '62.0'
+         5  (  9.6%)  '60.0'
+         4  (  7.7%)  '58.0'
+         4  (  7.7%)  '55.0'
+         3  (  5.8%)  '70.0'
+         3  (  5.8%)  '65.0'
+         3  (  5.8%)  '64.0'
+         2  (  3.8%)  '72.0'
+         2  (  3.8%)  '56.0'
+         2  (  3.8%)  '66.0'
+         1  (  1.9%)  '67.0'
+         1  (  1.9%)  '49.0'
+         1  (  1.9%)  '68.0'
+         1  (  1.9%)  '29.0'
+         1  (  1.9%)  '32.0'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        52  (100.0%)  pattern: '9'
+        52  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Terazosin] ---
@@ -21404,24 +21411,24 @@ MEDICATION GROUP: Terazosin  (n=52)
   Unique values: 18 | Unique ratio: 0.346 | Normalized entropy: 0.905
   Numeric summary: min=52.00, max=105.00, mean=80.06, median=80.00, std=8.01
   Top 15 values:
-         8  ( 15.4%)  '78.0'
-         7  ( 13.5%)  '80.0'
-         6  ( 11.5%)  '82.0'
-         6  ( 11.5%)  '84.0'
-         4  (  7.7%)  '70.0'
-         3  (  5.8%)  '79.0'
-         3  (  5.8%)  '86.0'
-         2  (  3.8%)  '90.0'
-         2  (  3.8%)  '88.0'
-         2  (  3.8%)  '75.0'
-         2  (  3.8%)  '76.0'
-         1  (  1.9%)  '95.0'
-         1  (  1.9%)  '65.0'
-         1  (  1.9%)  '92.0'
-         1  (  1.9%)  '52.0'
+         8  ( 15.4%)  '78'
+         7  ( 13.5%)  '80'
+         6  ( 11.5%)  '82'
+         6  ( 11.5%)  '84'
+         4  (  7.7%)  '70'
+         3  (  5.8%)  '79'
+         3  (  5.8%)  '86'
+         2  (  3.8%)  '90'
+         2  (  3.8%)  '88'
+         2  (  3.8%)  '75'
+         2  (  3.8%)  '76'
+         1  (  1.9%)  '95'
+         1  (  1.9%)  '65'
+         1  (  1.9%)  '92'
+         1  (  1.9%)  '52'
     ... and 3 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        52  (100.0%)  pattern: '9.9'
+        52  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Terazosin] ---
@@ -21954,24 +21961,24 @@ MEDICATION GROUP: Clonidine (oral tablet)  (n=51)
   Unique values: 36 | Unique ratio: 0.706 | Normalized entropy: 0.975
   Numeric summary: min=27.00, max=74.00, mean=48.25, median=47.00, std=12.42
   Top 15 values:
-         3  (  5.9%)  '50'
-         3  (  5.9%)  '58'
-         3  (  5.9%)  '55'
-         2  (  3.9%)  '45'
-         2  (  3.9%)  '31'
-         2  (  3.9%)  '39'
-         2  (  3.9%)  '41'
-         2  (  3.9%)  '33'
-         2  (  3.9%)  '68'
-         2  (  3.9%)  '44'
-         2  (  3.9%)  '40'
-         2  (  3.9%)  '47'
-         1  (  2.0%)  '38'
-         1  (  2.0%)  '52'
-         1  (  2.0%)  '36'
+         3  (  5.9%)  '50.0'
+         3  (  5.9%)  '58.0'
+         3  (  5.9%)  '55.0'
+         2  (  3.9%)  '45.0'
+         2  (  3.9%)  '31.0'
+         2  (  3.9%)  '39.0'
+         2  (  3.9%)  '41.0'
+         2  (  3.9%)  '33.0'
+         2  (  3.9%)  '68.0'
+         2  (  3.9%)  '44.0'
+         2  (  3.9%)  '40.0'
+         2  (  3.9%)  '47.0'
+         1  (  2.0%)  '38.0'
+         1  (  2.0%)  '52.0'
+         1  (  2.0%)  '36.0'
     ... and 21 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        51  (100.0%)  pattern: '9'
+        51  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Clonidine (oral tablet)] ---
@@ -21989,24 +21996,24 @@ MEDICATION GROUP: Clonidine (oral tablet)  (n=51)
   Unique values: 26 | Unique ratio: 0.510 | Normalized entropy: 0.954
   Numeric summary: min=58.00, max=105.00, mean=75.12, median=75.00, std=9.91
   Top 15 values:
-         5  (  9.8%)  '68.0'
-         4  (  7.8%)  '66.0'
-         4  (  7.8%)  '80.0'
-         3  (  5.9%)  '78.0'
-         3  (  5.9%)  '88.0'
-         3  (  5.9%)  '82.0'
-         3  (  5.9%)  '70.0'
-         2  (  3.9%)  '72.0'
-         2  (  3.9%)  '64.0'
-         2  (  3.9%)  '90.0'
-         2  (  3.9%)  '86.0'
-         2  (  3.9%)  '84.0'
-         2  (  3.9%)  '74.0'
-         2  (  3.9%)  '62.0'
-         1  (  2.0%)  '58.0'
+         5  (  9.8%)  '68'
+         4  (  7.8%)  '66'
+         4  (  7.8%)  '80'
+         3  (  5.9%)  '78'
+         3  (  5.9%)  '88'
+         3  (  5.9%)  '82'
+         3  (  5.9%)  '70'
+         2  (  3.9%)  '72'
+         2  (  3.9%)  '64'
+         2  (  3.9%)  '90'
+         2  (  3.9%)  '86'
+         2  (  3.9%)  '84'
+         2  (  3.9%)  '74'
+         2  (  3.9%)  '62'
+         1  (  2.0%)  '58'
     ... and 11 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        51  (100.0%)  pattern: '9.9'
+        51  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Clonidine (oral tablet)] ---
@@ -22503,24 +22510,24 @@ MEDICATION GROUP: Melatonin  (n=50)
   Unique values: 38 | Unique ratio: 0.760 | Normalized entropy: 0.984
   Numeric summary: min=9.00, max=74.00, mean=43.64, median=41.50, std=15.17
   Top 15 values:
-         2  (  4.0%)  '42'
-         2  (  4.0%)  '31'
-         2  (  4.0%)  '58'
-         2  (  4.0%)  '29'
-         2  (  4.0%)  '28'
-         2  (  4.0%)  '34'
-         2  (  4.0%)  '36'
-         2  (  4.0%)  '55'
-         2  (  4.0%)  '45'
-         2  (  4.0%)  '40'
-         2  (  4.0%)  '33'
-         2  (  4.0%)  '52'
-         1  (  2.0%)  '38'
-         1  (  2.0%)  '46'
-         1  (  2.0%)  '72'
+         2  (  4.0%)  '42.0'
+         2  (  4.0%)  '31.0'
+         2  (  4.0%)  '58.0'
+         2  (  4.0%)  '29.0'
+         2  (  4.0%)  '28.0'
+         2  (  4.0%)  '34.0'
+         2  (  4.0%)  '36.0'
+         2  (  4.0%)  '55.0'
+         2  (  4.0%)  '45.0'
+         2  (  4.0%)  '40.0'
+         2  (  4.0%)  '33.0'
+         2  (  4.0%)  '52.0'
+         1  (  2.0%)  '38.0'
+         1  (  2.0%)  '46.0'
+         1  (  2.0%)  '72.0'
     ... and 23 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        50  (100.0%)  pattern: '9'
+        50  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Melatonin] ---
@@ -22538,24 +22545,24 @@ MEDICATION GROUP: Melatonin  (n=50)
   Unique values: 26 | Unique ratio: 0.520 | Normalized entropy: 0.957
   Numeric summary: min=32.00, max=100.00, mean=73.30, median=73.00, std=11.21
   Top 15 values:
-         5  ( 10.0%)  '70.0'
-         4  (  8.0%)  '82.0'
-         3  (  6.0%)  '68.0'
-         3  (  6.0%)  '78.0'
-         3  (  6.0%)  '72.0'
-         3  (  6.0%)  '65.0'
-         3  (  6.0%)  '66.0'
-         2  (  4.0%)  '74.0'
-         2  (  4.0%)  '84.0'
-         2  (  4.0%)  '88.0'
-         2  (  4.0%)  '77.0'
-         2  (  4.0%)  '75.0'
-         2  (  4.0%)  '62.0'
-         2  (  4.0%)  '80.0'
-         1  (  2.0%)  '79.0'
+         5  ( 10.0%)  '70'
+         4  (  8.0%)  '82'
+         3  (  6.0%)  '68'
+         3  (  6.0%)  '78'
+         3  (  6.0%)  '72'
+         3  (  6.0%)  '65'
+         3  (  6.0%)  '66'
+         2  (  4.0%)  '74'
+         2  (  4.0%)  '84'
+         2  (  4.0%)  '88'
+         2  (  4.0%)  '77'
+         2  (  4.0%)  '75'
+         2  (  4.0%)  '62'
+         2  (  4.0%)  '80'
+         1  (  2.0%)  '79'
     ... and 11 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        50  (100.0%)  pattern: '9.9'
+        50  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Melatonin] ---
@@ -22828,13 +22835,13 @@ MEDICATION GROUP: Melatonin  (n=50)
          1  (  2.8%)  'Abametapir 0.74% topical lotion (single treatment)'
          1  (  2.8%)  'Daily multivitamin'
     ... and 19 more unique values
-  Format patterns (digits->9, letters->A): 23 distinct
-         7  ( 19.4%)  pattern: 'A A'
+  Format patterns (digits->9, letters->A): 24 distinct
+         6  ( 16.7%)  pattern: 'A A'
          5  ( 13.9%)  pattern: 'A 9 A'
          4  ( 11.1%)  pattern: 'A 9 A A'
          1  (  2.8%)  pattern: 'A A (A A)'
          1  (  2.8%)  pattern: 'A A (A) A A, A 9 A'
-    ... and 18 more patterns
+    ... and 19 more patterns
 
 --- Feature: Foods (Last 24h)  [Melatonin] ---
   Rows: 50 | Non-missing: 50 | None/missing: 0 (0.0%)
@@ -23101,24 +23108,24 @@ MEDICATION GROUP: Metformin (immediate-release)  (n=50)
   Unique values: 34 | Unique ratio: 0.680 | Normalized entropy: 0.972
   Numeric summary: min=8.00, max=72.00, mean=49.08, median=50.00, std=15.16
   Top 15 values:
-         3  (  6.0%)  '42'
-         3  (  6.0%)  '60'
-         3  (  6.0%)  '65'
-         3  (  6.0%)  '70'
-         2  (  4.0%)  '68'
-         2  (  4.0%)  '52'
-         2  (  4.0%)  '45'
-         2  (  4.0%)  '50'
-         2  (  4.0%)  '49'
-         2  (  4.0%)  '47'
-         2  (  4.0%)  '58'
-         2  (  4.0%)  '38'
-         1  (  2.0%)  '63'
-         1  (  2.0%)  '8'
-         1  (  2.0%)  '40'
+         3  (  6.0%)  '42.0'
+         3  (  6.0%)  '60.0'
+         3  (  6.0%)  '65.0'
+         3  (  6.0%)  '70.0'
+         2  (  4.0%)  '68.0'
+         2  (  4.0%)  '52.0'
+         2  (  4.0%)  '45.0'
+         2  (  4.0%)  '50.0'
+         2  (  4.0%)  '49.0'
+         2  (  4.0%)  '47.0'
+         2  (  4.0%)  '58.0'
+         2  (  4.0%)  '38.0'
+         1  (  2.0%)  '63.0'
+         1  (  2.0%)  '8.0'
+         1  (  2.0%)  '40.0'
     ... and 19 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        50  (100.0%)  pattern: '9'
+        50  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Metformin (immediate-release)] ---
@@ -23136,24 +23143,24 @@ MEDICATION GROUP: Metformin (immediate-release)  (n=50)
   Unique values: 21 | Unique ratio: 0.420 | Normalized entropy: 0.920
   Numeric summary: min=41.00, max=95.00, mean=76.76, median=78.00, std=11.43
   Top 15 values:
-         6  ( 12.0%)  '70.0'
-         6  ( 12.0%)  '80.0'
-         6  ( 12.0%)  '78.0'
-         4  (  8.0%)  '88.0'
-         4  (  8.0%)  '84.0'
-         3  (  6.0%)  '95.0'
-         3  (  6.0%)  '82.0'
-         2  (  4.0%)  '86.0'
-         2  (  4.0%)  '72.0'
-         2  (  4.0%)  '75.0'
-         2  (  4.0%)  '64.0'
-         1  (  2.0%)  '42.0'
-         1  (  2.0%)  '90.0'
-         1  (  2.0%)  '76.0'
-         1  (  2.0%)  '41.0'
+         6  ( 12.0%)  '70'
+         6  ( 12.0%)  '80'
+         6  ( 12.0%)  '78'
+         4  (  8.0%)  '88'
+         4  (  8.0%)  '84'
+         3  (  6.0%)  '95'
+         3  (  6.0%)  '82'
+         2  (  4.0%)  '86'
+         2  (  4.0%)  '72'
+         2  (  4.0%)  '75'
+         2  (  4.0%)  '64'
+         1  (  2.0%)  '42'
+         1  (  2.0%)  '90'
+         1  (  2.0%)  '76'
+         1  (  2.0%)  '41'
     ... and 6 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        50  (100.0%)  pattern: '9.9'
+        50  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Metformin (immediate-release)] ---
@@ -23705,24 +23712,24 @@ MEDICATION GROUP: Lovastatin  (n=50)
   Unique values: 32 | Unique ratio: 0.640 | Normalized entropy: 0.971
   Numeric summary: min=29.00, max=82.00, mean=52.90, median=52.50, std=10.90
   Top 15 values:
-         4  (  8.0%)  '50'
-         3  (  6.0%)  '58'
-         3  (  6.0%)  '45'
-         2  (  4.0%)  '55'
-         2  (  4.0%)  '52'
-         2  (  4.0%)  '63'
-         2  (  4.0%)  '49'
-         2  (  4.0%)  '60'
-         2  (  4.0%)  '61'
-         2  (  4.0%)  '44'
-         2  (  4.0%)  '54'
-         2  (  4.0%)  '57'
-         2  (  4.0%)  '64'
-         2  (  4.0%)  '47'
-         1  (  2.0%)  '29'
+         4  (  8.0%)  '50.0'
+         3  (  6.0%)  '58.0'
+         3  (  6.0%)  '45.0'
+         2  (  4.0%)  '55.0'
+         2  (  4.0%)  '52.0'
+         2  (  4.0%)  '63.0'
+         2  (  4.0%)  '49.0'
+         2  (  4.0%)  '60.0'
+         2  (  4.0%)  '61.0'
+         2  (  4.0%)  '44.0'
+         2  (  4.0%)  '54.0'
+         2  (  4.0%)  '57.0'
+         2  (  4.0%)  '64.0'
+         2  (  4.0%)  '47.0'
+         1  (  2.0%)  '29.0'
     ... and 17 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        50  (100.0%)  pattern: '9'
+        50  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Lovastatin] ---
@@ -23740,24 +23747,24 @@ MEDICATION GROUP: Lovastatin  (n=50)
   Unique values: 29 | Unique ratio: 0.580 | Normalized entropy: 0.973
   Numeric summary: min=45.00, max=90.00, mean=73.74, median=74.50, std=9.63
   Top 15 values:
-         3  (  6.0%)  '68.0'
-         3  (  6.0%)  '82.0'
-         3  (  6.0%)  '79.0'
-         3  (  6.0%)  '80.0'
-         3  (  6.0%)  '70.0'
-         2  (  4.0%)  '65.0'
-         2  (  4.0%)  '74.0'
-         2  (  4.0%)  '88.0'
-         2  (  4.0%)  '66.0'
-         2  (  4.0%)  '83.0'
-         2  (  4.0%)  '62.0'
-         2  (  4.0%)  '85.0'
-         2  (  4.0%)  '72.0'
-         2  (  4.0%)  '71.0'
-         2  (  4.0%)  '78.0'
+         3  (  6.0%)  '68'
+         3  (  6.0%)  '82'
+         3  (  6.0%)  '79'
+         3  (  6.0%)  '80'
+         3  (  6.0%)  '70'
+         2  (  4.0%)  '65'
+         2  (  4.0%)  '74'
+         2  (  4.0%)  '88'
+         2  (  4.0%)  '66'
+         2  (  4.0%)  '83'
+         2  (  4.0%)  '62'
+         2  (  4.0%)  '85'
+         2  (  4.0%)  '72'
+         2  (  4.0%)  '71'
+         2  (  4.0%)  '78'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        50  (100.0%)  pattern: '9.9'
+        50  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Lovastatin] ---
@@ -24210,24 +24217,24 @@ MEDICATION GROUP: Promethazine (oral)  (n=47)
   Unique values: 38 | Unique ratio: 0.809 | Normalized entropy: 0.982
   Numeric summary: min=8.00, max=74.00, mean=43.60, median=42.00, std=14.79
   Top 15 values:
-         3  (  6.4%)  '33'
-         2  (  4.3%)  '52'
-         2  (  4.3%)  '41'
-         2  (  4.3%)  '39'
-         2  (  4.3%)  '47'
-         2  (  4.3%)  '38'
-         2  (  4.3%)  '50'
-         2  (  4.3%)  '44'
-         1  (  2.1%)  '8'
-         1  (  2.1%)  '26'
-         1  (  2.1%)  '60'
-         1  (  2.1%)  '22'
-         1  (  2.1%)  '55'
-         1  (  2.1%)  '36'
-         1  (  2.1%)  '12'
+         3  (  6.4%)  '33.0'
+         2  (  4.3%)  '52.0'
+         2  (  4.3%)  '41.0'
+         2  (  4.3%)  '39.0'
+         2  (  4.3%)  '47.0'
+         2  (  4.3%)  '38.0'
+         2  (  4.3%)  '50.0'
+         2  (  4.3%)  '44.0'
+         1  (  2.1%)  '8.0'
+         1  (  2.1%)  '26.0'
+         1  (  2.1%)  '60.0'
+         1  (  2.1%)  '22.0'
+         1  (  2.1%)  '55.0'
+         1  (  2.1%)  '36.0'
+         1  (  2.1%)  '12.0'
     ... and 23 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        47  (100.0%)  pattern: '9'
+        47  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Promethazine (oral)] ---
@@ -24245,24 +24252,24 @@ MEDICATION GROUP: Promethazine (oral)  (n=47)
   Unique values: 28 | Unique ratio: 0.596 | Normalized entropy: 0.956
   Numeric summary: min=28.00, max=90.00, mean=70.36, median=70.00, std=10.68
   Top 15 values:
-         5  ( 10.6%)  '70.0'
-         4  (  8.5%)  '80.0'
-         3  (  6.4%)  '68.0'
-         3  (  6.4%)  '74.0'
-         2  (  4.3%)  '72.0'
-         2  (  4.3%)  '66.0'
-         2  (  4.3%)  '65.0'
-         2  (  4.3%)  '79.0'
-         2  (  4.3%)  '78.0'
-         2  (  4.3%)  '76.0'
-         2  (  4.3%)  '64.0'
-         2  (  4.3%)  '60.0'
-         1  (  2.1%)  '62.0'
-         1  (  2.1%)  '85.0'
-         1  (  2.1%)  '28.0'
+         5  ( 10.6%)  '70'
+         4  (  8.5%)  '80'
+         3  (  6.4%)  '68'
+         3  (  6.4%)  '74'
+         2  (  4.3%)  '72'
+         2  (  4.3%)  '66'
+         2  (  4.3%)  '65'
+         2  (  4.3%)  '79'
+         2  (  4.3%)  '78'
+         2  (  4.3%)  '76'
+         2  (  4.3%)  '64'
+         2  (  4.3%)  '60'
+         1  (  2.1%)  '62'
+         1  (  2.1%)  '85'
+         1  (  2.1%)  '28'
     ... and 13 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        47  (100.0%)  pattern: '9.9'
+        47  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Promethazine (oral)] ---
@@ -24744,24 +24751,24 @@ MEDICATION GROUP: Adalimumab (Humira)  (n=47)
   Unique values: 36 | Unique ratio: 0.766 | Normalized entropy: 0.981
   Numeric summary: min=1.00, max=78.00, mean=37.17, median=39.00, std=19.35
   Top 15 values:
-         3  (  6.4%)  '34'
-         2  (  4.3%)  '52'
-         2  (  4.3%)  '36'
-         2  (  4.3%)  '41'
-         2  (  4.3%)  '44'
-         2  (  4.3%)  '29'
-         2  (  4.3%)  '10'
-         2  (  4.3%)  '4'
-         2  (  4.3%)  '39'
-         2  (  4.3%)  '55'
-         1  (  2.1%)  '68'
-         1  (  2.1%)  '58'
-         1  (  2.1%)  '28'
-         1  (  2.1%)  '1'
-         1  (  2.1%)  '64'
+         3  (  6.4%)  '34.0'
+         2  (  4.3%)  '52.0'
+         2  (  4.3%)  '36.0'
+         2  (  4.3%)  '41.0'
+         2  (  4.3%)  '44.0'
+         2  (  4.3%)  '29.0'
+         2  (  4.3%)  '10.0'
+         2  (  4.3%)  '4.0'
+         2  (  4.3%)  '39.0'
+         2  (  4.3%)  '55.0'
+         1  (  2.1%)  '68.0'
+         1  (  2.1%)  '58.0'
+         1  (  2.1%)  '28.0'
+         1  (  2.1%)  '1.0'
+         1  (  2.1%)  '64.0'
     ... and 21 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        47  (100.0%)  pattern: '9'
+        47  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Adalimumab (Humira)] ---
@@ -24779,24 +24786,25 @@ MEDICATION GROUP: Adalimumab (Humira)  (n=47)
   Unique values: 30 | Unique ratio: 0.638 | Normalized entropy: 0.968
   Numeric summary: min=9.00, max=98.00, mean=64.39, median=70.00, std=22.39
   Top 15 values:
-         3  (  6.4%)  '82.0'
-         3  (  6.4%)  '75.0'
-         3  (  6.4%)  '70.0'
-         3  (  6.4%)  '58.0'
-         3  (  6.4%)  '65.0'
-         2  (  4.3%)  '78.0'
-         2  (  4.3%)  '35.0'
-         2  (  4.3%)  '80.0'
-         2  (  4.3%)  '68.0'
-         2  (  4.3%)  '88.0'
-         2  (  4.3%)  '22.0'
-         2  (  4.3%)  '74.0'
-         1  (  2.1%)  '16.0'
-         1  (  2.1%)  '62.0'
-         1  (  2.1%)  '85.0'
+         3  (  6.4%)  '82'
+         3  (  6.4%)  '75'
+         3  (  6.4%)  '70'
+         3  (  6.4%)  '58'
+         3  (  6.4%)  '65'
+         2  (  4.3%)  '78'
+         2  (  4.3%)  '35'
+         2  (  4.3%)  '80'
+         2  (  4.3%)  '68'
+         2  (  4.3%)  '88'
+         2  (  4.3%)  '22'
+         2  (  4.3%)  '74'
+         1  (  2.1%)  '16'
+         1  (  2.1%)  '62'
+         1  (  2.1%)  '85'
     ... and 15 more unique values
-  Format patterns (digits->9, letters->A): 1 distinct
-        47  (100.0%)  pattern: '9.9'
+  Format patterns (digits->9, letters->A): 2 distinct
+        46  ( 97.9%)  pattern: '9'
+         1  (  2.1%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Adalimumab (Humira)] ---
@@ -25309,24 +25317,24 @@ MEDICATION GROUP: Finasteride  (n=46)
   Unique values: 34 | Unique ratio: 0.739 | Normalized entropy: 0.980
   Numeric summary: min=16.00, max=74.00, mean=45.87, median=40.50, std=15.10
   Top 15 values:
-         3  (  6.5%)  '60'
-         2  (  4.3%)  '34'
-         2  (  4.3%)  '33'
-         2  (  4.3%)  '29'
-         2  (  4.3%)  '55'
-         2  (  4.3%)  '58'
-         2  (  4.3%)  '28'
-         2  (  4.3%)  '32'
-         2  (  4.3%)  '39'
-         2  (  4.3%)  '38'
-         2  (  4.3%)  '36'
-         1  (  2.2%)  '16'
-         1  (  2.2%)  '59'
-         1  (  2.2%)  '68'
-         1  (  2.2%)  '47'
+         3  (  6.5%)  '60.0'
+         2  (  4.3%)  '34.0'
+         2  (  4.3%)  '33.0'
+         2  (  4.3%)  '29.0'
+         2  (  4.3%)  '55.0'
+         2  (  4.3%)  '58.0'
+         2  (  4.3%)  '28.0'
+         2  (  4.3%)  '32.0'
+         2  (  4.3%)  '39.0'
+         2  (  4.3%)  '38.0'
+         2  (  4.3%)  '36.0'
+         1  (  2.2%)  '16.0'
+         1  (  2.2%)  '59.0'
+         1  (  2.2%)  '68.0'
+         1  (  2.2%)  '47.0'
     ... and 19 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        46  (100.0%)  pattern: '9'
+        46  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Finasteride] ---
@@ -25344,24 +25352,24 @@ MEDICATION GROUP: Finasteride  (n=46)
   Unique values: 19 | Unique ratio: 0.413 | Normalized entropy: 0.938
   Numeric summary: min=62.00, max=90.00, mean=78.15, median=78.50, std=6.17
   Top 15 values:
-         6  ( 13.0%)  '78.0'
-         6  ( 13.0%)  '80.0'
-         4  (  8.7%)  '82.0'
-         3  (  6.5%)  '75.0'
-         3  (  6.5%)  '79.0'
-         3  (  6.5%)  '76.0'
-         3  (  6.5%)  '88.0'
-         3  (  6.5%)  '72.0'
-         2  (  4.3%)  '74.0'
-         2  (  4.3%)  '68.0'
-         2  (  4.3%)  '84.0'
-         2  (  4.3%)  '86.0'
-         1  (  2.2%)  '62.0'
-         1  (  2.2%)  '64.0'
-         1  (  2.2%)  '70.0'
+         6  ( 13.0%)  '78'
+         6  ( 13.0%)  '80'
+         4  (  8.7%)  '82'
+         3  (  6.5%)  '75'
+         3  (  6.5%)  '79'
+         3  (  6.5%)  '76'
+         3  (  6.5%)  '88'
+         3  (  6.5%)  '72'
+         2  (  4.3%)  '74'
+         2  (  4.3%)  '68'
+         2  (  4.3%)  '84'
+         2  (  4.3%)  '86'
+         1  (  2.2%)  '62'
+         1  (  2.2%)  '64'
+         1  (  2.2%)  '70'
     ... and 4 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        46  (100.0%)  pattern: '9.9'
+        46  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Finasteride] ---
@@ -25855,24 +25863,24 @@ MEDICATION GROUP: Valacyclovir  (n=45)
   Unique values: 31 | Unique ratio: 0.689 | Normalized entropy: 0.973
   Numeric summary: min=1.00, max=78.00, mean=38.49, median=38.00, std=17.80
   Top 15 values:
-         3  (  6.7%)  '40'
-         3  (  6.7%)  '38'
-         3  (  6.7%)  '55'
-         2  (  4.4%)  '50'
-         2  (  4.4%)  '60'
-         2  (  4.4%)  '30'
-         2  (  4.4%)  '34'
-         2  (  4.4%)  '44'
-         2  (  4.4%)  '8'
-         2  (  4.4%)  '35'
-         2  (  4.4%)  '27'
-         1  (  2.2%)  '29'
-         1  (  2.2%)  '10'
-         1  (  2.2%)  '15'
-         1  (  2.2%)  '45'
+         3  (  6.7%)  '40.0'
+         3  (  6.7%)  '38.0'
+         3  (  6.7%)  '55.0'
+         2  (  4.4%)  '50.0'
+         2  (  4.4%)  '60.0'
+         2  (  4.4%)  '30.0'
+         2  (  4.4%)  '34.0'
+         2  (  4.4%)  '44.0'
+         2  (  4.4%)  '8.0'
+         2  (  4.4%)  '35.0'
+         2  (  4.4%)  '27.0'
+         1  (  2.2%)  '29.0'
+         1  (  2.2%)  '10.0'
+         1  (  2.2%)  '15.0'
+         1  (  2.2%)  '45.0'
     ... and 16 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9'
+        45  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Valacyclovir] ---
@@ -25890,24 +25898,24 @@ MEDICATION GROUP: Valacyclovir  (n=45)
   Unique values: 29 | Unique ratio: 0.644 | Normalized entropy: 0.968
   Numeric summary: min=11.00, max=92.00, mean=67.93, median=70.00, std=18.38
   Top 15 values:
-         4  (  8.9%)  '70.0'
-         3  (  6.7%)  '88.0'
-         3  (  6.7%)  '60.0'
-         2  (  4.4%)  '62.0'
-         2  (  4.4%)  '74.0'
-         2  (  4.4%)  '82.0'
-         2  (  4.4%)  '90.0'
-         2  (  4.4%)  '68.0'
-         2  (  4.4%)  '84.0'
-         2  (  4.4%)  '78.0'
-         2  (  4.4%)  '80.0'
-         2  (  4.4%)  '58.0'
-         1  (  2.2%)  '92.0'
-         1  (  2.2%)  '72.0'
-         1  (  2.2%)  '64.0'
+         4  (  8.9%)  '70'
+         3  (  6.7%)  '88'
+         3  (  6.7%)  '60'
+         2  (  4.4%)  '62'
+         2  (  4.4%)  '74'
+         2  (  4.4%)  '82'
+         2  (  4.4%)  '90'
+         2  (  4.4%)  '68'
+         2  (  4.4%)  '84'
+         2  (  4.4%)  '78'
+         2  (  4.4%)  '80'
+         2  (  4.4%)  '58'
+         1  (  2.2%)  '92'
+         1  (  2.2%)  '72'
+         1  (  2.2%)  '64'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9.9'
+        45  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Valacyclovir] ---
@@ -26407,24 +26415,24 @@ MEDICATION GROUP: Nabumetone  (n=45)
   Unique values: 34 | Unique ratio: 0.756 | Normalized entropy: 0.980
   Numeric summary: min=15.00, max=72.00, mean=48.11, median=48.00, std=12.78
   Top 15 values:
-         3  (  6.7%)  '45'
-         2  (  4.4%)  '52'
-         2  (  4.4%)  '38'
-         2  (  4.4%)  '58'
-         2  (  4.4%)  '55'
-         2  (  4.4%)  '47'
-         2  (  4.4%)  '59'
-         2  (  4.4%)  '40'
-         2  (  4.4%)  '44'
-         2  (  4.4%)  '60'
-         1  (  2.2%)  '33'
-         1  (  2.2%)  '41'
-         1  (  2.2%)  '29'
-         1  (  2.2%)  '49'
-         1  (  2.2%)  '51'
+         3  (  6.7%)  '45.0'
+         2  (  4.4%)  '52.0'
+         2  (  4.4%)  '38.0'
+         2  (  4.4%)  '58.0'
+         2  (  4.4%)  '55.0'
+         2  (  4.4%)  '47.0'
+         2  (  4.4%)  '59.0'
+         2  (  4.4%)  '40.0'
+         2  (  4.4%)  '44.0'
+         2  (  4.4%)  '60.0'
+         1  (  2.2%)  '33.0'
+         1  (  2.2%)  '41.0'
+         1  (  2.2%)  '29.0'
+         1  (  2.2%)  '49.0'
+         1  (  2.2%)  '51.0'
     ... and 19 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9'
+        45  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Nabumetone] ---
@@ -26442,24 +26450,24 @@ MEDICATION GROUP: Nabumetone  (n=45)
   Unique values: 20 | Unique ratio: 0.444 | Normalized entropy: 0.961
   Numeric summary: min=45.00, max=92.00, mean=73.00, median=72.00, std=10.01
   Top 15 values:
-         4  (  8.9%)  '68.0'
-         4  (  8.9%)  '70.0'
-         4  (  8.9%)  '80.0'
-         4  (  8.9%)  '78.0'
-         3  (  6.7%)  '72.0'
-         3  (  6.7%)  '66.0'
-         3  (  6.7%)  '82.0'
-         2  (  4.4%)  '60.0'
-         2  (  4.4%)  '62.0'
-         2  (  4.4%)  '88.0'
-         2  (  4.4%)  '74.0'
-         2  (  4.4%)  '64.0'
-         2  (  4.4%)  '84.0'
-         2  (  4.4%)  '76.0'
-         1  (  2.2%)  '90.0'
+         4  (  8.9%)  '68'
+         4  (  8.9%)  '70'
+         4  (  8.9%)  '80'
+         4  (  8.9%)  '78'
+         3  (  6.7%)  '72'
+         3  (  6.7%)  '66'
+         3  (  6.7%)  '82'
+         2  (  4.4%)  '60'
+         2  (  4.4%)  '62'
+         2  (  4.4%)  '88'
+         2  (  4.4%)  '74'
+         2  (  4.4%)  '64'
+         2  (  4.4%)  '84'
+         2  (  4.4%)  '76'
+         1  (  2.2%)  '90'
     ... and 5 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9.9'
+        45  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Nabumetone] ---
@@ -26933,24 +26941,24 @@ MEDICATION GROUP: Valsartan  (n=45)
   Unique values: 33 | Unique ratio: 0.733 | Normalized entropy: 0.980
   Numeric summary: min=4.00, max=74.00, mean=50.93, median=55.00, std=16.59
   Top 15 values:
-         3  (  6.7%)  '66'
-         2  (  4.4%)  '60'
-         2  (  4.4%)  '61'
-         2  (  4.4%)  '70'
-         2  (  4.4%)  '45'
-         2  (  4.4%)  '58'
-         2  (  4.4%)  '29'
-         2  (  4.4%)  '59'
-         2  (  4.4%)  '52'
-         2  (  4.4%)  '33'
-         2  (  4.4%)  '55'
-         1  (  2.2%)  '54'
-         1  (  2.2%)  '12'
-         1  (  2.2%)  '35'
-         1  (  2.2%)  '38'
+         3  (  6.7%)  '66.0'
+         2  (  4.4%)  '60.0'
+         2  (  4.4%)  '61.0'
+         2  (  4.4%)  '70.0'
+         2  (  4.4%)  '45.0'
+         2  (  4.4%)  '58.0'
+         2  (  4.4%)  '29.0'
+         2  (  4.4%)  '59.0'
+         2  (  4.4%)  '52.0'
+         2  (  4.4%)  '33.0'
+         2  (  4.4%)  '55.0'
+         1  (  2.2%)  '54.0'
+         1  (  2.2%)  '12.0'
+         1  (  2.2%)  '35.0'
+         1  (  2.2%)  '38.0'
     ... and 18 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9'
+        45  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Valsartan] ---
@@ -26968,24 +26976,24 @@ MEDICATION GROUP: Valsartan  (n=45)
   Unique values: 33 | Unique ratio: 0.733 | Normalized entropy: 0.973
   Numeric summary: min=17.00, max=91.00, mean=73.29, median=74.00, std=15.23
   Top 15 values:
-         3  (  6.7%)  '85.0'
-         3  (  6.7%)  '72.0'
-         3  (  6.7%)  '88.0'
-         2  (  4.4%)  '68.0'
-         2  (  4.4%)  '70.0'
-         2  (  4.4%)  '90.0'
-         2  (  4.4%)  '74.0'
-         2  (  4.4%)  '82.0'
-         2  (  4.4%)  '80.0'
-         1  (  2.2%)  '40.0'
-         1  (  2.2%)  '60.0'
-         1  (  2.2%)  '62.0'
-         1  (  2.2%)  '86.0'
-         1  (  2.2%)  '64.0'
-         1  (  2.2%)  '77.0'
+         3  (  6.7%)  '85'
+         3  (  6.7%)  '72'
+         3  (  6.7%)  '88'
+         2  (  4.4%)  '68'
+         2  (  4.4%)  '70'
+         2  (  4.4%)  '90'
+         2  (  4.4%)  '74'
+         2  (  4.4%)  '82'
+         2  (  4.4%)  '80'
+         1  (  2.2%)  '40'
+         1  (  2.2%)  '60'
+         1  (  2.2%)  '62'
+         1  (  2.2%)  '86'
+         1  (  2.2%)  '64'
+         1  (  2.2%)  '77'
     ... and 18 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9.9'
+        45  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Valsartan] ---
@@ -27482,24 +27490,24 @@ MEDICATION GROUP: Dulaglutide (Trulicity)  (n=45)
   Unique values: 34 | Unique ratio: 0.756 | Normalized entropy: 0.977
   Numeric summary: min=8.00, max=78.00, mean=49.18, median=52.00, std=16.14
   Top 15 values:
-         3  (  6.7%)  '50'
-         3  (  6.7%)  '55'
-         2  (  4.4%)  '60'
-         2  (  4.4%)  '52'
-         2  (  4.4%)  '12'
-         2  (  4.4%)  '45'
-         2  (  4.4%)  '58'
-         2  (  4.4%)  '48'
-         2  (  4.4%)  '47'
-         1  (  2.2%)  '68'
-         1  (  2.2%)  '40'
-         1  (  2.2%)  '44'
-         1  (  2.2%)  '63'
-         1  (  2.2%)  '66'
-         1  (  2.2%)  '53'
+         3  (  6.7%)  '50.0'
+         3  (  6.7%)  '55.0'
+         2  (  4.4%)  '60.0'
+         2  (  4.4%)  '52.0'
+         2  (  4.4%)  '12.0'
+         2  (  4.4%)  '45.0'
+         2  (  4.4%)  '58.0'
+         2  (  4.4%)  '48.0'
+         2  (  4.4%)  '47.0'
+         1  (  2.2%)  '68.0'
+         1  (  2.2%)  '40.0'
+         1  (  2.2%)  '44.0'
+         1  (  2.2%)  '63.0'
+         1  (  2.2%)  '66.0'
+         1  (  2.2%)  '53.0'
     ... and 19 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9'
+        45  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Dulaglutide (Trulicity)] ---
@@ -27517,24 +27525,24 @@ MEDICATION GROUP: Dulaglutide (Trulicity)  (n=45)
   Unique values: 30 | Unique ratio: 0.667 | Normalized entropy: 0.967
   Numeric summary: min=32.00, max=100.00, mean=79.40, median=82.00, std=13.21
   Top 15 values:
-         4  (  8.9%)  '80.0'
-         3  (  6.7%)  '82.0'
-         3  (  6.7%)  '88.0'
-         2  (  4.4%)  '85.0'
-         2  (  4.4%)  '78.0'
-         2  (  4.4%)  '90.0'
-         2  (  4.4%)  '79.0'
-         2  (  4.4%)  '92.0'
-         2  (  4.4%)  '84.0'
-         2  (  4.4%)  '83.0'
-         2  (  4.4%)  '70.0'
-         1  (  2.2%)  '95.0'
-         1  (  2.2%)  '75.0'
-         1  (  2.2%)  '55.0'
-         1  (  2.2%)  '100.0'
+         4  (  8.9%)  '80'
+         3  (  6.7%)  '82'
+         3  (  6.7%)  '88'
+         2  (  4.4%)  '85'
+         2  (  4.4%)  '78'
+         2  (  4.4%)  '90'
+         2  (  4.4%)  '79'
+         2  (  4.4%)  '92'
+         2  (  4.4%)  '84'
+         2  (  4.4%)  '83'
+         2  (  4.4%)  '70'
+         1  (  2.2%)  '95'
+         1  (  2.2%)  '75'
+         1  (  2.2%)  '55'
+         1  (  2.2%)  '100'
     ... and 15 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9.9'
+        45  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Dulaglutide (Trulicity)] ---
@@ -27997,24 +28005,24 @@ MEDICATION GROUP: Hydrochlorothiazide  (n=45)
   Unique values: 35 | Unique ratio: 0.778 | Normalized entropy: 0.984
   Numeric summary: min=1.00, max=85.00, mean=50.91, median=53.00, std=16.40
   Top 15 values:
-         2  (  4.4%)  '55'
-         2  (  4.4%)  '60'
-         2  (  4.4%)  '50'
-         2  (  4.4%)  '52'
-         2  (  4.4%)  '70'
-         2  (  4.4%)  '44'
-         2  (  4.4%)  '58'
-         2  (  4.4%)  '47'
-         2  (  4.4%)  '53'
-         2  (  4.4%)  '57'
-         1  (  2.2%)  '40'
-         1  (  2.2%)  '45'
-         1  (  2.2%)  '8'
-         1  (  2.2%)  '56'
-         1  (  2.2%)  '35'
+         2  (  4.4%)  '55.0'
+         2  (  4.4%)  '60.0'
+         2  (  4.4%)  '50.0'
+         2  (  4.4%)  '52.0'
+         2  (  4.4%)  '70.0'
+         2  (  4.4%)  '44.0'
+         2  (  4.4%)  '58.0'
+         2  (  4.4%)  '47.0'
+         2  (  4.4%)  '53.0'
+         2  (  4.4%)  '57.0'
+         1  (  2.2%)  '40.0'
+         1  (  2.2%)  '45.0'
+         1  (  2.2%)  '8.0'
+         1  (  2.2%)  '56.0'
+         1  (  2.2%)  '35.0'
     ... and 20 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9'
+        45  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Hydrochlorothiazide] ---
@@ -28032,24 +28040,24 @@ MEDICATION GROUP: Hydrochlorothiazide  (n=45)
   Unique values: 33 | Unique ratio: 0.733 | Normalized entropy: 0.980
   Numeric summary: min=10.00, max=95.00, mean=72.36, median=74.00, std=16.17
   Top 15 values:
-         3  (  6.7%)  '68.0'
-         2  (  4.4%)  '84.0'
-         2  (  4.4%)  '70.0'
-         2  (  4.4%)  '90.0'
-         2  (  4.4%)  '82.0'
-         2  (  4.4%)  '63.0'
-         2  (  4.4%)  '85.0'
-         2  (  4.4%)  '88.0'
-         2  (  4.4%)  '78.0'
-         2  (  4.4%)  '80.0'
-         2  (  4.4%)  '71.0'
-         1  (  2.2%)  '30.0'
-         1  (  2.2%)  '72.0'
-         1  (  2.2%)  '60.0'
-         1  (  2.2%)  '35.0'
+         3  (  6.7%)  '68'
+         2  (  4.4%)  '84'
+         2  (  4.4%)  '70'
+         2  (  4.4%)  '90'
+         2  (  4.4%)  '82'
+         2  (  4.4%)  '63'
+         2  (  4.4%)  '85'
+         2  (  4.4%)  '88'
+         2  (  4.4%)  '78'
+         2  (  4.4%)  '80'
+         2  (  4.4%)  '71'
+         1  (  2.2%)  '30'
+         1  (  2.2%)  '72'
+         1  (  2.2%)  '60'
+         1  (  2.2%)  '35'
     ... and 18 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        45  (100.0%)  pattern: '9.9'
+        45  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Hydrochlorothiazide] ---
@@ -28504,24 +28512,24 @@ MEDICATION GROUP: Atorvastatin  (n=43)
   Unique values: 29 | Unique ratio: 0.674 | Normalized entropy: 0.963
   Numeric summary: min=8.00, max=72.00, mean=52.72, median=56.00, std=14.97
   Top 15 values:
-         4  (  9.3%)  '58'
-         3  (  7.0%)  '45'
-         3  (  7.0%)  '70'
-         3  (  7.0%)  '60'
-         2  (  4.7%)  '49'
-         2  (  4.7%)  '47'
-         2  (  4.7%)  '68'
-         2  (  4.7%)  '50'
-         2  (  4.7%)  '52'
-         1  (  2.3%)  '62'
-         1  (  2.3%)  '8'
-         1  (  2.3%)  '31'
-         1  (  2.3%)  '33'
-         1  (  2.3%)  '64'
-         1  (  2.3%)  '57'
+         4  (  9.3%)  '58.0'
+         3  (  7.0%)  '45.0'
+         3  (  7.0%)  '70.0'
+         3  (  7.0%)  '60.0'
+         2  (  4.7%)  '49.0'
+         2  (  4.7%)  '47.0'
+         2  (  4.7%)  '68.0'
+         2  (  4.7%)  '50.0'
+         2  (  4.7%)  '52.0'
+         1  (  2.3%)  '62.0'
+         1  (  2.3%)  '8.0'
+         1  (  2.3%)  '31.0'
+         1  (  2.3%)  '33.0'
+         1  (  2.3%)  '64.0'
+         1  (  2.3%)  '57.0'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        43  (100.0%)  pattern: '9'
+        43  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Atorvastatin] ---
@@ -28539,24 +28547,24 @@ MEDICATION GROUP: Atorvastatin  (n=43)
   Unique values: 19 | Unique ratio: 0.442 | Normalized entropy: 0.939
   Numeric summary: min=28.00, max=110.00, mean=75.02, median=78.00, std=12.67
   Top 15 values:
-         6  ( 14.0%)  '78.0'
-         5  ( 11.6%)  '82.0'
-         4  (  9.3%)  '70.0'
-         4  (  9.3%)  '80.0'
-         3  (  7.0%)  '72.0'
-         2  (  4.7%)  '68.0'
-         2  (  4.7%)  '90.0'
-         2  (  4.7%)  '64.0'
-         2  (  4.7%)  '86.0'
-         2  (  4.7%)  '84.0'
-         2  (  4.7%)  '75.0'
-         2  (  4.7%)  '65.0'
-         1  (  2.3%)  '48.0'
-         1  (  2.3%)  '73.0'
-         1  (  2.3%)  '28.0'
+         6  ( 14.0%)  '78'
+         5  ( 11.6%)  '82'
+         4  (  9.3%)  '70'
+         4  (  9.3%)  '80'
+         3  (  7.0%)  '72'
+         2  (  4.7%)  '68'
+         2  (  4.7%)  '90'
+         2  (  4.7%)  '64'
+         2  (  4.7%)  '86'
+         2  (  4.7%)  '84'
+         2  (  4.7%)  '75'
+         2  (  4.7%)  '65'
+         1  (  2.3%)  '48'
+         1  (  2.3%)  '73'
+         1  (  2.3%)  '28'
     ... and 4 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        43  (100.0%)  pattern: '9.9'
+        43  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Atorvastatin] ---
@@ -29035,24 +29043,24 @@ MEDICATION GROUP: Dapagliflozin  (n=43)
   Unique values: 33 | Unique ratio: 0.767 | Normalized entropy: 0.983
   Numeric summary: min=29.00, max=78.00, mean=55.44, median=56.00, std=11.54
   Top 15 values:
-         2  (  4.7%)  '58'
-         2  (  4.7%)  '64'
-         2  (  4.7%)  '55'
-         2  (  4.7%)  '68'
-         2  (  4.7%)  '62'
-         2  (  4.7%)  '41'
-         2  (  4.7%)  '53'
-         2  (  4.7%)  '67'
-         2  (  4.7%)  '45'
-         2  (  4.7%)  '50'
-         1  (  2.3%)  '78'
-         1  (  2.3%)  '32'
-         1  (  2.3%)  '47'
-         1  (  2.3%)  '66'
-         1  (  2.3%)  '74'
+         2  (  4.7%)  '58.0'
+         2  (  4.7%)  '64.0'
+         2  (  4.7%)  '55.0'
+         2  (  4.7%)  '68.0'
+         2  (  4.7%)  '62.0'
+         2  (  4.7%)  '41.0'
+         2  (  4.7%)  '53.0'
+         2  (  4.7%)  '67.0'
+         2  (  4.7%)  '45.0'
+         2  (  4.7%)  '50.0'
+         1  (  2.3%)  '78.0'
+         1  (  2.3%)  '32.0'
+         1  (  2.3%)  '47.0'
+         1  (  2.3%)  '66.0'
+         1  (  2.3%)  '74.0'
     ... and 18 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        43  (100.0%)  pattern: '9'
+        43  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Dapagliflozin] ---
@@ -29070,24 +29078,24 @@ MEDICATION GROUP: Dapagliflozin  (n=43)
   Unique values: 22 | Unique ratio: 0.512 | Normalized entropy: 0.951
   Numeric summary: min=60.00, max=96.00, mean=79.05, median=80.00, std=8.27
   Top 15 values:
-         4  (  9.3%)  '82.0'
-         4  (  9.3%)  '78.0'
-         4  (  9.3%)  '84.0'
-         3  (  7.0%)  '80.0'
-         3  (  7.0%)  '72.0'
-         3  (  7.0%)  '70.0'
-         3  (  7.0%)  '86.0'
-         2  (  4.7%)  '90.0'
-         2  (  4.7%)  '75.0'
-         2  (  4.7%)  '68.0'
-         2  (  4.7%)  '88.0'
-         1  (  2.3%)  '60.0'
-         1  (  2.3%)  '92.0'
-         1  (  2.3%)  '76.0'
-         1  (  2.3%)  '95.0'
+         4  (  9.3%)  '82'
+         4  (  9.3%)  '78'
+         4  (  9.3%)  '84'
+         3  (  7.0%)  '80'
+         3  (  7.0%)  '72'
+         3  (  7.0%)  '70'
+         3  (  7.0%)  '86'
+         2  (  4.7%)  '90'
+         2  (  4.7%)  '75'
+         2  (  4.7%)  '68'
+         2  (  4.7%)  '88'
+         1  (  2.3%)  '60'
+         1  (  2.3%)  '92'
+         1  (  2.3%)  '76'
+         1  (  2.3%)  '95'
     ... and 7 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        43  (100.0%)  pattern: '9.9'
+        43  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Dapagliflozin] ---
@@ -29569,24 +29577,24 @@ MEDICATION GROUP: Hydrocodone  (n=41)
   Unique values: 29 | Unique ratio: 0.707 | Normalized entropy: 0.982
   Numeric summary: min=16.00, max=72.00, mean=48.85, median=50.00, std=13.15
   Top 15 values:
-         2  (  4.9%)  '45'
-         2  (  4.9%)  '50'
-         2  (  4.9%)  '60'
-         2  (  4.9%)  '47'
-         2  (  4.9%)  '52'
-         2  (  4.9%)  '68'
-         2  (  4.9%)  '55'
-         2  (  4.9%)  '44'
-         2  (  4.9%)  '54'
-         2  (  4.9%)  '63'
-         2  (  4.9%)  '38'
-         2  (  4.9%)  '57'
-         1  (  2.4%)  '66'
-         1  (  2.4%)  '72'
-         1  (  2.4%)  '34'
+         2  (  4.9%)  '45.0'
+         2  (  4.9%)  '50.0'
+         2  (  4.9%)  '60.0'
+         2  (  4.9%)  '47.0'
+         2  (  4.9%)  '52.0'
+         2  (  4.9%)  '68.0'
+         2  (  4.9%)  '55.0'
+         2  (  4.9%)  '44.0'
+         2  (  4.9%)  '54.0'
+         2  (  4.9%)  '63.0'
+         2  (  4.9%)  '38.0'
+         2  (  4.9%)  '57.0'
+         1  (  2.4%)  '66.0'
+         1  (  2.4%)  '72.0'
+         1  (  2.4%)  '34.0'
     ... and 14 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        41  (100.0%)  pattern: '9'
+        41  (100.0%)  pattern: '9.9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Gender  [Hydrocodone] ---
@@ -29604,24 +29612,24 @@ MEDICATION GROUP: Hydrocodone  (n=41)
   Unique values: 21 | Unique ratio: 0.512 | Normalized entropy: 0.966
   Numeric summary: min=48.00, max=108.00, mean=74.05, median=74.00, std=11.73
   Top 15 values:
-         4  (  9.8%)  '80.0'
-         3  (  7.3%)  '68.0'
-         3  (  7.3%)  '70.0'
-         3  (  7.3%)  '66.0'
-         3  (  7.3%)  '74.0'
-         3  (  7.3%)  '78.0'
-         2  (  4.9%)  '82.0'
-         2  (  4.9%)  '62.0'
-         2  (  4.9%)  '64.0'
-         2  (  4.9%)  '72.0'
-         2  (  4.9%)  '84.0'
-         2  (  4.9%)  '60.0'
-         2  (  4.9%)  '58.0'
-         1  (  2.4%)  '88.0'
-         1  (  2.4%)  '76.0'
+         4  (  9.8%)  '80'
+         3  (  7.3%)  '68'
+         3  (  7.3%)  '70'
+         3  (  7.3%)  '66'
+         3  (  7.3%)  '74'
+         3  (  7.3%)  '78'
+         2  (  4.9%)  '82'
+         2  (  4.9%)  '62'
+         2  (  4.9%)  '64'
+         2  (  4.9%)  '72'
+         2  (  4.9%)  '84'
+         2  (  4.9%)  '60'
+         2  (  4.9%)  '58'
+         1  (  2.4%)  '88'
+         1  (  2.4%)  '76'
     ... and 6 more unique values
   Format patterns (digits->9, letters->A): 1 distinct
-        41  (100.0%)  pattern: '9.9'
+        41  (100.0%)  pattern: '9'
   Rule check (1 rule(s)): OK
 
 --- Feature: Height (cm)  [Hydrocodone] ---

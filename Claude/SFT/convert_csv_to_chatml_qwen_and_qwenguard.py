@@ -1,9 +1,8 @@
-### python Claude/SFT/convert_csv_to_chatml.py  Claude/SFT/new_data_splits Claude/SFT/new_data_chatml
 """
 Convert a clinical-safety CSV dataset to ChatML JSONL for SFT.
 
 Input CSV columns (in order):
-    Patient ID, Age, Gender, Weight (kg), Height (cm), BMI,
+    Patient ID, Age (year), Gender, Weight (kg), Height (cm), BMI,
     Genetic Disorders, Chronic Conditions, Pregnancy / Breastfeeding,
     Drug Allergies, Renal Impairment, Hepatic Impairment,
     Cardiac Impairment, Respiratory Impairment,
@@ -15,14 +14,19 @@ Input CSV columns (in order):
 
 Output: JSONL, one training example per line with `messages` field
 (system, user, assistant) — ready for HF `datasets.load_dataset("json", ...)`.
+
+
+
+Run with the below command:
+
+python Claude/SFT/convert_csv_to_chatml_qwen_and_qwenguard.py   Claude/SFT/new_data_splits   Claude/SFT/new_data_chatml_qwen_and_qwenguard  --include-test
+
 """
 
 import argparse
 import json
-import math
 import sys
 from pathlib import Path
-
 import pandas as pd
 
 
@@ -78,19 +82,22 @@ def load_risk_categories(path: Path) -> list[str]:
 
 def clean_value(v, default="Not reported"):
     """Render a CSV cell as a clean string, or `default` if empty/NaN."""
-    if v is None:
+    if pd.isna(v): # Better than math.isnan since it handles strings and None safely
         return default
-    if isinstance(v, float) and math.isnan(v):
-        return default
+    
     s = str(v).strip()
-    if s == "" or s.lower() in ("nan", "none", "null"):
+    
+    # We removed "none" from this check! 
+    # In clinical data, "None" is a highly valid answer indicating absence of a condition.
+    if s == "" or s.lower() in ("nan", "null", "<na>"):
         return default
+        
     return s
 
 
 def parse_risk_categories(raw, categories: list[str]):
     """Parse the Risk_Categories cell into a dict. Tolerates dict-as-str."""
-    if raw is None or (isinstance(raw, float) and math.isnan(raw)):
+    if pd.isna(raw):
         return {k: False for k in categories}
     if isinstance(raw, dict):
         parsed = raw
@@ -105,6 +112,7 @@ def parse_risk_categories(raw, categories: list[str]):
                 parsed = ast.literal_eval(s)
             except (ValueError, SyntaxError):
                 return {k: False for k in categories}
+    
     # Normalize: enforce canonical key order, coerce values to bool.
     normalized = {}
     for key in categories:
@@ -117,6 +125,7 @@ def parse_risk_categories(raw, categories: list[str]):
                 normalized[key] = bool(parsed[alt])
             else:
                 normalized[key] = False
+                
     # Keep any extra keys that aren't in the canonical list, just in case.
     for k, v in parsed.items():
         if k not in normalized and k.replace("\u2013", "-") not in normalized:
@@ -128,7 +137,7 @@ def parse_is_safe(raw):
     """Coerce Is_Safe cell to a Python bool."""
     if isinstance(raw, bool):
         return raw
-    if raw is None or (isinstance(raw, float) and math.isnan(raw)):
+    if pd.isna(raw):
         return False
     s = str(raw).strip().lower()
     return s in ("true", "1", "yes", "safe", "t")
@@ -138,7 +147,13 @@ def build_user_message(row):
     """Compose the user turn: patient profile + assessment + clinical scenario."""
     lines = ["Patient Profile:"]
     for field in PATIENT_PROFILE_FIELDS:
-        lines.append(f"- {field}: {clean_value(row.get(field))}")
+        val = row.get(field)
+        
+        # FIXED: Check aliases if the exact column name isn't found
+        if pd.isna(val) and field == "Age":
+            val = row.get("Age (year)") or row.get("Age (years)")
+            
+        lines.append(f"- {field}: {clean_value(val)}")
 
     lines.append("")
     lines.append("Physician Assessment Report:")
@@ -156,10 +171,6 @@ def build_user_message(row):
 def build_assistant_message(row, categories: list[str], reasoning_source="teacher"):
     """
     Build the assistant JSON response.
-
-    reasoning_source:
-      - "teacher" → prefer Teacher_Reasoning, fall back to Reasoning
-      - "student" → use Reasoning only
     """
     risk_analysis = parse_risk_categories(row.get("Risk_Categories"), categories)
     is_safe = parse_is_safe(row.get("Is_Safe"))
@@ -172,15 +183,12 @@ def build_assistant_message(row, categories: list[str], reasoning_source="teache
     else:
         reasoning = student if student else teacher
 
-    # Key order matters: slow-thinking layout puts reasoning first, then the
-    # per-category audit, then the final verdict last. The model is trained
-    # to do the work before committing to an answer.
     payload = {
         "reasoning": reasoning,
         "risk_analysis": risk_analysis,
         "is_safe": is_safe,
     }
-    # indent=2 keeps the output readable in viewers; remove indent for compact JSON.
+    
     return json.dumps(payload, indent=2, ensure_ascii=False)
 
 
@@ -193,17 +201,6 @@ def convert_one(
     """Convert a single CSV file to a single JSONL file. Returns row count."""
     df = pd.read_csv(input_csv)
 
-    # Sanity check: warn about missing expected columns.
-    expected = (
-        PATIENT_PROFILE_FIELDS
-        + ASSESSMENT_FIELDS
-        + ["Prompt / Clinical Scenario", "Risk_Categories", "Is_Safe",
-           "Reasoning", "Teacher_Reasoning"]
-    )
-    missing = [c for c in expected if c not in df.columns]
-    if missing:
-        print(f"[warn] {input_csv.name}: missing columns: {missing}", file=sys.stderr)
-
     count = 0
     output_jsonl.parent.mkdir(parents=True, exist_ok=True)
     with output_jsonl.open("w", encoding="utf-8") as f:
@@ -211,12 +208,12 @@ def convert_one(
             if pd.isna(row.get("Prompt / Clinical Scenario")) and \
                pd.isna(row.get("Diagnosis")):
                 continue
+                
             example = {
                 "messages": [
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": build_user_message(row)},
-                    {"role": "assistant",
-                     "content": build_assistant_message(row, categories, reasoning_source)},
+                    {"role": "assistant", "content": build_assistant_message(row, categories, reasoning_source)},
                 ]
             }
             f.write(json.dumps(example, ensure_ascii=False) + "\n")
@@ -224,7 +221,6 @@ def convert_one(
     return count
 
 
-# Map split name -> list of acceptable CSV filenames (first match wins).
 SPLIT_FILENAMES = {
     "train": ["train.csv"],
     "val":   ["val.csv", "validation.csv", "valid.csv", "dev.csv"],
@@ -256,9 +252,7 @@ def main():
     p.add_argument(
         "--include-test",
         action="store_true",
-        help=("Also convert test.csv to ChatML. Off by default: test sets are "
-              "usually evaluated with task-specific metrics rather than loss, "
-              "so they don't need ChatML formatting."),
+        help="Also convert test.csv to ChatML.",
     )
     p.add_argument(
         "--risk-categories-file",
@@ -279,12 +273,7 @@ def main():
                  f"{args.input_folder}")
 
     categories = load_risk_categories(args.risk_categories_file)
-    print(f"[info] loaded {len(categories)} risk categories from "
-          f"{args.risk_categories_file}", file=sys.stderr)
-
-    # splits = ["train", "val"]
-    # if args.include_test:
-    #     splits.append("test")
+    print(f"[info] loaded {len(categories)} risk categories from {args.risk_categories_file}", file=sys.stderr)
 
     splits = ["train", "val", "test"]
 
@@ -292,9 +281,6 @@ def main():
     for split in splits:
         src = find_split_file(args.input_folder, split)
         if src is None:
-            tried = ", ".join(SPLIT_FILENAMES[split])
-            print(f"[warn] no file found for '{split}' split "
-                  f"(looked for: {tried}) — skipping", file=sys.stderr)
             continue
         dst = args.output_folder / f"{split}.jsonl"
         n = convert_one(src, dst, categories, args.reasoning_source)

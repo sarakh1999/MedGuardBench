@@ -1,21 +1,22 @@
 group,row_index,feature,value,reason
-OVERALL,352,Age (year),0.16,rare format pattern vs. dominant feature format
-OVERALL,354,Age (year),0.75,rare format pattern vs. dominant feature format
-OVERALL,1417,Age (year),1.5,rare format pattern vs. dominant feature format
-OVERALL,1601,Age (year),0.25,rare format pattern vs. dominant feature format
-OVERALL,3456,Age (year),1.5,rare format pattern vs. dominant feature format
-OVERALL,4309,Age (year),0.33,rare format pattern vs. dominant feature format
-OVERALL,4312,Age (year),0.008,rare format pattern vs. dominant feature format
-OVERALL,4313,Age (year),0.011,rare format pattern vs. dominant feature format
-OVERALL,4314,Age (year),0.014,rare format pattern vs. dominant feature format
-OVERALL,4315,Age (year),0.011,rare format pattern vs. dominant feature format
-OVERALL,4801,Age (year),10 days (neonate),rare format pattern vs. dominant feature format
-OVERALL,4802,Age (year),2 months (8 weeks),rare format pattern vs. dominant feature format
-OVERALL,5021,Age (year),0.06,rare format pattern vs. dominant feature format
-OVERALL,5191,Age (year),0.08,rare format pattern vs. dominant feature format
-OVERALL,5250,Age (year),0.1,rare format pattern vs. dominant feature format
-OVERALL,4801,Age (year),10 days (neonate),Age: not numeric ('10 days (neonate)')
-OVERALL,4802,Age (year),2 months (8 weeks),Age: not numeric ('2 months (8 weeks)')
+OVERALL,192,Weight (kg),1.4,rare format pattern vs. dominant feature format
+OVERALL,224,Weight (kg),2.1,rare format pattern vs. dominant feature format
+OVERALL,352,Weight (kg),4.5,rare format pattern vs. dominant feature format
+OVERALL,723,Weight (kg),1.8,rare format pattern vs. dominant feature format
+OVERALL,733,Weight (kg),6.5,rare format pattern vs. dominant feature format
+OVERALL,1448,Weight (kg),14.5,rare format pattern vs. dominant feature format
+OVERALL,1642,Weight (kg),1.4,rare format pattern vs. dominant feature format
+OVERALL,2926,Weight (kg),3.2,rare format pattern vs. dominant feature format
+OVERALL,4312,Weight (kg),1.1,rare format pattern vs. dominant feature format
+OVERALL,4313,Weight (kg),1.2,rare format pattern vs. dominant feature format
+OVERALL,4314,Weight (kg),1.3,rare format pattern vs. dominant feature format
+OVERALL,4801,Weight (kg),3.4,rare format pattern vs. dominant feature format
+OVERALL,4946,Weight (kg),9.2,rare format pattern vs. dominant feature format
+OVERALL,5021,Weight (kg),4.2,rare format pattern vs. dominant feature format
+OVERALL,5191,Weight (kg),4.5,rare format pattern vs. dominant feature format
+OVERALL,5250,Weight (kg),2.8,rare format pattern vs. dominant feature format
+OVERALL,5454,Weight (kg),Male,rare format pattern vs. dominant feature format
+OVERALL,5454,Weight (kg),Male,Weight: not numeric ('Male')
 OVERALL,192,BMI,7.9,"BMI: out of plausible range [8, 80] ('7.9')"
 OVERALL,4312,BMI,7.6,"BMI: out of plausible range [8, 80] ('7.6')"
 OVERALL,4313,BMI,7.5,"BMI: out of plausible range [8, 80] ('7.5')"
@@ -8303,7 +8304,7 @@ OVERALL,5368,Duration,chronic (ongoing),Duration: unrecognized duration format (
 OVERALL,5370,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 OVERALL,5371,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 OVERALL,5372,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
-OVERALL,5373,Duration,chronic (ongoing) ‚Äî indefinite,Duration: unrecognized duration format ('chronic (ongoing) ‚Äî indefinite')
+OVERALL,5373,Duration,chronic (ongoing) — indefinite,Duration: unrecognized duration format ('chronic (ongoing) — indefinite')
 OVERALL,5374,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 OVERALL,5375,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 OVERALL,5377,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
@@ -9163,6 +9164,8 @@ Naproxen,3741,Duration,Proposed,Duration: unrecognized duration format ('Propose
 Naproxen,3742,Duration,Proposed,Duration: unrecognized duration format ('Proposed')
 Naproxen,3744,Duration,Proposed,Duration: unrecognized duration format ('Proposed')
 Naproxen,3745,Duration,Proposed,Duration: unrecognized duration format ('Proposed')
+Morphine,192,Weight (kg),1.4,rare format pattern vs. dominant feature format
+Morphine,224,Weight (kg),2.1,rare format pattern vs. dominant feature format
 Morphine,192,BMI,7.9,"BMI: out of plausible range [8, 80] ('7.9')"
 Morphine,180,Renal Impairment,End-stage (CrCl 10 mL/min),rare format pattern vs. dominant feature format
 Morphine,150,Foods (Last 24h),Coffee (2 cups),rare format pattern vs. dominant feature format
@@ -9444,6 +9447,9 @@ Morphine,306,Duration,During labor (hours),Duration: unrecognized duration forma
 Morphine,307,Duration,24-48 hours (short course),Duration: unrecognized duration format ('24-48 hours (short course)')
 Morphine,315,Duration,Single visit (hours),Duration: unrecognized duration format ('Single visit (hours)')
 Morphine,321,Duration,48-72 hours,Duration: unrecognized duration format ('48-72 hours')
+Ibuprofen,4312,Weight (kg),1.1,rare format pattern vs. dominant feature format
+Ibuprofen,4313,Weight (kg),1.2,rare format pattern vs. dominant feature format
+Ibuprofen,4314,Weight (kg),1.3,rare format pattern vs. dominant feature format
 Ibuprofen,4312,BMI,7.6,"BMI: out of plausible range [8, 80] ('7.6')"
 Ibuprofen,4313,BMI,7.5,"BMI: out of plausible range [8, 80] ('7.5')"
 Ibuprofen,4314,BMI,7.7,"BMI: out of plausible range [8, 80] ('7.7')"
@@ -10911,6 +10917,8 @@ Escitalopram (Lexapro),2560,Duration,Ongoing; reassess in 4 weeks,rare format pa
 Escitalopram (Lexapro),2575,Duration,Ongoing; close follow-up scheduled,rare format pattern vs. dominant feature format
 Escitalopram (Lexapro),2580,Duration,Ongoing; regular follow-up,rare format pattern vs. dominant feature format
 Escitalopram (Lexapro),2603,Duration,Ongoing; weekly review initially,rare format pattern vs. dominant feature format
+Diazepam,5454,Weight (kg),Male,rare format pattern vs. dominant feature format
+Diazepam,5454,Weight (kg),Male,Weight: not numeric ('Male')
 Diazepam,5358,Renal Impairment,End-stage (CrCl 9 mL/min),rare format pattern vs. dominant feature format
 Diazepam,5354,Alcohol Use,"Active heavy; acutely intoxicated, BAC 0.29% on arrival",rare format pattern vs. dominant feature format
 Diazepam,5355,Alcohol Use,"Occasional, <2 drinks/week",rare format pattern vs. dominant feature format
@@ -11059,7 +11067,7 @@ Diazepam,5368,Duration,chronic (ongoing),Duration: unrecognized duration format 
 Diazepam,5370,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 Diazepam,5371,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 Diazepam,5372,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
-Diazepam,5373,Duration,chronic (ongoing) ‚Äî indefinite,Duration: unrecognized duration format ('chronic (ongoing) ‚Äî indefinite')
+Diazepam,5373,Duration,chronic (ongoing) — indefinite,Duration: unrecognized duration format ('chronic (ongoing) — indefinite')
 Diazepam,5374,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 Diazepam,5375,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
 Diazepam,5377,Duration,chronic (ongoing),Duration: unrecognized duration format ('chronic (ongoing)')
@@ -12241,6 +12249,7 @@ Sildenafil,2734,Dosage,50 mg,Age: not numeric ('50 mg')
 Sildenafil,2669,Duration,Single use,Duration: unrecognized duration format ('Single use')
 Sildenafil,2687,Duration,Single use,Duration: unrecognized duration format ('Single use')
 Sildenafil,2694,Duration,Single day,Duration: unrecognized duration format ('Single day')
+Fluconazole,2926,Weight (kg),3.2,rare format pattern vs. dominant feature format
 Fluconazole,2888,Drug Allergies,"Penicillin allergy (rash, non-azole)",rare format pattern vs. dominant feature format
 Fluconazole,2906,Drug Allergies,Sulfa (sulfonamide antibiotic) allergy,rare format pattern vs. dominant feature format
 Fluconazole,2922,Drug Allergies,Prior anaphylaxis to fluconazole,rare format pattern vs. dominant feature format
@@ -14864,8 +14873,6 @@ Metoprolol succinate ER,2447,Dosage,"50 mg once daily, titrated","Age: not numer
 Metoprolol succinate ER,2448,Dosage,50 mg once daily,Age: not numeric ('50 mg once daily')
 Metoprolol succinate ER,2450,Dosage,100 mg once daily,Age: not numeric ('100 mg once daily')
 Metoprolol succinate ER,2451,Dosage,100 mg once daily,Age: not numeric ('100 mg once daily')
-Oseltamivir,4801,Age (year),10 days (neonate),Age: not numeric ('10 days (neonate)')
-Oseltamivir,4802,Age (year),2 months (8 weeks),Age: not numeric ('2 months (8 weeks)')
 Oseltamivir,4789,Dosage,75 mg PO twice daily,Age: not numeric ('75 mg PO twice daily')
 Oseltamivir,4790,Dosage,75 mg PO twice daily,Age: not numeric ('75 mg PO twice daily')
 Oseltamivir,4791,Dosage,75 mg PO twice daily,Age: not numeric ('75 mg PO twice daily')

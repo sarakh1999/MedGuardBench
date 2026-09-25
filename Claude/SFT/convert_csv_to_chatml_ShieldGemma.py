@@ -17,8 +17,8 @@ maintaining a separate copy per model family.
 
 Usage:
     python Claude/SFT/convert_csv_to_chatml_ShieldGemma.py
-    python Claude/SFT/convert_csv_to_chatml_ShieldGemma.py --indir Claude/SFT/new_data_splits \\
-                                  --outdir Claude/SFT/new_data_chatml
+    python Claude/SFT/convert_csv_to_chatml_ShieldGemma.py --indir Claude/SFT/new_data_splits \
+                                  --outdir Claude/SFT/new_data_chatml_ShieldGemma
     python Claude/SFT/convert_csv_to_chatml_ShieldGemma.py --reasoning-col Reasoning
     python Claude/SFT/convert_csv_to_chatml_ShieldGemma.py --dry-run
 """
@@ -110,8 +110,9 @@ RISK_CATEGORIES = [
 
 MISSING_PLACEHOLDER = "Not reported"
 
+# FIXED: Removed "none" and "nil" so clinical negative values are preserved.
 NULL_VALUES = {
-    "", "nan", "none", "null", "n/a", "na", "nil", "-", "--", "unknown",
+    "", "nan", "null", "n/a", "na", "-", "--", "unknown",
 }
 
 # ==============================================================================
