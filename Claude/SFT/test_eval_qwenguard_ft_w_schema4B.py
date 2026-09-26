@@ -47,11 +47,11 @@ from tqdm import tqdm
 # Use 'final' since load_best_model_at_end=True saved the best (ckpt-350) here.
 # If you want to compare a specific checkpoint, swap this for
 # "SFT/outputs/Qwen3Guard-Gen-4B/checkpoint-350"
-CHECKPOINT_PATH      = os.path.abspath("SFT/outputs/Qwen3Guard-Gen-4B/final")
-TEST_JSONL           = os.path.abspath("Claude/SFT/data_chatml/test.jsonl")
+CHECKPOINT_PATH      = os.path.abspath("Claude/SFT/new_outputs/Qwen3Guard-Gen-4B/checkpoint-950")
+TEST_JSONL           = os.path.abspath("Claude/SFT/new_data_chatml_qwen_and_qwenguard/test.jsonl")
 RISK_CATEGORIES_FILE = os.path.abspath("risk_categories.txt")
-OUT_JSONL            = "test_qwen3guard_sft_v3_predictions.jsonl"
-OUT_TXT              = "test_qwen3guard_sft_v3_predictions.txt"
+OUT_JSONL            = "Claude/SFT/new_data_chatml_qwen_and_qwenguard/test_predictions_w_schema.jsonl"
+OUT_TXT              = "Claude/SFT/new_data_chatml_qwen_and_qwenguard/test_predictions_w_schema.txt"
 
 MAX_SEQ_LENGTH = 4096
 MAX_NEW_TOKENS = 2048
