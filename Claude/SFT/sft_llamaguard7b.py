@@ -358,7 +358,8 @@ def run_evaluation(model, tokenizer, dataset, split_name="Test"):
 
 def main():
     BASE_MODEL = "llamas-community/LlamaGuard-7b"
-    MAX_SEQ_LENGTH = 2048
+    # MAX_SEQ_LENGTH = 2048
+    MAX_SEQ_LENGTH = 4096
 
     print(f"Loading base model: {BASE_MODEL}")
     print()
@@ -426,10 +427,10 @@ def main():
     )
 
     train_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml/train.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_llama_and_llamaguard/train.jsonl", split="train",
     )
     val_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml/val.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_llama_and_llamaguard/val.jsonl", split="train",
     )
     print(f"Train: {len(train_ds)} examples  |  Val: {len(val_ds)} examples")
 

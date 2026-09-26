@@ -1,6 +1,6 @@
 """
 # For your fine-tuned Qwen (the main result):
-python Claude/SFT/category_metrics.py Claude/SFT/outputs/Qwen3-4B-Instruct/test_predictions.jsonl Claude/SFT/data_chatml/test.jsonl
+python Claude/SFT/category_metrics.py Claude/SFT/new_outputs/Qwen3-4B-Instruct/test_predictions.jsonl Claude/SFT/data_chatml/test.jsonl
 
 # For zero-shot Qwen base:
 python Claude/SFT/category_metrics.py Claude/Base_Models/test_base_Qwen3-4B-Instruct_predictions.jsonl  Claude/SFT/data_chatml/test.jsonl

@@ -373,7 +373,7 @@ def run_evaluation(model, tokenizer, dataset, split_name="Test"):
 
 def main():
     BASE_MODEL = "meta-llama/Meta-Llama-Guard-2-8B"
-    OUTPUT_DIR = "SFT/new_outputs/Meta-Llama-Guard-2-8B"
+    OUTPUT_DIR = "SFT/new_outputs/Llama-Guard-2-8B"
     MAX_SEQ_LENGTH = 2048
 
     print(f"Loading base model: {BASE_MODEL}")
@@ -442,10 +442,10 @@ def main():
     )
 
     train_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml/train.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_llama_and_llamaguard/train.jsonl", split="train",
     )
     val_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml/val.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_llama_and_llamaguard/val.jsonl", split="train",
     )
     print(f"Train: {len(train_ds)} examples  |  Val: {len(val_ds)} examples")
 

@@ -1,38 +1,67 @@
 """
-SFT for Qwen3Guard-Gen-14B on your clinical safety dataset — FIXED VERSION.
+SFT for ShieldGemma-27B on the clinical safety dataset.
 
-THE FIX (vs. previous version):
-=================================
-Qwen3Guard ships with a SPECIALIZED chat template that:
-  - Discards system messages
-  - Hardcodes a "Task: evaluate this for safety" wrapper in the user turn
-  - Does NOT produce an <|im_start|>assistant\n section
-  - Buries the actual user content inside its own classifier instructions
+WHY CHATML IS WRONG HERE
+========================
+The Qwen scripts override the tokenizer template with ChatML
+(<|im_start|> / <|im_end|>). That is correct for Qwen and wrong for
+ShieldGemma, for three independent reasons.
 
-This template is incompatible with standard SFT because there's no
-assistant section in the tokenized output for the model to learn from.
-Result: 99.7% of tokens get masked, only Qwen3Guard's hardcoded
-"<think>" tokens remain → training does nothing useful.
+1. Different turn markers. ShieldGemma is built on Gemma 2, which uses
+   <start_of_turn> and <end_of_turn>. <|im_start|> is not in the Gemma
+   vocabulary at all, so it fragments into ordinary sub-tokens and
+   train_on_responses_only cannot locate the response boundary. That is
+   the same failure that produced
 
-The fix is to OVERRIDE tokenizer.chat_template with a standard ChatML
-template BEFORE doing any data processing. This treats Qwen3Guard's
-weights as a starting point for SFT, while using the standard format
-the model architecture supports natively (its underlying tokenizer is
-Qwen2Tokenizer, which recognizes <|im_start|> / <|im_end|> tokens).
+       Removed 3772 out of 3772 samples where all labels were -100
 
-What we keep from Qwen3Guard: the weights, which encode whatever
-safety-specialized knowledge that pretraining produced.
-What we drop: the classifier-specific template, which would prevent
-training.
+   on LlamaGuard-7b.
 
-EXPECTED OUTCOME (same as before):
-  - Will probably work — Qwen3Guard is still an LLM underneath
-  - Final accuracy likely 0.85-0.92, somewhat below Qwen3-4B-Instruct
-    SFT (0.94) because Qwen3Guard's safety pretraining doesn't help
-    on clinical tasks and may even hurt (model resists producing JSON
-    instead of "Safety: Safe/Unsafe")
-  - Useful as an ablation: "SFT from a general instruct base beats SFT
-    from a safety-specialized classifier on clinical safety"
+2. Different role name. Gemma calls the assistant turn "model", not
+   "assistant".
+
+3. No system role. Gemma has no system turn. The official template
+   raises an exception if you pass one. Every record in this dataset
+   carries a system message, so it must be folded into the first user
+   turn. The template below does that, which keeps a single JSONL usable
+   across Qwen, Llama, and Gemma rather than needing one copy per family.
+
+Resulting format:
+
+    <bos><start_of_turn>user
+    {system}
+
+    {user}<end_of_turn>
+    <start_of_turn>model
+    {assistant}<end_of_turn>
+
+Masking markers, both real single tokens in the Gemma vocabulary:
+
+    instruction_part = "<start_of_turn>user\n"
+    response_part    = "<start_of_turn>model\n"
+
+ShieldGemma also ships a specialized safety-classifier template that
+takes a `guideline` argument and emits a "Yes"/"No" policy-violation
+verdict. It discards the assistant turn, so it has to be replaced
+regardless.
+
+ACCESS
+======
+google/shieldgemma-27b is gated under the Gemma license. Verify before a
+long run:
+
+    python -c "
+    from huggingface_hub import hf_hub_download
+    print(hf_hub_download('google/shieldgemma-27b','config.json'))
+    "
+
+PRECISION WARNING
+=================
+Gemma 2 uses attention and final logit soft-capping, and is known to
+overflow in float16. On a V100 (no bfloat16) this can surface as NaN
+loss within the first few hundred steps. The script warns if it detects
+that situation. If loss goes NaN, the options are a bf16-capable GPU
+(A100/H100) or a lower learning rate, in that order of effectiveness.
 """
 
 import torch
@@ -48,7 +77,7 @@ from sklearn.metrics import (
 )
 
 # ==============================================================================
-# 1. HPC PATCHES
+# 1. CRITICAL HPC & BACKEND PATCHES
 # ==============================================================================
 import torch.utils._pytree
 if not hasattr(torch.utils._pytree, "register_constant"):
@@ -78,26 +107,37 @@ from transformers import EarlyStoppingCallback
 from tqdm import tqdm
 
 # ==============================================================================
-# 3. STANDARD CHATML TEMPLATE
+# 3. GEMMA CHAT TEMPLATE
 # ==============================================================================
-# Standard Qwen-family ChatML format. Same as what Qwen3-4B-Instruct uses.
-# Handles system/user/assistant roles, supports add_generation_prompt for
-# inference. This is what we use to OVERRIDE Qwen3Guard's specialized template.
+# Folds the system message into the first user turn, since Gemma has no
+# system role, and renames assistant -> model.
 
-STANDARD_CHATML_TEMPLATE = (
+GEMMA_CHAT_TEMPLATE = (
+    "{{- bos_token }}"
+    "{%- set ns = namespace(system='') %}"
     "{%- for message in messages %}"
     "{%- if message['role'] == 'system' %}"
-    "{{- '<|im_start|>system\n' + message['content'] + '<|im_end|>\n' }}"
-    "{%- elif message['role'] == 'user' %}"
-    "{{- '<|im_start|>user\n' + message['content'] + '<|im_end|>\n' }}"
-    "{%- elif message['role'] == 'assistant' %}"
-    "{{- '<|im_start|>assistant\n' + message['content'] + '<|im_end|>\n' }}"
+    "{%- set ns.system = message['content'] %}"
+    "{%- endif %}"
+    "{%- endfor %}"
+    "{%- set loop_messages = messages | rejectattr('role', 'equalto', 'system') | list %}"
+    "{%- for message in loop_messages %}"
+    "{%- set role = 'model' if message['role'] == 'assistant' else message['role'] %}"
+    "{%- if loop.first and ns.system and role == 'user' %}"
+    "{{- '<start_of_turn>user\n' + ns.system + '\n\n' "
+    "+ message['content'] | trim + '<end_of_turn>\n' }}"
+    "{%- else %}"
+    "{{- '<start_of_turn>' + role + '\n' + message['content'] | trim "
+    "+ '<end_of_turn>\n' }}"
     "{%- endif %}"
     "{%- endfor %}"
     "{%- if add_generation_prompt %}"
-    "{{- '<|im_start|>assistant\n' }}"
+    "{{- '<start_of_turn>model\n' }}"
     "{%- endif %}"
 )
+
+INSTRUCTION_PART = "<start_of_turn>user\n"
+RESPONSE_PART = "<start_of_turn>model\n"
 
 # ==============================================================================
 # 4. DATA FORMATTING
@@ -113,7 +153,75 @@ def format_for_sft(examples, tokenizer):
     return {"text": texts}
 
 # ==============================================================================
-# 5. PRE-TRAINING DIAGNOSTICS
+# 5. MARKER AND LENGTH DIAGNOSTICS
+# ==============================================================================
+
+def check_marker_tokenization(tokenizer, sample_text):
+    """Verify the masking markers survive tokenization in context.
+
+    Catches a template/tokenizer mismatch before a full training run
+    silently becomes a no-op.
+    """
+    print("\n" + "=" * 70)
+    print("MARKER TOKENIZATION CHECK")
+    print("=" * 70)
+
+    full_ids = tokenizer(sample_text, add_special_tokens=False)["input_ids"]
+
+    ok = True
+    for label, marker in (("instruction", INSTRUCTION_PART),
+                          ("response", RESPONSE_PART)):
+        marker_ids = tokenizer(marker, add_special_tokens=False)["input_ids"]
+        found_at = -1
+        for i in range(len(full_ids) - len(marker_ids) + 1):
+            if full_ids[i:i + len(marker_ids)] == marker_ids:
+                found_at = i
+                break
+        status = f"found at token {found_at}" if found_at >= 0 else "NOT FOUND"
+        print(f"  {label:12s} {marker.replace(chr(10), chr(92)+'n')!r:28s} "
+              f"ids {marker_ids} : {status}")
+        if found_at < 0:
+            ok = False
+
+    bos_id = getattr(tokenizer, "bos_token_id", None)
+    if bos_id is not None:
+        with_special = tokenizer(sample_text, add_special_tokens=True)["input_ids"]
+        if len(with_special) >= 2 and with_special[:2] == [bos_id, bos_id]:
+            print("\n  NOTE: BOS appears twice. The template emits bos_token and")
+            print("  the tokenizer adds another. Harmless but wastes a token.")
+
+    if not ok:
+        print("\n  A marker did not tokenize consistently in context.")
+        print("  train_on_responses_only would mask everything and training")
+        print("  would be a no-op. Fix the template before proceeding.")
+    print("=" * 70 + "\n")
+    return ok
+
+
+def report_length_stats(tokenizer, dataset, max_seq_length, name="train"):
+    """Truncation removing the assistant turn looks identical to a marker
+    mismatch, so measure it separately."""
+    print("=" * 70)
+    print(f"TOKEN LENGTH REPORT ({name})")
+    print("=" * 70)
+    n = min(len(dataset), 500)
+    lengths = np.array([
+        len(tokenizer(dataset[i]["text"], add_special_tokens=False)["input_ids"])
+        for i in range(n)
+    ])
+    print(f"  sampled {n} examples")
+    print(f"  median {np.median(lengths):.0f}  p90 {np.percentile(lengths, 90):.0f}  "
+          f"p99 {np.percentile(lengths, 99):.0f}  max {lengths.max()}")
+    over = int((lengths > max_seq_length).sum())
+    print(f"  over max_seq_length={max_seq_length}: {over}/{n} "
+          f"({100 * over / n:.1f}%)")
+    if over > 0.05 * n:
+        print(f"  *** more than 5% will be truncated; raise max_seq_length ***")
+    print("=" * 70 + "\n")
+    return lengths
+
+# ==============================================================================
+# 6. PRE-TRAINING MASKING DIAGNOSTIC
 # ==============================================================================
 
 def report_masking_health(trainer, tokenizer, n_samples=3):
@@ -126,6 +234,10 @@ def report_masking_health(trainer, tokenizer, n_samples=3):
         if ds is None:
             continue
         print(f"\n--- {split_name} ---")
+        if len(ds) == 0:
+            print("  *** BROKEN: dataset is empty (all samples were dropped) ***")
+            all_ok = False
+            continue
         ratios = []
         for i in range(min(n_samples, len(ds))):
             ex = ds[i]
@@ -152,7 +264,7 @@ def report_masking_health(trainer, tokenizer, n_samples=3):
     return all_ok
 
 # ==============================================================================
-# 6. POST-TRAINING SANITY CHECK
+# 7. POST-TRAINING SANITY CHECK
 # ==============================================================================
 
 def quick_generation_check(model, tokenizer, dataset, n=3):
@@ -187,7 +299,7 @@ def quick_generation_check(model, tokenizer, dataset, n=3):
     print("=" * 70 + "\n")
 
 # ==============================================================================
-# 7. FULL EVALUATION
+# 8. FULL EVALUATION
 # ==============================================================================
 
 def extract_is_safe(text: str):
@@ -202,10 +314,11 @@ def extract_is_safe(text: str):
     m = re.search(r'"is_safe"\s*:\s*(true|false)', text, re.IGNORECASE)
     if m:
         return m.group(1).lower() == "true"
-    # Fallback for leftover Qwen3Guard-style outputs
-    m = re.search(r"Safety:\s*(Safe|Unsafe|Controversial)", text, re.IGNORECASE)
+    # Fallback for leftover ShieldGemma-style output. ShieldGemma answers
+    # "Yes" when the content VIOLATES the policy, so Yes maps to unsafe.
+    m = re.search(r"^\s*(yes|no)\b", text, re.IGNORECASE | re.MULTILINE)
     if m:
-        return m.group(1).lower() == "safe"
+        return m.group(1).lower() == "no"
     return None
 
 
@@ -270,57 +383,74 @@ def run_evaluation(model, tokenizer, dataset, split_name="Test"):
     }
 
 # ==============================================================================
-# 8. MAIN
+# 9. MAIN
 # ==============================================================================
 
 def main():
-    BASE_MODEL = "Qwen/Qwen3Guard-Gen-14B"
+    BASE_MODEL = "google/shieldgemma-27b"
+    OUTPUT_DIR = "Claude/SFT/new_outputs/ShieldGemma-27B"
+    DATA_DIR = "Claude/SFT/new_data_chatml_ShieldGemma"
+    MAX_SEQ_LENGTH = 2048
 
     print(f"Loading base model: {BASE_MODEL}")
     print()
 
     model, tokenizer = FastLanguageModel.from_pretrained(
         model_name     = BASE_MODEL,
-        max_seq_length = 2048,
+        max_seq_length = MAX_SEQ_LENGTH,
         load_in_4bit   = True,
         device_map     = "auto",
     )
 
+    is_bf16_supported = torch.cuda.is_bf16_supported() if torch.cuda.is_available() else False
+    if not is_bf16_supported:
+        print("!" * 70)
+        print("WARNING: bfloat16 is unavailable, so this will run in float16.")
+        print("Gemma 2 uses logit soft-capping and is known to overflow in fp16,")
+        print("which can show up as NaN loss in the first few hundred steps.")
+        print("Watch the loss closely. If it goes NaN, move to a bf16-capable")
+        print("GPU (A100/H100) or lower the learning rate.")
+        print("!" * 70)
+        print()
+
     # ==========================================================================
-    # CRITICAL FIX: Override Qwen3Guard's specialized chat template
+    # Replace ShieldGemma's classifier template with plain Gemma chat format
     # ==========================================================================
-    # Qwen3Guard ships with a template hardcoded for safety classification.
-    # That template throws away assistant content, making SFT impossible.
-    # We replace it with standard ChatML so the model can be trained on
-    # arbitrary input/output pairs.
     print("--- Before override ---")
-    print(f"Tokenizer template starts with: {tokenizer.chat_template[:200]!r}")
+    _existing = tokenizer.chat_template or "(none - model ships no chat template)"
+    print(f"Tokenizer template starts with: {_existing[:200]!r}")
     print()
 
-    tokenizer.chat_template = STANDARD_CHATML_TEMPLATE
-    print("Overrode tokenizer.chat_template with standard ChatML format.")
+    tokenizer.chat_template = GEMMA_CHAT_TEMPLATE
+    print("Overrode tokenizer.chat_template with Gemma chat format.")
+    print("System messages are folded into the first user turn, since Gemma")
+    print("has no system role.")
     print()
 
-    # Verify the override worked
     sample_msgs = [
         {"role": "system", "content": "test system"},
         {"role": "user", "content": "test user"},
         {"role": "assistant", "content": "test assistant"},
     ]
-    rendered = tokenizer.apply_chat_template(sample_msgs, tokenize=False, add_generation_prompt=False)
+    rendered = tokenizer.apply_chat_template(
+        sample_msgs, tokenize=False, add_generation_prompt=False)
     print("--- After override: rendered sample ---")
     print(repr(rendered))
     print()
-    # Sanity check: the rendered string must contain BOTH assistant section
-    # AND the user content verbatim. If not, something else is going wrong.
-    assert "<|im_start|>assistant\ntest assistant" in rendered, \
-        "Chat template override failed: no assistant section in rendered output"
-    assert "<|im_start|>user\ntest user" in rendered, \
-        "Chat template override failed: no user section in rendered output"
-    print("Sanity check passed: standard ChatML structure confirmed.\n")
+    assert "<start_of_turn>user\ntest system\n\ntest user" in rendered, \
+        "Template failed: system not folded into the first user turn"
+    assert "<start_of_turn>model\ntest assistant" in rendered, \
+        "Template failed: assistant turn not rendered under the model role"
+    assert "<|im_start|>" not in rendered, \
+        "Template failed: ChatML markers leaked into Gemma output"
+    print("Sanity check passed: Gemma chat structure confirmed.\n")
+
+    if not check_marker_tokenization(tokenizer, rendered):
+        print("ABORTING: marker tokenization check failed.")
+        return
 
     # ==========================================================================
-    # Now proceed with standard SFT (same as Qwen3-4B-Instruct script)
+    # Standard SFT from here
     # ==========================================================================
     model = FastLanguageModel.get_peft_model(
         model,
@@ -335,10 +465,10 @@ def main():
     )
 
     train_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml_qwen_and_qwenguard/train.jsonl", split="train",
+        "json", data_files=f"{DATA_DIR}/train.jsonl", split="train",
     )
     val_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml_qwen_and_qwenguard/train.jsonl", split="train",
+        "json", data_files=f"{DATA_DIR}/val.jsonl", split="train",
     )
     print(f"Train: {len(train_ds)} examples  |  Val: {len(val_ds)} examples")
 
@@ -353,7 +483,7 @@ def main():
         remove_columns=val_ds.column_names, num_proc=2,
     )
 
-    is_bf16_supported = torch.cuda.is_bf16_supported() if torch.cuda.is_available() else False
+    report_length_stats(tokenizer, train_dataset, MAX_SEQ_LENGTH, name="train")
 
     trainer = SFTTrainer(
         model         = model,
@@ -365,7 +495,7 @@ def main():
             dataset_text_field           = "text",
             dataset_num_proc             = 2,
             remove_unused_columns        = True,
-            max_seq_length               = 2048,
+            max_seq_length               = MAX_SEQ_LENGTH,
             per_device_train_batch_size  = 2,
             per_device_eval_batch_size   = 2,
             gradient_accumulation_steps  = 4,
@@ -378,7 +508,7 @@ def main():
             lr_scheduler_type            = "cosine",
             optim                        = "adamw_8bit",
             weight_decay                 = 0.01,
-            output_dir                   = "Claude/SFT/new_outputs/Qwen3Guard-Gen-14B",
+            output_dir                   = OUTPUT_DIR,
             save_strategy                = "steps",
             save_steps                   = 50,
             save_total_limit             = 50,
@@ -393,12 +523,11 @@ def main():
         ),
     )
 
-    # Now train_on_responses_only works because the chat template produces
-    # the standard markers it expects.
+    # Gemma turn markers, not ChatML.
     trainer = train_on_responses_only(
         trainer,
-        instruction_part = "<|im_start|>user\n",
-        response_part    = "<|im_start|>assistant\n",
+        instruction_part = INSTRUCTION_PART,
+        response_part    = RESPONSE_PART,
     )
 
     for attr in ("train_dataset", "eval_dataset"):
@@ -407,15 +536,15 @@ def main():
             setattr(trainer, attr, ds.remove_columns(["text"]))
 
     if not report_masking_health(trainer, tokenizer):
-        print("ABORTING: masking diagnostic STILL failed after template override.")
-        print("This shouldn't happen with the override. Check the rendered")
-        print("sample output above to see if it has the expected structure.")
+        print("ABORTING: masking diagnostic failed.")
+        print("Marker tokenization passed, so the likely cause is truncation.")
+        print("Check the TOKEN LENGTH REPORT above and raise max_seq_length.")
         return
 
     trainer.train()
 
     model.save_pretrained_merged(
-        "SFT/new_outputs/Qwen3Guard-Gen-14B/final", tokenizer, save_method="merged_16bit",
+        f"{OUTPUT_DIR}/final", tokenizer, save_method="merged_16bit",
     )
 
     quick_generation_check(model, tokenizer, val_ds, n=3)

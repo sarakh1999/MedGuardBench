@@ -52,22 +52,24 @@ from tqdm import tqdm
 # 3. CONFIG
 # ==============================================================================
 CHECKPOINT_PATH = os.path.abspath(
-    "Claude/SFT/outputs/Qwen3-4B-Instruct/checkpoint-528"
+    "Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-950"
 )
-TEST_JSONL      = os.path.abspath("Claude/SFT/data_chatml/test.jsonl")
-OUT_JSONL       = "test_predictions.jsonl"
-OUT_TXT         = "test_predictions.txt"
+TEST_JSONL      = os.path.abspath("Claude/SFT/new_data_chatml_qwen_and_qwenguard/test.jsonl")
+OUT_JSONL       = "Claude/SFT/new_outputs/Qwen3-4B-Instruct/test_predictions.jsonl"
+OUT_TXT         = "Claude/SFT/new_outputs/Qwen3-4B-Instruct/test_predictions.txt"
 MAX_NEW_TOKENS  = 1024
 
 if not os.path.isdir(CHECKPOINT_PATH):
     sys.exit(f"Checkpoint not found: {CHECKPOINT_PATH}")
-if not os.path.isfile(TEST_JSONL):
-    sys.exit(
-        f"Test jsonl not found: {TEST_JSONL}\n\n"
-        f"Generate it first by running:\n"
-        f"  python Claude/SFT/csv_to_chatml.py Claude/SFT/data_splits "
-        f"Claude/SFT/data_chatml --include-test"
-    )
+
+#adjust paths for the below part    
+# if not os.path.isfile(TEST_JSONL):
+#     sys.exit(
+#         f"Test jsonl not found: {TEST_JSONL}\n\n"
+#         f"Generate it first by running:\n"
+#         f"  python Claude/SFT/csv_to_chatml.py Claude/SFT/data_splits "
+#         f"Claude/SFT/data_chatml --include-test"
+#     )
 
 # ==============================================================================
 # 4. OUTPUT PARSING + I/O

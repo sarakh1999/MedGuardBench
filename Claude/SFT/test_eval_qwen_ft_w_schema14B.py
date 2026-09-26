@@ -41,13 +41,13 @@ from tqdm import tqdm
 # ==============================================================================
 # 2. CONFIG (aligned with base v3)
 # ==============================================================================
-CHECKPOINT_PATH      = os.path.abspath("Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-950")
+CHECKPOINT_PATH      = os.path.abspath("Claude/SFT/new_outputs/Qwen3-14B-Instruct/checkpoint-950")
 TEST_JSONL           = os.path.abspath("Claude/SFT/new_data_chatml_qwen_and_qwenguard/test.jsonl")
 RISK_CATEGORIES_FILE = os.path.abspath("risk_categories.txt")
 # OUT_JSONL            = "test_sft_v3_predictions.jsonl"
-OUT_JSONL            = "Claude/SFT/new_outputs/Qwen3-4B-Instruct/test_predictions_w_schema.jsonl"
+OUT_JSONL            = "Claude/SFT/new_outputs/Qwen3-14B-Instruct/test_predictions_w_schema.jsonl"
 # OUT_TXT              = "test_sft_v3_predictions.txt"
-OUT_TXT              = "Claude/SFT/new_outputs/Qwen3-4B-Instruct/test_predictions_w_schema.txt"
+OUT_TXT              = "Claude/SFT/new_outputs/Qwen3-14B-Instruct/test_predictions_w_schema.txt"
 
 MAX_SEQ_LENGTH = 4096
 MAX_NEW_TOKENS = 2048

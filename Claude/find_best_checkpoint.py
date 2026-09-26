@@ -2,7 +2,9 @@ import os
 import json
 import pandas as pd
 
-def find_best_medguard_checkpoint(checkpoint_dir="Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-900"):
+def find_best_medguard_checkpoint():
+    
+    checkpoint_dir = "Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-1100"
     # Target the specific JSON file you mentioned
     state_path = os.path.join(checkpoint_dir, "trainer_state.json")
     
@@ -61,4 +63,4 @@ def find_best_medguard_checkpoint(checkpoint_dir="Claude/SFT/new_outputs/Qwen3-4
 
 if __name__ == "__main__":
     # Pointing to the specific directory you provided
-    best_path = find_best_medguard_checkpoint("Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-900")
+    best_path = find_best_medguard_checkpoint()

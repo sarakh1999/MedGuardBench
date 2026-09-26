@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 # 1. Load trainer state from checkpoint
-with open("Claude/SFT/new_outputs/Qwen3Guard-Gen-14B/checkpoint-1050/trainer_state.json", "r") as f:
+with open("Claude/SFT/new_outputs/ShieldGemma-9B/checkpoint-1416/trainer_state.json", "r") as f:
     trainer_state = json.load(f)
 
 # 2. Extract loss values from log history
@@ -36,7 +36,7 @@ ax.grid(True, linestyle="--", alpha=0.5)
 plt.tight_layout()
 
 # 4. Save
-output_path = "Claude/SFT/new_outputs/Qwen3Guard-Gen-14B/Qwen3Guard-Gen-14B.png"
+output_path = "Claude/SFT/new_outputs/ShieldGemma-9B/ShieldGemma-9B.png"
 plt.savefig(output_path, dpi=150)
 plt.show()
 print(f"Plot saved to: {output_path}")

@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 # 1. Load trainer state from checkpoint
-with open("Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-700/trainer_state.json", "r") as f:
+with open("Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-1100/trainer_state.json", "r") as f:
     trainer_state = json.load(f)
 
 # 2. Extract loss values from log history
