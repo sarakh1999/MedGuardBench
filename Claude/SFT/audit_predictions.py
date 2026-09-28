@@ -68,8 +68,11 @@ def parse_chatml(example):
     scen = re.search(r"Clinical Scenario:\s*(.*)", user, re.DOTALL)
     if scen:
         prof["Clinical Scenario"] = scen.group(1).strip()
-    ref = extract_json_dict(next((m["content"] for m in example["messages"] if m["role"] == "assistant"), ""))
-    return prof, prof.get("Patient ID"), ref or {}
+    asst = next((m for m in example["messages"] if m["role"] == "assistant"), {})
+    ref = extract_json_dict(asst.get("content") or "") or {}
+    if asst.get("reasoning_content"):  # think format: reasoning lives outside the JSON
+        ref = {"reasoning": asst["reasoning_content"], **ref}
+    return prof, prof.get("Patient ID"), ref
 
 
 def rule_findings(pred, prof, categories):

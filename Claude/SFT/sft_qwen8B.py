@@ -40,17 +40,18 @@ from datasets import load_dataset
 from transformers import EarlyStoppingCallback
 from tqdm import tqdm
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from qwen_think import training_text, encode_prompt, parse_response  # reasoning in <think></think>
+
 # ==============================================================================
 # 3. DATA FORMATTING
 # ==============================================================================
 
 def format_for_sft(examples, tokenizer):
-    texts = [
-        tokenizer.apply_chat_template(
-            convo, tokenize=False, add_generation_prompt=False,
-        )
-        for convo in examples["messages"]
-    ]
+    # Reasoning goes inside <think></think>, JSON answer after it (see qwen_think.py).
+    # The plain chat template would render an EMPTY think block and put the
+    # reasoning in the JSON, teaching the model to skip its scratchpad.
+    texts = [training_text(tokenizer, convo) for convo in examples["messages"]]
     return {"text": texts}
 
 # ==============================================================================
@@ -110,10 +111,7 @@ def quick_generation_check(model, tokenizer, dataset, n=3):
         prompt_msgs = [m for m in messages if m["role"] != "assistant"]
         gt = next((m["content"] for m in messages if m["role"] == "assistant"), "")
 
-        inputs = tokenizer.apply_chat_template(
-            prompt_msgs, tokenize=True, add_generation_prompt=True,
-            return_tensors="pt",
-        ).to("cuda")
+        inputs = encode_prompt(tokenizer, prompt_msgs)  # pre-fills "<think>\n"
 
         with torch.no_grad():
             outputs = model.generate(
@@ -168,10 +166,7 @@ def run_evaluation(model, tokenizer, dataset, split_name="Test"):
             continue
         y_true.append(0 if gt_safe else 1)
 
-        inputs = tokenizer.apply_chat_template(
-            prompt_msgs, tokenize=True, add_generation_prompt=True,
-            return_tensors="pt",
-        ).to("cuda")
+        inputs = encode_prompt(tokenizer, prompt_msgs)  # pre-fills "<think>\n"
 
         with torch.no_grad():
             outputs = model.generate(
@@ -179,10 +174,10 @@ def run_evaluation(model, tokenizer, dataset, split_name="Test"):
                 use_cache=True, do_sample=False,
             )
         response = tokenizer.decode(
-            outputs[0][len(inputs[0]):], skip_special_tokens=True,
+            outputs[0][len(inputs[0]):], skip_special_tokens=False,  # keep </think>
         )
 
-        pred_safe = extract_is_safe(response)
+        pred_safe = extract_is_safe(parse_response(response)["answer_text"])
         if pred_safe is None:
             n_unparseable_pred += 1
             pred_safe = True
@@ -233,10 +228,10 @@ def main():
     )
 
     train_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml_qwen_and_qwenguard/train.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_qwen_think/train.jsonl", split="train",
     )
     val_ds = load_dataset(
-        "json", data_files="Claude/SFT/new_data_chatml_qwen_and_qwenguard/val.jsonl", split="train",
+        "json", data_files="Claude/SFT/new_data_chatml_qwen_think/val.jsonl", split="train",
     )
     print(f"Train: {len(train_ds)} examples  |  Val: {len(val_ds)} examples")
 

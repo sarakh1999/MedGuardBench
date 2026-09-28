@@ -38,11 +38,14 @@ from unsloth import FastLanguageModel
 from datasets import load_dataset
 from tqdm import tqdm
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from qwen_think import training_text, encode_prompt, parse_response  # reasoning in <think></think>
+
 # ==============================================================================
 # 2. CONFIG (aligned with base v3)
 # ==============================================================================
 CHECKPOINT_PATH      = os.path.abspath("Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-950")
-TEST_JSONL           = os.path.abspath("Claude/SFT/new_data_chatml_qwen_and_qwenguard/test.jsonl")
+TEST_JSONL           = os.path.abspath("Claude/SFT/new_data_chatml_qwen_think/test.jsonl")
 RISK_CATEGORIES_FILE = os.path.abspath("risk_categories.txt")
 # OUT_JSONL            = "test_sft_v3_predictions.jsonl"
 OUT_JSONL            = "Claude/SFT/new_outputs/Qwen3-4B-Instruct/test_predictions_w_schema.jsonl"
@@ -228,9 +231,7 @@ def main():
     print("\nSanity check on test example 0...")
     ex0 = test_ds[0]
     prompt_msgs = [m for m in ex0["messages"] if m["role"] != "assistant"]
-    inputs = tokenizer.apply_chat_template(
-        prompt_msgs, tokenize=True, add_generation_prompt=True, return_tensors="pt",
-    ).to("cuda")
+    inputs = encode_prompt(tokenizer, prompt_msgs)  # pre-fills "<think>\n"
     print(f"  Prompt length: {inputs.shape[1]} tokens")
     t0 = time.time()
     with torch.no_grad():
@@ -246,6 +247,8 @@ def main():
     if sample.lstrip().startswith("<tool_call>") and "<tool_call>" in sample[:200] and "{" not in sample[:200]:
         print("  *** WARNING: tool_call loop. Aborting. ***")
         return
+    if parse_response(sample)["think_empty"]:
+        print("  *** WARNING: empty <think> block; was this checkpoint trained with qwen_think.py? ***")
     print("  Looks like real output. Proceeding to full eval.\n")
 
     # -------- Resume support --------
@@ -262,9 +265,7 @@ def main():
         gt_msg = next((m["content"] for m in messages if m["role"] == "assistant"), "")
         gt_safe = extract_is_safe(gt_msg)
 
-        inputs = tokenizer.apply_chat_template(
-            prompt_msgs, tokenize=True, add_generation_prompt=True, return_tensors="pt",
-        ).to("cuda")
+        inputs = encode_prompt(tokenizer, prompt_msgs)  # pre-fills "<think>\n"
 
         t0 = time.time()
         with torch.no_grad():
@@ -273,16 +274,18 @@ def main():
                 use_cache=True, do_sample=False,
             )
         gen_seconds = time.time() - t0
-        response = tokenizer.decode(
-            out[0][len(inputs[0]):], skip_special_tokens=True,
-        )
+        # keep <think>/</think> (added tokens); drop end-of-turn markers
+        response = tokenizer.decode(out[0][len(inputs[0]):], skip_special_tokens=False)
+        response = response.replace("<|endoftext|>", "").replace("<|im_end|>", "")
+        think = parse_response(response)
+        answer = think["answer_text"]
 
-        pred_safe = extract_is_safe(response)
+        pred_safe = extract_is_safe(answer)
         parsed_ok = pred_safe is not None
         if not parsed_ok:
             pred_safe = True
-        pred_reasoning = extract_reasoning(response)
-        pred_ra, ra_parsed_ok, ra_n_recovered = extract_risk_analysis(response, categories)
+        pred_reasoning = think["reasoning"] or extract_reasoning(answer)
+        pred_ra, ra_parsed_ok, ra_n_recovered = extract_risk_analysis(answer, categories)
 
         record = {
             "idx": int(idx),
@@ -293,7 +296,9 @@ def main():
             "ra_n_recovered": int(ra_n_recovered),
             "pred_reasoning": pred_reasoning,
             "pred_risk_analysis": pred_ra,
-            "raw_response": response,
+            "think_empty": think["think_empty"],
+            "think_closed": think["think_closed"],
+            "raw_response": "<think>\n" + response,
             "gen_seconds": gen_seconds,
             "n_generated_tokens": len(out[0]) - len(inputs[0]),
         }
@@ -326,6 +331,7 @@ def main():
     n_ra_partially_recovered = 0
     n_ra_completely_failed = 0
     tokens_at_max = 0
+    n_think_empty = n_think_unclosed = 0
     for r in all_records:
         if r["gt_is_safe"] is None:
             continue
@@ -341,6 +347,8 @@ def main():
             n_ra_completely_failed += 1
         if r.get("n_generated_tokens", 0) >= MAX_NEW_TOKENS:
             tokens_at_max += 1
+        n_think_empty += bool(r.get("think_empty"))
+        n_think_unclosed += r.get("think_closed") is False
 
     if y_true:
         acc = accuracy_score(y_true, y_pred)
@@ -361,6 +369,8 @@ def main():
         print(f"  risk_analysis partial recov:   {n_ra_partially_recovered}/{len(all_records)}")
         print(f"  risk_analysis completely fail: {n_ra_completely_failed}/{len(all_records)}")
         print(f"  Hit MAX_NEW_TOKENS cap:        {tokens_at_max}/{len(all_records)}")
+        print(f"  Empty <think> block:           {n_think_empty}/{len(all_records)}")
+        print(f"  <think> never closed:          {n_think_unclosed}/{len(all_records)}")
 
     # ------ Per-category metrics ------
     print(f"\nPER-CATEGORY METRICS:")

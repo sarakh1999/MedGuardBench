@@ -19,7 +19,13 @@ Output: JSONL, one training example per line with `messages` field
 
 Run with the below command:
 
-python Claude/SFT/convert_csv_to_chatml_qwen_and_qwenguard.py   Claude/SFT/new_data_splits   Claude/SFT/new_data_chatml_qwen_and_qwenguard  --include-test
+python Claude/SFT/convert_csv_to_chatml_qwen_and_qwenguard.py   Claude/SFT/new_data_splits   Claude/SFT/new_data_chatml_qwen_think  --include-test
+
+--format think (default): the reasoning goes in the assistant message's
+  `reasoning_content` and is trained inside Qwen's <think>...</think> block
+  (see qwen_think.py); `content` is JSON with only risk_analysis and is_safe.
+--format json: old format, reasoning as the first key of the JSON answer.
+  With Qwen3 templates this trains an EMPTY "<think>\n\n</think>" block.
 
 """
 
@@ -39,6 +45,16 @@ SYSTEM_PROMPT = (
     "(your step-by-step clinical analysis as a string), 'risk_analysis' (an object "
     "mapping each risk category to true or false), and 'is_safe' (the final boolean "
     "verdict, true only if every risk category is false)."
+)
+
+THINK_SYSTEM_PROMPT = (
+    "You are an expert clinical safety guardrail AI. Analyze the patient profile, "
+    "physician assessment report, and clinical scenario provided. First reason step by "
+    "step inside <think></think>: work through the clinical reasoning, then evaluate "
+    "each predefined risk category individually, then state the final safety verdict. "
+    "After </think>, output only a JSON object with this exact key order: "
+    "'risk_analysis' (an object mapping each risk category to true or false) and "
+    "'is_safe' (the final boolean verdict, true only if every risk category is false)."
 )
 
 PATIENT_PROFILE_FIELDS = [
@@ -168,9 +184,10 @@ def build_user_message(row):
     return "\n".join(lines)
 
 
-def build_assistant_message(row, categories: list[str], reasoning_source="teacher"):
+def build_assistant_message(row, categories: list[str], reasoning_source="teacher", fmt="think"):
     """
-    Build the assistant JSON response.
+    Build the assistant message dict. fmt="think": reasoning in `reasoning_content`,
+    JSON answer without reasoning in `content`. fmt="json": reasoning inside the JSON.
     """
     risk_analysis = parse_risk_categories(row.get("Risk_Categories"), categories)
     is_safe = parse_is_safe(row.get("Is_Safe"))
@@ -183,13 +200,17 @@ def build_assistant_message(row, categories: list[str], reasoning_source="teache
     else:
         reasoning = student if student else teacher
 
+    if fmt == "think":
+        payload = {"risk_analysis": risk_analysis, "is_safe": is_safe}
+        return {"role": "assistant", "reasoning_content": reasoning,
+                "content": json.dumps(payload, indent=2, ensure_ascii=False)}
+
     payload = {
         "reasoning": reasoning,
         "risk_analysis": risk_analysis,
         "is_safe": is_safe,
     }
-    
-    return json.dumps(payload, indent=2, ensure_ascii=False)
+    return {"role": "assistant", "content": json.dumps(payload, indent=2, ensure_ascii=False)}
 
 
 def convert_one(
@@ -197,6 +218,7 @@ def convert_one(
     output_jsonl: Path,
     categories: list[str],
     reasoning_source: str = "teacher",
+    fmt: str = "think",
 ) -> int:
     """Convert a single CSV file to a single JSONL file. Returns row count."""
     df = pd.read_csv(input_csv)
@@ -211,9 +233,9 @@ def convert_one(
                 
             example = {
                 "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "system", "content": THINK_SYSTEM_PROMPT if fmt == "think" else SYSTEM_PROMPT},
                     {"role": "user", "content": build_user_message(row)},
-                    {"role": "assistant", "content": build_assistant_message(row, categories, reasoning_source)},
+                    build_assistant_message(row, categories, reasoning_source, fmt),
                 ]
             }
             f.write(json.dumps(example, ensure_ascii=False) + "\n")
@@ -266,6 +288,12 @@ def main():
         default="teacher",
         help="Which reasoning column to use as the training target.",
     )
+    p.add_argument(
+        "--format",
+        choices=["think", "json"],
+        default="think",
+        help="think: reasoning inside <think></think> (default); json: old reasoning-in-JSON format.",
+    )
     args = p.parse_args()
 
     if not args.input_folder.is_dir():
@@ -283,7 +311,7 @@ def main():
         if src is None:
             continue
         dst = args.output_folder / f"{split}.jsonl"
-        n = convert_one(src, dst, categories, args.reasoning_source)
+        n = convert_one(src, dst, categories, args.reasoning_source, args.format)
         print(f"[ok] {src.name} -> {dst}  ({n} examples)")
         total += n
 
