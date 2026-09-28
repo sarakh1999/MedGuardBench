@@ -26,3 +26,7 @@ unsloth_compiled_cache/
 .vscode/
 **/__pycache__/
 *.bak
+
+# LLM-judge cache / large generated outputs
+Claude/Knowledge_Distillation/judge_output/judge_log*.jsonl
+Claude/Knowledge_Distillation/judge_output/*_rules_checked.csv

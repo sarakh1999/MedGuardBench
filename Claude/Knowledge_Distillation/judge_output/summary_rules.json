@@ -1,0 +1,21 @@
+{
+  "input": "/home/user/MedGuardBench/Claude/Knowledge_Distillation/Claude_Personalized_Groundtruth_New_Data_Distill.csv",
+  "n": 5029,
+  "status": {
+    "ok": 3419,
+    "needs_review": 1571,
+    "minor": 39
+  },
+  "issues_first_pass": {
+    "rule:label_leakage_phrase:major": 1551,
+    "rule:final_verdict_unclear:minor": 38,
+    "rule:reasoning_number_mismatch:minor": 36,
+    "rule:audit_vs_labels:major": 19,
+    "rule:audit_missing_categories:minor": 10,
+    "rule:final_verdict_vs_is_safe:major": 4,
+    "rule:audit_missing_categories:major": 4,
+    "rule:audit_no_true_false:minor": 2
+  },
+  "n_field_changes": 0,
+  "token_usage": {}
+}
