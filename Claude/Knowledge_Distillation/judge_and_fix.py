@@ -205,6 +205,82 @@ def numeric_mismatches(row, teacher):
     return out
 
 
+DOSE_RE = re.compile(
+    r"(\d+(?:,\d{3})*(?:\.\d+)?)\s*(mg|mcg|µg|g|units?|IU)\b"
+    r"((?:\s*(?:/|per)\s*(?:kg|m2|m²|min|minute|hr?|hour|dose|day|d|24\s*h)\b)*)", re.IGNORECASE)
+FREQ_AFTER = re.compile(r"^\s*(?:\w+\s+){0,2}?(?:PO\s+|IV\s+)?(?:q\.?\s?\d+(?:\s*[–-]\s*\d+)?\s*h|every\s+\d+|BID|TID|QID|b\.i\.d|t\.i\.d|"
+                        r"twice|three times|four times|\d+(?:\s*[–-]\s*\d+)?\s*times|per dose)", re.IGNORECASE)
+DAILY_AROUND = re.compile(r"(?:daily|/day|per day|a day|total)", re.IGNORECASE)
+CMP_UP = re.compile(r"\b(exceed(?:s|ed|ing)?|above|greater than|more than|higher than)\b", re.IGNORECASE)
+CMP_DOWN = re.compile(r"\b(below|under|less than|lower than|within)\b", re.IGNORECASE)
+REF_LIMIT = re.compile(r"^\W*(?:the\s+|this\s+|that\s+|its\s+)?(?:safe\s+|recommended\s+|daily\s+|maximum\s+)*"
+                       r"(?:ceiling|maximum|max|limit|threshold|cap)\b", re.IGNORECASE)
+LIMIT_WORD = re.compile(r"\b(?:maximum|max|ceiling|limit|cap|not (?:to )?exceed)\b", re.IGNORECASE)
+UNIT_MG = {"mg": 1.0, "mcg": 1e-3, "µg": 1e-3, "g": 1e3}
+NEAR = 40  # max chars between a dose and the comparison word
+
+
+def _doses(text, offset=0):
+    """[(value_mg, unit_key, kind, span_start, span_end, raw)]; kind = 'day' | 'dose' | None."""
+    out = []
+    for m in DOSE_RE.finditer(text):
+        unit = m.group(2).lower()
+        val = float(m.group(1).replace(",", ""))
+        if unit in UNIT_MG:
+            val, unit = val * UNIT_MG[unit], "mg"
+        else:
+            unit = "units"
+        suffix = re.sub(r"\s|per", "", m.group(3).lower()).replace("/", " ").split()
+        suffix = ["day" if x in ("d", "24h") else x for x in suffix]
+        kind = "day" if "day" in suffix else None
+        if kind is None:
+            if FREQ_AFTER.search(text[m.end():m.end() + 25]):
+                kind = "dose"
+            elif DAILY_AROUND.search(text[max(0, m.start() - 20):m.start()]) or \
+                    re.match(r"\s*(?:daily|a day|per day)", text[m.end():]):
+                kind = "day"
+        key = unit + "".join("/" + x for x in suffix if x != "day")
+        out.append((val, key, kind, offset + m.start(), offset + m.end(), m.group(0)))
+    return out
+
+
+def dose_comparison_contradictions(text):
+    """Sentences whose own numbers contradict their comparison word, e.g.
+    '15 mg/day exceeds this safe ceiling' right after 'the maximum is 30 mg/day',
+    or '0.227 mg/kg is within the 0.15-0.2 mg/kg range'. Ranges compare against
+    their upper bound; mg vs mg/kg and per-dose vs per-day are never compared."""
+    out = []
+    sents = re.split(r"(?<=[.;!?])\s+|\n+", text or "")
+    for i, s in enumerate(sents):
+        for cmp_re, up in ((CMP_UP, True), (CMP_DOWN, False)):
+            for m in cmp_re.finditer(s):
+                left = [d for d in _doses(s[:m.start()]) if m.start() - d[4] <= NEAR]
+                if not left:
+                    continue
+                after = s[m.end():]
+                right = [d for d in _doses(after) if d[3] <= NEAR + 30][:1]
+                if not right and REF_LIMIT.search(after) and i > 0:
+                    prev = sents[i - 1]
+                    lim = list(LIMIT_WORD.finditer(prev))
+                    right = _doses(prev[lim[-1].end():])[:1] if lim else []
+                if not right:
+                    continue
+                a, b = left[-1], right[0]
+                if re.search(r"\b(total|cumulative|combined|sum)\b", s[a[4]:m.start()], re.IGNORECASE):
+                    continue  # the compared quantity is a total, not this dose
+                if a[1] != b[1] or a[2] != b[2]:  # unit or per-dose/per-day basis differs
+                    continue
+                negated = re.search(r"\b(not|n't|never|no)\b[\w\s]{0,12}$", s[:m.start()], re.IGNORECASE)
+                if up:
+                    bad = (a[0] > b[0]) if negated else (a[0] < b[0])  # equal: generic phrasing, skip
+                else:
+                    bad = (not negated) and a[0] > b[0]
+                if bad:
+                    out.append(f"'{a[5]}' said to {'not ' if negated else ''}{m.group(1)} '{b[5]}': "
+                               + s.strip()[:220])
+    return out
+
+
 def rule_checks(row, categories):
     """Deterministic checks. Each issue: dict(check, severity, location, evidence)."""
     issues = []
@@ -260,12 +336,17 @@ def rule_checks(row, categories):
         if leaks:
             # The student must learn to reason from the profile, not cite the label.
             add("label_leakage_phrase", "major", "Teacher_Reasoning", f"mentions {leaks}")
+        for ev in dose_comparison_contradictions(teacher):
+            add("dose_comparison_contradiction", "minor", "Teacher_Reasoning", ev)
         for ev in numeric_mismatches(row, teacher):
             # judge confirms (the number may refer to something else)
             add("reasoning_number_mismatch", "minor", "Teacher_Reasoning", ev)
         n_words = len(teacher.split())
         if n_words < 80 or n_words > 800:
             add("teacher_length", "minor", "Teacher_Reasoning", f"{n_words} words")
+
+    for ev in dose_comparison_contradictions(str(row.get("Reasoning", "") or "")):
+        add("dose_comparison_contradiction", "minor", "Reasoning", ev)
 
     # --- Profile sanity ---
     w, h, bmi = to_float(row.get("Weight (kg)")), to_float(row.get("Height (cm)")), to_float(row.get("BMI"))
@@ -308,6 +389,18 @@ Look for:
   stating the other.
 - Clinically false statements (wrong mechanism, wrong interaction, wrong
   dose limits, wrong organ clearance) that a student model would learn.
+- Internal logic/arithmetic errors inside the reasoning itself, e.g. "the
+  prescribed 15 mg/day exceeds the 30 mg/day maximum" (15 < 30), a daily dose
+  computed wrongly from the Dosage field (5 mg TID = 15 mg/day), a threshold
+  stated one way and applied the other way, or a step that argues against
+  the conclusion it is used to support.
+- Invented or wrong numbers presented as facts: dose ceilings, renal/hepatic
+  dose caps, fraction excreted unchanged, half-lives, AUC multipliers that do
+  not match the drug's labeling (e.g. claiming a drug is largely renally
+  excreted unchanged when it is almost entirely hepatically metabolized).
+- "Right verdict, wrong reason": the label is correct but the argument used
+  to reach it is false or self-contradictory. This is MAJOR, because the
+  student model learns the argument, not just the label.
 - Hallucinated facts (lab values, history, drugs not in the profile).
 - Label leakage: the reasoning appealing to "ground truth", "the label",
   DrugBank/drugs.com as the reason, instead of the patient's facts.
@@ -331,7 +424,7 @@ Return ONLY a JSON object:
   "issues": [
     {{
       "location": "<column name, e.g. Teacher_Reasoning, Is_Safe, Risk_Categories, BMI, Current Medications>",
-      "type": "contradiction" | "clinical_error" | "hallucination" | "label_mismatch" | "label_leakage" | "profile_inconsistency" | "other",
+      "type": "contradiction" | "logic_error" | "clinical_error" | "hallucination" | "label_mismatch" | "label_leakage" | "profile_inconsistency" | "other",
       "severity": "minor" | "major",
       "evidence": "<quote the conflicting text/values>",
       "suggested_fix": "<concrete minimal change>"

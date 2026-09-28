@@ -1,0 +1,9 @@
+{
+  "n": 457,
+  "rule_flag_rate": 0.030634573304157548,
+  "rule_counts": {
+    "is_safe_vs_risk_analysis": 12,
+    "label_leakage_phrase": 1,
+    "profile_number_mismatch": 1
+  }
+}
