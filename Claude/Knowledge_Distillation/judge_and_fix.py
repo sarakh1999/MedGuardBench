@@ -526,9 +526,9 @@ def judge(llm, row, rules):
 
 
 def fix(llm, row, problems, categories):
-    is_safe = to_bool(row.get("Is_Safe"))
-    sections = ("CONSTRAINT CHECK, DOSE/BMI ALIGNMENT, NEAR-MISS NOTING" if is_safe
-                else "CONFLICT IDENTIFICATION, PHARMACOLOGICAL RULE, LOGICAL BRIDGE")
+    # Same headers for safe and unsafe cases (matches knowledge_distillation.py v2)
+    sections = ("CLINICAL ASSESSMENT:, PHARMACOLOGICAL BASIS:, PATIENT-SPECIFIC ANALYSIS: "
+                "(starting with 'Daily dose: <dose> x <times/day> = <total> per day')")
     text = "\n".join(f"- [{p.get('location')}] {p.get('type', p.get('check'))}: {p.get('evidence')}"
                      + (f" -> suggested: {p['suggested_fix']}" if p.get("suggested_fix") else "")
                      for p in problems)
