@@ -45,6 +45,13 @@ Usage (from repo root):
   python Claude/Knowledge_Distillation/judge_and_fix.py --limit 50
   # full run
   python Claude/Knowledge_Distillation/judge_and_fix.py --workers 8
+  # recommended for v2: GPT judges, DeepSeek (the teacher) writes the repairs
+  export OPENAI_API_KEY=... DEEPSEEK_API_KEY=...
+  python Claude/Knowledge_Distillation/judge_and_fix.py \
+      --input Claude/Knowledge_Distillation/Claude_Personalized_Groundtruth_New_Data_Distill_v2.csv \
+      --model gpt-5 --reasoning_effort medium --kd_format_checks \
+      --fix_model deepseek-reasoner --fix_base_url https://api.deepseek.com \
+      --fix_api_key_env DEEPSEEK_API_KEY --workers 8
 """
 
 import argparse
@@ -68,7 +75,7 @@ DEFAULT_INPUT = os.path.join(KD_DIR, "Claude_Personalized_Groundtruth_New_Data_D
 DEFAULT_OUT_DIR = os.path.join(KD_DIR, "judge_output")
 
 LABEL_FIELDS = ["Is_Safe", "Risk_Categories"]
-META_FIELDS = ["Trace_Valid", "Validation_Note", "Judge_Status", "Judge_Issues"]
+META_FIELDS = ["Trace_Valid", "Validation_Note", "Attempts", "Judge_Status", "Judge_Issues"]
 ID_FIELD = "Patient ID"
 
 LEAKAGE_PATTERNS = [
@@ -475,12 +482,15 @@ no updates) if the sample cannot be repaired without new clinical information.""
 
 
 class LLM:
-    def __init__(self, model, base_url=None, reasoning_effort=None, max_retries=5):
+    def __init__(self, model, base_url=None, reasoning_effort=None, max_retries=5,
+                 api_key_env="OPENAI_API_KEY"):
         from openai import OpenAI
-        if not os.environ.get("OPENAI_API_KEY"):
-            raise SystemExit("Set OPENAI_API_KEY in the environment.")
-        self.client = OpenAI(base_url=base_url) if base_url else OpenAI()
+        key = os.environ.get(api_key_env)
+        if not key:
+            raise SystemExit(f"Set {api_key_env} in the environment.")
+        self.client = OpenAI(api_key=key, base_url=base_url) if base_url else OpenAI(api_key=key)
         self.model = model
+        self.json_mode = True  # turned off automatically if the endpoint rejects response_format
         self.reasoning_effort = reasoning_effort
         self.max_retries = max_retries
         self.usage = Counter()
@@ -494,7 +504,7 @@ class LLM:
                 resp = self.client.chat.completions.create(
                     model=self.model,
                     messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
-                    response_format={"type": "json_object"},
+                    **({"response_format": {"type": "json_object"}} if self.json_mode else {}),
                     **extra,
                 )
                 with self.lock:
@@ -507,6 +517,9 @@ class LLM:
                 return json.loads(m.group() if m else text)
             except Exception as e:  # rate limits, timeouts, bad JSON
                 last_err = e
+                if self.json_mode and "response_format" in str(e):
+                    self.json_mode = False  # e.g. deepseek-reasoner: parse JSON from plain text
+                    continue
                 time.sleep(min(60, 3 * 2 ** attempt))
         raise RuntimeError(f"LLM call failed after {self.max_retries} retries: {last_err}")
 
@@ -545,7 +558,7 @@ def major_problems(rules, judgment):
     # left to the judge to confirm, since free-text parsing can misfire.)
     hard = {"is_safe_vs_categories", "label_leakage_phrase", "bmi_arithmetic",
             "male_pregnancy", "child_pregnancy", "teacher_missing",
-            "risk_categories_unparseable", "is_safe_unparseable"}
+            "risk_categories_unparseable", "is_safe_unparseable", "kd_validator"}
     probs += [i for i in rules if i["check"] in hard]
     if not judgment.get("labels_defensible", True):
         probs.append({"location": "Is_Safe/Risk_Categories", "type": "label_mismatch",
@@ -565,13 +578,35 @@ def same_label(field, new, old, categories):
 # ==============================================================================
 # PER-SAMPLE PIPELINE
 # ==============================================================================
+def kd_validator_issues(row):
+    """Run knowledge_distillation.py's generation validator (strict v2 format, daily
+    dose, leakage, ...), so repaired traces meet the same bar as generated ones."""
+    import knowledge_distillation as kd  # lazy: kd imports this module
+    status, problems = kd.validate_trace(str(row.get("Teacher_Reasoning", "")), row)
+    if status in ("ok", "label_concern"):
+        return []
+    return [{"source": "rule", "check": "kd_validator", "severity": "major",
+             "location": "Teacher_Reasoning", "evidence": p} for p in problems]
+
+
 def process(row, categories, judge_llm, fix_llm, args):
     row = clean_row(row)
     rec = {"patient_id": str(row.get(ID_FIELD)), "row_hash": row_hash(row), "rounds": [], "changes": []}
     current = dict(row)
 
+    # The teacher refused to justify the label: a human decides, no LLM repair.
+    if str(current.get("Teacher_Reasoning", "")).strip().startswith("LABEL_CONCERN"):
+        rec["rounds"].append({"rules": []})
+        rec["status"] = "needs_review"
+        rec["open_problems"] = [{"location": "Is_Safe/Risk_Categories", "type": "label_concern",
+                                 "severity": "major", "evidence": current["Teacher_Reasoning"][:1000]}]
+        rec["final_row"] = current
+        return rec
+
     for rnd in range(args.max_rounds + 1):
         rules = rule_checks(current, categories)
+        if args.kd_format_checks:
+            rules += kd_validator_issues(current)
         if args.rules_only:
             majors = [i for i in rules if i["severity"] == "major"]
             rec["rounds"].append({"rules": rules})
@@ -639,7 +674,12 @@ def main():
     ap.add_argument("--out_dir", default=DEFAULT_OUT_DIR)
     ap.add_argument("--categories", default=os.path.join(REPO_ROOT, "risk_categories.txt"))
     ap.add_argument("--model", default="gpt-5", help="judge model")
-    ap.add_argument("--fix_model", default=None, help="repair model (default: same as --model)")
+    ap.add_argument("--fix_model", default=None, help="repair model (default: same as --model), "
+                    "e.g. deepseek-reasoner so repairs come from the same teacher as the dataset")
+    ap.add_argument("--fix_base_url", default=None, help="endpoint for --fix_model, e.g. https://api.deepseek.com")
+    ap.add_argument("--fix_api_key_env", default="OPENAI_API_KEY", help="env var with the repair model's key")
+    ap.add_argument("--kd_format_checks", action="store_true",
+                    help="also enforce knowledge_distillation.py v2 validator (use for v2 outputs)")
     ap.add_argument("--base_url", default=None, help="OpenAI-compatible endpoint (optional)")
     ap.add_argument("--reasoning_effort", default=None, help="e.g. low/medium/high for reasoning models")
     ap.add_argument("--workers", type=int, default=4)
@@ -679,7 +719,12 @@ def main():
     judge_llm = fix_llm = None
     if not args.rules_only and todo:
         judge_llm = LLM(args.model, args.base_url, args.reasoning_effort)
-        fix_llm = judge_llm if not args.fix_model else LLM(args.fix_model, args.base_url, args.reasoning_effort)
+        if args.fix_model:
+            fix_llm = LLM(args.fix_model, args.fix_base_url or args.base_url,
+                          None if args.fix_base_url else args.reasoning_effort,
+                          api_key_env=args.fix_api_key_env)
+        else:
+            fix_llm = judge_llm
 
     write_lock = threading.Lock()
     with open(log_path, "a") as logf, ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
