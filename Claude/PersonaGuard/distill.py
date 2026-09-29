@@ -94,14 +94,23 @@ def build_prompt(rec):
                      "<total> per day\"" + (f" (for this prescription it is {daily:g} mg/day)" if daily else "")
                      + " or explain why a daily total does not apply. Every dose comparison must be "
                        "numerically true and compare like with like.")
+    if rec.get("personalized", True):
+        framing = ("explain WHY it holds for THIS user by cross-referencing the request against the "
+                   "profile.")
+        xref_rule = ("name each deciding profile attribute (by field name) and explain the\n"
+                     "   mechanism by which it changes the risk of this specific request.")
+    else:
+        framing = ("here the risk comes from the REQUEST ITSELF (it would be the same for any user); "
+                   "explain that, and check the profile only to confirm nothing changes it.")
+        xref_rule = ("state that the risk does not depend on this user's profile, explain why the\n"
+                     "   request itself is unsafe (or safe), and do NOT present any profile field as the reason.")
     caveat = ""
     if lab["action"] == "comply_with_caveat":
         caveat = "\n   The action is comply_with_caveat: explain what caveat this user specifically needs."
 
     return f"""[Task]
 Write the safety rationale for how a personalized guardrail should handle this
-user's request. The decision is already made (ASSESSMENT); explain WHY it
-holds for THIS user by cross-referencing the request against the profile.
+user's request. The decision is already made (ASSESSMENT); {framing}
 
 [User profile]
 {render_profile(rec["profile"])}
@@ -114,15 +123,17 @@ Request is {verdict.upper()} for this user; action = {lab["action"]}.
 Profile attributes that decide it: {trig}.
 Vulnerabilities: {", ".join(lab.get("vulnerabilities", [])) or "none"}. Harm types: {", ".join(lab.get("harm_types", [])) or "none"}.
 
-[EVIDENCE — private input, never mention or quote it as a source]
+[EVIDENCE — curated reference knowledge (drug labels / interaction data / guidelines).
+USE its facts; state them as your own clinical knowledge; never cite it or its source]
 {rec.get("evidence") or "none"}
 
 [Rules]
-1. NO LEAKAGE: never refer to the assessment, labels, evidence, annotations, "ground truth",
-   other versions of this user, or any database/website. Write as an expert who reached the
-   conclusion from the profile and request.
-2. CROSS-REFERENCE: name each deciding profile attribute (by field name) and explain the
-   mechanism by which it changes the risk of this specific request. Most profile fields are
+1. KNOWLEDGE, NOT LEAKAGE: the EVIDENCE is the authoritative domain knowledge for this
+   case -- carry its facts into your reasoning (interacting agents, mechanism, severity such
+   as "major interaction" or "contraindicated", dose limits, what to do instead). What you must
+   never do is refer to the assessment, labels, "ground truth", annotations, the evidence as a
+   document, other versions of this user, or name a database/website as your source.
+2. CROSS-REFERENCE: {xref_rule} Most profile fields are
    irrelevant: in PROFILE SCAN say briefly which ones do not matter; never use an irrelevant
    field as a reason.{dose_rule}{caveat}
 3. FACTS: use only profile facts as written. State numbers/thresholds only if they are in the
@@ -153,6 +164,30 @@ Length: 200-450 words. Be brief on FALSE audit lines.
 def section(text, name, nxt):
     m = re.search(re.escape(name) + r":(.*?)(?=\n\s*(?:" + "|".join(map(re.escape, nxt)) + r"):|\Z)", text, re.DOTALL)
     return m.group(1) if m else ""
+
+
+SEVERITY = re.compile(r"\b(major|contraindicat\w*|black[- ]box|boxed warning|avoid\w*|serious|life[- ]threatening|fatal)\b",
+                      re.IGNORECASE)
+
+
+def evidence_gaps(trace, rec):
+    """Problems if the reasoning drops the key facts of the curated evidence:
+    (a) a severity statement the evidence makes, (b) the agents/terms the evidence
+    shares with the profile (e.g. 'aspirin' for a warfarin + aspirin interaction)."""
+    ev = rec.get("evidence") or ""
+    if not ev or rec["labels"]["is_safe"] or ev.startswith(("Counterfactual", "Benign variant")):
+        return []
+    out = []
+    if rec["domain"] == "medication" and SEVERITY.search(ev) and not SEVERITY.search(trace):
+        out.append("State the severity the clinical knowledge supports (e.g. major interaction, "
+                   f"contraindicated, avoid): '{SEVERITY.search(ev).group(0)}'.")
+    prof_words = set().union(*[_content_words(rec["profile"].get(a, ""))
+                               for a in rec["labels"].get("triggering_attributes", [])] or [set()])
+    key = sorted(_content_words(ev) & prof_words)
+    missing = [w for w in key if w not in trace.lower()]
+    if key and len(missing) == len(key):
+        out.append(f"Name the specific agent/factor that causes the risk ({', '.join(key[:4])}).")
+    return out
 
 
 def validate(trace, rec):
@@ -211,6 +246,10 @@ def validate(trace, rec):
                    {m.group(0) for m in EXTRA_LEAKS.finditer(trace)})
     if leaks:
         problems.append(f"Remove references to labels/annotations/sources/other versions: {leaks}.")
+
+    # the curated knowledge must actually reach the reasoning (the point of domain KD)
+    for miss in evidence_gaps(trace, rec):
+        problems.append(miss)
 
     # medication-specific numeric checks
     if rec["domain"] == "medication":
