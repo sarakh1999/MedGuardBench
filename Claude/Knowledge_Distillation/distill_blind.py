@@ -76,7 +76,7 @@ csv.field_size_limit(min(sys.maxsize, 2147483647))
 # Config
 # ==============================================================================
 
-API_KEY = os.environ.get("DEEPSEEK_API_KEY")
+API_KEY = "sk-0f6ecbd2b9e546ceb7e6d5b939249288"
 
 DATASET_PATH = ("Claude/new_dataset/Check_Leakage/"
                 "New_Claude_Personalized_Groundtruth_Data - similar patients dropped.csv")
@@ -155,7 +155,16 @@ AUDIT_PROTOCOL = """
    (a) makes the prescription inappropriate as written, or (b) requires a
    specific change -- dose reduction, alternative agent, or monitoring beyond
    routine -- before it would be appropriate. Mark FALSE if the factor is
-   present but would not change management. One short line each.
+   present but would not change management. One short line each.  
+   A known interaction that is adequately handled by monitoring that would
+   happen anyway is FALSE. Warfarin plus most antibiotics falls here: the
+   interaction is real, but routine INR monitoring already covers it. Reserve
+   TRUE for interactions that demand a dose change, an alternative agent, or
+   monitoring beyond the usual schedule -- warfarin plus an NSAID, or warfarin
+   plus fluconazole.
+
+   If you find yourself flagging a category because a mechanism exists rather
+   than because management must change, the answer is FALSE.
 
 5. FINAL VERDICT
    State safe or unsafe, following from the audit above.
