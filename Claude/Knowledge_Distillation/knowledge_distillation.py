@@ -18,8 +18,10 @@ from datasets import load_dataset
 from tqdm import tqdm
 
 # ----------------------- Config -----------------------
+if not os.environ.get("DEEPSEEK_API_KEY"):
+    sys.exit("Set DEEPSEEK_API_KEY in the environment.")
 client = OpenAI(
-    api_key="sk-0f6ecbd2b9e546ceb7e6d5b939249288",
+    api_key=os.environ["DEEPSEEK_API_KEY"],
     base_url="https://api.deepseek.com",
 )
 

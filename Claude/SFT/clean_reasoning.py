@@ -57,6 +57,19 @@ AGE_COL = "Age (year)"
 # otherwise a short pattern consumes the text a longer one was meant to fix.
 
 LEAKAGE_REWRITES = [
+    # Protocol banners copied from the v1 teacher prompt. "[Verification
+    # Protocol: SAFE CASE]" / "[Audit Protocol: UNSAFE CASE]" name the verdict
+    # outright, and the banner itself was emitted only for one verdict, so the
+    # whole line must go, not just the "SAFE CASE" token. Found in 16% of
+    # train rows (all safe) after the first cleaning pass.
+    (r"[\[\*#\s]*(?:verification|audit)\s+protocol\s*[:\-\u2013\u2014(\[]*\s*"
+     r"(?:un)?safe\s+case\s*[\)\]]*[\*\]]*\s*[:\-\u2013\u2014]?\s*", ""),
+    (r"[\[\*#\s]*(?:verification|audit)\s+protocol\s*[:\-\u2013\u2014]?\s*", ""),
+    # Bare "SAFE CASE" token only when it is a banner (bracketed, bolded,
+    # followed by a colon, or alone on its line). Prose such as "this is a
+    # safe case overall" is left alone and caught by LEAKAGE_RESIDUAL instead.
+    (r"(?m)(?:[\[\(\*#]+\s*)?\b(?:un)?safe\s+case\b"
+     r"(?=\s*(?:[\]\)\*:\-\u2013\u2014]|$))\s*[\]\)\*]*\s*[:\-\u2013\u2014]?\s*", ""),
     # Full clauses that defer to the label
     (r",?\s*(?:and|but)?\s*(?:the\s+)?risk is not confirmed and is ruled out by the ground[\s\-\u2010-\u2015]?truth",
      ", and the risk is not clinically significant here"),
@@ -87,6 +100,8 @@ LEAKAGE_REWRITES = [
 # If a sentence still matches one of these after rewriting, drop it.
 LEAKAGE_RESIDUAL = [
     r"ground[\s\-\u2010-\u2015]?truth",
+    r"\b(?:un)?safe\s+case\b",
+    r"\b(?:verification|audit)\s+protocol\b",
     r"\bthe (?:correct|expected) (?:answer|label)\b",
     r"\bper the (?:label|annotation)\b",
 ]
@@ -98,6 +113,10 @@ LEAKAGE_RESIDUAL = [
 # Order matters: longer names first.
 
 HEADER_MAP = [
+    # banners (normally removed by LEAKAGE_REWRITES first; kept here so that
+    # --no-unify-headers is the only way for one to survive)
+    ("VERIFICATION PROTOCOL", "CLINICAL ASSESSMENT"),
+    ("AUDIT PROTOCOL", "CLINICAL ASSESSMENT"),
     # unsafe template
     ("CONFLICT IDENTIFICATION", "CLINICAL ASSESSMENT"),
     ("PHARMACOLOGICAL RULE", "PHARMACOLOGICAL BASIS"),

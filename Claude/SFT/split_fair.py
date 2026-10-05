@@ -28,11 +28,51 @@ import numpy as np
 import pandas as pd
 
 # ---------------------------------------------------------------- configuration
-INPUT_CSV = "Claude/Knowledge_Distillation/Claude_Personalized_Groundtruth_New_Data_Distill.csv"
-MEDS_FILE = "new_medications.txt"
-RISKS_FILE = "risk_categories.txt"
-OUTPUT_DIR = "new_data_splits"
+# Paths are relative to the repo root. All overridable from the environment.
+INPUT_CSV = os.environ.get(
+    "SPLIT_INPUT_CSV",
+    "Claude/Knowledge_Distillation/"
+    "Claude_Personalized_Groundtruth_New_Data_Distill_blind_v2.csv")
+MEDS_FILE = os.environ.get("MEDS_FILE", "new_medications.txt")
+RISKS_FILE = os.environ.get("RISK_CATEGORIES_FILE", "risk_categories.txt")
+OUTPUT_DIR = os.environ.get("SPLIT_OUTPUT_DIR", "Claude/SFT/new_data_splits_blind_v2")
 MED_COL = "Recommended Medication"
+
+# Bucket policy for the blind-distilled master. The drug-disjoint assignment is
+# computed over ALL rows (so drug disjointness and the test set are unaffected
+# by the teacher), then train and val keep only rows where the blind teacher's
+# verdict AND category calls match the label. A trace that argues for a
+# different conclusion than the label it is paired with is a contradictory
+# training signal; the test set keeps every row, with the `agreement` column
+# retained so metrics can be reported on the full set and per bucket.
+TRAIN_VAL_AGREEMENT = os.environ.get("SPLIT_TRAIN_VAL_AGREEMENT", "full_agreement")
+
+# If set, reuse a previously computed Patient ID -> split assignment (the
+# all_rows_with_split.csv written by an earlier run) instead of searching. This
+# is what keeps the test set identical across data conditions (v1 traces,
+# cleaned v1 traces, partial or complete blind v2), so models are compared on
+# the same 754 patients whatever training data they saw.
+ASSIGNMENT_CSV = os.environ.get("SPLIT_ASSIGNMENT_CSV", "")
+
+# If set, every NON-teacher column (patient profile, scenario, labels) is taken
+# from this file (joined on Patient ID) instead of from INPUT_CSV; only the
+# teacher columns of INPUT_CSV are kept. Why this exists: the v1 pipeline read
+# the source through datasets.load_dataset, which turned the literal strings
+# "None"/"N/A" into nulls that the converters render as "Not reported". The
+# blind_v2 master round-trips the source verbatim ("None"). The two renderings
+# are NOT equivalent clinically ("None" = absent, "Not reported" = unknown), but
+# every model and baseline in the current round was trained/evaluated on the v1
+# rendering, so a condition that is to be compared against them must present
+# byte-identical prompts. Point this at the v1 split DIRECTORY (its
+# train/val/test.csv are what the v1 ChatML was converted from) for that.
+# Leave empty to use the faithful source values.
+PROFILE_FROM_CSV = os.environ.get("SPLIT_PROFILE_FROM_CSV", "")
+TEACHER_COLUMNS = {
+    "Teacher_Reasoning", "teacher_is_safe", "teacher_risk_analysis",
+    "teacher_risk_analysis_raw", "teacher_n_categories", "gold_consistent",
+    "comparable", "agreement", "disagreement_detail", "Trace_Valid",
+    "Validation_Note", "prompt_version", "teacher_model", "teacher_tokens",
+}
 
 TARGET = {"train": 0.75, "val": 0.10, "test": 0.15}
 SPLITS = ["train", "val", "test"]
@@ -47,6 +87,32 @@ RISKS = read_list(RISKS_FILE)
 # dtype=str + keep_default_na keeps every cell byte-identical on write: without it
 # pandas turns the age 72 into 72.0 and Is_Safe TRUE into True.
 df = pd.read_csv(INPUT_CSV, dtype=str, keep_default_na=False)
+# The blind master is written in API-completion order; sort by Patient ID so the
+# output is deterministic regardless of how the generation run was scheduled.
+if "Patient ID" in df.columns:
+    pid = pd.to_numeric(df["Patient ID"], errors="coerce").fillna(-1).to_numpy()
+    df = df.iloc[np.argsort(pid, kind="stable")].reset_index(drop=True)
+    assert df["Patient ID"].is_unique, "duplicate Patient IDs in input"
+
+if PROFILE_FROM_CSV:
+    if os.path.isdir(PROFILE_FROM_CSV):
+        # a split directory: the train/val/test.csv files are exactly what the
+        # ChatML of that condition was converted from
+        prof = pd.concat([pd.read_csv(os.path.join(PROFILE_FROM_CSV, f"{s}.csv"),
+                                      dtype=str, keep_default_na=False) for s in SPLITS],
+                         ignore_index=True)
+    else:
+        prof = pd.read_csv(PROFILE_FROM_CSV, dtype=str, keep_default_na=False)
+    prof = prof.drop(columns=[c for c in prof.columns if c in TEACHER_COLUMNS or c == "split"])
+    prof = prof.set_index("Patient ID")
+    missing = set(df["Patient ID"]) - set(prof.index)
+    assert not missing, f"{len(missing)} Patient IDs absent from {PROFILE_FROM_CSV}"
+    replaced = [c for c in df.columns if c in prof.columns and c != "Patient ID"]
+    before = df[replaced].copy()
+    df[replaced] = prof.loc[df["Patient ID"], replaced].to_numpy()
+    n_cells = int((before.to_numpy() != df[replaced].to_numpy()).sum())
+    print(f"profile columns taken from {PROFILE_FROM_CSV}: "
+          f"{len(replaced)} columns, {n_cells} cells differ from {os.path.basename(INPUT_CSV)}")
 N = len(df)
 
 Y = np.array([[bool(json.loads(s).get(k, False)) for k in RISKS]
@@ -130,6 +196,20 @@ def score(assign):
 rng = np.random.default_rng(SEED)
 best, best_s = None, np.inf
 order_base = np.argsort(-gs)
+if ASSIGNMENT_CSV:
+    prev = pd.read_csv(ASSIGNMENT_CSV, dtype=str, keep_default_na=False)
+    prev_split = dict(zip(prev["Patient ID"], prev["split"]))
+    missing = [p for p in df["Patient ID"] if p not in prev_split]
+    assert not missing, f"{len(missing)} Patient IDs absent from {ASSIGNMENT_CSV}: {missing[:5]}"
+    # every row of a group must carry the same split in the reused assignment
+    best = np.full(NG, -1)
+    for gi, g in enumerate(groups):
+        ss = {prev_split[df["Patient ID"].iloc[i]] for i in rows_of[g]}
+        assert len(ss) == 1, f"group {g} straddles splits in reused assignment: {ss}"
+        best[gi] = SPLITS.index(ss.pop())
+    best_s = score(best)
+    print(f"reused assignment from {ASSIGNMENT_CSV} (score {best_s:.4f}); search skipped")
+    RESTARTS = 0
 for r in range(RESTARTS):
     order = order_base if r == 0 else np.argsort(-(gs + rng.normal(0, 0.15 * gs.std(), NG)))
     assign = np.full(NG, -1)
@@ -198,10 +278,37 @@ for j, r in enumerate(RISKS):
 # ---------------------------------------------------------------- write
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 print()
+
+has_buckets = "agreement" in df.columns and "comparable" in df.columns
+if has_buckets and TRAIN_VAL_AGREEMENT:
+    keep_bucket = ((df["comparable"].str.strip().str.lower() == "true")
+                   & (df["agreement"].str.strip() == TRAIN_VAL_AGREEMENT)).to_numpy()
+    print(f"bucket policy: train/val restricted to agreement == {TRAIN_VAL_AGREEMENT!r}; "
+          f"test keeps every row")
+    print(f"{'split':<7s} {'all':>6s} {'kept':>6s} {'dropped':>8s} {'P(unsafe) kept':>15s}")
+    for s in SPLITS:
+        m = split == s
+        k = m & keep_bucket if s != "test" else m
+        print(f"{s:<7s} {int(m.sum()):6d} {int(k.sum()):6d} {int(m.sum()-k.sum()):8d} "
+              f"{unsafe[k].mean():15.4f}")
+else:
+    keep_bucket = np.ones(N, dtype=bool)
+    if TRAIN_VAL_AGREEMENT:
+        print("no agreement/comparable columns in input: bucket filter not applied")
+
 for s in SPLITS:
     path = os.path.join(OUTPUT_DIR, f"{s}.csv")
-    df[split == s].to_csv(path, index=False)
-    print(f"wrote {path}  ({int((split==s).sum())} rows)")
+    m = split == s
+    if s != "test":
+        m = m & keep_bucket
+    df[m].to_csv(path, index=False)
+    print(f"wrote {path}  ({int(m.sum())} rows)")
+
+# The unfiltered assignment, so the dropped train/val rows are recoverable and
+# the full-set composition is on record.
+full_path = os.path.join(OUTPUT_DIR, "all_rows_with_split.csv")
+df.assign(split=split).to_csv(full_path, index=False)
+print(f"wrote {full_path}  ({N} rows, every row with its split label)")
 
 man = [{"drug_or_group": d, "component": g, "split": split_of_group[g],
         "rows_in_component": size_of[g]}

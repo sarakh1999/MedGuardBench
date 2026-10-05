@@ -219,7 +219,9 @@ def convert_one(
     reasoning_source: str = "teacher",
 ) -> int:
     """Convert a single CSV file to a single JSONL file. Returns row count."""
-    df = pd.read_csv(input_csv)
+    # dtype=str keeps cells byte-identical (age 72 stays "72", not "72.0";
+    # Is_Safe "TRUE" stays "TRUE"). Only a truly empty cell becomes NaN.
+    df = pd.read_csv(input_csv, dtype=str, keep_default_na=False, na_values=[""])
 
     count = 0
     # Ensure output directory exists before attempting to write

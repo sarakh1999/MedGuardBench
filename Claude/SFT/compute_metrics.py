@@ -95,21 +95,53 @@ def normalize_ra(ra, categories):
     return out
 
 
+# LlamaGuard-native format used by the llama_and_llamaguard ChatML:
+# "Reasoning: ..." / a line "safe" | "unsafe" / (if unsafe) "O4,O6" codes where
+# O1 = categories[0]. Mirrors parse_llamaguard in eval_sft.py.
+_LG_VERDICT = re.compile(r"^[ \t]*(safe|unsafe)[ \t]*$", re.IGNORECASE | re.MULTILINE)
+
+
+def parse_llamaguard(text, categories):
+    if not text:
+        return None
+    m = _LG_VERDICT.search(text)
+    if not m:
+        return None
+    is_safe = m.group(1).lower() == "safe"
+    ra = {c: False for c in categories}
+    if not is_safe:
+        rest = [ln for ln in text[m.end():].splitlines() if ln.strip()]
+        if rest:
+            for code in re.findall(r"O(\d+)", rest[0]):
+                k = int(code) - 1
+                if 0 <= k < len(categories):
+                    ra[categories[k]] = True
+    return ra, is_safe
+
+
 def gt_from_chatml(example, categories):
     msg = next((m["content"] for m in example.get("messages", []) if m["role"] == "assistant"), "")
     d = extract_json_dict(msg)
-    if not d or not isinstance(d.get("risk_analysis"), dict):
-        return None, None
-    return normalize_ra(d["risk_analysis"], categories), d.get("is_safe")
+    if d and isinstance(d.get("risk_analysis"), dict):
+        return normalize_ra(d["risk_analysis"], categories), d.get("is_safe")
+    lg = parse_llamaguard(msg, categories)
+    if lg:
+        return lg
+    return None, None
 
 
 def pred_ra_from_record(r, categories):
     ra = r.get("pred_risk_analysis")
-    if isinstance(ra, dict) and ra:
-        return normalize_ra(ra, categories), bool(r.get("ra_parsed_ok", True))
+    if isinstance(ra, dict) and ra and r.get("ra_parsed_ok", True):
+        return normalize_ra(ra, categories), True
     d = extract_json_dict(r.get("raw_response", ""))
     if d and isinstance(d.get("risk_analysis"), dict):
         return normalize_ra(d["risk_analysis"], categories), True
+    lg = parse_llamaguard(r.get("raw_response", ""), categories)
+    if lg:
+        return lg[0], True
+    if isinstance(ra, dict) and ra:
+        return normalize_ra(ra, categories), False
     return {c: False for c in categories}, False
 
 
@@ -262,11 +294,18 @@ def main():
         if gt_safe is None:
             gt_safe = r.get("gt_is_safe")
         parsed = bool(r.get("parsed_ok", True))
+        pred_safe = bool(r["pred_is_safe"])
+        if not parsed:
+            # eval_sft.py written before the LlamaGuard-format parser existed
+            # defaulted pred_is_safe to True and marked the row unparsed; the
+            # raw response is kept, so re-derive the verdict from it here.
+            lg = parse_llamaguard(r.get("raw_response", ""), categories)
+            if lg:
+                pred_safe, parsed = lg[1], True
         if not parsed:
             n_unparsed += 1
             if args.drop_unparsed:
                 continue
-        pred_safe = bool(r["pred_is_safe"])
         if not parsed and args.unparsed_as_unsafe:
             pred_safe = False
         pred_ra, ra_ok = pred_ra_from_record(r, categories)

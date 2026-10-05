@@ -1,0 +1,1 @@
+baseline predictions = Claude/SFT/new_outputs/Qwen3-8B-Instruct/test_predictions_w_schema.jsonl (checkpoint-950, test_eval_qwen_ft_w_schema8B.py)

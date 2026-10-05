@@ -24,9 +24,9 @@ import unicodedata
 from grpo_config import (
     RISK_CATEGORIES, TARGET_CATEGORIES,
     W_VERDICT, W_DECISIVE_CATEGORY, W_OTHER_CATEGORIES, W_SCHEMA,
-    W_LENGTH_PENALTY, W_TARGET_BONUS,
+    W_LENGTH_PENALTY, W_TARGET_BONUS, W_CONSISTENCY_PENALTY,
     REWARD_PARSE_FAIL, LENGTH_BUDGET_TOKENS,
-    WRONG_VERDICT_CATEGORY_SCALE,
+    WRONG_VERDICT_CATEGORY_SCALE, REQUIRE_JSON_VERDICT_IN_TRAINING,
 )
 
 # ============================================================
@@ -71,9 +71,9 @@ def _parse_bool(v):
         return bool(v)
     if isinstance(v, str):
         s = v.strip().lower()
-        if s in ("true", "yes", "y", "1", "unsafe_no", "safe"):
-            return s in ("true", "yes", "y", "1", "safe")
-        if s in ("false", "no", "n", "0"):
+        if s in ("true", "yes", "y", "1", "safe"):
+            return True
+        if s in ("false", "no", "n", "0", "unsafe"):
             return False
     return None
 
@@ -82,13 +82,46 @@ def _parse_bool(v):
 # Parsing
 # ============================================================
 
+_BAD_ESCAPE_RE = re.compile(r'\\(?!["\\/bfnrtu])')
+_DECODER = json.JSONDecoder(strict=False)   # allow raw control chars in strings
+
+
+def _loads_lenient(s):
+    """json.loads with the two repairs real completions need most often:
+    raw newlines/tabs inside strings and invalid backslash escapes such as
+    '\\(' or '\\%'. Returns None if still unparseable."""
+    for cand in (s, _BAD_ESCAPE_RE.sub(r"\\\\", s)):
+        try:
+            obj = _DECODER.decode(cand)
+            if isinstance(obj, dict):
+                return obj
+        except (json.JSONDecodeError, ValueError):
+            continue
+    return None
+
+
 def _extract_json_objects(text):
-    """Yield candidate JSON objects found in text, largest first."""
+    """Yield candidate JSON objects found in text, largest first.
+
+    Objects are located with raw_decode from each '{', which respects string
+    contents (a '}' inside the reasoning text no longer ends the object).
+    A string-unaware balanced-brace scan is kept as a fallback for objects
+    raw_decode rejects, e.g. ones with a truncated tail."""
     candidates = []
-    # Fenced blocks
     for m in re.finditer(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL):
         candidates.append(m.group(1))
-    # Balanced-brace scan
+    pos = 0
+    while True:
+        i = text.find("{", pos)
+        if i == -1:
+            break
+        try:
+            _, end = _DECODER.raw_decode(text, i)
+            candidates.append(text[i:end])
+            pos = end
+        except (json.JSONDecodeError, ValueError):
+            # try again after repairing escapes, within this candidate span
+            pos = i + 1
     depth = 0
     start = None
     for i, ch in enumerate(text):
@@ -101,14 +134,42 @@ def _extract_json_objects(text):
                 depth -= 1
                 if depth == 0 and start is not None:
                     candidates.append(text[start:i + 1])
+    seen = set()
     candidates.sort(key=len, reverse=True)
     for c in candidates:
-        try:
-            obj = json.loads(c)
-            if isinstance(obj, dict):
-                yield obj
-        except json.JSONDecodeError:
+        if c in seen:
             continue
+        seen.add(c)
+        obj = _loads_lenient(c)
+        if obj is not None:
+            yield obj
+
+
+_IS_SAFE_TAIL_RE = re.compile(
+    r'"is_safe"\s*:\s*(true|false)\s*,?\s*\}\s*$', re.IGNORECASE)
+_CATEGORY_KV_RE = re.compile(
+    r'"([A-Za-z][^"\n]{2,60})"\s*:\s*(true|false)\b', re.IGNORECASE)
+
+
+def _verdict_from_json_tail(text):
+    """JSON-level fallback for strict mode: the schema puts is_safe last, so a
+    completion that ends with '"is_safe": <bool> }' did finish its JSON even
+    if some string in the body is not decodable. Returns bool or None."""
+    m = _IS_SAFE_TAIL_RE.search(text.rstrip().rstrip("`"))
+    if not m:
+        return None
+    return m.group(1).lower() == "true"
+
+
+def _categories_from_json_kv(text):
+    """Recover '"<Category>": true/false' pairs by regex (used when the
+    object itself failed to decode)."""
+    out = {}
+    for m in _CATEGORY_KV_RE.finditer(text):
+        canon = canonical_category(m.group(1))
+        if canon is not None:
+            out[canon] = out.get(canon, False) or (m.group(2).lower() == "true")
+    return out
 
 
 def _find_category_dict(obj):
@@ -212,8 +273,15 @@ def _categories_from_text(text):
     return out
 
 
-def parse_completion(text):
+def parse_completion(text, strict_json=False):
     """Parse a model completion.
+
+    strict_json: if True, the verdict must come from a parsed JSON object.
+      The prose fallback is skipped, so a truncated completion (JSON never
+      closes; is_safe is the last key) is a parse failure instead of a
+      guess from the reasoning text. Use this for training rewards.
+      Category recovery from prose is still allowed, since it can only add
+      partial credit on top of a verdict that was actually emitted.
 
     Returns dict with:
       verdict          bool or None
@@ -254,6 +322,19 @@ def parse_completion(text):
             break
 
     if verdict is None:
+        # The object did not decode (bad escape / stray quote inside a long
+        # reasoning string). If the completion still ends with the closing
+        # '"is_safe": <bool> }', the JSON was completed: accept the verdict
+        # and recover the category vector by key/value regex. This is
+        # JSON-level evidence, so it is allowed in strict mode too.
+        tail = _verdict_from_json_tail(text)
+        if tail is not None:
+            verdict = tail
+            for k, v in _categories_from_json_kv(text).items():
+                categories.setdefault(k, v)
+            source = "json"
+
+    if verdict is None and not strict_json:
         verdict = _verdict_from_text(text)
         if categories:
             source = "mixed"
@@ -290,14 +371,20 @@ def _sample_f1(pred_set, gold_set):
 
 
 def compute_reward(completion, gold_verdict, gold_categories,
-                   decisive_category=None, return_parts=False):
+                   decisive_category=None, return_parts=False,
+                   strict_json=REQUIRE_JSON_VERDICT_IN_TRAINING):
     """Score one completion.
 
     gold_verdict       bool (True = safe)
     gold_categories    {canonical_name: bool} or list of positive names
     decisive_category  canonical name of the category the scenario tests
+    strict_json        verdict must be parsed from JSON (see parse_completion)
+
+    With return_parts=True the second value is a dict of additive terms.
+    'length' and 'consistency' are the only non-positive terms; mining uses
+    reward - parts['length'] to measure within-group disagreement.
     """
-    parsed = parse_completion(completion)
+    parsed = parse_completion(completion, strict_json=strict_json)
 
     if not parsed["parse_ok"]:
         parts = {"parse_fail": REWARD_PARSE_FAIL}
@@ -357,6 +444,22 @@ def compute_reward(completion, gold_verdict, gold_categories,
     else:
         parts["length"] = 0.0
 
+    # 6. Internal consistency. The schema defines is_safe as "true only if
+    #    every risk category is false". A verdict that contradicts the
+    #    model's own category vector is penalized regardless of which side
+    #    happens to match gold, so the model cannot farm verdict credit
+    #    while emitting an empty or contradictory category vector.
+    #    Only judged when the full vector was emitted; a partial vector
+    #    is already losing the schema bonus.
+    if parsed["schema_complete"]:
+        implied_safe = (len(pred_pos) == 0)
+        if parsed["verdict"] != implied_safe:
+            parts["consistency"] = -W_CONSISTENCY_PENALTY
+        else:
+            parts["consistency"] = 0.0
+    else:
+        parts["consistency"] = 0.0
+
     total = sum(parts.values())
     return (total, parts) if return_parts else total
 
@@ -390,10 +493,12 @@ def reward_ceiling_for(decisive_category):
 # TRL adapter
 # ============================================================
 
-def make_trl_reward_func():
+def make_trl_reward_func(strict_json=REQUIRE_JSON_VERDICT_IN_TRAINING):
     """Return a reward function with the signature TRL's GRPOTrainer expects.
 
     Extra dataset columns arrive in kwargs as lists aligned with completions.
+    TRL also passes prompts=, completion_ids=, trainer_state= etc.; they are
+    absorbed by **kwargs.
     """
     def reward_func(completions, **kwargs):
         gold_verdicts = kwargs.get("gold_verdict")
@@ -421,12 +526,13 @@ def make_trl_reward_func():
                     gc = json.loads(gc)
                 except json.JSONDecodeError:
                     gc = {}
-            rewards.append(compute_reward(
+            rewards.append(float(compute_reward(
                 text,
                 gold_verdict=col(gold_verdicts, i),
                 gold_categories=gc,
-                decisive_category=col(decisives, i),
-            ))
+                decisive_category=col(decisives, i) or None,
+                strict_json=strict_json,
+            )))
         assert len(rewards) == n
         return rewards
 
@@ -476,8 +582,20 @@ def _tests():
     r_perfect, parts = compute_reward(perfect, False, gold_cats,
                                       "Age Risk", return_parts=True)
     check("perfect hits ceiling",
-          abs(r_perfect - max_possible_reward(True)) < 1e-6,
-          f"got {r_perfect:.3f} want {max_possible_reward(True):.3f} {parts}")
+          abs(r_perfect - reward_ceiling_for("Age Risk")) < 1e-6,
+          f"got {r_perfect:.3f} want {reward_ceiling_for('Age Risk'):.3f} {parts}")
+
+    # Target-category bonus applies only when the decisive category is a target
+    tgt = TARGET_CATEGORIES[0]
+    tgt_gold = {c: False for c in RISK_CATEGORIES}
+    tgt_gold[tgt] = True
+    r_tgt, parts_tgt = compute_reward(
+        json.dumps({"is_safe": False, "risk_categories": tgt_gold}),
+        False, tgt_gold, tgt, return_parts=True)
+    check("target decisive category earns bonus",
+          abs(r_tgt - max_possible_reward(True)) < 1e-6 and parts_tgt.get("target_bonus") == W_TARGET_BONUS,
+          f"{r_tgt} {parts_tgt}")
+    check("non-target decisive category earns no bonus", "target_bonus" not in parts)
 
     # Correct verdict, but Age subsumed under Renal (the Type A failure)
     subsumed = dict(gold_cats)
@@ -496,6 +614,39 @@ def _tests():
 
     check("unparseable gets floor",
           compute_reward("I cannot answer.", False, gold_cats, "Age Risk") == REWARD_PARSE_FAIL)
+
+    print("\nTruncation (is_safe is the last key, so a cut-off JSON never closes)")
+    # Realistic model output cut mid-way through risk_analysis. The reasoning
+    # prose says "unsafe", which the lenient parser would latch onto.
+    truncated = (
+        '{\n  "reasoning": "The combination is unsafe because of bleeding risk.",\n'
+        '  "risk_analysis": {\n    "Allergy & Adverse Drug Reaction Risk": false,\n'
+        '    "Drug-Drug Interaction Risk": true,\n    "Drug-Food Inter'
+    )
+    check("strict: truncated output is a parse failure",
+          compute_reward(truncated, False, gold_cats, "Age Risk", strict_json=True)
+          == REWARD_PARSE_FAIL)
+    check("lenient: truncated output still yields a verdict (eval only)",
+          parse_completion(truncated, strict_json=False)["verdict"] is False)
+    check("strict: complete JSON parses normally",
+          compute_reward(perfect, False, gold_cats, "Age Risk", strict_json=True) == r_perfect)
+
+    print("\nVerdict/category consistency")
+    all_false = {c: False for c in RISK_CATEGORIES}
+    # Right verdict (unsafe) but an empty category vector: contradicts itself.
+    r_contra, parts_contra = compute_reward(
+        json.dumps({"is_safe": False, "risk_categories": all_false}),
+        False, gold_cats, "Age Risk", return_parts=True)
+    check("contradictory verdict/vector is penalized",
+          parts_contra.get("consistency", 0.0) == -W_CONSISTENCY_PENALTY, str(parts_contra))
+    check("consistent perfect output is not penalized",
+          parts.get("consistency", 0.0) == 0.0)
+    # Safe gold, model says safe with an empty vector: consistent and correct.
+    r_safe_ok, parts_safe = compute_reward(
+        json.dumps({"is_safe": True, "risk_categories": all_false}),
+        True, all_false, None, return_parts=True)
+    check("safe scenario, empty vector hits ceiling",
+          abs(r_safe_ok - reward_ceiling_for(None)) < 1e-6, f"{r_safe_ok} {parts_safe}")
 
     print("\nEn-dash output is not punished")
     endash = json.dumps({
@@ -526,6 +677,15 @@ def _tests():
              decisive_category=["Age Risk", "Age Risk"])
     check("returns one reward per completion", len(out) == 2)
     check("all floats", all(isinstance(x, float) for x in out))
+    # Conversational completions + JSON-string gold + "" decisive (dataset form)
+    out2 = fn([[{"role": "assistant", "content": perfect}]],
+              prompts=[[{"role": "user", "content": "x"}]],
+              gold_verdict=[False],
+              gold_categories=[json.dumps(gold_cats)],
+              decisive_category=[""],
+              uid=["u1"])
+    check("dataset-form kwargs handled",
+          abs(out2[0] - compute_reward(perfect, False, gold_cats, None)) < 1e-9, str(out2))
 
     print()
     if fails:

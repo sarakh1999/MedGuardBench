@@ -1,0 +1,496 @@
+row,block,scenario_id,split,medication,dataset_is_safe,declared_is_safe,Allergy & Adverse Drug Reaction Risk,Drug-Drug Interaction Risk,Drug-Food Interaction Risk,Dosage & Toxicity Risk,Renal Impairment Risk,Hepatic Impairment Risk,Cardiac Impairment Risk,Respiratory Impairment Risk,Bleeding Risk,Infection Risk,Pregnancy & Breastfeeding Risk,Alcohol Use Risk,Tobacco Use Risk,Substance Use Risk,Caffeine Intake Risk,Weight/BMI Risk,Age Risk
+1,calibration,1688,train,Desvenlafaxine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+2,calibration,1037,train,Ciprofloxacin 500 mg BID added to existing clozapine,False,False,False,True,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False
+3,calibration,960,train,Cefdinir (continue full course),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+4,calibration,853,train,Dapagliflozin (new initiation),False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,True
+5,calibration,893,train,Dapagliflozin + structured lifestyle program,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+6,calibration,1501,train,Bupropion XL,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+7,calibration,4538,train,Lisinopril,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+8,calibration,3892,val,Digoxin tablets plus a short antibiotic course,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+9,calibration,1432,train,Albuterol immediate-release oral tablets,False,False,False,True,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False
+10,calibration,5203,train,Erythromycin Stearate,False,False,False,True,False,False,False,False,True,False,True,False,False,False,False,False,False,False,True
+11,calibration,1209,val,Atorvastatin oral suspension (Atorvaliq),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+12,calibration,512,train,Tramadol IR,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+13,calibration,5075,val,Citalopram,False,False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,True
+14,calibration,3323,train,Folic acid,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+15,calibration,669,test,Finasteride,False,False,True,True,False,False,False,False,False,False,False,False,False,True,False,True,True,False,False
+16,calibration,4333,train,Ibuprofen,False,False,False,True,False,False,True,False,True,False,True,False,False,False,False,False,False,False,False
+17,calibration,3174,train,Nabumetone,False,False,False,False,False,False,False,False,False,False,True,False,False,False,True,False,False,False,True
+18,calibration,1860,val,Nifedipine extended-release,False,False,False,False,False,False,False,True,False,False,False,False,False,True,False,False,False,False,False
+19,calibration,1434,train,Albuterol inhalation powder before exercise,False,False,False,False,True,False,False,False,True,False,False,False,False,False,True,False,True,False,False
+20,calibration,1022,train,Clozaril (clozapine),False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+21,main,649,test,Buspirone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+22,main,1305,train,Ciprofloxacin oral tablet,False,False,False,True,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+23,main,1513,train,Bupropion (Zyban),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+24,main,619,test,Buspirone,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+25,main,351,test,Tylenol Extra Strength 1000 mg,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+26,main,1789,train,Empagliflozin,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+27,main,5103,train,Sevelamer carbonate (re-challenge),False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+28,main,1153,val,Clarithromycin,False,False,False,True,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False
+29,main,1158,test,Itraconazole,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+30,main,549,train,Metformin (extended-release),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+31,main,3980,train,Sertraline,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+32,main,5174,train,Gabapentin (Neurontin) adjunctive therapy,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+33,main,1530,test,Valsartan,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+34,main,346,train,Chewable acetaminophen 160 mg tablets (aspartame-sweetened),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+35,main,3905,val,Digoxin plus levothyroxine,False,False,False,True,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+36,main,2675,train,Sildenafil,False,False,False,True,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False
+37,main,1266,train,Amiodarone (IV supplemental),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+38,main,1406,train,Sevelamer carbonate (replacing sevelamer hydrochloride),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+39,main,1865,train,Memantine extended-release,False,False,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False
+40,main,1409,train,Acyclovir buccal tablet (Sitavig),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+41,main,837,test,Sumatriptan nasal spray,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+42,main,1349,train,"Bactrim DS for 10 days, warfarin unchanged",False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+43,main,5155,train,Gabapentin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+44,main,3410,train,Losartan + hydrochlorothiazide (fixed combination),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+45,main,4901,train,Adalimumab (Humira) - induction,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+46,main,4826,train,Phenazopyridine,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+47,main,1162,train,Colchicine,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True
+48,main,1439,train,Albuterol immediate-release oral tablets in addition to her inhaler,False,False,False,False,False,False,False,False,True,False,True,False,True,False,False,False,False,False,False
+49,main,3397,train,Losartan,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+50,main,2327,train,Olanzapine immediate-release IM injection,False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+51,main,3405,train,Losartan,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+52,main,970,test,Terazosin,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,True,True
+53,main,3137,train,Liothyronine,False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+54,main,566,train,Metformin (extended-release tablet),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+55,main,1455,train,Albuterol immediate-release oral tablets (inhaler technique inadequate despite training),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+56,main,4862,train,Hydrocodone,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+57,main,3477,train,Clonidine (oral tablet),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+58,main,4928,train,Adalimumab (Humira) monotherapy (patient intolerant to methotrexate),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+59,main,3914,train,Terbinafine 1% topical cream,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+60,main,1166,train,Niacin (extended-release),False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+61,main,1348,train,Warfarin continued unchanged alongside RIPE,False,False,False,True,False,False,False,False,False,True,False,True,False,False,False,False,False,False,False
+62,main,897,train,"Dapagliflozin (continue acetaminophen, avoid NSAIDs)",True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+63,main,361,test,Self-medicating OTC Tylenol,False,False,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False
+64,main,3029,train,Methylphenidate ER (Adhansia XR),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+65,main,1786,train,Empagliflozin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+66,main,5003,train,Pregabalin (immediate-release),False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,True
+67,main,4614,train,Lactulose,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+68,main,5145,train,Gabapentin immediate-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+69,main,3456,test,Loperamide (misused),False,False,False,False,False,True,False,False,True,True,False,False,False,False,False,True,False,False,False
+70,main,588,train,Metformin (immediate-release),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+71,main,693,test,Finasteride,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+72,main,3259,train,Hydrochlorothiazide,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+73,main,5178,train,Erythromycin Ethylsuccinate,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+74,main,3508,train,Clonidine immediate-release (Catapres),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+75,main,4742,test,Doxepin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+76,main,4821,train,Oseltamivir,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+77,main,4222,train,Trazodone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+78,main,1164,val,Atorvastatin,False,False,True,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,True
+79,main,3393,val,Indomethacin IR capsule,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False
+80,main,1403,train,Sevelamer carbonate oral suspension (powder for reconstitution),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+81,main,1541,test,Valsartan,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+82,main,2397,train,Metoprolol tartrate IR,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+83,main,1362,train,Warfarin continued at same dose,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+84,main,2804,train,Prednisolone (oral),False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True
+85,main,1459,train,Albuterol extended-release oral tablets,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+86,main,1566,val,Clarithromycin immediate-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+87,main,4841,train,Phenazopyridine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+88,main,2970,train,Methylphenidate ER (Cotempla XR-ODT),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+89,main,8,train,Warfarin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+90,main,5163,train,Gabapentin immediate-release (Neurontin),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+91,main,979,test,Continue terazosin without informing ophthalmologist,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+92,main,1853,val,Nifedipine extended-release (with ongoing rifampin),False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+93,main,994,test,Terazosin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+94,main,2611,train,Escitalopram (Lexapro),False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+95,main,1848,val,Nifedipine extended-release + SL nitroglycerin PRN,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+96,main,3342,val,Indomethacin IR capsule,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+97,main,5146,train,Gabapentin oral solution 250 mg/5 mL,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+98,main,824,test,Sumatriptan subcutaneous injection,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+99,main,2958,train,Methylphenidate ER (Metadate CD),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+100,main,5168,train,Gabapentin,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+101,main,2280,train,Olanzapine (oral tablet),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+102,main,4982,train,"Ketotifen ophthalmic 0.025% (shared bottle, dropper touching eye)",False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+103,main,1402,train,Sevelamer carbonate (replacing calcium acetate),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+104,main,3436,train,Mirtazapine,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+105,main,1637,train,Clindamycin,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+106,main,1458,train,Albuterol HFA inhalation aerosol,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+107,main,1225,train,Amiodarone (oral),False,False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False
+108,main,3341,val,Indomethacin oral suspension,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+109,main,1337,train,Amlodipine,False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+110,main,5158,train,Gabapentin oral solution / capsules,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+111,main,2552,val,Lovastatin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+112,main,1449,train,Albuterol inhalation solution 0.63 mg/3 mL unit-dose vial by nebulizer,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+113,main,1014,test,Terazosin (added to finasteride),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+114,main,1288,train,Ciprofloxacin oral tablet,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+115,main,4849,train,Phenazopyridine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+116,main,1814,train,Ivermectin (oral tablet),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+117,main,370,train,Percocet (oxycodone 5 mg/APAP 325 mg),False,False,False,True,False,True,False,True,False,False,False,False,False,True,True,True,False,False,False
+118,main,5171,train,Gabapentin dose escalation,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+119,main,345,train,Continues all three acetaminophen-containing products,False,False,False,True,False,True,False,True,False,False,False,False,False,True,False,True,False,False,False
+120,main,1517,train,Bupropion XL,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+121,main,2781,train,Prednisolone (oral),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+122,main,5231,train,Erythromycin Ethylsuccinate + Sulfisoxazole,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+123,main,937,train,Cefdinir,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+124,main,1430,train,Albuterol HFA inhalation aerosol,False,False,False,True,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False
+125,main,4283,train,Ibuprofen,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+126,main,3135,train,Liothyronine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+127,main,5132,train,Gabapentin (Neurontin) adjunctive,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,True
+128,main,545,train,Metformin (immediate-release),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+129,main,2530,val,Lovastatin,False,False,False,True,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+130,main,5122,train,Isotretinoin,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+131,main,1311,train,Ciprofloxacin oral suspension,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+132,main,1480,train,Alprazolam,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+133,main,1621,train,Clindamycin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+134,main,2172,val,Quinidine sulfate,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+135,main,5427,train,Diazepam,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+136,main,1077,train,Clozaril (clozapine),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+137,main,1491,train,Bupropion (Zyban),False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+138,main,5027,train,Pregabalin IR,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+139,main,2702,train,Sildenafil (Revatio),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+140,main,3926,train,Pregabalin,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+141,main,5017,train,Discontinue pregabalin abruptly,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+142,main,4423,train,Methadone,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True
+143,main,1511,train,Bupropion XL,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+144,main,670,test,Finasteride / Tadalafil combination capsule,False,False,True,True,False,False,True,False,True,False,False,False,False,True,True,False,False,True,False
+145,main,1969,train,Isosorbide mononitrate immediate-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+146,main,1955,train,Isosorbide mononitrate immediate-release,False,False,False,False,True,False,False,False,True,False,False,False,False,True,False,False,False,False,False
+147,main,1339,train,Amlodipine,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+148,main,701,test,Finasteride / Tadalafil combination capsule,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+149,main,362,train,Acetaminophen 1000 mg PO,False,False,False,True,False,True,False,True,False,False,False,True,False,False,False,False,False,False,False
+150,main,4941,train,Adalimumab (Humira) started concurrently with infliximab,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+151,main,3879,val,Digoxin tablets,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+152,main,1569,val,Clarithromycin (triple therapy with amoxicillin + omeprazole),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+153,main,5026,train,Metoprolol succinate ER (new),False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+154,main,1230,train,Amiodarone (IV),False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+155,main,1456,train,Albuterol HFA inhalation aerosol with continued inhaled budesonide,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+156,main,5336,train,Niacin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+157,main,1843,val,Nifedipine extended-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+158,main,1354,train,Tramadol added to warfarin regimen,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+159,main,5154,train,Gabapentin adjunctive,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+160,main,589,train,Metformin (extended-release oral suspension),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+161,main,1838,train,Ivermectin (oral tablet),False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+162,main,831,test,Sumatriptan oral tablet (first dose under medical surveillance),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+163,main,2415,train,Metoprolol succinate ER,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False
+164,main,2328,train,Olanzapine long-acting IM (Zyprexa Relprevv),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+165,main,1867,train,Memantine immediate-release,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+166,main,1973,train,Isosorbide mononitrate extended-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+167,main,684,test,Finasteride (added to tamsulosin),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+168,main,1370,train,Isotretinoin (final dose of planned course),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+169,main,5221,train,Erythromycin Lactobionate IV,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+170,main,1010,test,Terazosin (Tezruly oral solution 1 mg/mL),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+171,main,5023,train,Pregabalin IR,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+172,main,3769,test,Doxepin,False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+173,main,2131,val,Furosemide (IV),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+174,main,1411,train,Acyclovir IV,False,False,False,True,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False
+175,main,2931,train,Fluconazole,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+176,main,537,train,Metformin (immediate-release) - continued from outpatient regimen,False,False,False,False,False,True,True,False,True,True,False,False,False,False,False,False,False,False,True
+177,main,3460,test,Loperamide,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,True
+178,main,1025,train,Clozaril (clozapine) - rechallenge proposed,False,False,True,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+179,main,694,test,Finasteride,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+180,main,2156,val,Furosemide (IV),False,False,False,True,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False
+181,main,5143,train,Gabapentin (Neurontin) immediate-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+182,main,5196,train,Discontinue erythromycin; evaluate for C. difficile,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,True
+183,main,539,train,Metformin (immediate-release) - continued,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False
+184,main,867,train,Dapagliflozin,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,True,False
+185,main,3060,train,Mirtazapine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+186,main,4054,val,Amoxicillin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+187,main,396,train,Children's acetaminophen 240 mg PO,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+188,main,32,train,Warfarin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+189,main,1314,train,Amlodipine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+190,main,1319,train,Continue amlodipine + Tylenol PRN,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+191,main,5006,train,Pregabalin IR (add-on),False,False,False,True,False,True,False,False,False,True,False,False,False,False,False,False,False,False,False
+192,main,4905,train,Adalimumab (Humira) - ADDED to etanercept,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+193,main,360,train,IV acetaminophen 1 g,False,False,False,False,False,True,True,True,False,False,False,False,False,False,False,False,False,True,True
+194,main,3316,train,Folic acid,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+195,main,1178,test,Continue current regimen,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+196,main,3457,test,Loperamide (caregiver considering OTC),False,False,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,False,True
+197,main,3481,train,Clonidine ER oral suspension (Onyda XR),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+198,main,5144,train,Continue Gabapentin (Neurontin),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+199,main,1343,train,Add amlodipine,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+200,main,3046,val,Omeprazole,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+201,main,1937,train,Mounjaro (tirzepatide),False,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,True,False,False
+202,main,4986,train,Ketotifen ophthalmic 0.025%,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+203,main,5199,train,Erythromycin Estolate,False,False,False,False,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False
+204,main,4914,train,Adalimumab (Humira) prefilled syringe (standard formulation with latex needle cap),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+205,main,495,train,Tramadol ER,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+206,main,4979,train,Continue ketotifen ophthalmic 0.025%,False,False,True,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+207,main,1207,val,Atorvastatin (continue),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+208,main,379,train,Acetaminophen 500 mg PO,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+209,main,3238,train,Promethazine (IM),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+210,main,1041,train,Add Clozaril (clozapine) to existing regimen,False,False,False,True,True,False,True,False,True,False,False,False,False,False,False,False,False,False,False
+211,main,5153,train,Gralise (gabapentin extended-release),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+212,main,1223,train,Amiodarone (oral),False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+213,main,4472,train,Methadone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+214,main,375,train,Acetaminophen 1000 mg PO,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+215,main,543,train,Metformin (immediate-release) - dose increase,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,True,True
+216,main,1857,val,Nifedipine (proposed for BP control),False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+217,main,1858,val,Nifedipine (given to lower BP),False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+218,main,2844,train,Pimozide,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False
+219,main,2413,train,Metoprolol succinate ER,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+220,main,1438,train,Albuterol (salbutamol) intravenous infusion as a tocolytic,False,False,False,True,False,True,False,False,True,False,False,False,True,False,False,False,False,False,False
+221,main,1722,test,Tamsulosin (Flomax) 0.4 mg capsule,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+222,main,2394,train,Metoprolol succinate ER (Kapspargo Sprinkle capsules),False,False,False,False,False,False,False,False,True,False,False,False,False,True,False,False,False,False,False
+223,main,1395,train,Erythromycin Base,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+224,main,1320,train,Add amlodipine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+225,main,1742,train,Dulaglutide (Trulicity),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+226,main,3934,train,Pregabalin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+227,main,661,test,Finasteride,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+228,main,1361,train,Continue warfarin without reassessment,False,False,False,False,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False
+229,main,4091,val,Amoxicillin,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+230,main,3337,val,Indomethacin ER capsule,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+231,main,3896,val,Digoxin tablets plus verapamil,False,False,False,True,False,True,True,False,True,False,False,False,False,False,False,False,False,False,False
+232,main,5019,train,Pregabalin (add-on to gabapentin),False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+233,main,3493,train,Clonidine transdermal patch,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+234,main,4953,train,Adalimumab (Humira) added on,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+235,main,5156,train,Gabapentin adjunctive,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+236,main,1608,val,Clarithromycin immediate-release suspension,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False
+237,main,381,train,Acetaminophen 500 mg tablets,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+238,main,1347,train,Continue warfarin while taking fluconazole,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+239,main,1360,train,Continue warfarin at current dose,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False
+240,main,2204,val,Quinidine gluconate IV,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+241,main,1855,val,Immediate-release nifedipine (inappropriate for chronic HTN),False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+242,main,823,test,Sumatriptan oral tablet,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+243,main,5018,train,Pregabalin (rechallenge),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+244,main,1364,train,Continue warfarin unchanged,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False
+245,main,3322,train,Folic acid,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+246,main,1275,train,Amiodarone (oral),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+247,main,996,test,Terazosin (continue),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+248,main,4810,train,Oseltamivir,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+249,main,1410,train,Acyclovir oral,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False
+250,main,5215,train,Erythromycin Base,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+251,main,1793,train,Gatifloxacin (added to existing empagliflozin),False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+252,main,1039,train,Continue clozapine 350 mg unchanged,False,False,False,False,True,True,False,False,False,False,False,False,False,False,True,False,True,False,False
+253,main,1444,train,Albuterol inhalation solution by nebulizer,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,True,True,False,False
+254,main,2239,train,Olanzapine orally disintegrating tablet (Zyprexa Zydis),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+255,main,480,train,Tramadol ER,False,False,False,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,True
+256,main,750,train,Propranolol,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+257,main,1436,train,Levalbuterol/albuterol inhalation solution by nebulizer,False,False,False,True,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False
+258,main,1169,val,Atorvastatin (continue),False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+259,main,3545,train,Naproxen,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+260,main,4476,test,Valacyclovir,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+261,main,2669,train,Sildenafil (Revatio),False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+262,main,3583,train,Naproxen,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+263,main,3450,test,Loperamide (OTC),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+264,main,5148,train,Horizant (gabapentin enacarbil) extended-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+265,main,762,train,Hemangeol (propranolol oral solution),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+266,main,2445,train,Metoprolol tartrate IR,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+267,main,1712,test,Tamsulosin (Flomax) 0.4 mg capsule,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+268,main,3915,train,Terbinafine 1% topical cream,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+269,main,4790,train,Oseltamivir,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+270,main,3140,train,Liothyronine,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+271,main,1179,train,Telaprevir,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+272,main,878,train,Dapagliflozin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+273,main,1650,train,Synthroid (levothyroxine),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+274,main,1941,train,Mounjaro (tirzepatide),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+275,main,5220,train,Erythromycin Stearate,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+276,main,2468,test,Phenelzine,False,False,False,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False
+277,main,5453,train,Diazepam,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+278,main,118,train,Warfarin,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+279,main,3267,train,Hydrochlorothiazide,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+280,main,5134,train,Continue Gabapentin,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+281,main,3030,train,Methylphenidate ER (QuilliChew ER),False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+282,main,3219,train,Promethazine (oral syrup),False,False,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,False,True
+283,main,368,test,Continues all three products,False,False,False,True,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False
+284,main,4588,train,Lisinopril,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+285,main,1175,test,Simvastatin,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+286,main,2197,val,Quinidine sulfate,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+287,main,5136,train,Gabapentin adjunctive,False,False,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+288,main,3502,train,Clonidine transdermal patch,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+289,main,3937,train,Pregabalin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+290,main,3491,train,Clonidine (oral tablet),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+291,main,1401,train,Sevelamer carbonate (continue current regimen),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+292,main,815,test,Sumatriptan oral tablet,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+293,main,3895,val,Digoxin tablets plus quinidine,False,False,False,True,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+294,main,3899,val,Digoxin,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+295,main,3451,test,Loperamide,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+296,main,1247,train,Amiodarone (IV),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+297,main,1440,train,Albuterol inhalation powder (dry powder inhaler),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+298,main,830,test,Sumatriptan subcutaneous injection,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+299,main,868,train,Initiate dapagliflozin today,False,False,False,True,False,True,True,False,True,False,False,False,False,False,False,False,False,False,True
+300,main,1355,train,Continue warfarin as-is,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+301,main,1957,train,Isosorbide mononitrate extended-release,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,True
+302,main,1359,train,Warfarin continued routinely,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+303,main,5219,train,Erythromycin-zinc acetate combination topical OR erythromycin-adapalene topical,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+304,main,1441,train,Albuterol extended-release oral tablets,False,False,False,True,False,True,False,False,True,False,False,False,False,False,False,False,False,True,True
+305,main,1174,test,Danazol,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+306,main,5013,train,Pregabalin IR,False,False,False,True,False,True,True,False,False,False,False,False,False,False,False,False,False,False,True
+307,main,2095,train,Dicyclomine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+308,main,3953,train,Sertraline,False,False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,True
+309,main,2962,train,Methylphenidate ER (Adhansia XR),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+310,main,1365,train,Warfarin 5 mg daily,False,False,False,False,False,False,False,False,True,False,False,False,False,False,True,True,False,False,False
+311,main,865,test,Add gatifloxacin,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+312,main,858,train,Dapagliflozin (off-label adjunct),False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+313,main,1357,train,Warfarin 5 mg daily as scheduled,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+314,main,4907,train,Adalimumab (Humira) in addition to abatacept,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+315,main,5130,train,Gabapentin (Neurontin) 300 mg capsules,False,False,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+316,main,382,train,Acetaminophen 650 mg PO,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+317,main,2470,test,Phenelzine,False,False,False,False,True,False,False,False,False,False,True,False,False,True,False,False,False,False,False
+318,main,2666,train,Sildenafil (Viagra),False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+319,main,1531,test,Valsartan,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+320,main,4975,train,Ketotifen ophthalmic 0.025%,False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+321,main,4499,test,Valacyclovir,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+322,main,1429,train,Acyclovir oral,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+323,main,5092,train,Sevelamer carbonate,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+324,main,939,train,Cefdinir 300 mg capsule,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+325,main,387,train,Acetaminophen 1000 mg PO,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+326,main,4348,train,Ibuprofen,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+327,main,4943,train,Adalimumab (Humira),False,False,False,False,False,False,False,False,False,True,False,True,False,False,False,False,False,False,False
+328,main,417,train,Melatonin,False,False,False,False,True,False,False,True,False,False,False,False,False,True,True,False,False,False,False
+329,main,1003,test,Continue terazosin; ophthalmologist informed of current and prior alpha-blocker use,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+330,main,3192,train,Promethazine (IM),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+331,main,1380,train,Erythromycin Base,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+332,main,2972,train,Methylphenidate ER (Concerta),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+333,main,455,train,Tramadol IR,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+334,main,5131,train,Gabapentin immediate-release,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False
+335,main,1446,train,Albuterol inhalation powder,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+336,main,5147,train,Gabapentin capsules,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+337,main,2068,test,Fluoxetine (Prozac),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+338,main,1442,train,Albuterol inhalation solution by nebulizer (re-challenge),False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+339,main,724,train,Hemangeol (propranolol oral solution),False,False,False,False,False,True,False,False,True,True,False,False,False,False,False,False,False,False,True
+340,main,5097,train,Sevelamer carbonate (off-label dose by weight),False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+341,main,1023,train,Clozaril (clozapine),False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+342,main,3308,train,Spironolactone,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+343,main,871,train,Continue dapagliflozin through morning of surgery,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+344,main,1251,train,"Amiodarone (oral, after IV)",True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+345,main,4956,train,Adalimumab (Humira),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+346,main,1774,train,Dulaglutide (Trulicity),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+347,main,369,train,Acetaminophen 500 mg PO,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+348,main,1161,train,Erythromycin,False,False,True,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+349,main,1471,train,Alprazolam,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+350,main,1371,train,Isotretinoin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+351,main,1366,train,Isotretinoin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+352,main,2950,train,Methylphenidate ER (Aptensio XR),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+353,main,1567,val,Clarithromycin extended-release (Biaxin XL),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+354,main,2403,train,Metoprolol tartrate,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+355,main,1173,test,Rifampin (in RIPE regimen),False,False,False,True,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False
+356,main,263,train,Morphine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+357,main,1998,test,Fluoxetine (Prozac),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+358,main,5150,train,Gabapentin immediate-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+359,main,3455,test,Loperamide (self-medicating),False,False,True,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+360,main,4976,train,"Ketotifen ophthalmic 0.025% (from previous season, solution appears cloudy and yellow)",False,False,True,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+361,main,1373,train,Isotretinoin (second course),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+362,main,934,train,Cefdinir oral suspension,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+363,main,2425,train,Metoprolol tartrate,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+364,main,1876,train,Memantine extended-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+365,main,1934,train,Mounjaro (tirzepatide),False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+366,main,3031,val,Omeprazole,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+367,main,1351,test,Continue both as-is,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+368,main,1880,train,Memantine immediate-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+369,main,348,test,Self-medicating combination,False,False,False,False,False,True,False,True,False,False,False,False,False,False,False,False,True,False,False
+370,main,2101,train,Dicyclomine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+371,main,3458,test,Loperamide (self-medicating without clinician advice),False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+372,main,2904,train,Fluconazole,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+373,main,1181,val,Atorvastatin (continue same),False,False,False,False,True,True,True,False,False,False,False,False,False,False,False,False,False,False,True
+374,main,1448,train,Albuterol immediate-release oral tablets,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+375,main,4112,train,Trazodone,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+376,main,3469,train,Clonidine ER (Kapvay),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+377,main,5010,train,Pregabalin (add-on),False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+378,main,1156,test,Gemfibrozil,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+379,main,3401,train,Losartan (added to amlodipine),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+380,main,4946,train,Adalimumab (Humira) - continue scheduled dose this week,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+381,main,1716,test,Tamsulosin (Flomax) 0.8 mg capsule,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+382,main,3335,val,Indomethacin suppository,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+383,main,1840,train,Ivermectin (oral tablet),False,False,False,True,False,False,False,True,False,False,True,False,False,True,False,False,False,False,True
+384,main,1280,train,"Amiodarone (oral, transition)",True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+385,main,912,train,Cefdinir,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+386,main,634,test,Buspirone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+387,main,1447,train,Albuterol inhalation solution by nebulizer,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+388,main,5399,train,Diazepam,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+389,main,533,train,Metformin (immediate-release) - newly initiated,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True
+390,main,5162,train,Gralise (gabapentin ER),False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,True
+391,main,3088,train,Mirtazapine,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+392,main,848,test,Sumatriptan oral tablet (first dose under medical surveillance),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+393,main,855,train,Dapagliflozin,False,False,False,False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False
+394,main,4950,train,Adalimumab (Humira) starting today,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+395,main,5172,train,Add gabapentin adjunctive,False,False,False,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+396,main,3216,train,Promethazine (oral),False,False,False,False,True,False,False,False,False,True,False,False,False,True,False,True,False,False,False
+397,main,190,train,Morphine,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+398,main,1278,train,"Amiodarone (oral, transition)",True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+399,main,1911,train,Mounjaro (tirzepatide),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+400,main,1170,test,Fenofibrate,False,False,False,True,False,False,True,False,False,False,False,False,False,True,False,False,False,False,False
+401,main,776,test,Hemangeol,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+402,main,2110,train,Dicyclomine,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+403,main,5257,train,Niacin,False,False,False,False,True,False,False,True,False,False,False,False,False,True,False,False,False,False,False
+404,main,1352,train,Warfarin continued,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+405,main,1281,train,Amiodarone (oral),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+406,main,341,train,Acetaminophen 650 mg PO,False,False,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False
+407,main,2440,train,Metoprolol succinate ER,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+408,main,2949,train,Methylphenidate IR,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+409,main,3638,train,Naproxen,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+410,main,1414,train,Zoster vaccine live (given while on acyclovir),False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+411,main,1498,test,Bupropion SR,False,False,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+412,main,1142,train,Celecoxib,False,False,False,False,False,False,False,True,False,False,True,False,False,True,True,False,False,False,False
+413,main,3883,val,Digoxin oral solution,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+414,main,4204,train,Trazodone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+415,main,1215,val,Atorvastatin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+416,main,2984,train,Methylphenidate ER (Adhansia XR),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+417,main,1287,train,Ciprofloxacin oral tablet,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+418,main,1576,val,Clarithromycin immediate-release (renally dose-adjusted),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+419,main,3299,train,Spironolactone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+420,main,4492,test,Valacyclovir,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+421,main,2502,test,Phenelzine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+422,main,3916,train,Terbinafine 1% topical cream,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+423,main,400,train,Excedrin Migraine (APAP 250 mg/aspirin 250 mg/caffeine 65 mg),False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,True,False,False
+424,main,1974,train,Isosorbide mononitrate immediate-release,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+425,main,5159,train,Horizant (gabapentin enacarbil),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+426,main,3212,train,Promethazine (oral),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+427,main,4623,train,Lactulose,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+428,main,380,train,Children's acetaminophen oral suspension 160 mg/5 mL,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+429,main,3295,train,Spironolactone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+430,main,2491,test,Phenelzine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+431,main,2129,val,Furosemide (oral),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+432,main,353,test,Infants' Tylenol 40 mg (parent self-medicating),False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,True
+433,main,5194,test,Supportive care,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+434,main,1733,test,Tamsulosin (Flomax) 0.4 mg capsule,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+435,main,1346,train,Continue warfarin unchanged,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+436,main,3881,val,Digoxin tablets (oral),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+437,main,2978,train,Methylphenidate ER (Ritalin LA),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+438,main,450,train,Melatonin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+439,main,1427,train,Acyclovir IV,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+440,main,3894,val,Digoxin tablets plus clarithromycin,False,False,False,True,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+441,main,1674,train,Synthroid (levothyroxine),False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+442,main,931,train,Cefdinir oral suspension,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+443,main,5138,train,Discontinue gabapentin abruptly today,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+444,main,1781,train,Empagliflozin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+445,main,3911,val,Digoxin plus ticagrelor,False,False,False,True,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False
+446,main,1620,train,Clindamycin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+447,main,2875,train,Pimozide,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+448,main,1108,train,Celecoxib,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+449,main,829,test,Sumatriptan oral tablet,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+450,main,5090,train,Sevelamer carbonate,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+451,main,367,train,Norco (hydrocodone 5 mg/acetaminophen 325 mg),False,False,False,True,False,True,False,False,True,False,True,False,False,False,False,True,False,False,True
+452,main,3512,train,Clonidine (oral tablet),False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+453,main,3898,val,Digoxin tablets plus furosemide,False,False,False,True,True,True,False,False,True,False,False,False,False,False,False,False,False,False,False
+454,main,5226,train,Erythromycin Lactobionate IV,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+455,main,1687,train,Desvenlafaxine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+456,main,5305,train,Niacin,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+457,main,3465,test,Loperamide (self-medicating regularly),False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+458,main,3069,train,Mirtazapine,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+459,main,3021,train,Methylphenidate IR,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+460,main,1127,train,Celecoxib,False,False,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False
+461,main,734,test,Hemangeol,False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,True
+462,main,3489,train,Clonidine ER (Kapvay),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+463,main,376,train,Acetaminophen 650 mg PO,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+464,main,4652,train,Lactulose,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+465,main,3448,test,Loperamide,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+466,main,1956,train,Isosorbide mononitrate extended-release (long-acting oral nitrate),False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+467,main,1356,train,No change yet; patient continuing warfarin pending OB visit,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+468,main,1350,test,Continue both as prescribed,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+469,main,391,train,Children's acetaminophen 320 mg,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+470,main,4916,train,Adalimumab (Humira) ADDED to azathioprine,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+471,main,809,test,Resume on-demand breastfeeding,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+472,main,3169,train,Nabumetone,False,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False
+473,main,386,train,Acetaminophen 500 mg PO,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+474,main,4893,train,Hydrocodone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+475,main,2725,train,Sildenafil,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+476,main,1593,val,Clarithromycin immediate-release,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False
+477,main,5140,train,Gabapentin oral solution,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+478,main,4453,train,Methadone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+479,main,1396,train,Erythromycin Stearate,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+480,main,1383,train,Erythromycin Ethylsuccinate,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+481,main,3147,train,Nabumetone,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+482,main,727,train,Propranolol,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+483,main,5149,train,Gabapentin adjunctive therapy,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+484,main,1017,test,Terazosin (continue),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+485,main,1984,test,Fluoxetine (Prozac),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+486,main,1711,train,Desvenlafaxine,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+487,main,5118,train,Isotretinoin,False,False,False,True,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+488,main,550,train,Metformin (extended-release tablet),False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True
+489,main,2771,train,Prednisolone (oral),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+490,main,2357,train,Olanzapine (oral tablet),False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+491,main,1743,train,Dulaglutide (Trulicity),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+492,main,3412,train,Losartan,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+493,main,354,test,Tylenol Extra Strength 500 mg adult caplets,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,True
+494,main,2603,train,Escitalopram (Lexapro),True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
+495,main,1167,train,Ketoconazole,False,False,False,True,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False

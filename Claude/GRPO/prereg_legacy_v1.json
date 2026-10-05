@@ -1,0 +1,10 @@
+{
+  "data_condition": "legacy_v1",
+  "anchored_to": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/Qwen3-4B-Instruct/test_predictions_w_schema_metrics.json",
+  "G1_recall_unsafe_min": 0.9701,
+  "G2_fpr_max": 0.2,
+  "G3_macro_f1_gain": 0.03,
+  "G3_macro_f1_min": 0.6831,
+  "G4_category": "Allergy & Adverse Drug Reaction Risk",
+  "G4_category_f1_min": 0.5515
+}

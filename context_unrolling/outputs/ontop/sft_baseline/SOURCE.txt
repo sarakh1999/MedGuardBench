@@ -1,0 +1,1 @@
+baseline metrics copied from Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-950 (sft_qwen4B.py recipe: bs2 x ga4, max_seq 2048)

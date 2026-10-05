@@ -28,8 +28,8 @@ from pathlib import Path
 from tqdm import tqdm
 
 import grpo_config as C
-from reward import compute_reward, canonical_category
-from data_utils import load_scenarios, apply_template_override
+from reward import compute_reward, canonical_category, reward_ceiling_for
+from data_utils import load_scenarios, apply_template_override, write_scenarios
 
 
 def generate_samples(model, tokenizer, scenarios, n_samples, temperature,
@@ -94,28 +94,52 @@ def score_and_filter(scenarios, cache_path):
             if scenario is None:
                 continue
 
-            rewards = [
+            scored = [
                 compute_reward(
                     c,
                     gold_verdict=scenario["gold_verdict"],
                     gold_categories=scenario["gold_categories"],
                     decisive_category=scenario.get("decisive_category"),
+                    return_parts=True,
                 )
                 for c in rec["completions"]
             ]
-            if not rewards:
+            if not scored:
                 continue
 
+            rewards = [r for r, _ in scored]
             mean_r = statistics.fmean(rewards)
-            var_r = statistics.pvariance(rewards) if len(rewards) > 1 else 0.0
+            n_parse_fail = sum(1 for _, p in scored if "parse_fail" in p)
 
-            has_signal = var_r > C.MINING_MIN_VARIANCE
-            is_hard = mean_r < C.MINING_MAX_MEAN_REWARD
+            # The objective is per-category attribution, so "disagreement"
+            # is measured on the CATEGORY terms only (decisive + others +
+            # target bonus) over the parseable samples. Verdict, schema,
+            # length and parse-failure terms are excluded: they would flag
+            # groups whose samples all agree on the categories (no category
+            # gradient) merely because formatting varied.
+            cat_scores = [
+                parts.get("decisive", 0.0) + parts.get("others", 0.0)
+                + parts.get("target_bonus", 0.0)
+                for _, parts in scored if "parse_fail" not in parts
+            ]
+            cat_ceiling = reward_ceiling_for(scenario.get("decisive_category")) - C.W_VERDICT - C.W_SCHEMA
+            var_cat = statistics.pvariance(cat_scores) if len(cat_scores) > 1 else 0.0
+            mean_cat = statistics.fmean(cat_scores) if cat_scores else 0.0
+
+            # Disagreement on categories -> useful GRPO signal.
+            has_signal = var_cat > C.MINING_MIN_VARIANCE
+            # Consistently wrong on categories: zero variance here, but fresh
+            # samples at training time may still differ, so keep as a
+            # secondary pool.
+            is_hard = (len(cat_scores) >= 2
+                       and mean_cat < C.MINING_MAX_MEAN_CATEGORY_FRAC * cat_ceiling)
 
             stats.append({
                 "uid": rec["uid"],
                 "mean": mean_r,
-                "var": var_r,
+                "var": var_cat,
+                "n": len(scored),
+                "parse_fail": n_parse_fail,
                 "keep": has_signal or is_hard,
                 "reason": "variance" if has_signal else ("low_mean" if is_hard else "skip"),
             })
@@ -123,7 +147,9 @@ def score_and_filter(scenarios, cache_path):
             if has_signal or is_hard:
                 item = dict(scenario)
                 item["mining_mean_reward"] = round(mean_r, 4)
-                item["mining_reward_variance"] = round(var_r, 6)
+                item["mining_reward_variance"] = round(var_cat, 6)
+                item["mining_mean_category_score"] = round(mean_cat, 4)
+                item["mining_parse_failures"] = n_parse_fail
                 item["mining_reason"] = "variance" if has_signal else "low_mean"
                 kept.append(item)
 
@@ -152,6 +178,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=None,
                     help="only process the first N scenarios")
+    ap.add_argument("--sample", type=int, default=None,
+                    help="process a seeded random sample of N scenarios")
+    ap.add_argument("--sample-seed", type=int, default=0)
+    ap.add_argument("--temperature", type=float, default=C.MINING_TEMPERATURE,
+                    help="sampling temperature (default MINING_TEMPERATURE)")
     ap.add_argument("--reuse-cache", action="store_true",
                     help="skip generation, re-filter the existing cache")
     ap.add_argument("--out", default=str(C.HARD_EXAMPLES_JSONL))
@@ -163,6 +194,11 @@ def main():
 
     print("Loading training scenarios...")
     scenarios = load_scenarios(C.TRAIN_JSONL)
+    if args.sample:
+        import random
+        rng = random.Random(args.sample_seed)
+        scenarios = rng.sample(scenarios, min(args.sample, len(scenarios)))
+        print(f"seeded random sample (seed {args.sample_seed})")
     if args.limit:
         scenarios = scenarios[:args.limit]
     print(f"{len(scenarios)} scenarios")
@@ -178,20 +214,25 @@ def main():
         print("  or 'target_category' to get the stronger reward.\n")
 
     if not args.reuse_cache:
-        print(f"\nLoading SFT checkpoint from {C.SFT_ADAPTER_PATH}")
+        # Sample from the same weights GRPO will start from: the merged SFT
+        # model, 4-bit, so mining reflects the actual initial policy.
+        init_path = Path(C.POLICY_INIT_PATH)
+        if not init_path.exists():
+            raise SystemExit(f"POLICY_INIT_PATH not found: {init_path}")
+        print(f"\nLoading merged SFT model from {init_path}")
         from unsloth import FastLanguageModel
         model, tokenizer = FastLanguageModel.from_pretrained(
-            model_name=str(C.SFT_ADAPTER_PATH),
+            model_name=str(init_path),
             max_seq_length=C.MAX_SEQ_LENGTH,
-            load_in_4bit=True,
+            load_in_4bit=C.LOAD_IN_4BIT,
             fast_inference=True,
-            gpu_memory_utilization=0.6,
+            gpu_memory_utilization=0.5,
         )
-        tokenizer = apply_template_override(tokenizer, str(C.SFT_ADAPTER_PATH))
+        tokenizer = apply_template_override(tokenizer, str(init_path))
         FastLanguageModel.for_inference(model)
 
         generate_samples(model, tokenizer, scenarios,
-                         C.MINING_N_SAMPLES, C.MINING_TEMPERATURE,
+                         C.MINING_N_SAMPLES, args.temperature,
                          C.MINING_MAX_NEW_TOKENS, cache_path)
     else:
         print(f"Reusing cache at {cache_path}")
@@ -210,6 +251,12 @@ def main():
         zero_var = sum(1 for s in stats if s["var"] <= C.MINING_MIN_VARIANCE)
         print(f"  zero-variance:   {zero_var} "
               f"({100*zero_var/len(stats):.1f}% would give no gradient)")
+        n_pf = sum(s["parse_fail"] for s in stats)
+        n_tot = sum(s["n"] for s in stats)
+        if n_pf:
+            print(f"  parse failures:  {n_pf}/{n_tot} sampled completions "
+                  f"({100*n_pf/max(n_tot,1):.1f}%). If this is high, check "
+                  f"MINING_MAX_NEW_TOKENS / truncation before training.")
 
     kept = oversample_targets(kept, C.TARGET_CATEGORY_OVERSAMPLE)
     print(f"\n  after target oversampling: {len(kept)}")
@@ -223,15 +270,20 @@ def main():
         flag = "  <-- target" if cat in C.TARGET_CATEGORIES else ""
         print(f"    {str(cat):44s} {n:5d}{flag}")
 
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(out_path, "w") as f:
-        for item in kept:
-            f.write(json.dumps(item) + "\n")
-    print(f"\nWrote {len(kept)} scenarios to {out_path}")
+    # Written in the same ChatML-plus-labels format load_scenarios reads, so
+    # train_grpo.py can consume it directly.
+    write_scenarios(kept, out_path)
+    reloaded = load_scenarios(out_path)
+    if len(reloaded) != len(kept):
+        raise SystemExit(
+            f"Round-trip check failed: wrote {len(kept)} scenarios but "
+            f"load_scenarios read back {len(reloaded)}. Fix data_utils before training."
+        )
+    print(f"\nWrote {len(kept)} scenarios to {out_path} (round-trip verified)")
 
     if len(kept) < 100:
         print("\n  WARNING: fewer than 100 hard examples. GRPO has little to")
-        print("  work with. Consider raising MINING_MAX_MEAN_REWARD or")
+        print("  work with. Consider raising MINING_MAX_MEAN_CATEGORY_FRAC or")
         print("  MINING_TEMPERATURE to surface more disagreement.")
 
 

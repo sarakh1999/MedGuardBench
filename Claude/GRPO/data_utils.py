@@ -1,5 +1,6 @@
 """
-Data loading for GRPO. Reads the same ChatML JSONL the SFT stage used.
+Data loading for GRPO. Reads the same ChatML JSONL the SFT stage used, and
+the labeled JSONL written by mine_hard_examples.py.
 
 Expected per-line format (flexible; several key spellings accepted):
 
@@ -9,29 +10,37 @@ Expected per-line format (flexible; several key spellings accepted):
       {"role": "user",      "content": "patient profile + assessment"},
       {"role": "assistant", "content": "reasoning + verdict + categories"}
     ],
-    "is_safe": false,
-    "risk_categories": {"Renal Impairment Risk": true, ...},
-    "decisive_category": "Renal Impairment Risk"     # optional but valuable
+    "is_safe": false,                                 # optional
+    "risk_categories": {"Renal Impairment Risk": true, ...},   # optional
+    "decisive_category": "Renal Impairment Risk"      # optional but valuable
   }
 
-If labels are not present as top-level fields, they are recovered by parsing
-the assistant message with the same parser used for rewards.
+The SFT ChatML files carry only "messages"; labels are then recovered by
+parsing the assistant message with the same parser used for rewards. The
+miner writes "messages" plus explicit top-level labels (gold_verdict,
+gold_categories, decisive_category), which take precedence when present.
 """
 
 import json
+import re
 from pathlib import Path
 
 from reward import parse_completion, canonical_category
 from grpo_config import (
     RISK_CATEGORIES, STANDARD_CHATML_TEMPLATE, NEEDS_TEMPLATE_OVERRIDE,
+    ASSISTANT_PREFIX,
 )
 
 # Accepted key spellings for each label field
-_VERDICT_KEYS = ("is_safe", "Is_Safe", "isSafe", "safe", "verdict", "label")
+_VERDICT_KEYS = ("is_safe", "Is_Safe", "isSafe", "gold_verdict", "safe",
+                 "verdict", "label")
 _CATEGORY_KEYS = ("risk_categories", "Risk_Categories", "riskCategories",
-                  "categories", "risk_analysis")
+                  "gold_categories", "categories", "risk_analysis")
 _DECISIVE_KEYS = ("decisive_category", "target_category", "primary_category",
                   "Decisive_Category", "Target_Category", "target_risk_category")
+# Prompt-only message lists (no assistant turn), as written by older miner output
+_PROMPT_KEYS = ("messages", "conversations", "messages_prompt", "prompt")
+_REFERENCE_KEYS = ("reference_completion", "completion", "response")
 
 
 def _first_key(record, keys):
@@ -111,7 +120,12 @@ def load_scenarios(path, require_labels=True):
                 skipped += 1
                 continue
 
-            messages = rec.get("messages") or rec.get("conversations")
+            messages = None
+            for k in _PROMPT_KEYS:
+                v = rec.get(k)
+                if isinstance(v, list) and v and isinstance(v[0], dict):
+                    messages = v
+                    break
             if not messages:
                 skipped += 1
                 continue
@@ -121,6 +135,10 @@ def load_scenarios(path, require_labels=True):
                 (m.get("content", "") for m in messages if m.get("role") == "assistant"),
                 "",
             )
+            if not assistant:
+                ref = _first_key(rec, _REFERENCE_KEYS)
+                if isinstance(ref, str):
+                    assistant = ref
 
             verdict = _to_bool(_first_key(rec, _VERDICT_KEYS))
             cats_raw = _first_key(rec, _CATEGORY_KEYS)
@@ -148,7 +166,7 @@ def load_scenarios(path, require_labels=True):
                 if len(positives) == 1:
                     decisive = positives[0]
 
-            out.append({
+            item = {
                 "uid": rec.get("id") or rec.get("uid") or f"{path.stem}-{idx}",
                 "messages_prompt": prompt_msgs,
                 "prompt": prompt_msgs,
@@ -156,11 +174,49 @@ def load_scenarios(path, require_labels=True):
                 "gold_categories": categories,
                 "decisive_category": decisive,
                 "reference_completion": assistant,
-            })
+            }
+            # Carry mining metadata through for inspection
+            for k, v in rec.items():
+                if k.startswith("mining_") or k == "oversampled":
+                    item[k] = v
+            out.append(item)
 
     if skipped:
         print(f"  loaded {len(out)} scenarios from {path.name} ({skipped} skipped)")
     return out
+
+
+def scenario_to_record(scenario):
+    """Serialize a scenario (as returned by load_scenarios) to a JSONL record
+    that load_scenarios can read back: standard ChatML `messages` including
+    the reference assistant turn, plus explicit labels so nothing has to be
+    re-parsed. Mining metadata (mining_*, oversampled) is preserved.
+    """
+    messages = list(scenario["messages_prompt"])
+    if scenario.get("reference_completion"):
+        messages.append({"role": "assistant",
+                         "content": scenario["reference_completion"]})
+    rec = {
+        "uid": scenario["uid"],
+        "messages": messages,
+        "gold_verdict": scenario["gold_verdict"],
+        "gold_categories": scenario["gold_categories"],
+        "decisive_category": scenario.get("decisive_category"),
+    }
+    for k, v in scenario.items():
+        if k.startswith("mining_") or k == "oversampled":
+            rec[k] = v
+    return rec
+
+
+def write_scenarios(scenarios, path):
+    """Write scenarios as JSONL in the format load_scenarios reads."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        for s in scenarios:
+            f.write(json.dumps(scenario_to_record(s), ensure_ascii=False) + "\n")
+    return len(scenarios)
 
 
 def apply_template_override(tokenizer, model_name):
@@ -174,6 +230,49 @@ def apply_template_override(tokenizer, model_name):
     if any(marker.lower() in name for marker in NEEDS_TEMPLATE_OVERRIDE):
         tokenizer.chat_template = STANDARD_CHATML_TEMPLATE
         print("  applied standard ChatML template override (Qwen3Guard backbone)")
+    return apply_assistant_prefix(tokenizer, ASSISTANT_PREFIX)
+
+
+_GEN_PROMPT_RE = re.compile(
+    r"(\{\{-?\s*'<\|im_start\|>assistant\\n)('\s*-?\}\})")
+
+
+def apply_assistant_prefix(tokenizer, prefix):
+    """Append `prefix` to the generation prompt of a ChatML template.
+
+    Rewrites the add_generation_prompt branch from
+        {{- '<|im_start|>assistant\\n' }}
+    to
+        {{- '<|im_start|>assistant\\n<prefix>' }}
+    so the policy is conditioned on the exact text the SFT model was trained
+    to emit first (see grpo_config.ASSISTANT_PREFIX). No-op for "".
+    """
+    if not prefix:
+        return tokenizer
+    template = tokenizer.chat_template or ""
+    escaped = prefix.replace("\\", "\\\\").replace("\n", "\\n").replace("'", "\\'")
+    # Decide by what the template actually RENDERS, not by substring: the
+    # official Qwen3 template contains the same text in an inactive
+    # `enable_thinking is false` branch.
+    probe_msgs = [{"role": "user", "content": "x"}]
+    rendered = tokenizer.apply_chat_template(probe_msgs, tokenize=False,
+                                             add_generation_prompt=True)
+    if rendered.endswith("<|im_start|>assistant\n" + prefix):
+        return tokenizer  # already applied
+    new_template, n = _GEN_PROMPT_RE.subn(
+        lambda m: m.group(1) + escaped + m.group(2), template)
+    if n == 0:
+        raise RuntimeError(
+            "apply_assistant_prefix: could not find the generation-prompt branch "
+            "in the chat template; cannot inject ASSISTANT_PREFIX safely.")
+    tokenizer.chat_template = new_template
+    # Sanity check the rendered prompt
+    probe = tokenizer.apply_chat_template(probe_msgs, tokenize=False,
+                                          add_generation_prompt=True)
+    if not probe.endswith("<|im_start|>assistant\n" + prefix):
+        raise RuntimeError("apply_assistant_prefix: rendered prompt does not end "
+                           f"with the prefix: {probe[-80:]!r}")
+    print(f"  generation prompt now ends with assistant prefix {prefix!r}")
     return tokenizer
 
 
