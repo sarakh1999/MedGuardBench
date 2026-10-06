@@ -280,7 +280,9 @@ def to_trl_dataset(scenarios):
     """Convert to a HF Dataset with the columns the reward function reads.
 
     Extra columns beyond 'prompt' are forwarded to the reward function as
-    kwargs by TRL's GRPOTrainer.
+    kwargs by TRL's GRPOTrainer, and are visible to the trainer in
+    `_generate_and_score_completions(inputs)`, which is how the guided
+    trainer in train_grpo.py finds the reference completion per prompt.
     """
     from datasets import Dataset
     return Dataset.from_list([
@@ -290,6 +292,7 @@ def to_trl_dataset(scenarios):
             "gold_categories": json.dumps(s["gold_categories"]),
             "decisive_category": s["decisive_category"] or "",
             "uid": s["uid"],
+            "reference_completion": s.get("reference_completion") or "",
         }
         for s in scenarios
     ])

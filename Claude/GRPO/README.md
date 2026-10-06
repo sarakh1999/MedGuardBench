@@ -89,7 +89,9 @@ grpo_config.py          paths, reward weights, hyperparameters, SFT baseline, G1
 reward.py               reward function + output parser + self-tests
 data_utils.py           ChatML loading/writing, label recovery, template override
 mine_hard_examples.py   build the GRPO training set
-train_grpo.py           main training loop
+build_grpo_from_dpo.py  mined set + counterfactual twins from the DPO data (leakage-filtered)
+train_grpo.py           main training loop (GuidedGRPOTrainer: reference guidance)
+per_category_report.py  per-category TP/TN/FP/FN from saved predictions
 eval_grpo.py            evaluation with bootstrap CIs; writes raw predictions
 run_grpo.slurm          SLURM submission (STAGE=mine|dry|train|eval, --array for seeds)
 setup_grpo_env.sh       build a conda env with unsloth + trl>=0.15 + vllm
@@ -152,18 +154,123 @@ python eval_grpo.py \
   --bootstrap 2000
 ```
 
+## Post-mortem of the first runs (why GRPO did not beat SFT)
+
+Three paired evaluations (4B lr 5e-6, 4B lr 2e-5 category-focused, 8B lr
+2e-5) all landed within noise of SFT or slightly below (macro-F1 0.65 -> 0.64,
+19-25 categories better / 22-25 worse, 90-91% identical category sets).
+The training logs (`~/grpo_smoke/cat_train.log`, `8b_train.log`) and the
+mining logs explain it:
+
+1. **Zero-variance groups.** 48.5% (4B) / 52.6% (8B) of training groups
+   had all 8 samples scoring identically. The dominant test errors
+   (Allergy / Dosage / Infection attributed to DDI) are systematic, so
+   they live in exactly those groups, where GRPO's advantage is 0 and no
+   gradient exists. Plain GRPO could only re-weight items the model was
+   already inconsistent on.
+2. **Sharpening, not learning.** `frac_reward_zero_std` rose from 0.03 to
+   0.38 and `reward_std` fell 0.45 -> 0.21 while the mean reward moved only
+   1.83 -> 1.93: the policy collapsed onto its existing greedy answer. The
+   greedy eval therefore saw almost no change.
+3. **Learning rate far too low for a fresh LoRA.** 1e-6 .. 2e-5 gave KL
+   0.002 after two epochs; `grad_norm` (~0.03) never reached the 0.2 clip.
+4. **KL to the wrong reference.** beta 0.04 to the SFT policy penalised
+   moving away from the very attribution we wanted to change.
+5. **Group std scaling.** With `scale_rewards="group"`, near-unanimous
+   groups (std ~0.1) inflated a one-sample formatting fluke into a +-2.6
+   advantage, so much of the gradient was length/format noise.
+6. **Pure on-policy, one pass.** `num_iterations=1` pins the ratio at 1,
+   the clip never engages, and each 64-completion generation yields one
+   small update.
+7. **Mining/training mismatch.** Mining sampled at T=0.8 but training at
+   T=1.0, and consistently wrong groups were only kept when their mean
+   category score was below half the ceiling.
+8. **Credit over 900 tokens.** The reward depends on ~18 boolean tokens;
+   the sequence-level advantage is spread over ~900 tokens of prose.
+   Unsloth's fused loss has no per-token weight hook, so this one is not
+   fixed here; shorter completions or a classification head would be the
+   structural fix.
+
+What changed (all in `grpo_config.py` / `train_grpo.py`):
+
+| Setting | Was | Now | Why |
+|---|---|---|---|
+| reference guidance | - | on (`--no-guide` to disable) | unanimous-and-wrong groups get the SFT reference completion injected in place of one sample, so systematic errors finally produce a gradient (mixed-policy GRPO, LUFFY-style) |
+| `learning_rate` | 1e-6 | 5e-5 | LoRA-GRPO needs 1e-5..1e-4 to move the mode |
+| `beta` | 0.04 | 0.0 | the reference is the model we want to change; PPO clip bounds the step |
+| `epsilon_high` | 0.2 | 0.28 | DAPO clip-higher: lets low-probability correct tokens rise faster |
+| `num_iterations` | 1 | 2 | second, clipped pass per generation batch |
+| `scale_rewards` | group | batch | one std per generation batch; no inflation of unanimous-group noise |
+| `mask_truncated_completions` | off | on | never train on half-finished JSON |
+| `MINING_TEMPERATURE` | 0.8 | = training T (1.0) | mine the distribution we train on |
+| `MINING_MAX_MEAN_CATEGORY_FRAC` | 0.5 | 0.999 | keep every consistently wrong group; they are now the useful ones |
+| `max_grad_norm` | 0.2 | 0.5 | was never binding; headroom for the higher lr |
+
+The run_config.json records `reference_guidance.stats` (groups seen,
+unanimous-and-wrong, injected) and the trainer logs `guide/injected_frac`
+per step. If injected_frac is ~0, guidance is not firing and the mined
+set has no unanimous-wrong groups (or the references do not score at
+ceiling, which the start-up reward check would already have flagged).
+
+## Second attempt: guided GRPO on mined + counterfactual prompts (`grpo-guided-v2`)
+
+The DPO pair files contain two things GRPO can use: (a) the *chosen* trace
+of every prompt (already the guidance reference above) and (b) new prompts
+that are hard by construction, the counterfactual twins. `build_grpo_from_dpo.py`
+builds the training set from them:
+
+```bash
+MGB_DATA_CONDITION=legacy_v1 python mine_hard_examples.py --reuse-cache \
+    --cache data/legacy_v1/mining_full.jsonl --out data/legacy_v1/grpo_train_v2.jsonl
+MGB_DATA_CONDITION=legacy_v1 python build_grpo_from_dpo.py       # -> grpo_train_guided.jsonl
+```
+
+| Source | n | Gold labels | Guidance reference |
+|---|---|---|---|
+| mined hard set (`grpo_train_v2`, new selection rule: 1941 variance + 287 unanimous-wrong, target oversampling) | 2387 | SFT train labels | v1 SFT trace |
+| teacher twins (`Claude/DPO/data/counterfactual/pairs.jsonl`, one category flipped, blind teacher-labelled) | 416 | teacher | teacher trace |
+| rule-generated safe twins (`single_risk_category_train.csv`, subsample 400) | 400 | safe by construction | none (templated trace; on-policy signal only) |
+
+Two deliberate omissions:
+
+- **Twins' source profiles** are not re-added when mining dropped them:
+  the policy is zero-variance-correct on them, so they cost generation and
+  yield no gradient. (`--include-originals` to override.)
+- **Rejected (negative) traces are not injected.** Under group
+  normalisation with G=8, an injected negative that matches the group's
+  consensus gets advantage -(c-w)/8 (same as the on-policy wrong samples)
+  while the chosen gets +7(c-w)/8, so the shared reasoning tokens do *not*
+  cancel and the extra push on the flipped boolean is 1/8 of the contrast.
+  Not worth the off-policy risk of training on synthetic wrong traces.
+
+**Leakage guard.** The DPO files were built on the blind_v2 split, whose
+train/test assignment differs from legacy_v1. The builder drops every twin
+whose source Patient ID is in `TEST_JSONL` (72 single-risk twins here; the
+teacher twins were generated from legacy train rows only). Note that
+`Claude/DPO/data/mixed_balanced_v2/dpo_pairs.jsonl` contains 846 pairs from
+legacy-test patients, so a DPO model trained on it must not be scored on the
+legacy test split.
+
+**Run.** `~/grpo_smoke/guided_chain.sh grpo-guided-v2 --epochs 1 --per-device-batch 4`
+trains (resumable), evaluates against the cached greedy SFT predictions and
+writes `final/eval/per_category_{grpo,sft}.txt`. One epoch over 3203 prompts
+= 400 generation batches = 800 optimizer steps with `num_iterations=2`.
+The dry run on the new trainer showed `guide/injected_frac` 0.04 on the
+variance-heavy smoke set, `frac_reward_zero_std` 0.0 and non-zero clip
+ratios on the second pass, i.e. all three new mechanisms are active.
+
 ## Settings that matter most
 
 | Setting | Value | Why |
 |---|---|---|
-| Start point | merged SFT (`final`) | fresh LoRA on merged weights makes the KL reference the SFT policy |
-| `learning_rate` | 1e-6 | ~100x below the SFT 1e-4. A large lr is the most common way GRPO collapses |
+| Start point | merged SFT (`checkpoint-950-merged`) | fresh LoRA on merged weights; disable_adapter() == SFT policy |
+| `learning_rate` | 5e-5 | fresh LoRA; see post-mortem |
 | `temperature` | 1.0 | needs within-group diversity. Opposite of the greedy eval config |
-| `beta` | 0.04 | KL to the SFT reference. Raise if recall(unsafe) drops during training |
+| `beta` | 0.0 | see post-mortem; re-enable (0.01-0.04) only if recall(unsafe) drops |
 | `num_generations` | 8 | below 4 the group baseline is too noisy; 16 is cleaner but doubles cost |
 | prompts / step | 8 (8 x 8 / 8) | fewer than ~8 unique prompts per step gives a very noisy gradient |
 | `max_completion_length` | 1536 | references are 750-1000 tokens; T=1.0 samples run longer |
-| `max_grad_norm` | 0.2 | RL gradients are high-variance |
+| `max_grad_norm` | 0.5 | RL gradients are high-variance |
 
 ## Pre-registered evaluation
 
@@ -186,8 +293,8 @@ from `eval/test_predictions.txt` by hand after training. If metrics rose
 while reasoning traces got shorter and more formulaic, that is hacking.
 
 **FP/FN trade.** Watch recall(unsafe) in the eval log of every seed. If G2
-is met and G1 fails, raise `beta` or lower `learning_rate` rather than
-celebrate the FPR drop.
+is met and G1 fails, re-enable `beta` (0.01-0.04) or lower `learning_rate`
+rather than celebrate the FPR drop.
 
 ## Positioning against DPO
 

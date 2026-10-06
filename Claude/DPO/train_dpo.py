@@ -56,6 +56,9 @@ def main():
                     help="merged SFT model dir (see docstring)")
     ap.add_argument("--out", default=str(DPO_DIR / "outputs" / C.DATA_CONDITION / "qwen3-4b"))
     ap.add_argument("--beta", type=float, default=0.1)
+    ap.add_argument("--rpo-alpha", type=float, default=0.0,
+                    help="weight of the SFT/NLL auxiliary loss on the chosen answer "
+                         "(0 = pure DPO; ~0.5-1.0 anchors the policy to SFT behavior)")
     ap.add_argument("--lr", type=float, default=5e-6)
     ap.add_argument("--epochs", type=float, default=2)
     ap.add_argument("--batch-size", type=int, default=2)
@@ -66,6 +69,9 @@ def main():
     ap.add_argument("--seed", type=int, default=C.SEED)
     ap.add_argument("--load-in-4bit", action="store_true", default=True)
     ap.add_argument("--no-4bit", dest="load_in_4bit", action="store_false")
+    ap.add_argument("--save-all", action="store_true",
+                    help="keep every checkpoint instead of the last 3 "
+                         "(enables post-hoc mid-run evals)")
     args = ap.parse_args()
 
     if not os.path.exists(args.pairs):
@@ -99,7 +105,9 @@ def main():
           + (f"  val {len(split['test'])}" if split["test"] is not None else ""))
 
     cfg = DPOConfig(
-        output_dir=args.out, beta=args.beta, learning_rate=args.lr,
+        output_dir=args.out, beta=args.beta,
+        rpo_alpha=(args.rpo_alpha if args.rpo_alpha > 0 else None),
+        learning_rate=args.lr,
         num_train_epochs=args.epochs,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
@@ -107,7 +115,8 @@ def main():
         max_length=args.max_length, max_prompt_length=args.max_prompt_length,
         bf16=bf16, fp16=not bf16, max_grad_norm=1.0, warmup_ratio=0.1,
         lr_scheduler_type="cosine", optim="adamw_8bit", weight_decay=0.0,
-        logging_steps=5, save_strategy="steps", save_steps=50, save_total_limit=3,
+        logging_steps=5, save_strategy="steps", save_steps=50,
+        save_total_limit=(None if args.save_all else 3),
         eval_strategy="steps" if split["test"] is not None else "no", eval_steps=50,
         load_best_model_at_end=split["test"] is not None,
         metric_for_best_model="eval_loss", greater_is_better=False,
@@ -129,7 +138,8 @@ def main():
     summary = {
         "policy_init": args.policy_init, "pairs": args.pairs,
         "n_train_pairs": len(split["train"]),
-        "beta": args.beta, "lr": args.lr, "epochs": args.epochs, "seed": args.seed,
+        "beta": args.beta, "rpo_alpha": args.rpo_alpha,
+        "lr": args.lr, "epochs": args.epochs, "seed": args.seed,
         "train_loss": result.training_loss, "train_seconds": secs,
         "best_eval_loss": trainer.state.best_metric,
         "global_step": trainer.state.global_step,

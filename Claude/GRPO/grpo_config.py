@@ -201,20 +201,23 @@ WRONG_VERDICT_CATEGORY_SCALE = 0.25
 # ============================================================
 
 MINING_N_SAMPLES = 8         # completions per scenario during mining
-MINING_TEMPERATURE = 0.8
 MINING_MAX_NEW_TOKENS = 1536
 
-# Keep a scenario for GRPO if the group disagrees (variance above this,
-# computed on the reward WITHOUT the length term, which varies continuously
-# with every sample and would otherwise mark every group as "disagreeing")
-# or the model is consistently wrong (mean reward below the cap).
 # Group selection is based on the CATEGORY reward terms only (see
 # mine_hard_examples.score_and_filter): keep a scenario if the G samples
 # disagree on categories (variance > MINING_MIN_VARIANCE) or are
-# consistently poor on them (mean category score below this fraction of the
-# category ceiling).
+# consistently WRONG on them (mean category score below this fraction of
+# the category ceiling).
+#
+# Why the fraction is ~1.0 and not 0.5: the errors that matter (Allergy,
+# Dosage, Infection missed and attributed to DDI) are SYSTEMATIC. All 8
+# samples make the same mistake, so the group has zero variance and, under
+# plain GRPO, zero advantage. 48-53% of the training groups were like that
+# (cat_mine.log / 8b_mine.log). With reference guidance (GUIDE_WITH_REFERENCE
+# below) those groups become the most valuable ones, so every consistently
+# wrong group is kept, not only the ones below half the ceiling.
 MINING_MIN_VARIANCE = 0.01
-MINING_MAX_MEAN_CATEGORY_FRAC = 0.5
+MINING_MAX_MEAN_CATEGORY_FRAC = 0.999
 MINING_MAX_MEAN_REWARD = 2.0   # legacy name, no longer used for selection
 TARGET_CATEGORY_OVERSAMPLE = 2.0   # duplication factor for target categories
 
@@ -236,21 +239,70 @@ MAX_SEQ_LENGTH = MAX_PROMPT_LENGTH + MAX_COMPLETION_LENGTH   # 2560
 PER_DEVICE_BATCH_SIZE = 8    # must be divisible by NUM_GENERATIONS
 GRAD_ACCUM_STEPS = 8
 
-# ~100x below the SFT rate of 1e-4. A large LR is the most common way GRPO
-# runs collapse.
-LEARNING_RATE = 1e-6
-BETA = 0.04                  # KL coefficient to the SFT reference policy
+# Learning rate for the FRESH LoRA adapter (not full fine-tuning). The first
+# runs used 1e-6 .. 2e-5 and barely moved the policy: after 2 epochs the KL
+# to the SFT reference was 0.002, the greedy test predictions were 90-91%
+# identical to SFT, and grad_norm (~0.03) never reached the clip threshold.
+# LoRA-GRPO needs 1e-5 .. 1e-4 to move the mode; 5e-5 is the middle.
+LEARNING_RATE = 5e-5
+# KL coefficient to the SFT reference. 0.0 (TRL's current default). The
+# reference policy IS the model whose category attribution we want to
+# change, so the KL term opposes the reward exactly on the systematic
+# errors (Allergy/Dosage/Infection -> DDI). The PPO clip (epsilon) already
+# bounds each step; a KL leash is not needed for stability at this scale.
+BETA = 0.0
+# DAPO "clip-higher": allow tokens with positive advantage to grow more per
+# step than they may shrink. The tokens we need to raise ("true" for a
+# missed category) are currently LOW-probability, and a symmetric 0.2 clip
+# caps how fast they can be lifted.
+EPSILON_LOW = 0.2
+EPSILON_HIGH = 0.28
+# Optimizer passes per generation batch (mu in the GRPO paper). 1 was pure
+# on-policy with the ratio pinned at 1 and the clip inactive; 2 extracts a
+# second, clipped update from each expensive 64-completion generation.
+NUM_ITERATIONS = 2
+# Advantage normalisation. "group" divides by the per-group std: in nearly
+# unanimous groups (std ~0.1) this inflates a one-sample fluke into a +-2.6
+# advantage, so most of the gradient came from formatting noise rather than
+# category errors. "batch" uses one std for the whole generation batch
+# (Dr.GRPO-style), so a +0.5 category gain is worth the same everywhere.
+SCALE_REWARDS = "batch"
+# Truncated completions (no EOS within MAX_COMPLETION_LENGTH) already get
+# REWARD_PARSE_FAIL; also drop their tokens from the loss so the model is
+# not trained on half-finished JSON.
+MASK_TRUNCATED_COMPLETIONS = True
 # Sampling temperature for the G completions during training. Exploration
 # knob only: evaluation decodes greedily. MUST be > 0 (identical samples
 # give zero advantage); below ~0.7 within-group diversity drops quickly and
-# the policy's entropy collapses faster. 0.8 vs 1.0 made little difference
-# to the fraction of groups with reward spread (47% vs 53% on legacy_v1).
-# Start at 1.0 (TRL default); lower via --temperature if completions ramble.
+# the policy's entropy collapses faster.
 TEMPERATURE = 1.0
+MINING_TEMPERATURE = TEMPERATURE   # mine at the temperature training samples at
 NUM_EPOCHS = 2
 WARMUP_RATIO = 0.1
-MAX_GRAD_NORM = 0.2          # RL gradients are high-variance; clip tightly
+MAX_GRAD_NORM = 0.5
 SEED = 42
+
+# ------------------------------------------------------------
+# Reference guidance (the fix for zero-variance groups)
+# ------------------------------------------------------------
+# GRPO's advantage is relative to the group. When all G samples make the same
+# category mistake, advantage = 0 and the prompt contributes nothing, so
+# plain GRPO can only sharpen what the model already sometimes gets right.
+# That is what the first runs did: frac_reward_zero_std rose from 0.03 to
+# 0.38 over training while the greedy answers stayed the same.
+#
+# With guidance, when a training group is unanimous AND below the reward
+# ceiling, the lowest-reward sample is replaced by the SFT reference
+# completion for that prompt (the teacher trace, which scores at the
+# ceiling under the training parser). The group now has one high-reward
+# member and G-1 low-reward members: a gradient toward the correct
+# attribution and away from the shared mistake. Groups that already
+# disagree, or are unanimous and correct, are left untouched, so the
+# reference only enters where on-policy sampling has no signal.
+GUIDE_WITH_REFERENCE = True
+# Inject only if the best sample in the group is at least this far below
+# the scenario's ceiling (avoids injecting over the length-penalty jitter).
+GUIDE_MIN_SHORTFALL = 0.2
 
 # Fresh LoRA on top of the merged SFT weights. r/alpha match the SFT run.
 LORA_RANK = 16

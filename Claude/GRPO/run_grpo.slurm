@@ -37,7 +37,12 @@ echo "=== node: $(hostname)  job: ${SLURM_JOB_ID:-?}  array: ${SLURM_ARRAY_TASK_
 nvidia-smi -L || true
 
 # shellcheck disable=SC1091
-source "$(conda info --base)/etc/profile.d/conda.sh"
+if command -v conda >/dev/null 2>&1; then
+  source "$(conda info --base)/etc/profile.d/conda.sh"
+else
+  # Ascend batch shells do not put conda on PATH
+  source /apps/python/3.12/etc/profile.d/conda.sh
+fi
 conda activate "$GRPO_ENV"
 python -c "import trl, unsloth, vllm; print('trl', trl.__version__, '| unsloth', unsloth.__version__, '| vllm', vllm.__version__)"
 
@@ -75,18 +80,38 @@ case "$STAGE" in
       SEED="${SEED:-42}"
       RUN="${RUN_NAME:-grpo-seed${SEED}}"
     fi
-    python train_grpo.py --seed "$SEED" --run-name "$RUN"
-    # Evaluate the final adapter against the merged SFT model in the same job.
+    # TRAIN_ARGS is intentionally unquoted, e.g. TRAIN_ARGS="--no-guide --learning-rate 2e-5"
+    # shellcheck disable=SC2086
+    python train_grpo.py --seed "$SEED" --run-name "$RUN" ${TRAIN_ARGS:-}
+    # Evaluate the final adapter against the merged SFT model (the GRPO init
+    # policy) in the same job. Never the Unsloth merged_16bit `final` dir:
+    # those weights are broken (see grpo_config.SFT_MERGED_PATH).
+    OUT_DIR=$(python -c "import grpo_config as C; print(C.GRPO_OUTPUT_DIR)")
+    COMPARE=$(python -c "import grpo_config as C; print(C.SFT_MERGED_PATH)")
+    # Greedy SFT predictions on the fixed test set are deterministic, so reuse
+    # them from an earlier run when COMPARE_PREDS points at one.
+    if [[ -n "${COMPARE_PREDS:-}" && -f "${COMPARE_PREDS}" ]]; then
+      CMP_ARGS=(--compare-predictions-file "$COMPARE_PREDS")
+    else
+      CMP_ARGS=(--compare-model "$COMPARE")
+    fi
     python eval_grpo.py \
-      --model "outputs/${RUN}/final" \
-      --compare-model /users/PCS0289/sarakhosravi/Guardrail/SFT/new_outputs/Qwen3-4B-Instruct/final \
+      --model "${OUT_DIR}/${RUN}/final" \
+      "${CMP_ARGS[@]}" \
       --bootstrap 2000
+    EVAL_DIR="${OUT_DIR}/${RUN}/final/eval"
+    python per_category_report.py "${EVAL_DIR}/test_predictions.jsonl" --label GRPO \
+      > "${EVAL_DIR}/per_category_grpo.txt" || true
+    SFT_PREDS="${COMPARE_PREDS:-${EVAL_DIR}/comparison_predictions.jsonl}"
+    python per_category_report.py "$SFT_PREDS" --label SFT \
+      > "${EVAL_DIR}/per_category_sft.txt" || true
     ;;
   eval)
     : "${MODEL:?set MODEL=path/to/adapter}"
+    COMPARE=$(python -c "import grpo_config as C; print(C.SFT_MERGED_PATH)")
     python eval_grpo.py \
       --model "$MODEL" \
-      --compare-model /users/PCS0289/sarakhosravi/Guardrail/SFT/new_outputs/Qwen3-4B-Instruct/final \
+      --compare-model "$COMPARE" \
       --bootstrap 2000
     ;;
   *)

@@ -43,7 +43,109 @@ from trl import GRPOConfig, GRPOTrainer
 
 import grpo_config as C
 from data_utils import load_scenarios, to_trl_dataset, apply_template_override
-from reward import make_trl_reward_func, reward_ceiling_for, parse_completion
+from reward import (make_trl_reward_func, reward_ceiling_for, parse_completion,
+                    compute_reward)
+
+
+class GuidedGRPOTrainer(GRPOTrainer):
+    """GRPOTrainer that gives zero-variance, wrong groups a learning signal.
+
+    Plain GRPO: advantage_i = r_i - mean(r_group). If every sample in a group
+    makes the same mistake, all advantages are 0 and the prompt is wasted.
+    Those groups are exactly the systematic errors we want to fix.
+
+    Here, after the policy has sampled its G completions, each group is
+    scored with the training reward. If the group is unanimous (reward
+    spread ~0) and its best member is more than GUIDE_MIN_SHORTFALL below
+    the scenario ceiling, the lowest-reward sample is replaced by the
+    dataset's reference completion (the SFT target for that prompt, which
+    the reward check at start-up verified scores at ceiling). The rest of
+    the pipeline is untouched: TRL scores the mixed group, the reference
+    gets a positive advantage, the G-1 wrong samples a negative one.
+
+    The injected sample is off-policy. Its vLLM sampling log-probs are set to
+    NaN, which the loss turns into an importance ratio of exactly 1 (same
+    path TRL/Unsloth use for unscored tokens), and the PPO clip bounds the
+    second optimizer pass. This is the mixed-policy scheme of LUFFY / "GRPO
+    with hints", restricted to groups where on-policy sampling has no
+    gradient at all.
+    """
+
+    def __init__(self, *args, guide=True, guide_min_shortfall=0.2, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.guide = guide
+        self.guide_min_shortfall = guide_min_shortfall
+        self._guide_inputs = None
+        self.guide_stats = {"groups": 0, "zero_var_wrong": 0, "injected": 0,
+                            "ref_missing": 0, "ref_too_long": 0}
+
+    def _generate_and_score_completions(self, inputs):
+        self._guide_inputs = inputs
+        try:
+            return super()._generate_and_score_completions(inputs)
+        finally:
+            self._guide_inputs = None
+
+    def _generate(self, prompts, images):
+        out = super()._generate(prompts, images)
+        if not (self.guide and self.model.training and self._guide_inputs):
+            return out
+        prompt_ids, completion_ids, total_completion_tokens, logprobs, fkw = out
+        n_inj, token_delta = inject_reference_into_unanimous_groups(
+            completion_ids, logprobs, self._guide_inputs, self.num_generations,
+            self.processing_class, self.eos_token_id, self.max_completion_length,
+            self.guide_min_shortfall, self.guide_stats)
+        if n_inj:
+            total_completion_tokens = total_completion_tokens + token_delta
+        n_groups = max(len(completion_ids) // self.num_generations, 1)
+        self._metrics["train"]["guide/injected_frac"].append(n_inj / n_groups)
+        return prompt_ids, completion_ids, total_completion_tokens, logprobs, fkw
+
+
+def inject_reference_into_unanimous_groups(completion_ids, logprobs, inputs, G,
+                                           tok, eos, max_len, min_shortfall, stats):
+    """In-place: for every group of G consecutive completions whose training
+    rewards are all equal and below (ceiling - min_shortfall), replace one
+    completion with the tokenized reference completion. Returns
+    (n_injected, change_in_total_completion_tokens). Pure apart from the
+    list mutation, so it is unit-testable without a model."""
+    n_inj, delta = 0, 0
+    if len(inputs) != len(completion_ids) or len(completion_ids) % G:
+        return 0, 0
+    for g0 in range(0, len(completion_ids), G):
+        ex = inputs[g0]
+        stats["groups"] += 1
+        gold_c = ex["gold_categories"]
+        if isinstance(gold_c, str):
+            gold_c = json.loads(gold_c)
+        dec = ex.get("decisive_category") or None
+        texts = tok.batch_decode([completion_ids[i] for i in range(g0, g0 + G)],
+                                 skip_special_tokens=True)
+        rewards = [compute_reward(t, ex["gold_verdict"], gold_c, dec) for t in texts]
+        if max(rewards) - min(rewards) > 1e-6:
+            continue                                   # on-policy signal exists
+        if max(rewards) >= reward_ceiling_for(dec) - min_shortfall:
+            continue                                   # unanimous and right
+        stats["zero_var_wrong"] += 1
+        ref = ex.get("reference_completion") or ""
+        if not ref.strip():
+            stats["ref_missing"] += 1
+            continue
+        ref_ids = list(tok(ref, add_special_tokens=False)["input_ids"])
+        if eos is not None:
+            ref_ids.append(eos)
+        if len(ref_ids) > max_len:
+            stats["ref_too_long"] += 1
+            continue
+        j = g0 + min(range(G), key=lambda k: rewards[k])
+        delta += len(ref_ids) - len(completion_ids[j])
+        completion_ids[j] = ref_ids
+        if logprobs is not None and logprobs[j] is not None:
+            # NaN sampling log-probs -> importance ratio 1 for this sample
+            logprobs[j] = [float("nan")] * len(ref_ids)
+        stats["injected"] += 1
+        n_inj += 1
+    return n_inj, delta
 
 
 def set_seed(seed):
@@ -143,6 +245,15 @@ def main():
                     help="resume from the latest checkpoint-* in the run directory")
     ap.add_argument("--force", action="store_true",
                     help="train even if the reference-completion reward check fails")
+    ap.add_argument("--no-guide", dest="guide", action="store_false",
+                    default=C.GUIDE_WITH_REFERENCE,
+                    help="plain GRPO: do not inject the reference completion into "
+                         "unanimous wrong groups")
+    ap.add_argument("--num-iterations", type=int, default=C.NUM_ITERATIONS,
+                    help="optimizer passes per generation batch (mu)")
+    ap.add_argument("--scale-rewards", default=C.SCALE_REWARDS,
+                    choices=["group", "batch", "none"])
+    ap.add_argument("--epsilon-high", type=float, default=C.EPSILON_HIGH)
     args = ap.parse_args()
 
     set_seed(args.seed)
@@ -238,9 +349,14 @@ def main():
         max_prompt_length=C.MAX_PROMPT_LENGTH,
         max_completion_length=C.MAX_COMPLETION_LENGTH,
 
-        # Optimization. lr is ~100x below SFT; a large lr collapses the policy.
+        # Optimization (see grpo_config.py for the reasoning behind each value)
         learning_rate=args.learning_rate,
-        beta=args.beta,                      # KL to the SFT reference
+        beta=args.beta,                      # KL to the SFT reference (0 = off)
+        epsilon=C.EPSILON_LOW,
+        epsilon_high=args.epsilon_high,      # DAPO clip-higher
+        num_iterations=args.num_iterations,  # mu: passes per generation batch
+        scale_rewards=args.scale_rewards,    # "batch": one std per generation batch
+        mask_truncated_completions=C.MASK_TRUNCATED_COMPLETIONS,
         per_device_train_batch_size=batch,
         gradient_accumulation_steps=grad_accum,
         num_train_epochs=1 if args.dry_run else args.epochs,
@@ -263,12 +379,14 @@ def main():
         num_completions_to_print=2,
     )
 
-    trainer = GRPOTrainer(
+    trainer = GuidedGRPOTrainer(
         model=model,
         processing_class=tokenizer,
         reward_funcs=[reward_func],
         args=grpo_args,
         train_dataset=train_ds,
+        guide=args.guide,
+        guide_min_shortfall=C.GUIDE_MIN_SHORTFALL,
     )
 
     print("\nStarting GRPO training")
@@ -278,6 +396,11 @@ def main():
           f"({batch} x {grad_accum} completions)")
     print(f"  learning rate:      {args.learning_rate}")
     print(f"  beta (KL):          {args.beta}")
+    print(f"  clip eps low/high:  {C.EPSILON_LOW} / {args.epsilon_high}")
+    print(f"  mu (iterations):    {args.num_iterations}")
+    print(f"  scale_rewards:      {args.scale_rewards}")
+    print(f"  reference guidance: {'on' if args.guide else 'off'} "
+          f"(shortfall >= {C.GUIDE_MIN_SHORTFALL})")
     print(f"  temperature:        {args.temperature}")
     print(f"  max completion:     {C.MAX_COMPLETION_LENGTH} tokens")
     print(f"  epochs:             {grpo_args.num_train_epochs}")
@@ -299,6 +422,14 @@ def main():
     tokenizer.save_pretrained(str(final_dir))
     print(f"\nSaved adapter to {final_dir}")
 
+    gs = trainer.guide_stats
+    if gs["groups"]:
+        print(f"\nReference guidance: {gs['groups']} groups seen, "
+              f"{gs['zero_var_wrong']} unanimous-and-wrong "
+              f"({100*gs['zero_var_wrong']/gs['groups']:.1f}%), "
+              f"{gs['injected']} received the reference "
+              f"(missing ref {gs['ref_missing']}, too long {gs['ref_too_long']})")
+
     with open(out_dir / "run_config.json", "w") as f:
         json.dump({
             "run_name": run_name,
@@ -310,6 +441,17 @@ def main():
             "prompts_per_step": n_prompts_per_step,
             "learning_rate": args.learning_rate,
             "beta": args.beta,
+            "epsilon_low": C.EPSILON_LOW,
+            "epsilon_high": args.epsilon_high,
+            "num_iterations": args.num_iterations,
+            "scale_rewards": args.scale_rewards,
+            "mask_truncated_completions": C.MASK_TRUNCATED_COMPLETIONS,
+            "max_grad_norm": C.MAX_GRAD_NORM,
+            "reference_guidance": {
+                "enabled": args.guide,
+                "min_shortfall": C.GUIDE_MIN_SHORTFALL,
+                "stats": gs,
+            },
             "temperature": args.temperature,
             "max_prompt_length": C.MAX_PROMPT_LENGTH,
             "max_completion_length": C.MAX_COMPLETION_LENGTH,
