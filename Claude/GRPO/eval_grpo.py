@@ -163,7 +163,7 @@ def bootstrap_ci(per_item, metric_fn, n_boot=2000, seed=0):
 # Generation and prediction files
 # ============================================================
 
-def generate(model_path, scenarios, max_new_tokens=2048):
+def generate(model_path, scenarios, max_new_tokens=2048, load_in_4bit=C.LOAD_IN_4BIT):
     """Greedy generation with vLLM, matching the SFT fair-comparison config.
 
     model_path may be a LoRA adapter directory (Unsloth resolves the base
@@ -175,12 +175,24 @@ def generate(model_path, scenarios, max_new_tokens=2048):
     model, tokenizer = FastLanguageModel.from_pretrained(
         model_name=str(model_path),
         max_seq_length=C.MAX_SEQ_LENGTH,
-        load_in_4bit=C.LOAD_IN_4BIT,
+        load_in_4bit=load_in_4bit,
         fast_inference=True,
         gpu_memory_utilization=0.5,
     )
     tokenizer = apply_template_override(tokenizer, str(model_path))
     FastLanguageModel.for_inference(model)
+
+    # With fast_inference=True the vLLM engine holds the BASE weights only.
+    # A LoRA adapter is applied to generation solely through `lora_request`;
+    # without it every adapter evaluates as the base model (that is what
+    # happened to the first three GRPO evaluations, which were therefore
+    # indistinguishable from SFT).
+    lora_request = None
+    if (Path(model_path) / "adapter_config.json").exists():
+        lora_request = model.load_lora(str(model_path))
+        print(f"Applying LoRA adapter from {model_path} to vLLM generation")
+    else:
+        print(f"No adapter_config.json in {model_path}: generating with merged weights")
 
     sampling = SamplingParams(n=1, temperature=0.0, max_tokens=max_new_tokens)
 
@@ -193,7 +205,8 @@ def generate(model_path, scenarios, max_new_tokens=2048):
     predictions = []
     batch = 32
     for i in tqdm(range(0, len(prompts), batch), desc="Generating"):
-        outs = model.fast_generate(prompts[i:i + batch], sampling_params=sampling)
+        outs = model.fast_generate(prompts[i:i + batch], sampling_params=sampling,
+                                   lora_request=lora_request)
         predictions.extend(o.outputs[0].text for o in outs)
     return predictions
 
@@ -244,7 +257,7 @@ def read_predictions(path, scenarios):
     return [by_uid[s["uid"]] for s in scenarios]
 
 
-def generate_in_subprocess(model_path, test_file, out_path, limit=None):
+def generate_in_subprocess(model_path, test_file, out_path, limit=None, load_in_4bit=C.LOAD_IN_4BIT):
     """Run generation for another model in a fresh process so the two vLLM
     engines never coexist on one GPU."""
     cmd = [sys.executable, __file__,
@@ -252,6 +265,8 @@ def generate_in_subprocess(model_path, test_file, out_path, limit=None):
            "--test-file", str(test_file),
            "--predictions-out", str(out_path),
            "--generate-only"]
+    if load_in_4bit:
+        cmd += ["--load-in-4bit"]
     if limit:
         cmd += ["--limit", str(limit)]
     print(f"\nGenerating comparison predictions in subprocess:\n  {' '.join(cmd)}")
@@ -448,6 +463,11 @@ def main():
     ap.add_argument("--generate-only", action="store_true",
                     help="generate + save predictions, skip metrics (used for "
                          "the comparison subprocess)")
+    ap.add_argument("--load-in-4bit", dest="load_in_4bit", action="store_true",
+                    default=C.LOAD_IN_4BIT,
+                    help="load model in 4-bit for vLLM generation")
+    ap.add_argument("--no-4bit", dest="load_in_4bit", action="store_false",
+                    help="load model in bf16/fp16 for vLLM generation")
     args = ap.parse_args()
 
     if not args.model and not args.predictions_file:
@@ -476,7 +496,7 @@ def main():
         predictions = read_predictions(args.predictions_file, scenarios)
         print(f"Loaded predictions from {args.predictions_file}")
     else:
-        predictions = generate(args.model, scenarios)
+        predictions = generate(args.model, scenarios, load_in_4bit=args.load_in_4bit)
         p_json, p_txt = write_predictions(pred_path, scenarios, predictions, args.model)
         print(f"Wrote raw predictions to {p_json} and {p_txt}")
 
@@ -503,7 +523,7 @@ def main():
         comp_path = out_dir / "comparison_predictions.jsonl"
         if not comp_path.exists():
             generate_in_subprocess(args.compare_model, args.test_file, comp_path,
-                                   limit=args.limit)
+                                   limit=args.limit, load_in_4bit=args.load_in_4bit)
         else:
             print(f"Reusing comparison predictions at {comp_path}")
         comp_preds = read_predictions(comp_path, scenarios)

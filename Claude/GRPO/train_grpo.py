@@ -181,7 +181,7 @@ def build_model(args):
     model, tokenizer = FastLanguageModel.from_pretrained(
         model_name=str(init_path),
         max_seq_length=C.MAX_SEQ_LENGTH,
-        load_in_4bit=C.LOAD_IN_4BIT,
+        load_in_4bit=args.load_in_4bit,
         fast_inference=args.use_vllm,
         max_lora_rank=C.LORA_RANK,
         gpu_memory_utilization=args.vllm_gpu_util,
@@ -254,6 +254,11 @@ def main():
     ap.add_argument("--scale-rewards", default=C.SCALE_REWARDS,
                     choices=["group", "batch", "none"])
     ap.add_argument("--epsilon-high", type=float, default=C.EPSILON_HIGH)
+    ap.add_argument("--load-in-4bit", dest="load_in_4bit", action="store_true",
+                    default=C.LOAD_IN_4BIT,
+                    help="load base/reference model in 4-bit (required for 8B on <=40GB GPUs)")
+    ap.add_argument("--no-4bit", dest="load_in_4bit", action="store_false",
+                    help="load base/reference model in bf16/fp16")
     args = ap.parse_args()
 
     set_seed(args.seed)
@@ -457,7 +462,7 @@ def main():
             "max_completion_length": C.MAX_COMPLETION_LENGTH,
             "epochs": grpo_args.num_train_epochs,
             "max_steps": grpo_args.max_steps,
-            "load_in_4bit": C.LOAD_IN_4BIT,
+            "load_in_4bit": args.load_in_4bit,
             "data_condition": C.DATA_CONDITION,
             "lora": {"r": C.LORA_RANK, "alpha": C.LORA_ALPHA},
             "n_train_scenarios": len(scenarios),
@@ -473,6 +478,8 @@ def main():
                 "consistency_penalty": C.W_CONSISTENCY_PENALTY,
                 "wrong_verdict_category_scale": C.WRONG_VERDICT_CATEGORY_SCALE,
                 "require_json_verdict": C.REQUIRE_JSON_VERDICT_IN_TRAINING,
+                "verdict_fn_penalty": C.W_VERDICT_FN_PENALTY,
+                "category_fp_penalty": C.W_CATEGORY_FP_PENALTY,
             },
             "sft_baseline": C.SFT_BASELINE,
             "preregistered": C.PREREGISTERED,

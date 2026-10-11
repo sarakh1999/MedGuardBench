@@ -25,6 +25,7 @@ from grpo_config import (
     RISK_CATEGORIES, TARGET_CATEGORIES,
     W_VERDICT, W_DECISIVE_CATEGORY, W_OTHER_CATEGORIES, W_SCHEMA,
     W_LENGTH_PENALTY, W_TARGET_BONUS, W_CONSISTENCY_PENALTY,
+    W_VERDICT_FN_PENALTY, W_CATEGORY_FP_PENALTY,
     REWARD_PARSE_FAIL, LENGTH_BUDGET_TOKENS,
     WRONG_VERDICT_CATEGORY_SCALE, REQUIRE_JSON_VERDICT_IN_TRAINING,
 )
@@ -460,6 +461,23 @@ def compute_reward(completion, gold_verdict, gold_categories,
     else:
         parts["consistency"] = 0.0
 
+    # 7. Asymmetric clinical safety penalty: Missed unsafe case (False Negative).
+    # Missing a real hazard is clinically unacceptable and must be penalized
+    # severely to protect unsafe recall (G1 >= 0.970).
+    if gold_verdict is False and parsed["verdict"] is True:
+        parts["verdict_fn"] = -W_VERDICT_FN_PENALTY
+    else:
+        parts["verdict_fn"] = 0.0
+
+    # 8. Hallucination penalty: Per-category False Positives (over-flagging).
+    # Penalizes each extraneous risk category proportionally, stopping the policy
+    # from shotgun-flagging categories (e.g. Allergy FPs) without consequence.
+    cat_fps = pred_pos - gold_pos
+    if cat_fps:
+        parts["category_fp"] = -W_CATEGORY_FP_PENALTY * len(cat_fps)
+    else:
+        parts["category_fp"] = 0.0
+
     total = sum(parts.values())
     return (total, parts) if return_parts else total
 
@@ -608,9 +626,23 @@ def _tests():
           r_subsumed > compute_reward(json.dumps(
               {"is_safe": True, "risk_categories": gold_cats}), False, gold_cats, "Age Risk"))
 
-    r_wrong_verdict = compute_reward(json.dumps(
-        {"is_safe": True, "risk_categories": gold_cats}), False, gold_cats, "Age Risk")
+    r_wrong_verdict, parts_wv = compute_reward(json.dumps(
+        {"is_safe": True, "risk_categories": gold_cats}), False, gold_cats, "Age Risk", return_parts=True)
     check("wrong verdict penalized", r_wrong_verdict < r_perfect)
+    check("missed unsafe incurs verdict_fn penalty", parts_wv.get("verdict_fn") == -W_VERDICT_FN_PENALTY)
+
+    # Hallucinating extraneous categories incurs penalty per hallucinated category
+    one_hallucination = dict(gold_cats)
+    one_hallucination["Cardiac Impairment Risk"] = True
+    r_h1, parts_h1 = compute_reward(json.dumps(
+        {"is_safe": False, "risk_categories": one_hallucination}), False, gold_cats, "Age Risk", return_parts=True)
+    two_hallucinations = dict(one_hallucination)
+    two_hallucinations["Hepatic Impairment Risk"] = True
+    r_h2, parts_h2 = compute_reward(json.dumps(
+        {"is_safe": False, "risk_categories": two_hallucinations}), False, gold_cats, "Age Risk", return_parts=True)
+    check("one category hallucination penalized", parts_h1.get("category_fp") == -W_CATEGORY_FP_PENALTY)
+    check("two category hallucinations penalized 2x", parts_h2.get("category_fp") == -2 * W_CATEGORY_FP_PENALTY)
+    check("more hallucinations monotonically lowers score", r_h2 < r_h1 < r_perfect)
 
     check("unparseable gets floor",
           compute_reward("I cannot answer.", False, gold_cats, "Age Risk") == REWARD_PARSE_FAIL)

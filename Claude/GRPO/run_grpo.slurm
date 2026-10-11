@@ -80,9 +80,18 @@ case "$STAGE" in
       SEED="${SEED:-42}"
       RUN="${RUN_NAME:-grpo-seed${SEED}}"
     fi
+    AUTO_FLAGS=""
+    MGB_MODEL_NAME=$(python -c "import grpo_config as C; print(getattr(C, 'MODEL', 'qwen3-4b'))")
+    if [[ "$MGB_MODEL_NAME" == *8b* ]]; then
+      VRAM_MB=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits 2>/dev/null | head -1 || echo 40000)
+      if [[ ${VRAM_MB%.*} -lt 60000 ]]; then
+        echo "Detected ${VRAM_MB}MB VRAM (<60GB) for 8B model: enabling --load-in-4bit"
+        AUTO_FLAGS="--load-in-4bit"
+      fi
+    fi
     # TRAIN_ARGS is intentionally unquoted, e.g. TRAIN_ARGS="--no-guide --learning-rate 2e-5"
     # shellcheck disable=SC2086
-    python train_grpo.py --seed "$SEED" --run-name "$RUN" ${TRAIN_ARGS:-}
+    python train_grpo.py --seed "$SEED" --run-name "$RUN" $AUTO_FLAGS ${TRAIN_ARGS:-}
     # Evaluate the final adapter against the merged SFT model (the GRPO init
     # policy) in the same job. Never the Unsloth merged_16bit `final` dir:
     # those weights are broken (see grpo_config.SFT_MERGED_PATH).
@@ -98,6 +107,7 @@ case "$STAGE" in
     python eval_grpo.py \
       --model "${OUT_DIR}/${RUN}/final" \
       "${CMP_ARGS[@]}" \
+      $AUTO_FLAGS \
       --bootstrap 2000
     EVAL_DIR="${OUT_DIR}/${RUN}/final/eval"
     python per_category_report.py "${EVAL_DIR}/test_predictions.jsonl" --label GRPO \
@@ -108,10 +118,19 @@ case "$STAGE" in
     ;;
   eval)
     : "${MODEL:?set MODEL=path/to/adapter}"
+    AUTO_FLAGS=""
+    MGB_MODEL_NAME=$(python -c "import grpo_config as C; print(getattr(C, 'MODEL', 'qwen3-4b'))")
+    if [[ "$MGB_MODEL_NAME" == *8b* ]]; then
+      VRAM_MB=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits 2>/dev/null | head -1 || echo 40000)
+      if [[ ${VRAM_MB%.*} -lt 60000 ]]; then
+        AUTO_FLAGS="--load-in-4bit"
+      fi
+    fi
     COMPARE=$(python -c "import grpo_config as C; print(C.SFT_MERGED_PATH)")
     python eval_grpo.py \
       --model "$MODEL" \
       --compare-model "$COMPARE" \
+      $AUTO_FLAGS \
       --bootstrap 2000
     ;;
   *)

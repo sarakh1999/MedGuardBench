@@ -119,7 +119,7 @@ def score_and_filter(scenarios, cache_path):
             # gradient) merely because formatting varied.
             cat_scores = [
                 parts.get("decisive", 0.0) + parts.get("others", 0.0)
-                + parts.get("target_bonus", 0.0)
+                + parts.get("target_bonus", 0.0) + parts.get("category_fp", 0.0)
                 for _, parts in scored if "parse_fail" not in parts
             ]
             cat_ceiling = reward_ceiling_for(scenario.get("decisive_category")) - C.W_VERDICT - C.W_SCHEMA

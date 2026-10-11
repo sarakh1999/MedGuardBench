@@ -34,6 +34,7 @@ DATA_CONDITION = _os.environ.get("MGB_DATA_CONDITION", "v1_cleaned")
 # Which SFT backbone GRPO starts from. Only the legacy_v1 condition has
 # several finished SFT runs; the clean conditions are Qwen3-4B for now.
 MODEL = _os.environ.get("MGB_MODEL", "qwen3-4b")
+MODEL_NAME = MODEL
 
 # legacy_v1 runs: (run dir under Claude/SFT/new_outputs, fp16 HF base that
 # the unsloth bnb-4bit adapter base mirrors, best checkpoint by eval_loss)
@@ -172,6 +173,16 @@ W_TARGET_BONUS = 0.3       # extra credit on TARGET_CATEGORIES
 # contradicts the model's own category vector; this also closes a reward
 # hacking path (e.g. is_safe=false with every category false).
 W_CONSISTENCY_PENALTY = 0.3
+
+# Asymmetric clinical safety penalties:
+# 1. Missed unsafe cases (False Negatives) are life-threatening errors.
+# Missing an unsafe case must be penalized more severely than being overcautious,
+# preventing the policy from sacrificing unsafe recall (protecting G1 >= 0.97).
+W_VERDICT_FN_PENALTY = 1.0
+
+# 2. Shotgun hallucinations (False Positive categories).
+# Penalize each spurious positive category to prevent over-flagging (e.g. Allergy FPs).
+W_CATEGORY_FP_PENALTY = 0.3
 
 REWARD_PARSE_FAIL = -1.0   # unparseable completion
 
@@ -316,7 +327,13 @@ SAVE_STEPS = 25
 LOGGING_STEPS = 5
 
 USE_VLLM = True              # vLLM-backed generation; big speedup
-VLLM_GPU_MEMORY_UTILIZATION = 0.35
+# vLLM memory fraction. 4B in bf16 is ~8 GB, fitting in 0.35 of a 40GB A100.
+# 8B in bf16 is ~15.3 GB, which exceeds 0.35 (13.8 GB) on a 40GB A100 and fails KV cache.
+# For 8B on 40GB GPUs, utilization must be >= 0.50.
+if MODEL == "qwen3-8b":
+    VLLM_GPU_MEMORY_UTILIZATION = float(_os.environ.get("VLLM_GPU_MEMORY_UTILIZATION", "0.55"))
+else:
+    VLLM_GPU_MEMORY_UTILIZATION = float(_os.environ.get("VLLM_GPU_MEMORY_UTILIZATION", "0.35"))
 
 # Precision of the frozen policy/reference weights for mining, training and
 # eval. Qwen3-4B in bf16 is ~8 GB and fits a 40 GB A100 alongside the vLLM

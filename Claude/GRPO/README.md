@@ -156,6 +156,18 @@ python eval_grpo.py \
 
 ## Post-mortem of the first runs (why GRPO did not beat SFT)
 
+> **Evaluation bug found 2026-10-06.** `eval_grpo.py` loaded adapters with
+> `fast_inference=True` and called `fast_generate` without a `lora_request`.
+> In that mode vLLM holds the base weights and the adapter is applied only
+> through `lora_request`, so every GRPO adapter was scored as the *base SFT
+> model* (all GRPO prediction files were byte-identical across runs and
+> differed from the SFT file only by the vLLM LoRA-kernel numerics). The
+> "GRPO ~= SFT" conclusion below was therefore an artifact; the training
+> diagnostics (items 1-8) were measured on the training logs and still
+> hold. Fixed by passing `lora_request=model.load_lora(adapter_dir)`; the
+> stale base-only outputs were moved to `final/eval/base_only_stale/` and
+> every adapter is being re-scored (`~/grpo_smoke/reeval.sbatch`).
+
 Three paired evaluations (4B lr 5e-6, 4B lr 2e-5 category-focused, 8B lr
 2e-5) all landed within noise of SFT or slightly below (macro-F1 0.65 -> 0.64,
 19-25 categories better / 22-25 worse, 90-91% identical category sets).
@@ -230,6 +242,8 @@ MGB_DATA_CONDITION=legacy_v1 python build_grpo_from_dpo.py       # -> grpo_train
 | mined hard set (`grpo_train_v2`, new selection rule: 1941 variance + 287 unanimous-wrong, target oversampling) | 2387 | SFT train labels | v1 SFT trace |
 | teacher twins (`Claude/DPO/data/counterfactual/pairs.jsonl`, one category flipped, blind teacher-labelled) | 416 | teacher | teacher trace |
 | rule-generated safe twins (`single_risk_category_train.csv`, subsample 400) | 400 | safe by construction | none (templated trace; on-policy signal only) |
+| audited partial misses (`Claude/DPO/data/dpo_partial_miss_audited.jsonl`, 243 SFT omissions) | 243 (236 enriched, 7 added) | verified expert | audited trace |
+| **Total guided training set** | **3,210** | | **2,810 with reference traces** |
 
 Two deliberate omissions:
 
@@ -246,10 +260,16 @@ Two deliberate omissions:
 **Leakage guard.** The DPO files were built on the blind_v2 split, whose
 train/test assignment differs from legacy_v1. The builder drops every twin
 whose source Patient ID is in `TEST_JSONL` (72 single-risk twins here; the
-teacher twins were generated from legacy train rows only). Note that
-`Claude/DPO/data/mixed_balanced_v2/dpo_pairs.jsonl` contains 846 pairs from
-legacy-test patients, so a DPO model trained on it must not be scored on the
-legacy test split.
+teacher twins were generated from legacy train rows only). The 243 audited
+partial misses were strictly verified to have 0% overlap with `TEST_JSONL`.
+
+**Reward calibration (Asymmetric safety & Anti-hallucination).**
+To prevent the unsafe recall drop observed in `grpo-guided-v2` (0.970 -> 0.953)
+and rein in shotgun category false positives (Allergy FP 21 -> 52):
+1. Missed unsafe cases incur `W_VERDICT_FN_PENALTY = 1.0` (`parts["verdict_fn"] = -1.0`
+   when predicting safe on an unsafe gold profile).
+2. Spurious category assertions incur `W_CATEGORY_FP_PENALTY = 0.3`
+   (`parts["category_fp"] = -0.3 * len(pred_pos - gold_pos)`).
 
 **Run.** `~/grpo_smoke/guided_chain.sh grpo-guided-v2 --epochs 1 --per-device-batch 4`
 trains (resumable), evaluates against the cached greedy SFT predictions and
@@ -258,6 +278,41 @@ writes `final/eval/per_category_{grpo,sft}.txt`. One epoch over 3203 prompts
 The dry run on the new trainer showed `guide/injected_frac` 0.04 on the
 variance-heavy smoke set, `frac_reward_zero_std` 0.0 and non-zero clip
 ratios on the second pass, i.e. all three new mechanisms are active.
+
+## Results with the adapter actually applied (2026-10-06)
+
+Legacy_v1 test split, n=754, greedy vLLM decoding for every row, SFT scored
+through the same path (`comparison_predictions.jsonl`). Per-category
+TP/TN/FP/FN tables are in each run's `final/eval/per_category_{grpo,sft}.txt`.
+
+| run | acc | recall unsafe | FPR | macro-F1 | micro-F1 | exact match | total cat. FP / FN |
+|---|---|---|---|---|---|---|---|
+| 4B SFT | 0.844 | 0.970 | 0.302 | 0.650 | 0.709 | 0.592 | 225 / 213 |
+| 4B `grpo-guided-v2` (guidance on) | **0.915** | 0.953 | **0.128** | 0.685 | **0.746** | **0.656** | **174 / 196** |
+| 4B `grpo-guided-v2-noguide` (same data/hparams, guidance off) | 0.871 | 0.931 | 0.197 | 0.673 | 0.706 | 0.606 | 202 / 229 |
+| 4B `grpo-legacy-cat-lr2e-5` (old recipe: beta 0.04, mu 1, group scaling) | 0.891 | 0.953 | 0.179 | **0.690** | 0.736 | 0.639 | - |
+| 4B `grpo-legacy-lr5e-6` | 0.847 | 0.960 | 0.282 | 0.648 | 0.703 | 0.588 | - |
+| 8B SFT | 0.881 | 0.965 | 0.217 | 0.648 | 0.718 | 0.623 | - |
+| 8B `grpo-legacy-cat-lr2e-5` | 0.927 | **0.980** | 0.134 | 0.679 | 0.748 | 0.662 | - |
+
+What this says:
+
+- GRPO does improve per-category attribution over SFT whenever the lr is
+  >= 2e-5; the earlier null result was the evaluation bug.
+- Reference guidance is doing real work: with identical data and
+  hyperparameters, turning it off costs 0.04 micro-F1 and 0.05 exact match,
+  and the no-guide run also suffered one gradient blow-up (grad norm 3.8e8
+  at epoch 0.85; `max_grad_norm` bounded the step). Guidance fired on 163 of
+  3000 groups (5.4%: the unanimous-and-wrong ones).
+- `grpo-guided-v2` (4B) improves 15 of 17 categories, ties 2
+  (Infection, Alcohol), and loses only Weight/BMI (n=14). The biggest
+  gains are Drug-Food (+0.14 F1), Renal (+0.11), Tobacco (+0.11), Dosage
+  (+0.07), Allergy (+0.05). Category FPs fall 225 -> 174, FNs 213 -> 196.
+  Allergy's remaining problem flipped sign: FN 33 -> 18 but FP 21 -> 52.
+- The price is verdict recall: 0.970 -> 0.953 (G1 not met; FN 12 -> 18).
+  The 8B old-recipe run kept recall at 0.980 while matching the 4B guided
+  run on the category metrics, so the natural next step, queued as
+  `outputs/legacy_v1-qwen3-8b/grpo-guided-v2`, is the guided recipe on 8B.
 
 ## Settings that matter most
 

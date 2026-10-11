@@ -47,6 +47,7 @@ REPO = HERE.parent.parent
 CONVERTER = REPO / "Claude/SFT/convert_csv_to_chatml_qwen_and_qwenguard.py"
 CF_PAIRS = REPO / "Claude/DPO/data/counterfactual/pairs.jsonl"
 SINGLE_RISK_CSV = REPO / "Claude/new_dataset/Check_Leakage/single_risk_category_train.csv"
+PARTIAL_MISS_JSONL = REPO / "Claude/DPO/data/dpo_partial_miss_audited.jsonl"
 RISK_FILE = REPO / "risk_categories.txt"
 
 _PID_RE = re.compile(r"Patient ID:\s*(\S+)")
@@ -185,6 +186,67 @@ def single_risk_twins(conv, excluded, seen_pids, n, seed):
     return out, dropped
 
 
+def enrich_and_add_partial_miss(mined, excluded, seen_pids):
+    """Enrich mined scenarios whose decisive category was missing with the
+    audited dropped category from dpo_partial_miss_audited.jsonl, and append
+    any fresh audited partial-miss scenarios."""
+    extra, dropped = [], Counter()
+    if not PARTIAL_MISS_JSONL.exists():
+        print(f"  (no partial-miss audited: {PARTIAL_MISS_JSONL} missing)")
+        return extra, 0, dropped
+
+    with open(PARTIAL_MISS_JSONL) as f:
+        records = [json.loads(l) for l in f if l.strip()]
+
+    pm_by_pid = {}
+    for r in records:
+        pid = pid_of_messages(r.get("prompt", []))
+        if pid:
+            pm_by_pid[str(pid)] = r
+
+    n_enriched = 0
+    for s in mined:
+        pid = pid_of_messages(s["messages_prompt"])
+        if pid and str(pid) in pm_by_pid:
+            r = pm_by_pid[str(pid)]
+            if not s.get("decisive_category"):
+                cat = canonical_category(r.get("dropped_category"))
+                if cat:
+                    s["decisive_category"] = cat
+                    chosen_content = r["chosen"][0]["content"]
+                    s["reference_completion"] = chosen_content
+                    s["mining_source"] = "mined_enriched_pm"
+                    n_enriched += 1
+
+    for r in records:
+        pid = pid_of_messages(r.get("prompt", []))
+        if pid and str(pid) in excluded:
+            dropped["pm_from_test_pid"] += 1
+            continue
+        if pid and str(pid) in seen_pids:
+            continue
+        if pid:
+            seen_pids.add(str(pid))
+        chosen_content = r["chosen"][0]["content"]
+        parsed = parse_completion(chosen_content, strict_json=True)
+        if not parsed["parse_ok"] or not parsed["schema_complete"]:
+            dropped["pm_unparseable"] += 1
+            continue
+        dec = canonical_category(r.get("dropped_category"))
+        extra.append({
+            "uid": f"pm-{r.get('uid', len(extra))}",
+            "messages_prompt": r["prompt"],
+            "prompt": r["prompt"],
+            "gold_verdict": bool(r.get("is_safe", False)),
+            "gold_categories": parsed["categories"],
+            "decisive_category": dec,
+            "reference_completion": chosen_content,
+            "mining_source": "partial_miss_audited",
+        })
+
+    return extra, n_enriched, dropped
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mined", default=str(C.MINING_CACHE_JSONL.parent / "grpo_train_v2.jsonl"))
@@ -214,10 +276,12 @@ def main():
 
     twins, d1 = teacher_twins(conv, excluded, seen, args.include_originals)
     singles, d2 = single_risk_twins(conv, excluded, seen, args.single_risk_n, args.seed)
+    extra_pm, n_enriched, d3 = enrich_and_add_partial_miss(mined, excluded, seen)
     print(f"Teacher twins: {len(twins)} added  dropped={dict(d1)}")
     print(f"Single-risk safe twins: {len(singles)} added  dropped={dict(d2)}")
+    print(f"Partial-miss audited: {n_enriched} mined scenarios enriched, {len(extra_pm)} added  dropped={dict(d3)}")
 
-    all_s = mined + twins + singles
+    all_s = mined + twins + singles + extra_pm
     n = write_scenarios(all_s, args.out)
     back = load_scenarios(args.out)
     assert len(back) == n, "round-trip mismatch"
@@ -229,7 +293,7 @@ def main():
     print(f"  with reference trace (guidance-eligible): {with_ref}")
     print(f"  gold unsafe: {sum(1 for s in back if not s['gold_verdict'])}"
           f"  gold safe: {sum(1 for s in back if s['gold_verdict'])}")
-    dec = Counter(s.get("decisive_category") or "(none)" for s in twins + singles)
+    dec = Counter(s.get("decisive_category") or "(none)" for s in twins + singles + extra_pm)
     print("  decisive category of added twins:")
     for k, v in dec.most_common():
         print(f"    {k:<45} {v}")

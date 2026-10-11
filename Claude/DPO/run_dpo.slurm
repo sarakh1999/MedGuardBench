@@ -19,6 +19,7 @@
 #   PAIRS        pairs jsonl                    (data/mixed_balanced_v2/dpo_pairs.jsonl)
 #   OUT          output dir                     (outputs/mixed_balanced_v2/$MODEL_KEY)
 #   BETA (0.1)  RPO_ALPHA (1.0)  LR (5e-6)  EPOCHS (2)  SAVE_ALL (1)
+#   MASK_AUDIT_ONLY (1 = token-masked DPO on audit line only, 0 = sequence-level DPO)
 
 set -euo pipefail
 
@@ -46,12 +47,19 @@ mkdir -p "$OUT"
 SAVE_FLAG=""
 [ "${SAVE_ALL:-1}" = "1" ] && SAVE_FLAG="--save-all"
 
+MASK_FLAG=""
+if [ "${MASK_AUDIT_ONLY:-1}" = "0" ]; then
+  MASK_FLAG="--no-mask-audit-only"
+else
+  MASK_FLAG="--mask-audit-only"
+fi
+
 python "$DPO/train_dpo.py" \
   --pairs "$PAIRS" \
   --policy-init "$POLICY_INIT" \
   --out "$OUT" \
   --beta "${BETA:-0.1}" --rpo-alpha "${RPO_ALPHA:-1.0}" \
-  --lr "${LR:-5e-6}" --epochs "${EPOCHS:-2}" $SAVE_FLAG
+  --lr "${LR:-5e-6}" --epochs "${EPOCHS:-2}" --seed "${SEED:-42}" $SAVE_FLAG $MASK_FLAG
 
 python "$ROOT/Claude/SFT/blind/eval_sft.py" --model "$MODEL_KEY" \
   --adapter "$OUT/final_adapter" \
