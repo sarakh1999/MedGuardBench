@@ -239,6 +239,12 @@ def main():
                     help="micro-batch size; grad accumulation is scaled to keep "
                          "the effective batch from grpo_config (memory knob)")
     ap.add_argument("--vllm-gpu-util", type=float, default=C.VLLM_GPU_MEMORY_UTILIZATION)
+    ap.add_argument("--grpo-mini-batch", type=int, default=None,
+                    help="Unsloth `unsloth_grpo_mini_batch`: number of chunks the "
+                         "log-prob forward over the generation batch is split into "
+                         "(rows per chunk = ceil(rows / this)). Unsloth's autotuner "
+                         "ignores TRL's per-device batch and picks chunks that OOM "
+                         "for 8B-4bit on 40GB; 32 => 2 rows/chunk at gen batch 64.")
     ap.add_argument("--max-steps", type=int, default=None,
                     help="stop after this many optimizer steps (overrides epochs)")
     ap.add_argument("--resume", action="store_true",
@@ -382,6 +388,8 @@ def main():
         use_vllm=args.use_vllm,
         log_completions=True,
         num_completions_to_print=2,
+        **({"unsloth_grpo_mini_batch": args.grpo_mini_batch}
+           if args.grpo_mini_batch else {}),
     )
 
     trainer = GuidedGRPOTrainer(
@@ -463,6 +471,8 @@ def main():
             "epochs": grpo_args.num_train_epochs,
             "max_steps": grpo_args.max_steps,
             "load_in_4bit": args.load_in_4bit,
+            "grpo_mini_batch": args.grpo_mini_batch,
+            "vllm_gpu_util": args.vllm_gpu_util,
             "data_condition": C.DATA_CONDITION,
             "lora": {"r": C.LORA_RANK, "alpha": C.LORA_ALPHA},
             "n_train_scenarios": len(scenarios),

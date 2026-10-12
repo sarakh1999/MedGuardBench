@@ -42,7 +42,20 @@ LEGACY_RUNS = {
     "qwen3-4b":  ("Qwen3-4B-Instruct",  "Qwen/Qwen3-4B-Instruct-2507", "checkpoint-950"),
     "qwen3-8b":  ("Qwen3-8B-Instruct",  "Qwen/Qwen3-8B",               "checkpoint-950"),
     "qwen3-14b": ("Qwen3-14B-Instruct", "Qwen/Qwen3-14B",              None),  # pick via trainer_state
+    # Qwen3Guard-Gen-4B SFT (lowest eval_loss at checkpoint-950, 0.4426; same
+    # checkpoint used by test_eval_qwenguard_ft_w_schema4B.py). Needs the chat
+    # template override (NEEDS_TEMPLATE_OVERRIDE below), applied automatically.
+    "qwen3guard-4b": ("Qwen3Guard-Gen-4B", "Qwen/Qwen3Guard-Gen-4B", "checkpoint-950"),
+    # ShieldGemma-2B SFT written by Claude/SFT/blind/sft_train.py on the legacy
+    # data (Claude/SFT/new_data_chatml_ShieldGemma; same rows as the Qwen ChatML
+    # files up to "72" vs "72.0" formatting). Best checkpoint by eval_loss is
+    # final_adapter. Gemma template + <end_of_turn> EOS are applied by
+    # data_utils.apply_template_override.
+    "shieldgemma-2b": ("ShieldGemma-2B", "google/shieldgemma-2b", "final_adapter"),
 }
+
+# Model families whose SFT used the Gemma turn format rather than ChatML.
+IS_GEMMA = "gemma" in MODEL.lower()
 
 # Tag used for output / mined-data / prereg paths. The original 4B layout
 # (outputs/legacy_v1/...) is kept unchanged; other backbones get a suffix.
@@ -52,7 +65,8 @@ if DATA_CONDITION == "legacy_v1":
     if MODEL not in LEGACY_RUNS:
         raise SystemExit(f"MGB_MODEL={MODEL!r} has no legacy_v1 SFT run; choose from {sorted(LEGACY_RUNS)}")
     _run_name, LEGACY_FP16_BASE, _best_ckpt = LEGACY_RUNS[MODEL]
-    DATA_DIR = PROJECT_ROOT / "Claude" / "SFT" / "new_data_chatml_qwen_and_qwenguard"
+    DATA_DIR = PROJECT_ROOT / "Claude" / "SFT" / (
+        "new_data_chatml_ShieldGemma" if IS_GEMMA else "new_data_chatml_qwen_and_qwenguard")
     SFT_RUN_DIR = PROJECT_ROOT / "Claude" / "SFT" / "new_outputs" / _run_name
     if _best_ckpt is None:
         _best_ckpt = _os.environ.get("MGB_SFT_CHECKPOINT", "checkpoint-950")
@@ -444,6 +458,38 @@ STANDARD_CHATML_TEMPLATE = (
 
 NEEDS_TEMPLATE_OVERRIDE = ("qwen3guard", "Qwen3Guard")
 
+# Gemma / ShieldGemma: the format Claude/SFT/blind/sft_train.py trained with
+# (no system role -> folded into the first user turn; assistant -> "model").
+# ShieldGemma's own template is a Yes/No classifier and drops the assistant
+# turn, so it must be replaced at train and inference time. The turn ends
+# with <end_of_turn>, which is NOT the tokenizer's eos (<eos>) nor in the
+# model's generation_config, so GEMMA_EOS is installed as the eos token.
+GEMMA_CHAT_TEMPLATE = (
+    "{{- bos_token }}"
+    "{%- set ns = namespace(system='') %}"
+    "{%- for message in messages %}"
+    "{%- if message['role'] == 'system' %}"
+    "{%- set ns.system = message['content'] %}"
+    "{%- endif %}"
+    "{%- endfor %}"
+    "{%- set loop_messages = messages | rejectattr('role', 'equalto', 'system') | list %}"
+    "{%- for message in loop_messages %}"
+    "{%- set role = 'model' if message['role'] == 'assistant' else message['role'] %}"
+    "{%- if loop.first and ns.system and role == 'user' %}"
+    "{{- '<start_of_turn>user\n' + ns.system + '\n\n' "
+    "+ message['content'] | trim + '<end_of_turn>\n' }}"
+    "{%- else %}"
+    "{{- '<start_of_turn>' + role + '\n' + message['content'] | trim "
+    "+ '<end_of_turn>\n' }}"
+    "{%- endif %}"
+    "{%- endfor %}"
+    "{%- if add_generation_prompt %}"
+    "{{- '<start_of_turn>model\n' }}"
+    "{%- endif %}"
+)
+GEMMA_MARKERS = ("gemma", "Gemma")
+GEMMA_EOS = "<end_of_turn>"
+
 # Text the SFT model was trained to emit at the very start of every answer,
 # before the JSON. It is placed in the generation prompt (right after
 # '<|im_start|>assistant\n') so the policy starts directly at '{'.
@@ -456,9 +502,13 @@ NEEDS_TEMPLATE_OVERRIDE = ("qwen3guard", "Qwen3Guard")
 # (<tool_call> loops, empty output, garbage). Supplying the prefix removes
 # that failure mode without changing what the model learned.
 # Set to "" when the SFT run used the official (no-think) template.
-if DATA_CONDITION == "legacy_v1":
+if DATA_CONDITION == "legacy_v1" and "guard" not in MODEL.lower() and not IS_GEMMA:
     ASSISTANT_PREFIX = "<think>\n\n</think>\n\n"
 else:
+    # Official no-think template, or the Qwen3Guard SFT runs: those were
+    # trained with STANDARD_CHATML_TEMPLATE overriding the Guard template, so
+    # the targets carry no <think> scaffold and the model emits '{' directly
+    # (verified: 754/754 Guard-4B SFT test outputs start with '{\n  "reasoning').
     ASSISTANT_PREFIX = ""
 
 

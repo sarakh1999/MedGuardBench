@@ -28,7 +28,7 @@ from pathlib import Path
 from reward import parse_completion, canonical_category
 from grpo_config import (
     RISK_CATEGORIES, STANDARD_CHATML_TEMPLATE, NEEDS_TEMPLATE_OVERRIDE,
-    ASSISTANT_PREFIX,
+    ASSISTANT_PREFIX, GEMMA_CHAT_TEMPLATE, GEMMA_MARKERS, GEMMA_EOS,
 )
 
 # Accepted key spellings for each label field
@@ -227,6 +227,17 @@ def apply_template_override(tokenizer, model_name):
     Must be applied at BOTH training and inference time, exactly as in SFT.
     """
     name = str(model_name).lower()
+    if any(marker.lower() in name for marker in GEMMA_MARKERS):
+        # Same template sft_train.py trained with. Also make <end_of_turn>
+        # the eos token: Gemma's tokenizer eos is <eos>, which the SFT
+        # model never emits, so vLLM would not stop and TRL would treat
+        # every completion as truncated (masked out).
+        tokenizer.chat_template = GEMMA_CHAT_TEMPLATE
+        if tokenizer.eos_token != GEMMA_EOS:
+            tokenizer.eos_token = GEMMA_EOS
+        print(f"  applied Gemma template override (ShieldGemma backbone); "
+              f"eos={tokenizer.eos_token!r} id={tokenizer.eos_token_id}")
+        return tokenizer      # ASSISTANT_PREFIX is "" for Gemma
     if any(marker.lower() in name for marker in NEEDS_TEMPLATE_OVERRIDE):
         tokenizer.chat_template = STANDARD_CHATML_TEMPLATE
         print("  applied standard ChatML template override (Qwen3Guard backbone)")
