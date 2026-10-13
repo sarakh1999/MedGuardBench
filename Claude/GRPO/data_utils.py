@@ -227,6 +227,18 @@ def apply_template_override(tokenizer, model_name):
     Must be applied at BOTH training and inference time, exactly as in SFT.
     """
     name = str(model_name).lower()
+    if "llama" in name:
+        # Plain Llama-3 chat format, as in Claude/SFT/sft_llamaguard2-8b.py
+        # (LlamaGuard-2 ships a classifier template that drops the assistant
+        # turn). <|eot_id|> terminates the turn and must be the eos for vLLM
+        # stop / TRL masking; the tokenizer's eos is <|end_of_text|>.
+        from llama_format import LLAMA3_CHAT_TEMPLATE, LLAMA_EOS
+        tokenizer.chat_template = LLAMA3_CHAT_TEMPLATE
+        if tokenizer.eos_token != LLAMA_EOS:
+            tokenizer.eos_token = LLAMA_EOS
+        print(f"  applied Llama-3 template override (LlamaGuard backbone); "
+              f"eos={tokenizer.eos_token!r} id={tokenizer.eos_token_id}")
+        return tokenizer      # ASSISTANT_PREFIX is "" for Llama
     if any(marker.lower() in name for marker in GEMMA_MARKERS):
         # Same template sft_train.py trained with. Also make <end_of_turn>
         # the eos token: Gemma's tokenizer eos is <eos>, which the SFT

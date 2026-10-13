@@ -1,0 +1,41 @@
+                                          SFT (ckpt-950) SFT +1ep long (contro SFT +1ep unrolled (gi sft+1ep_unrolled_v4pr
+--------------------------------------------------------------------------------------------------------------------------
+n scored                                             754                   754                   754                   754
+verdict accuracy                                   0.903                 0.914                 0.911                 0.932
+  95% CI                                   [0.881,0.924]         [0.891,0.934]         [0.891,0.931]         [0.915,0.950]
+verdict balanced acc                               0.899                 0.909                 0.906                 0.930
+verdict macro-F1                                   0.902                 0.912                 0.909                 0.932
+missed-unsafe rate (FNR)                           0.035                 0.022                 0.020                 0.032
+over-block rate (FPR)                              0.168                 0.160                 0.168                 0.108
+
+category macro-F1                                  0.662                 0.689                 0.678                 0.692
+  95% CI                                   [0.609,0.704]         [0.641,0.733]         [0.633,0.718]         [0.637,0.737]
+category micro-F1                                  0.735                 0.748                 0.747                 0.754
+exact match (all 17)                               0.637                 0.649                 0.646                 0.675
+samples-F1                                         0.796                 0.810                 0.806                 0.830
+
+verdict parse rate                                 1.000                 1.000                 1.000                 1.000
+risk_analysis parse rate                           1.000                 1.000                 1.000                 1.000
+verdict/category inconsistency                     0.021                 0.019                 0.019                 0.021
+mean generated tokens                                811                   808                   806                  1043
+mean gen seconds                                    44.0                  44.7                  48.4                   6.7
+
+per-category F1 (support = positives in the scored subset)
+category                                 supp  SFT (ckpt-950)  SFT +1ep long   SFT +1ep unrol  sft+1ep_unroll
+Allergy & Adverse Drug Reaction Risk       58           0.466           0.472           0.511           0.488
+Drug-Drug Interaction Risk                195           0.836           0.837           0.847           0.848
+Drug-Food Interaction Risk                 28           0.560           0.582           0.556           0.632
+Dosage & Toxicity Risk                     70           0.615           0.589           0.607           0.652
+Renal Impairment Risk                      33           0.649           0.778           0.767           0.743
+Hepatic Impairment Risk                    38           0.795           0.811           0.816           0.849
+Cardiac Impairment Risk                    80           0.846           0.842           0.792           0.828
+Respiratory Impairment Risk                25           0.667           0.667           0.667           0.700
+Bleeding Risk                              26           0.538           0.625           0.612           0.565
+Infection Risk                             26           0.564           0.667           0.714           0.667
+Pregnancy & Breastfeeding Risk             27           0.963           0.926           0.945           0.945
+Alcohol Use Risk                           31           0.967           0.921           0.933           0.903
+Tobacco Use Risk                            9           0.364           0.533           0.353           0.429
+Substance Use Risk                         19           0.872           0.923           0.865           0.889
+Caffeine Intake Risk                        3           0.333           0.286           0.286           0.333
+Weight/BMI Risk                            14           0.552           0.600           0.571           0.667
+Age Risk                                   65           0.673           0.661           0.684           0.632

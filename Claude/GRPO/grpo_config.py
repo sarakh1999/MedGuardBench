@@ -11,12 +11,13 @@ evaluation on the 754-item test split:
 """
 
 from pathlib import Path
+import os as _os
 
 # ============================================================
 # Paths
 # ============================================================
 
-PROJECT_ROOT = Path("/users/PCS0289/sarakhosravi/Guardrail")
+PROJECT_ROOT = Path(_os.environ.get("MGB_PROJECT_ROOT", "/users/PCS0289/sarakhosravi/Guardrail"))
 
 # Data condition. The old `new_data_chatml_*` files were built from v1 traces
 # that carried verdict-revealing banners ("[Verification Protocol: SAFE CASE]")
@@ -46,16 +47,31 @@ LEGACY_RUNS = {
     # checkpoint used by test_eval_qwenguard_ft_w_schema4B.py). Needs the chat
     # template override (NEEDS_TEMPLATE_OVERRIDE below), applied automatically.
     "qwen3guard-4b": ("Qwen3Guard-Gen-4B", "Qwen/Qwen3Guard-Gen-4B", "checkpoint-950"),
+    # Qwen3Guard-Gen-8B SFT: lowest eval_loss at checkpoint-900 (0.4208), the
+    # same checkpoint the context-unrolling arms (ontop_guard8b) start from.
+    "qwen3guard-8b": ("Qwen3Guard-Gen-8B", "Qwen/Qwen3Guard-Gen-8B", "checkpoint-900"),
+    # ShieldGemma-9B SFT retrained with sft_train.py (the Aug-1 run in
+    # ShieldGemma-9B_broken_aug1 never converged, eval_loss 2.48).
+    "shieldgemma-9b": ("ShieldGemma-9B", "google/shieldgemma-9b", "final_adapter"),
     # ShieldGemma-2B SFT written by Claude/SFT/blind/sft_train.py on the legacy
     # data (Claude/SFT/new_data_chatml_ShieldGemma; same rows as the Qwen ChatML
     # files up to "72" vs "72.0" formatting). Best checkpoint by eval_loss is
     # final_adapter. Gemma template + <end_of_turn> EOS are applied by
     # data_utils.apply_template_override.
     "shieldgemma-2b": ("ShieldGemma-2B", "google/shieldgemma-2b", "final_adapter"),
+    # Llama-Guard-2-8B SFT (Claude/SFT/sft_llamaguard2-8b.py, Llama-3 chat
+    # template override, LlamaGuard-format output). checkpoint-900 is the one
+    # the context-unrolling arms (ontop_llamaguard2) start from. See
+    # llama_format.py: the whole stack switches to the native
+    # "Reasoning: ... / safe|unsafe / O-codes" format for this backbone.
+    "llamaguard2-8b": ("Llama-Guard-2-8B", "meta-llama/Meta-Llama-Guard-2-8B", "checkpoint-900"),
 }
 
 # Model families whose SFT used the Gemma turn format rather than ChatML.
 IS_GEMMA = "gemma" in MODEL.lower()
+IS_LLAMA = "llama" in MODEL.lower()
+# Completion format the SFT model was trained to emit (see llama_format.py).
+OUTPUT_FORMAT = "llamaguard" if IS_LLAMA else "json"
 
 # Tag used for output / mined-data / prereg paths. The original 4B layout
 # (outputs/legacy_v1/...) is kept unchanged; other backbones get a suffix.
@@ -66,7 +82,9 @@ if DATA_CONDITION == "legacy_v1":
         raise SystemExit(f"MGB_MODEL={MODEL!r} has no legacy_v1 SFT run; choose from {sorted(LEGACY_RUNS)}")
     _run_name, LEGACY_FP16_BASE, _best_ckpt = LEGACY_RUNS[MODEL]
     DATA_DIR = PROJECT_ROOT / "Claude" / "SFT" / (
-        "new_data_chatml_ShieldGemma" if IS_GEMMA else "new_data_chatml_qwen_and_qwenguard")
+        "new_data_chatml_ShieldGemma" if IS_GEMMA else
+        "new_data_chatml_llama_and_llamaguard" if IS_LLAMA else
+        "new_data_chatml_qwen_and_qwenguard")
     SFT_RUN_DIR = PROJECT_ROOT / "Claude" / "SFT" / "new_outputs" / _run_name
     if _best_ckpt is None:
         _best_ckpt = _os.environ.get("MGB_SFT_CHECKPOINT", "checkpoint-950")
@@ -344,7 +362,7 @@ USE_VLLM = True              # vLLM-backed generation; big speedup
 # vLLM memory fraction. 4B in bf16 is ~8 GB, fitting in 0.35 of a 40GB A100.
 # 8B in bf16 is ~15.3 GB, which exceeds 0.35 (13.8 GB) on a 40GB A100 and fails KV cache.
 # For 8B on 40GB GPUs, utilization must be >= 0.50.
-if MODEL == "qwen3-8b":
+if MODEL in ("qwen3-8b", "qwen3guard-8b"):
     VLLM_GPU_MEMORY_UTILIZATION = float(_os.environ.get("VLLM_GPU_MEMORY_UTILIZATION", "0.55"))
 else:
     VLLM_GPU_MEMORY_UTILIZATION = float(_os.environ.get("VLLM_GPU_MEMORY_UTILIZATION", "0.35"))
@@ -354,7 +372,7 @@ else:
 # engine; bf16 is 2-3x faster than bnb-4bit in vLLM and makes the KL
 # reference the exact SFT policy instead of a re-quantized copy. Set True on
 # GPUs under ~24 GB.
-LOAD_IN_4BIT = False
+LOAD_IN_4BIT = _os.environ.get("MGB_LOAD_IN_4BIT", "0") == "1"   # 9B/14B on 40 GB GPUs
 
 # ============================================================
 # SFT baseline and pre-registered evaluation
@@ -502,7 +520,7 @@ GEMMA_EOS = "<end_of_turn>"
 # (<tool_call> loops, empty output, garbage). Supplying the prefix removes
 # that failure mode without changing what the model learned.
 # Set to "" when the SFT run used the official (no-think) template.
-if DATA_CONDITION == "legacy_v1" and "guard" not in MODEL.lower() and not IS_GEMMA:
+if DATA_CONDITION == "legacy_v1" and "guard" not in MODEL.lower() and not IS_GEMMA and not IS_LLAMA:
     ASSISTANT_PREFIX = "<think>\n\n</think>\n\n"
 else:
     # Official no-think template, or the Qwen3Guard SFT runs: those were

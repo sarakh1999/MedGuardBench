@@ -1,0 +1,1000 @@
+{"uid": "ddinter-major-0000", "level": "major", "drug_current": "Ibuprofen", "drug_proposed": "Desirudin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0001", "level": "major", "drug_current": "Apalutamide", "drug_proposed": "Praziquantel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0002", "level": "major", "drug_current": "Teriflunomide", "drug_proposed": "Trovafloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0003", "level": "major", "drug_current": "Adalimumab", "drug_proposed": "Methotrexate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0004", "level": "major", "drug_current": "Etanercept", "drug_proposed": "Sacituzumab govitecan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0005", "level": "major", "drug_current": "Lurbinectedin", "drug_proposed": "Apalutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0006", "level": "major", "drug_current": "Infliximab", "drug_proposed": "Altretamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0007", "level": "major", "drug_current": "Sulfisoxazole", "drug_proposed": "Nitrous acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0008", "level": "major", "drug_current": "Mipomersen", "drug_proposed": "Zafirlukast", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0009", "level": "major", "drug_current": "Gatifloxacin", "drug_proposed": "Cisapride", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0010", "level": "major", "drug_current": "Sibutramine", "drug_proposed": "Trazodone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0011", "level": "major", "drug_current": "Pexidartinib", "drug_proposed": "Interferon alfacon-1", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0012", "level": "major", "drug_current": "Vemurafenib", "drug_proposed": "Atomoxetine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0013", "level": "major", "drug_current": "Carfilzomib", "drug_proposed": "Aminocaproic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0014", "level": "major", "drug_current": "Daunorubicin", "drug_proposed": "Ivosidenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0015", "level": "major", "drug_current": "Diethylpropion", "drug_proposed": "Phendimetrazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0016", "level": "major", "drug_current": "Rapacuronium", "drug_proposed": "Amikacin (liposome)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0017", "level": "major", "drug_current": "Paroxetine", "drug_proposed": "Ondansetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0018", "level": "major", "drug_current": "Upadacitinib", "drug_proposed": "Vedolizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0019", "level": "major", "drug_current": "Clozapine", "drug_proposed": "Strontium chloride Sr-89", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0020", "level": "major", "drug_current": "Lomefloxacin", "drug_proposed": "Tolbutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0021", "level": "major", "drug_current": "Mitotane", "drug_proposed": "Lumateperone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0022", "level": "major", "drug_current": "Antithrombin Alfa", "drug_proposed": "Prasugrel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0023", "level": "major", "drug_current": "Caplacizumab", "drug_proposed": "Dicoumarol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0024", "level": "major", "drug_current": "Macimorelin", "drug_proposed": "Toremifene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0025", "level": "major", "drug_current": "Hydroxychloroquine", "drug_proposed": "Norfloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0026", "level": "major", "drug_current": "Rucaparib", "drug_proposed": "Sparfloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0027", "level": "major", "drug_current": "Perflutren", "drug_proposed": "Halofantrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0028", "level": "major", "drug_current": "Eribulin", "drug_proposed": "Bepridil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0029", "level": "major", "drug_current": "Maprotiline", "drug_proposed": "Ondansetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0030", "level": "major", "drug_current": "Deferiprone", "drug_proposed": "Copanlisib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0031", "level": "major", "drug_current": "Fluorouracil", "drug_proposed": "Clozapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0032", "level": "major", "drug_current": "Tofacitinib", "drug_proposed": "Voriconazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0033", "level": "major", "drug_current": "Ozanimod", "drug_proposed": "Halofantrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0034", "level": "major", "drug_current": "Sunitinib", "drug_proposed": "Lumacaftor", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0035", "level": "major", "drug_current": "Etanercept", "drug_proposed": "Docetaxel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0036", "level": "major", "drug_current": "Acalabrutinib", "drug_proposed": "Piroxicam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0037", "level": "major", "drug_current": "Idelalisib", "drug_proposed": "Ibrutinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0038", "level": "major", "drug_current": "Certolizumab pegol", "drug_proposed": "Triamcinolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0039", "level": "major", "drug_current": "Dexfenfluramine", "drug_proposed": "Remifentanil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0040", "level": "major", "drug_current": "Aminophylline", "drug_proposed": "Ciprofloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0041", "level": "major", "drug_current": "Ergometrine", "drug_proposed": "Epinephrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0042", "level": "major", "drug_current": "Cocaine (nasal)", "drug_proposed": "Mazindol", "parse_ok": true, "pred_unsafe": true, "pred_ddi": true, "pred_cats": ["Drug-Drug Interaction Risk", "Substance Use Risk"]}
+{"uid": "ddinter-major-0043", "level": "major", "drug_current": "Venetoclax", "drug_proposed": "Ranolazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0044", "level": "major", "drug_current": "Olaratumab", "drug_proposed": "Talimogene laherparepvec", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0045", "level": "major", "drug_current": "Leflunomide", "drug_proposed": "Alemtuzumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0046", "level": "major", "drug_current": "Tirofiban", "drug_proposed": "Streptokinase", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0047", "level": "major", "drug_current": "Ipilimumab", "drug_proposed": "Fondaparinux", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0048", "level": "major", "drug_current": "Upadacitinib", "drug_proposed": "Trastuzumab deruxtecan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0049", "level": "major", "drug_current": "Danazol", "drug_proposed": "Dicoumarol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0050", "level": "major", "drug_current": "Darolutamide", "drug_proposed": "Rifapentine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0051", "level": "major", "drug_current": "Phenylephrine", "drug_proposed": "Methylergometrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0052", "level": "major", "drug_current": "Doxacurium", "drug_proposed": "Amikacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0053", "level": "major", "drug_current": "Citalopram", "drug_proposed": "Bupropion", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0054", "level": "major", "drug_current": "Idelalisib", "drug_proposed": "Irinotecan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0055", "level": "major", "drug_current": "Bupropion", "drug_proposed": "Thiethylperazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0056", "level": "major", "drug_current": "Doxorubicin (liposomal)", "drug_proposed": "Fingolimod", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0057", "level": "major", "drug_current": "Ziprasidone", "drug_proposed": "Cilostazol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0058", "level": "major", "drug_current": "Risperidone", "drug_proposed": "Morphine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0059", "level": "major", "drug_current": "Anagrelide", "drug_proposed": "Tetrabenazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0060", "level": "major", "drug_current": "Cobimetinib", "drug_proposed": "Certolizumab pegol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0061", "level": "major", "drug_current": "Certolizumab pegol", "drug_proposed": "Gemcitabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0062", "level": "major", "drug_current": "Phentermine", "drug_proposed": "Levomilnacipran", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0063", "level": "major", "drug_current": "Triclabendazole", "drug_proposed": "Vemurafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0064", "level": "major", "drug_current": "Cocaine (nasal)", "drug_proposed": "Vilanterol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0065", "level": "major", "drug_current": "Apalutamide", "drug_proposed": "Ribociclib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0066", "level": "major", "drug_current": "Bendamustine", "drug_proposed": "Tofacitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0067", "level": "major", "drug_current": "Certolizumab pegol", "drug_proposed": "Triamcinolone (ophthalmic)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0068", "level": "major", "drug_current": "Lenvatinib", "drug_proposed": "Selpercatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0069", "level": "major", "drug_current": "Morphine", "drug_proposed": "Oxymorphone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0070", "level": "major", "drug_current": "Bicalutamide", "drug_proposed": "Lumefantrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0071", "level": "major", "drug_current": "Bupropion", "drug_proposed": "Tetrabenazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0072", "level": "major", "drug_current": "Omacetaxine mepesuccinate", "drug_proposed": "Etodolac", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0073", "level": "major", "drug_current": "Tinzaparin", "drug_proposed": "Tolmetin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0074", "level": "major", "drug_current": "Rivaroxaban", "drug_proposed": "Ipilimumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0075", "level": "major", "drug_current": "Warfarin", "drug_proposed": "Fondaparinux", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0076", "level": "major", "drug_current": "Golimumab", "drug_proposed": "Panobinostat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0077", "level": "major", "drug_current": "Streptozocin", "drug_proposed": "Deferiprone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0078", "level": "major", "drug_current": "Apalutamide", "drug_proposed": "Etravirine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0079", "level": "major", "drug_current": "Crizotinib", "drug_proposed": "Doxepin (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0080", "level": "major", "drug_current": "Tetracycline", "drug_proposed": "Mipomersen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0081", "level": "major", "drug_current": "Fenfluramine", "drug_proposed": "Almotriptan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0082", "level": "major", "drug_current": "Alimemazine", "drug_proposed": "Escitalopram", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0083", "level": "major", "drug_current": "Ceritinib", "drug_proposed": "Oliceridine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0084", "level": "major", "drug_current": "Tryptophan", "drug_proposed": "Sibutramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0085", "level": "major", "drug_current": "Levacetylmethadol", "drug_proposed": "Clarithromycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0086", "level": "major", "drug_current": "Ioxilan", "drug_proposed": "Indomethacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0087", "level": "major", "drug_current": "Benzthiazide", "drug_proposed": "Arsenic trioxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0088", "level": "major", "drug_current": "Dalfopristin", "drug_proposed": "Siponimod", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0089", "level": "major", "drug_current": "Abarelix", "drug_proposed": "Amisulpride", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0090", "level": "major", "drug_current": "Fosphenytoin", "drug_proposed": "Fluconazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0091", "level": "major", "drug_current": "Golimumab", "drug_proposed": "Sarilumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0092", "level": "major", "drug_current": "Drotrecogin alfa", "drug_proposed": "Trastuzumab emtansine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0093", "level": "major", "drug_current": "Imatinib", "drug_proposed": "Etanercept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0094", "level": "major", "drug_current": "Ibritumomab tiuxetan", "drug_proposed": "Warfarin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0095", "level": "major", "drug_current": "Telaprevir", "drug_proposed": "Lorlatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0096", "level": "major", "drug_current": "Dopamine", "drug_proposed": "Procarbazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0097", "level": "major", "drug_current": "Rosuvastatin", "drug_proposed": "Simeprevir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0098", "level": "major", "drug_current": "Lomitapide", "drug_proposed": "Peginterferon alfa-2b", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0099", "level": "major", "drug_current": "Ketoconazole", "drug_proposed": "Alprazolam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0100", "level": "major", "drug_current": "Capecitabine", "drug_proposed": "Clozapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0101", "level": "major", "drug_current": "Astemizole", "drug_proposed": "Toremifene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0102", "level": "major", "drug_current": "Diatrizoate", "drug_proposed": "Amphotericin B (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0103", "level": "major", "drug_current": "Enzalutamide", "drug_proposed": "Tasimelteon", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0104", "level": "major", "drug_current": "Irinotecan (liposomal)", "drug_proposed": "Amprenavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0105", "level": "major", "drug_current": "Etelcalcetide", "drug_proposed": "Tiludronic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0106", "level": "major", "drug_current": "Lonafarnib", "drug_proposed": "Vincristine (liposome)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0107", "level": "major", "drug_current": "Etanercept", "drug_proposed": "Chlorambucil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0108", "level": "major", "drug_current": "Azithromycin", "drug_proposed": "Toremifene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0109", "level": "major", "drug_current": "Cilostazol", "drug_proposed": "Deferasirox", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0110", "level": "major", "drug_current": "Magnesium hydroxide", "drug_proposed": "Erdafitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0111", "level": "major", "drug_current": "Leuprolide", "drug_proposed": "Siponimod", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0112", "level": "major", "drug_current": "Dalfopristin", "drug_proposed": "Hydrocodone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0113", "level": "major", "drug_current": "Prochlorperazine", "drug_proposed": "Crizotinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0114", "level": "major", "drug_current": "Lapatinib", "drug_proposed": "Digoxin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0115", "level": "major", "drug_current": "Morphine", "drug_proposed": "Asenapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0116", "level": "major", "drug_current": "Lenvatinib", "drug_proposed": "Anagrelide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0117", "level": "major", "drug_current": "Chloroquine", "drug_proposed": "Osimertinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0118", "level": "major", "drug_current": "Tacrolimus", "drug_proposed": "Amphotericin B (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0119", "level": "major", "drug_current": "Verapamil", "drug_proposed": "Ivosidenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0120", "level": "major", "drug_current": "Lurbinectedin", "drug_proposed": "Dabrafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0121", "level": "major", "drug_current": "Fingolimod", "drug_proposed": "Talimogene laherparepvec", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0122", "level": "major", "drug_current": "Metoclopramide", "drug_proposed": "Iloperidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0123", "level": "major", "drug_current": "Hydroxyzine", "drug_proposed": "Macimorelin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0124", "level": "major", "drug_current": "Cabazitaxel", "drug_proposed": "Baricitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0125", "level": "major", "drug_current": "Ivosidenib", "drug_proposed": "Pimozide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0126", "level": "major", "drug_current": "Sparfloxacin", "drug_proposed": "Nateglinide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0127", "level": "major", "drug_current": "Midostaurin", "drug_proposed": "Pasireotide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0128", "level": "major", "drug_current": "Lovastatin", "drug_proposed": "Leflunomide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0129", "level": "major", "drug_current": "Rucaparib", "drug_proposed": "Etanercept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0130", "level": "major", "drug_current": "Halofantrine", "drug_proposed": "Saquinavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0131", "level": "major", "drug_current": "Dinutuximab", "drug_proposed": "Methylprednisolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0132", "level": "major", "drug_current": "Ozanimod", "drug_proposed": "Vedolizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0133", "level": "major", "drug_current": "Valaciclovir", "drug_proposed": "Sirolimus", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0134", "level": "major", "drug_current": "Morphine", "drug_proposed": "Mesoridazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0135", "level": "major", "drug_current": "Treprostinil", "drug_proposed": "Enoxaparin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0136", "level": "major", "drug_current": "Halofantrine", "drug_proposed": "Daunorubicin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0137", "level": "major", "drug_current": "Amphotericin B (cholesteryl sulfate)", "drug_proposed": "Pimozide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0138", "level": "major", "drug_current": "Isatuximab", "drug_proposed": "Etanercept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0139", "level": "major", "drug_current": "Iodipamide", "drug_proposed": "Amikacin (liposome)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0140", "level": "major", "drug_current": "Rivaroxaban", "drug_proposed": "Cobicistat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0141", "level": "major", "drug_current": "Rilpivirine", "drug_proposed": "Lumacaftor", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0142", "level": "major", "drug_current": "Daunorubicin (liposomal)", "drug_proposed": "Leflunomide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0143", "level": "major", "drug_current": "Chlormezanone", "drug_proposed": "Hydrocodone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0144", "level": "major", "drug_current": "Corticotropin", "drug_proposed": "Amiodarone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0145", "level": "major", "drug_current": "Apixaban", "drug_proposed": "Desirudin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0146", "level": "major", "drug_current": "Vemurafenib", "drug_proposed": "Oxaliplatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0147", "level": "major", "drug_current": "Timolol", "drug_proposed": "Aminophylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0148", "level": "major", "drug_current": "Pimavanserin", "drug_proposed": "Ivosidenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0149", "level": "major", "drug_current": "Erythromycin", "drug_proposed": "Lemborexant", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0150", "level": "major", "drug_current": "Fostamatinib", "drug_proposed": "Ketoconazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0151", "level": "major", "drug_current": "Leflunomide", "drug_proposed": "Fenoprofen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0152", "level": "major", "drug_current": "Fostamatinib", "drug_proposed": "Clozapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0153", "level": "major", "drug_current": "Cladribine", "drug_proposed": "Duvelisib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0154", "level": "major", "drug_current": "Terfenadine", "drug_proposed": "Dronedarone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0155", "level": "major", "drug_current": "Methadone", "drug_proposed": "Encorafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0156", "level": "major", "drug_current": "Ivosidenib", "drug_proposed": "Crizotinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0157", "level": "major", "drug_current": "Isoprenaline", "drug_proposed": "Amiodarone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0158", "level": "major", "drug_current": "Talazoparib", "drug_proposed": "Verapamil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0159", "level": "major", "drug_current": "Orciprenaline", "drug_proposed": "Dronedarone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0160", "level": "major", "drug_current": "Ibritumomab tiuxetan", "drug_proposed": "Etanercept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0161", "level": "major", "drug_current": "Paricalcitol", "drug_proposed": "Erdafitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0162", "level": "major", "drug_current": "Siponimod", "drug_proposed": "Stiripentol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0163", "level": "major", "drug_current": "Etanercept", "drug_proposed": "Asparaginase Escherichia coli", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0164", "level": "major", "drug_current": "Atazanavir", "drug_proposed": "Docetaxel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0165", "level": "major", "drug_current": "Pirfenidone", "drug_proposed": "Givosiran", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0166", "level": "major", "drug_current": "Prasugrel", "drug_proposed": "Edoxaban", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0167", "level": "major", "drug_current": "Ardeparin", "drug_proposed": "Trastuzumab emtansine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0168", "level": "major", "drug_current": "Fingolimod", "drug_proposed": "Brodalumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0169", "level": "major", "drug_current": "Tetryzoline (nasal)", "drug_proposed": "Methylergometrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0170", "level": "major", "drug_current": "Ozanimod", "drug_proposed": "Aflibercept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0171", "level": "major", "drug_current": "Amisulpride", "drug_proposed": "Nilutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0172", "level": "major", "drug_current": "Tocilizumab", "drug_proposed": "Adalimumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0173", "level": "major", "drug_current": "Deferasirox", "drug_proposed": "Defibrotide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0174", "level": "major", "drug_current": "Deferiprone", "drug_proposed": "Clofarabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0175", "level": "major", "drug_current": "Ceritinib", "drug_proposed": "Vilazodone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0176", "level": "major", "drug_current": "Cisapride", "drug_proposed": "Desipramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0177", "level": "major", "drug_current": "Grepafloxacin", "drug_proposed": "Palonosetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0178", "level": "major", "drug_current": "Thalidomide", "drug_proposed": "Infliximab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0179", "level": "major", "drug_current": "Choline salicylate", "drug_proposed": "Leflunomide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0180", "level": "major", "drug_current": "Pentamidine", "drug_proposed": "Iloperidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0181", "level": "major", "drug_current": "Alimemazine", "drug_proposed": "Procainamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0182", "level": "major", "drug_current": "Diflunisal", "drug_proposed": "Dalteparin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0183", "level": "major", "drug_current": "Chlorpropamide", "drug_proposed": "Gemifloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0184", "level": "major", "drug_current": "Netilmicin", "drug_proposed": "Temsirolimus", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0185", "level": "major", "drug_current": "Magnesium sulfate", "drug_proposed": "Neomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0186", "level": "major", "drug_current": "Arsenic trioxide", "drug_proposed": "Cabozantinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0187", "level": "major", "drug_current": "Omacetaxine mepesuccinate", "drug_proposed": "Ardeparin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0188", "level": "major", "drug_current": "Oxytocin", "drug_proposed": "Pasireotide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0189", "level": "major", "drug_current": "Sodium oxybate", "drug_proposed": "Doxepin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0190", "level": "major", "drug_current": "Mefenamic acid", "drug_proposed": "Iopromide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0191", "level": "major", "drug_current": "Dasatinib", "drug_proposed": "Toremifene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0192", "level": "major", "drug_current": "Entrectinib", "drug_proposed": "Procainamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0193", "level": "major", "drug_current": "Doxepin (topical)", "drug_proposed": "Iloperidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0194", "level": "major", "drug_current": "Halofantrine", "drug_proposed": "Trimipramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0195", "level": "major", "drug_current": "Prochlorperazine", "drug_proposed": "Arsenic trioxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0196", "level": "major", "drug_current": "Telavancin", "drug_proposed": "Heparin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0197", "level": "major", "drug_current": "Sulfasalazine", "drug_proposed": "Teriflunomide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0198", "level": "major", "drug_current": "Ivabradine", "drug_proposed": "Idarubicin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0199", "level": "major", "drug_current": "Selinexor", "drug_proposed": "Samarium (153Sm) lexidronam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0200", "level": "major", "drug_current": "Fingolimod", "drug_proposed": "Vemurafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0201", "level": "major", "drug_current": "Omacetaxine mepesuccinate", "drug_proposed": "Talimogene laherparepvec", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0202", "level": "major", "drug_current": "Flurbiprofen", "drug_proposed": "Dasatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0203", "level": "major", "drug_current": "Acalabrutinib", "drug_proposed": "Tipranavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0204", "level": "major", "drug_current": "Bexarotene", "drug_proposed": "Diethylstilbestrol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0205", "level": "major", "drug_current": "Fluvoxamine", "drug_proposed": "Aminophylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0206", "level": "major", "drug_current": "Sulfamethizole", "drug_proposed": "Mipomersen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0207", "level": "major", "drug_current": "Potassium chloride", "drug_proposed": "Disopyramide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0208", "level": "major", "drug_current": "Ciprofloxacin", "drug_proposed": "Warfarin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0209", "level": "major", "drug_current": "Avapritinib", "drug_proposed": "Lumacaftor", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0210", "level": "major", "drug_current": "Doxepin", "drug_proposed": "Flumazenil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0211", "level": "major", "drug_current": "Nelfinavir", "drug_proposed": "Ribociclib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0212", "level": "major", "drug_current": "Abemaciclib", "drug_proposed": "Primidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0213", "level": "major", "drug_current": "Danaparoid", "drug_proposed": "Ticagrelor", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0214", "level": "major", "drug_current": "Phenylephrine", "drug_proposed": "Desipramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0215", "level": "major", "drug_current": "Upadacitinib", "drug_proposed": "Interferon alfa-n1", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0216", "level": "major", "drug_current": "Warfarin", "drug_proposed": "Inotersen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0217", "level": "major", "drug_current": "Infliximab", "drug_proposed": "Adalimumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0218", "level": "major", "drug_current": "Siponimod", "drug_proposed": "Interferon alfacon-1", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0219", "level": "major", "drug_current": "Osimertinib", "drug_proposed": "Lisdexamfetamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0220", "level": "major", "drug_current": "Mycophenolate mofetil", "drug_proposed": "Certolizumab pegol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0221", "level": "major", "drug_current": "Panobinostat", "drug_proposed": "Foscarnet", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0222", "level": "major", "drug_current": "Levomefolic acid (calcium)", "drug_proposed": "Capecitabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0223", "level": "major", "drug_current": "Kanamycin", "drug_proposed": "Temsirolimus", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0224", "level": "major", "drug_current": "Levacetylmethadol", "drug_proposed": "Cisplatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0225", "level": "major", "drug_current": "Iothalamic acid", "drug_proposed": "Naproxen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0226", "level": "major", "drug_current": "Everolimus", "drug_proposed": "Ketoprofen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0227", "level": "major", "drug_current": "Peginterferon beta-1a", "drug_proposed": "Lomitapide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0228", "level": "major", "drug_current": "Acetohexamide", "drug_proposed": "Levofloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0229", "level": "major", "drug_current": "Pimavanserin", "drug_proposed": "Cobicistat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0230", "level": "major", "drug_current": "Imatinib", "drug_proposed": "Ibrutinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0231", "level": "major", "drug_current": "Fondaparinux", "drug_proposed": "Antithrombin III human", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0232", "level": "major", "drug_current": "Idelalisib", "drug_proposed": "Carbamazepine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0233", "level": "major", "drug_current": "Terfenadine", "drug_proposed": "Moxifloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0234", "level": "major", "drug_current": "Deferasirox", "drug_proposed": "Treprostinil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0235", "level": "major", "drug_current": "Doxorubicin (liposomal)", "drug_proposed": "Leflunomide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0236", "level": "major", "drug_current": "Sonidegib", "drug_proposed": "Delavirdine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0237", "level": "major", "drug_current": "Cocaine (topical)", "drug_proposed": "Armodafinil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0238", "level": "major", "drug_current": "Bepridil", "drug_proposed": "Pentamidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0239", "level": "major", "drug_current": "Defibrotide", "drug_proposed": "Heparin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0240", "level": "major", "drug_current": "Cocaine (nasal)", "drug_proposed": "Metaraminol", "parse_ok": true, "pred_unsafe": true, "pred_ddi": true, "pred_cats": ["Drug-Drug Interaction Risk", "Substance Use Risk"]}
+{"uid": "ddinter-major-0241", "level": "major", "drug_current": "Ixazomib", "drug_proposed": "Fosphenytoin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0242", "level": "major", "drug_current": "Gemfibrozil", "drug_proposed": "Warfarin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0243", "level": "major", "drug_current": "Defibrotide", "drug_proposed": "Dipyridamole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0244", "level": "major", "drug_current": "Tramadol", "drug_proposed": "Papaverine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0245", "level": "major", "drug_current": "Palonosetron", "drug_proposed": "Dofetilide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0246", "level": "major", "drug_current": "Fenfluramine", "drug_proposed": "Nefazodone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0247", "level": "major", "drug_current": "Valbenazine", "drug_proposed": "Panobinostat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0248", "level": "major", "drug_current": "Iodipamide", "drug_proposed": "Salsalate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-major-0249", "level": "major", "drug_current": "Itraconazole", "drug_proposed": "Artemether", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0250", "level": "moderate", "drug_current": "Fosphenytoin", "drug_proposed": "Tolazamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0251", "level": "moderate", "drug_current": "Promethazine", "drug_proposed": "Nilutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0252", "level": "moderate", "drug_current": "Entacapone", "drug_proposed": "Carbinoxamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0253", "level": "moderate", "drug_current": "Isradipine", "drug_proposed": "Promethazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0254", "level": "moderate", "drug_current": "Drospirenone", "drug_proposed": "Enasidenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0255", "level": "moderate", "drug_current": "Astemizole", "drug_proposed": "Perphenazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0256", "level": "moderate", "drug_current": "Dinutuximab", "drug_proposed": "Etoposide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0257", "level": "moderate", "drug_current": "Warfarin", "drug_proposed": "Larotrectinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0258", "level": "moderate", "drug_current": "Levodopa", "drug_proposed": "Paclitaxel (protein-bound)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0259", "level": "moderate", "drug_current": "Candida albicans", "drug_proposed": "Idelalisib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0260", "level": "moderate", "drug_current": "Interferon alfa-n1", "drug_proposed": "Benznidazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0261", "level": "moderate", "drug_current": "Desmopressin", "drug_proposed": "Duloxetine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0262", "level": "moderate", "drug_current": "Lamivudine", "drug_proposed": "Interferon beta-1b", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0263", "level": "moderate", "drug_current": "Brigatinib", "drug_proposed": "Succinylcholine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0264", "level": "moderate", "drug_current": "Insulin lispro (protamine)", "drug_proposed": "Pioglitazone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0265", "level": "moderate", "drug_current": "Alimemazine", "drug_proposed": "Nifedipine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0266", "level": "moderate", "drug_current": "Timolol (ophthalmic)", "drug_proposed": "Abiraterone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0267", "level": "moderate", "drug_current": "Balsalazide", "drug_proposed": "Entecavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0268", "level": "moderate", "drug_current": "Picosulfuric acid", "drug_proposed": "Troleandomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0269", "level": "moderate", "drug_current": "Nelfinavir", "drug_proposed": "Orlistat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0270", "level": "moderate", "drug_current": "Ticlopidine", "drug_proposed": "Asenapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0271", "level": "moderate", "drug_current": "Pegaspargase", "drug_proposed": "Exenatide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0272", "level": "moderate", "drug_current": "Dronabinol", "drug_proposed": "Chlorpromazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0273", "level": "moderate", "drug_current": "Niraparib", "drug_proposed": "Daunorubicin (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0274", "level": "moderate", "drug_current": "Albiglutide", "drug_proposed": "Tolbutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0275", "level": "moderate", "drug_current": "Cannabidiol", "drug_proposed": "Nintedanib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0276", "level": "moderate", "drug_current": "Nadolol", "drug_proposed": "Ioxilan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0277", "level": "moderate", "drug_current": "Dexbrompheniramine", "drug_proposed": "Ipratropium", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0278", "level": "moderate", "drug_current": "Hydrocodone", "drug_proposed": "Carbinoxamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0279", "level": "moderate", "drug_current": "Tamoxifen", "drug_proposed": "Clofarabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0280", "level": "moderate", "drug_current": "Clidinium", "drug_proposed": "Oliceridine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0281", "level": "moderate", "drug_current": "Infliximab", "drug_proposed": "Denosumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0282", "level": "moderate", "drug_current": "Heparin", "drug_proposed": "Antithrombin Alfa", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0283", "level": "moderate", "drug_current": "Bicalutamide", "drug_proposed": "Bisacodyl", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0284", "level": "moderate", "drug_current": "Fluvoxamine", "drug_proposed": "Albendazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0285", "level": "moderate", "drug_current": "Opium", "drug_proposed": "Mepyramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0286", "level": "moderate", "drug_current": "Thyroid, porcine", "drug_proposed": "Warfarin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0287", "level": "moderate", "drug_current": "Torasemide", "drug_proposed": "Cisplatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0288", "level": "moderate", "drug_current": "Zalcitabine", "drug_proposed": "Benznidazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0289", "level": "moderate", "drug_current": "Insulin aspart (aspart)", "drug_proposed": "Orlistat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0290", "level": "moderate", "drug_current": "Esketamine", "drug_proposed": "Azelastine (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0291", "level": "moderate", "drug_current": "Cerivastatin", "drug_proposed": "Hydroxychloroquine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0292", "level": "moderate", "drug_current": "Boceprevir", "drug_proposed": "Tretinoin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0293", "level": "moderate", "drug_current": "Saquinavir", "drug_proposed": "Betamethasone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0294", "level": "moderate", "drug_current": "Vemurafenib", "drug_proposed": "Sildenafil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0295", "level": "moderate", "drug_current": "Vincristine", "drug_proposed": "Fosphenytoin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0296", "level": "moderate", "drug_current": "Secnidazole", "drug_proposed": "Crizotinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0297", "level": "moderate", "drug_current": "Salsalate", "drug_proposed": "Dicoumarol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0298", "level": "moderate", "drug_current": "Alefacept", "drug_proposed": "Triamcinolone (ophthalmic)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0299", "level": "moderate", "drug_current": "Lonafarnib", "drug_proposed": "Megestrol acetate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0300", "level": "moderate", "drug_current": "Fosaprepitant", "drug_proposed": "Tamoxifen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0301", "level": "moderate", "drug_current": "Bictegravir", "drug_proposed": "Eliglustat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0302", "level": "moderate", "drug_current": "Torasemide", "drug_proposed": "Treprostinil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0303", "level": "moderate", "drug_current": "Procyclidine", "drug_proposed": "Chlorpheniramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0304", "level": "moderate", "drug_current": "Linezolid", "drug_proposed": "Chlorpheniramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0305", "level": "moderate", "drug_current": "Betrixaban", "drug_proposed": "Tamoxifen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0306", "level": "moderate", "drug_current": "Chenodeoxycholic acid", "drug_proposed": "Gemfibrozil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0307", "level": "moderate", "drug_current": "Rifabutin", "drug_proposed": "Codeine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0308", "level": "moderate", "drug_current": "Flutamide", "drug_proposed": "Methotrimeprazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0309", "level": "moderate", "drug_current": "Valganciclovir", "drug_proposed": "Vincristine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0310", "level": "moderate", "drug_current": "Interferon beta-1b", "drug_proposed": "Felbamate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0311", "level": "moderate", "drug_current": "Primidone", "drug_proposed": "Infliximab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0312", "level": "moderate", "drug_current": "Meclizine", "drug_proposed": "Disopyramide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0313", "level": "moderate", "drug_current": "Ribociclib", "drug_proposed": "Echinacea", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0314", "level": "moderate", "drug_current": "Capreomycin", "drug_proposed": "Dexamethasone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0315", "level": "moderate", "drug_current": "Troleandomycin", "drug_proposed": "Aprepitant", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0316", "level": "moderate", "drug_current": "Canakinumab", "drug_proposed": "Idelalisib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0317", "level": "moderate", "drug_current": "Fesoterodine", "drug_proposed": "Bupropion", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0318", "level": "moderate", "drug_current": "Rosiglitazone", "drug_proposed": "Orlistat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0319", "level": "moderate", "drug_current": "Arbutamine", "drug_proposed": "Mepenzolate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0320", "level": "moderate", "drug_current": "Dexamethasone", "drug_proposed": "Labetalol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0321", "level": "moderate", "drug_current": "Diethylstilbestrol", "drug_proposed": "Dulaglutide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0322", "level": "moderate", "drug_current": "Palbociclib", "drug_proposed": "Simvastatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0323", "level": "moderate", "drug_current": "Eprosartan", "drug_proposed": "Acetylsalicylic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0324", "level": "moderate", "drug_current": "Clemastine", "drug_proposed": "Dicyclomine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0325", "level": "moderate", "drug_current": "Exemestane", "drug_proposed": "Abametapir (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0326", "level": "moderate", "drug_current": "Levetiracetam", "drug_proposed": "Dextromethorphan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0327", "level": "moderate", "drug_current": "Amiloride", "drug_proposed": "Celecoxib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0328", "level": "moderate", "drug_current": "Doxycycline", "drug_proposed": "Phenoxymethylpenicillin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0329", "level": "moderate", "drug_current": "Reteplase", "drug_proposed": "Mefenamic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0330", "level": "moderate", "drug_current": "Ozanimod", "drug_proposed": "Trimipramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0331", "level": "moderate", "drug_current": "Exenatide", "drug_proposed": "Sermorelin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0332", "level": "moderate", "drug_current": "Saquinavir", "drug_proposed": "Dexamethasone (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0333", "level": "moderate", "drug_current": "Epoprostenol", "drug_proposed": "Bismuth subsalicylate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0334", "level": "moderate", "drug_current": "Pomalidomide", "drug_proposed": "Ketoconazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0335", "level": "moderate", "drug_current": "Vemurafenib", "drug_proposed": "Bisacodyl", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0336", "level": "moderate", "drug_current": "Lidocaine", "drug_proposed": "Procainamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0337", "level": "moderate", "drug_current": "Epinephrine", "drug_proposed": "Ozanimod", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0338", "level": "moderate", "drug_current": "Erythromycin", "drug_proposed": "Rifapentine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0339", "level": "moderate", "drug_current": "Alteplase", "drug_proposed": "Sulindac", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0340", "level": "moderate", "drug_current": "Terbutaline", "drug_proposed": "Ezogabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0341", "level": "moderate", "drug_current": "Methscopolamine", "drug_proposed": "Bisoprolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0342", "level": "moderate", "drug_current": "Rasagiline", "drug_proposed": "Primaquine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0343", "level": "moderate", "drug_current": "Metoprolol", "drug_proposed": "Calcium glubionate anhydrous", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0344", "level": "moderate", "drug_current": "Interferon alfa-2b", "drug_proposed": "Floxuridine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0345", "level": "moderate", "drug_current": "Methotrexate", "drug_proposed": "Dronedarone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0346", "level": "moderate", "drug_current": "Cetirizine", "drug_proposed": "Nabilone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0347", "level": "moderate", "drug_current": "Lanreotide", "drug_proposed": "Mifepristone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0348", "level": "moderate", "drug_current": "Methazolamide", "drug_proposed": "Methylprednisolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0349", "level": "moderate", "drug_current": "Daunorubicin", "drug_proposed": "Dextropropoxyphene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0350", "level": "moderate", "drug_current": "Tamoxifen", "drug_proposed": "Foscarnet", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0351", "level": "moderate", "drug_current": "Voriconazole", "drug_proposed": "Thalidomide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0352", "level": "moderate", "drug_current": "Atomoxetine", "drug_proposed": "Lactulose", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0353", "level": "moderate", "drug_current": "Palifermin", "drug_proposed": "Busulfan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0354", "level": "moderate", "drug_current": "Chlorpropamide", "drug_proposed": "Linagliptin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0355", "level": "moderate", "drug_current": "Tolazamide", "drug_proposed": "Isoprenaline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0356", "level": "moderate", "drug_current": "Docetaxel", "drug_proposed": "Bleomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0357", "level": "moderate", "drug_current": "Triamcinolone", "drug_proposed": "Prazosin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0358", "level": "moderate", "drug_current": "Goserelin", "drug_proposed": "Tacrolimus", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0359", "level": "moderate", "drug_current": "Cabazitaxel", "drug_proposed": "Docetaxel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0360", "level": "moderate", "drug_current": "Dapsone (topical)", "drug_proposed": "Benzocaine (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0361", "level": "moderate", "drug_current": "Copanlisib", "drug_proposed": "Repaglinide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0362", "level": "moderate", "drug_current": "Rifampicin", "drug_proposed": "Paclitaxel (protein-bound)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0363", "level": "moderate", "drug_current": "Cenobamate", "drug_proposed": "Doxepin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0364", "level": "moderate", "drug_current": "Triamcinolone", "drug_proposed": "Amphotericin B", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0365", "level": "moderate", "drug_current": "Magaldrate", "drug_proposed": "Itraconazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0366", "level": "moderate", "drug_current": "Lactitol", "drug_proposed": "Asenapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0367", "level": "moderate", "drug_current": "Armodafinil", "drug_proposed": "Mitotane", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0368", "level": "moderate", "drug_current": "Lurasidone", "drug_proposed": "Insulin glulisine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0369", "level": "moderate", "drug_current": "Scopolamine", "drug_proposed": "Oxycodone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0370", "level": "moderate", "drug_current": "Rosiglitazone", "drug_proposed": "Lomefloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0371", "level": "moderate", "drug_current": "Hydroflumethiazide", "drug_proposed": "Nitrous acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0372", "level": "moderate", "drug_current": "Aldesleukin", "drug_proposed": "Paraldehyde", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0373", "level": "moderate", "drug_current": "Albiglutide", "drug_proposed": "Hydroflumethiazide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0374", "level": "moderate", "drug_current": "Vinorelbine", "drug_proposed": "Aprepitant", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0375", "level": "moderate", "drug_current": "Indacaterol", "drug_proposed": "Quinidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0376", "level": "moderate", "drug_current": "Propofol", "drug_proposed": "Levofloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0377", "level": "moderate", "drug_current": "Cilostazol", "drug_proposed": "Ofloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0378", "level": "moderate", "drug_current": "Captopril", "drug_proposed": "Naldemedine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0379", "level": "moderate", "drug_current": "Nimodipine", "drug_proposed": "Codeine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0380", "level": "moderate", "drug_current": "Thalidomide", "drug_proposed": "Enzalutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0381", "level": "moderate", "drug_current": "Terbutaline", "drug_proposed": "Glycerin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0382", "level": "moderate", "drug_current": "Dextrothyroxine", "drug_proposed": "Doxepin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0383", "level": "moderate", "drug_current": "Levosalbutamol", "drug_proposed": "Fenfluramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0384", "level": "moderate", "drug_current": "Everolimus", "drug_proposed": "Dasatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0385", "level": "moderate", "drug_current": "Anistreplase", "drug_proposed": "Acetylsalicylic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0386", "level": "moderate", "drug_current": "Oxytetracycline", "drug_proposed": "Insulin lispro", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0387", "level": "moderate", "drug_current": "Alimemazine", "drug_proposed": "Encorafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0388", "level": "moderate", "drug_current": "Diazoxide", "drug_proposed": "Dulaglutide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0389", "level": "moderate", "drug_current": "Prednisone", "drug_proposed": "Chlorothiazide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0390", "level": "moderate", "drug_current": "Ropinirole", "drug_proposed": "Thiabendazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0391", "level": "moderate", "drug_current": "Ixazomib", "drug_proposed": "Peginterferon beta-1a", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0392", "level": "moderate", "drug_current": "Ethinylestradiol", "drug_proposed": "Colestipol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0393", "level": "moderate", "drug_current": "Fedratinib", "drug_proposed": "Romidepsin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0394", "level": "moderate", "drug_current": "Repaglinide", "drug_proposed": "Methyltestosterone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0395", "level": "moderate", "drug_current": "Ixabepilone", "drug_proposed": "Troglitazone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0396", "level": "moderate", "drug_current": "Repaglinide", "drug_proposed": "Clofibrate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0397", "level": "moderate", "drug_current": "Hyoscyamine", "drug_proposed": "Asenapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0398", "level": "moderate", "drug_current": "Decitabine", "drug_proposed": "Mercaptopurine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0399", "level": "moderate", "drug_current": "Silodosin", "drug_proposed": "Midostaurin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0400", "level": "moderate", "drug_current": "Tromethamine", "drug_proposed": "Ephedrine (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0401", "level": "moderate", "drug_current": "Cimetidine", "drug_proposed": "Diltiazem", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0402", "level": "moderate", "drug_current": "Dobutamine", "drug_proposed": "Doxapram", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0403", "level": "moderate", "drug_current": "Minoxidil", "drug_proposed": "Ziprasidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0404", "level": "moderate", "drug_current": "Prucalopride", "drug_proposed": "Procyclidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0405", "level": "moderate", "drug_current": "Hydroxychloroquine", "drug_proposed": "Telaprevir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0406", "level": "moderate", "drug_current": "Sirolimus", "drug_proposed": "Aminoglutethimide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0407", "level": "moderate", "drug_current": "Losartan", "drug_proposed": "Procarbazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0408", "level": "moderate", "drug_current": "Brimonidine (topical)", "drug_proposed": "Spironolactone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0409", "level": "moderate", "drug_current": "Lorcaserin", "drug_proposed": "Timolol (ophthalmic)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0410", "level": "moderate", "drug_current": "Phentolamine", "drug_proposed": "Methotrimeprazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0411", "level": "moderate", "drug_current": "Echinacea", "drug_proposed": "Midostaurin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0412", "level": "moderate", "drug_current": "Paclitaxel (protein-bound)", "drug_proposed": "Dalfopristin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0413", "level": "moderate", "drug_current": "Desipramine", "drug_proposed": "Doxorubicin (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0414", "level": "moderate", "drug_current": "Tetracycline", "drug_proposed": "Bedaquiline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0415", "level": "moderate", "drug_current": "Ustekinumab", "drug_proposed": "Carfilzomib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0416", "level": "moderate", "drug_current": "Fluorouracil", "drug_proposed": "Alefacept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0417", "level": "moderate", "drug_current": "Peginterferon alfa-2a", "drug_proposed": "Tinidazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0418", "level": "moderate", "drug_current": "Golimumab", "drug_proposed": "Didanosine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0419", "level": "moderate", "drug_current": "Indacaterol", "drug_proposed": "Arsenic trioxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0420", "level": "moderate", "drug_current": "Salbutamol", "drug_proposed": "Hydrochlorothiazide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0421", "level": "moderate", "drug_current": "Iloprost", "drug_proposed": "Sulfinpyrazone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0422", "level": "moderate", "drug_current": "Telithromycin", "drug_proposed": "Budesonide (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0423", "level": "moderate", "drug_current": "Citalopram", "drug_proposed": "Glipizide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0424", "level": "moderate", "drug_current": "Flurbiprofen", "drug_proposed": "Tirofiban", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0425", "level": "moderate", "drug_current": "Teriflunomide", "drug_proposed": "Ondansetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0426", "level": "moderate", "drug_current": "Erythromycin", "drug_proposed": "Salbutamol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0427", "level": "moderate", "drug_current": "Dichloralphenazone", "drug_proposed": "Brompheniramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0428", "level": "moderate", "drug_current": "Paroxetine", "drug_proposed": "Drotrecogin alfa", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0429", "level": "moderate", "drug_current": "Muromonab", "drug_proposed": "Alemtuzumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0430", "level": "moderate", "drug_current": "Alpelisib", "drug_proposed": "Vincristine (liposome)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0431", "level": "moderate", "drug_current": "Ustekinumab", "drug_proposed": "Mogamulizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0432", "level": "moderate", "drug_current": "Glycopyrronium", "drug_proposed": "Guanidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0433", "level": "moderate", "drug_current": "Insulin glulisine", "drug_proposed": "Turmeric", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0434", "level": "moderate", "drug_current": "Benzatropine", "drug_proposed": "Doxylamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0435", "level": "moderate", "drug_current": "Salmeterol", "drug_proposed": "Vilanterol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0436", "level": "moderate", "drug_current": "Tripelennamine", "drug_proposed": "Lofexidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0437", "level": "moderate", "drug_current": "Magnesium hydroxide", "drug_proposed": "Etacrynic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0438", "level": "moderate", "drug_current": "Chloroquine", "drug_proposed": "Zafirlukast", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0439", "level": "moderate", "drug_current": "Propafenone", "drug_proposed": "Golimumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0440", "level": "moderate", "drug_current": "Talazoparib", "drug_proposed": "Elbasvir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0441", "level": "moderate", "drug_current": "Tenecteplase", "drug_proposed": "Epoprostenol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0442", "level": "moderate", "drug_current": "Granisetron", "drug_proposed": "Codeine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0443", "level": "moderate", "drug_current": "Famotidine", "drug_proposed": "Pimavanserin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0444", "level": "moderate", "drug_current": "Oxymetazoline (nasal)", "drug_proposed": "Linezolid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0445", "level": "moderate", "drug_current": "Protein C", "drug_proposed": "Urokinase", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0446", "level": "moderate", "drug_current": "Daunorubicin (liposomal)", "drug_proposed": "Carmustine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0447", "level": "moderate", "drug_current": "Rabeprazole", "drug_proposed": "Streptomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0448", "level": "moderate", "drug_current": "Conjugated estrogens", "drug_proposed": "Insulin detemir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0449", "level": "moderate", "drug_current": "Lenvatinib", "drug_proposed": "Quinine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0450", "level": "moderate", "drug_current": "Doxepin", "drug_proposed": "Polythiazide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0451", "level": "moderate", "drug_current": "Promethazine", "drug_proposed": "Tolterodine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0452", "level": "moderate", "drug_current": "Carvedilol", "drug_proposed": "Calcium lactate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0453", "level": "moderate", "drug_current": "Sulindac", "drug_proposed": "Potassium Iodide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0454", "level": "moderate", "drug_current": "Codeine", "drug_proposed": "Zolmitriptan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0455", "level": "moderate", "drug_current": "Sodium citrate", "drug_proposed": "Tipranavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0456", "level": "moderate", "drug_current": "Insulin human (inhalation, rapid acting)", "drug_proposed": "Thiethylperazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0457", "level": "moderate", "drug_current": "Filgrastim", "drug_proposed": "Procarbazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0458", "level": "moderate", "drug_current": "Sodium zirconium cyclosilicate", "drug_proposed": "Rilpivirine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0459", "level": "moderate", "drug_current": "Pegfilgrastim", "drug_proposed": "Fludarabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0460", "level": "moderate", "drug_current": "Dimethyl fumarate", "drug_proposed": "Fludrocortisone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0461", "level": "moderate", "drug_current": "Rucaparib", "drug_proposed": "Prochlorperazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0462", "level": "moderate", "drug_current": "Vorinostat", "drug_proposed": "Dulaglutide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0463", "level": "moderate", "drug_current": "Valganciclovir", "drug_proposed": "Peginterferon alfa-2a", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0464", "level": "moderate", "drug_current": "Estradiol", "drug_proposed": "Fedratinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0465", "level": "moderate", "drug_current": "Hydrocodone", "drug_proposed": "Celecoxib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0466", "level": "moderate", "drug_current": "Pexidartinib", "drug_proposed": "Irinotecan (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0467", "level": "moderate", "drug_current": "Vinblastine", "drug_proposed": "Lasmiditan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0468", "level": "moderate", "drug_current": "Gemifloxacin", "drug_proposed": "Ribociclib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0469", "level": "moderate", "drug_current": "Streptozocin", "drug_proposed": "Cytarabine (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0470", "level": "moderate", "drug_current": "Progesterone", "drug_proposed": "Metformin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0471", "level": "moderate", "drug_current": "Apalutamide", "drug_proposed": "Simvastatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0472", "level": "moderate", "drug_current": "Ticagrelor", "drug_proposed": "Ketoprofen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0473", "level": "moderate", "drug_current": "Revefenacin", "drug_proposed": "Doxylamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0474", "level": "moderate", "drug_current": "Vedolizumab", "drug_proposed": "Candida albicans", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0475", "level": "moderate", "drug_current": "Bisacodyl", "drug_proposed": "Lenvatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0476", "level": "moderate", "drug_current": "Sibutramine", "drug_proposed": "Deferasirox", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0477", "level": "moderate", "drug_current": "Chloroquine", "drug_proposed": "Lindane", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0478", "level": "moderate", "drug_current": "Brimonidine (ophthalmic)", "drug_proposed": "Furosemide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0479", "level": "moderate", "drug_current": "Nitroglycerin", "drug_proposed": "Mepyramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0480", "level": "moderate", "drug_current": "Insulin degludec", "drug_proposed": "Ginseng", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0481", "level": "moderate", "drug_current": "Ranitidine", "drug_proposed": "Bosutinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0482", "level": "moderate", "drug_current": "Fludrocortisone", "drug_proposed": "Prazosin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0483", "level": "moderate", "drug_current": "Amitriptyline", "drug_proposed": "Dacomitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0484", "level": "moderate", "drug_current": "Dalfampridine", "drug_proposed": "Rucaparib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0485", "level": "moderate", "drug_current": "Dextropropoxyphene", "drug_proposed": "Tofacitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0486", "level": "moderate", "drug_current": "Ofloxacin", "drug_proposed": "Enzalutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0487", "level": "moderate", "drug_current": "Aldesleukin", "drug_proposed": "Tyropanoic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0488", "level": "moderate", "drug_current": "Estramustine", "drug_proposed": "Amphotericin B (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0489", "level": "moderate", "drug_current": "Gadoxetic acid", "drug_proposed": "Propranolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0490", "level": "moderate", "drug_current": "Phenelzine", "drug_proposed": "Insulin human (zinc)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0491", "level": "moderate", "drug_current": "Canagliflozin", "drug_proposed": "Diethylpropion", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0492", "level": "moderate", "drug_current": "Ozanimod", "drug_proposed": "Spironolactone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0493", "level": "moderate", "drug_current": "Lumateperone", "drug_proposed": "Sodium sulfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0494", "level": "moderate", "drug_current": "Progesterone (topical)", "drug_proposed": "Enzalutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0495", "level": "moderate", "drug_current": "Pertuzumab", "drug_proposed": "Idelalisib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0496", "level": "moderate", "drug_current": "Sunitinib", "drug_proposed": "Lorlatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0497", "level": "moderate", "drug_current": "Phenylbutyric acid", "drug_proposed": "Methylprednisolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0498", "level": "moderate", "drug_current": "Carvedilol", "drug_proposed": "Alectinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-moderate-0499", "level": "moderate", "drug_current": "Etravirine", "drug_proposed": "Interferon alfa-2a, Recombinant", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0500", "level": "minor", "drug_current": "Ipratropium (nasal)", "drug_proposed": "Thiothixene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0501", "level": "minor", "drug_current": "Bortezomib", "drug_proposed": "Bexarotene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0502", "level": "minor", "drug_current": "Potassium chloride", "drug_proposed": "Insulin human (inhalation, rapid acting)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0503", "level": "minor", "drug_current": "Diphenhydramine", "drug_proposed": "Ipratropium (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0504", "level": "minor", "drug_current": "Dolutegravir", "drug_proposed": "Bexarotene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0505", "level": "minor", "drug_current": "Famotidine", "drug_proposed": "Meclofenamic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0506", "level": "minor", "drug_current": "Vinblastine", "drug_proposed": "Lomefloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0507", "level": "minor", "drug_current": "Abatacept", "drug_proposed": "Zinc chloride", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0508", "level": "minor", "drug_current": "Methylprednisolone", "drug_proposed": "Salmeterol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0509", "level": "minor", "drug_current": "Nifedipine", "drug_proposed": "Indacaterol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0510", "level": "minor", "drug_current": "Interferon alfacon-1", "drug_proposed": "Doxorubicin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0511", "level": "minor", "drug_current": "Magnesium hydroxide", "drug_proposed": "Alprazolam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0512", "level": "minor", "drug_current": "Levobupivacaine", "drug_proposed": "Olaparib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0513", "level": "minor", "drug_current": "Ivosidenib", "drug_proposed": "Metronidazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0514", "level": "minor", "drug_current": "Ciclesonide", "drug_proposed": "Salbutamol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0515", "level": "minor", "drug_current": "Magnesium hydroxide", "drug_proposed": "Dicoumarol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0516", "level": "minor", "drug_current": "Aluminum hydroxide", "drug_proposed": "Labetalol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0517", "level": "minor", "drug_current": "Desoximetasone (topical)", "drug_proposed": "Insulin human (zinc)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0518", "level": "minor", "drug_current": "Voriconazole", "drug_proposed": "Amphotericin B", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0519", "level": "minor", "drug_current": "Warfarin", "drug_proposed": "Moricizine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0520", "level": "minor", "drug_current": "Fluconazole", "drug_proposed": "Amphotericin B (liposomal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0521", "level": "minor", "drug_current": "Rosuvastatin", "drug_proposed": "Ethinylestradiol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0522", "level": "minor", "drug_current": "Teniposide", "drug_proposed": "Lomefloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0523", "level": "minor", "drug_current": "Drospirenone", "drug_proposed": "Rosuvastatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0524", "level": "minor", "drug_current": "Ursodeoxycholic acid", "drug_proposed": "Aluminum hydroxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0525", "level": "minor", "drug_current": "Potassium citrate", "drug_proposed": "Glyburide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0526", "level": "minor", "drug_current": "Halcinonide (topical)", "drug_proposed": "Repaglinide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0527", "level": "minor", "drug_current": "Thyroid, porcine", "drug_proposed": "Sucralfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0528", "level": "minor", "drug_current": "Heparin", "drug_proposed": "Digoxin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0529", "level": "minor", "drug_current": "Ipratropium (nasal)", "drug_proposed": "Desipramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0530", "level": "minor", "drug_current": "Prednisone", "drug_proposed": "Isoniazid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0531", "level": "minor", "drug_current": "Apalutamide", "drug_proposed": "Dapsone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0532", "level": "minor", "drug_current": "Metoclopramide", "drug_proposed": "Tetracycline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0533", "level": "minor", "drug_current": "Ferrous sulfate anhydrous", "drug_proposed": "Zinc acetate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0534", "level": "minor", "drug_current": "Linagliptin", "drug_proposed": "Betamethasone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0535", "level": "minor", "drug_current": "Prasugrel", "drug_proposed": "Nevirapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0536", "level": "minor", "drug_current": "Linaclotide", "drug_proposed": "Bisacodyl", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0537", "level": "minor", "drug_current": "Echinacea", "drug_proposed": "Etanercept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0538", "level": "minor", "drug_current": "Albendazole", "drug_proposed": "Praziquantel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0539", "level": "minor", "drug_current": "Ritonavir", "drug_proposed": "Prucalopride", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0540", "level": "minor", "drug_current": "Betamethasone", "drug_proposed": "Alprazolam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0541", "level": "minor", "drug_current": "Omeprazole", "drug_proposed": "Lidocaine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0542", "level": "minor", "drug_current": "Ivacaftor", "drug_proposed": "Armodafinil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0543", "level": "minor", "drug_current": "Floxuridine", "drug_proposed": "Levofloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0544", "level": "minor", "drug_current": "Ruxolitinib", "drug_proposed": "Dalfopristin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0545", "level": "minor", "drug_current": "Fenfluramine", "drug_proposed": "Naloxone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0546", "level": "minor", "drug_current": "Glucagon", "drug_proposed": "Esmolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0547", "level": "minor", "drug_current": "Ranitidine (bismuth citrate)", "drug_proposed": "Didanosine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0548", "level": "minor", "drug_current": "Sulfinpyrazone", "drug_proposed": "Nateglinide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0549", "level": "minor", "drug_current": "Benzthiazide", "drug_proposed": "Warfarin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0550", "level": "minor", "drug_current": "Hydroflumethiazide", "drug_proposed": "Glycopyrronium", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0551", "level": "minor", "drug_current": "Propranolol", "drug_proposed": "Aluminum hydroxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0552", "level": "minor", "drug_current": "Gatifloxacin", "drug_proposed": "Vincristine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0553", "level": "minor", "drug_current": "Retapamulin (topical)", "drug_proposed": "Tucatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0554", "level": "minor", "drug_current": "Triethylenetetramine", "drug_proposed": "Zinc sulfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0555", "level": "minor", "drug_current": "Acetohexamide", "drug_proposed": "Potassium citrate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0556", "level": "minor", "drug_current": "Prednisone", "drug_proposed": "Dapsone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0557", "level": "minor", "drug_current": "Carvedilol", "drug_proposed": "Sucralfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0558", "level": "minor", "drug_current": "Nizatidine", "drug_proposed": "Prasugrel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0559", "level": "minor", "drug_current": "Cimetidine", "drug_proposed": "Azelastine (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0560", "level": "minor", "drug_current": "Irinotecan", "drug_proposed": "Mivacurium", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0561", "level": "minor", "drug_current": "Levobupivacaine", "drug_proposed": "Osimertinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0562", "level": "minor", "drug_current": "Triamcinolone", "drug_proposed": "Hyaluronidase", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0563", "level": "minor", "drug_current": "Demeclocycline", "drug_proposed": "Lithium carbonate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0564", "level": "minor", "drug_current": "Clobetasol (topical)", "drug_proposed": "Empagliflozin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0565", "level": "minor", "drug_current": "Retapamulin (topical)", "drug_proposed": "Cyclosporine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0566", "level": "minor", "drug_current": "Erythromycin", "drug_proposed": "Nafcillin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0567", "level": "minor", "drug_current": "Nateglinide", "drug_proposed": "Ulobetasol (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0568", "level": "minor", "drug_current": "Terbutaline", "drug_proposed": "Prednisolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0569", "level": "minor", "drug_current": "Bendroflumethiazide", "drug_proposed": "Scopolamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0570", "level": "minor", "drug_current": "Metoprolol", "drug_proposed": "Magnesium hydroxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0571", "level": "minor", "drug_current": "Magnesium hydroxide", "drug_proposed": "Capecitabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0572", "level": "minor", "drug_current": "Flecainide", "drug_proposed": "Ascorbic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0573", "level": "minor", "drug_current": "Doravirine", "drug_proposed": "Sirolimus", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0574", "level": "minor", "drug_current": "Prasugrel", "drug_proposed": "Efavirenz", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0575", "level": "minor", "drug_current": "Retapamulin (topical)", "drug_proposed": "Atazanavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0576", "level": "minor", "drug_current": "Prucalopride", "drug_proposed": "Nelfinavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0577", "level": "minor", "drug_current": "Carisoprodol", "drug_proposed": "Bortezomib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0578", "level": "minor", "drug_current": "Hydroxyzine", "drug_proposed": "Cimetidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0579", "level": "minor", "drug_current": "Prucalopride", "drug_proposed": "Telaprevir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0580", "level": "minor", "drug_current": "Sodium bicarbonate", "drug_proposed": "Ponatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0581", "level": "minor", "drug_current": "Dexamethasone", "drug_proposed": "Levosalbutamol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0582", "level": "minor", "drug_current": "Calcium carbonate", "drug_proposed": "Diazepam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0583", "level": "minor", "drug_current": "Zinc acetate", "drug_proposed": "Ustekinumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0584", "level": "minor", "drug_current": "Thiethylperazine", "drug_proposed": "Magnesium oxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0585", "level": "minor", "drug_current": "Dactinomycin", "drug_proposed": "Grepafloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0586", "level": "minor", "drug_current": "Trifluoperazine", "drug_proposed": "Magnesium carbonate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0587", "level": "minor", "drug_current": "Amyl Nitrite", "drug_proposed": "Garlic", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0588", "level": "minor", "drug_current": "Tolbutamide", "drug_proposed": "Irbesartan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0589", "level": "minor", "drug_current": "Methscopolamine", "drug_proposed": "Chlorthalidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0590", "level": "minor", "drug_current": "Sibutramine", "drug_proposed": "Clarithromycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0591", "level": "minor", "drug_current": "Bexarotene", "drug_proposed": "Cenobamate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0592", "level": "minor", "drug_current": "Pimecrolimus (topical)", "drug_proposed": "Nefazodone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0593", "level": "minor", "drug_current": "Potassium acetate", "drug_proposed": "Insulin human (zinc)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0594", "level": "minor", "drug_current": "Imatinib", "drug_proposed": "Ropivacaine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0595", "level": "minor", "drug_current": "Insulin glargine", "drug_proposed": "Triamcinolone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0596", "level": "minor", "drug_current": "Linaclotide", "drug_proposed": "Magnesium hydroxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0597", "level": "minor", "drug_current": "Desoximetasone (topical)", "drug_proposed": "Chlorpropamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0598", "level": "minor", "drug_current": "Lipoic acid", "drug_proposed": "Glyburide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0599", "level": "minor", "drug_current": "Hydrocortisone (topical)", "drug_proposed": "Insulin human (inhalation, rapid acting)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0600", "level": "minor", "drug_current": "Echinacea", "drug_proposed": "Ixekizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0601", "level": "minor", "drug_current": "Triamcinolone (topical)", "drug_proposed": "Linagliptin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0602", "level": "minor", "drug_current": "Vismodegib", "drug_proposed": "Dexlansoprazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0603", "level": "minor", "drug_current": "Estradiol", "drug_proposed": "Cimetidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0604", "level": "minor", "drug_current": "Modafinil", "drug_proposed": "Diclofenac", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0605", "level": "minor", "drug_current": "Primidone", "drug_proposed": "Bexarotene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0606", "level": "minor", "drug_current": "Cyclosporine", "drug_proposed": "Pimecrolimus (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0607", "level": "minor", "drug_current": "Trovafloxacin", "drug_proposed": "Bleomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0608", "level": "minor", "drug_current": "Hyaluronidase", "drug_proposed": "Cetirizine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0609", "level": "minor", "drug_current": "Ciprofloxacin", "drug_proposed": "Denileukin diftitox", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0610", "level": "minor", "drug_current": "Articaine", "drug_proposed": "Hyaluronidase", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0611", "level": "minor", "drug_current": "Omeprazole", "drug_proposed": "Bortezomib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0612", "level": "minor", "drug_current": "Desloratadine", "drug_proposed": "Erythromycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0613", "level": "minor", "drug_current": "Relugolix", "drug_proposed": "Enzalutamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0614", "level": "minor", "drug_current": "Cimetidine", "drug_proposed": "Prasugrel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0615", "level": "minor", "drug_current": "Diflorasone (topical)", "drug_proposed": "Insulin human (zinc extended)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0616", "level": "minor", "drug_current": "Bortezomib", "drug_proposed": "Methylphenobarbital", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0617", "level": "minor", "drug_current": "Gatifloxacin", "drug_proposed": "Docetaxel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0618", "level": "minor", "drug_current": "Digoxin", "drug_proposed": "Picosulfuric acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0619", "level": "minor", "drug_current": "Belatacept", "drug_proposed": "Zinc sulfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0620", "level": "minor", "drug_current": "Pralatrexate", "drug_proposed": "Lamotrigine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0621", "level": "minor", "drug_current": "Naloxegol", "drug_proposed": "Sorafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0622", "level": "minor", "drug_current": "Insulin lispro (protamine)", "drug_proposed": "Desonide (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0623", "level": "minor", "drug_current": "Primaquine", "drug_proposed": "Tolterodine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0624", "level": "minor", "drug_current": "Teniposide", "drug_proposed": "Delafloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0625", "level": "minor", "drug_current": "Monopotassium phosphate", "drug_proposed": "Insulin human (regular)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0626", "level": "minor", "drug_current": "Digoxin", "drug_proposed": "Glycopyrronium", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0627", "level": "minor", "drug_current": "Ranitidine (bismuth citrate)", "drug_proposed": "Etodolac", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0628", "level": "minor", "drug_current": "Hydrocortisone", "drug_proposed": "Magaldrate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0629", "level": "minor", "drug_current": "Linagliptin", "drug_proposed": "Prednicarbate (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0630", "level": "minor", "drug_current": "Voxelotor", "drug_proposed": "Indacaterol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0631", "level": "minor", "drug_current": "Clobazam", "drug_proposed": "Dyphylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0632", "level": "minor", "drug_current": "Clobazam", "drug_proposed": "Sodium citrate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0633", "level": "minor", "drug_current": "Dicoumarol", "drug_proposed": "Chlorothiazide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0634", "level": "minor", "drug_current": "Indacaterol", "drug_proposed": "Tetracosactide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0635", "level": "minor", "drug_current": "Sarecycline", "drug_proposed": "Indacaterol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0636", "level": "minor", "drug_current": "Alprazolam", "drug_proposed": "Methylprednisolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0637", "level": "minor", "drug_current": "Insulin glargine", "drug_proposed": "Alclometasone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0638", "level": "minor", "drug_current": "Nelfinavir", "drug_proposed": "Fidaxomicin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0639", "level": "minor", "drug_current": "Metronidazole", "drug_proposed": "Encorafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0640", "level": "minor", "drug_current": "Tolmetin", "drug_proposed": "Cimetidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0641", "level": "minor", "drug_current": "Timolol", "drug_proposed": "Aluminum hydroxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0642", "level": "minor", "drug_current": "Tetracycline", "drug_proposed": "Torasemide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0643", "level": "minor", "drug_current": "Gemtuzumab ozogamicin", "drug_proposed": "Ofloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0644", "level": "minor", "drug_current": "Dexamethasone", "drug_proposed": "Isoetharine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0645", "level": "minor", "drug_current": "Magnesium carbonate", "drug_proposed": "Ranitidine (bismuth citrate)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0646", "level": "minor", "drug_current": "Beta carotene", "drug_proposed": "Lutein", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0647", "level": "minor", "drug_current": "Fluticasone (topical)", "drug_proposed": "Saxagliptin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0648", "level": "minor", "drug_current": "Nafcillin", "drug_proposed": "Dapsone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0649", "level": "minor", "drug_current": "Zinc acetate", "drug_proposed": "Adalimumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0650", "level": "minor", "drug_current": "Chamomile", "drug_proposed": "Defibrotide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0651", "level": "minor", "drug_current": "Dexlansoprazole", "drug_proposed": "Salicylic acid (sodium)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0652", "level": "minor", "drug_current": "Dipyridamole", "drug_proposed": "Sildenafil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0653", "level": "minor", "drug_current": "Imipramine", "drug_proposed": "Ethinylestradiol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0654", "level": "minor", "drug_current": "Nebivolol", "drug_proposed": "Kaolin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0655", "level": "minor", "drug_current": "Metronidazole", "drug_proposed": "Cisapride", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0656", "level": "minor", "drug_current": "Darolutamide", "drug_proposed": "Voriconazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0657", "level": "minor", "drug_current": "Cinoxacin", "drug_proposed": "Vinorelbine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0658", "level": "minor", "drug_current": "Calcium carbonate", "drug_proposed": "Triamcinolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0659", "level": "minor", "drug_current": "Oxazepam", "drug_proposed": "Dyphylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0660", "level": "minor", "drug_current": "Misoprostol", "drug_proposed": "Sodium bicarbonate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0661", "level": "minor", "drug_current": "Mefenamic acid", "drug_proposed": "Magnesium oxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0662", "level": "minor", "drug_current": "Insulin detemir", "drug_proposed": "Potassium bicarbonate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0663", "level": "minor", "drug_current": "Mepenzolate", "drug_proposed": "Secretin human", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0664", "level": "minor", "drug_current": "Phentolamine", "drug_proposed": "Insulin human (inhalation, rapid acting)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0665", "level": "minor", "drug_current": "Metronidazole", "drug_proposed": "Abiraterone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0666", "level": "minor", "drug_current": "Fludarabine", "drug_proposed": "Grepafloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0667", "level": "minor", "drug_current": "Methyldopa", "drug_proposed": "Doxepin (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0668", "level": "minor", "drug_current": "Teriparatide", "drug_proposed": "Furosemide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0669", "level": "minor", "drug_current": "Ranitidine", "drug_proposed": "Ponatinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0670", "level": "minor", "drug_current": "Echinacea", "drug_proposed": "Hydrocortisone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0671", "level": "minor", "drug_current": "Echinacea", "drug_proposed": "Canakinumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0672", "level": "minor", "drug_current": "Ruxolitinib", "drug_proposed": "Letermovir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0673", "level": "minor", "drug_current": "Methylprednisolone", "drug_proposed": "Hyaluronidase", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0674", "level": "minor", "drug_current": "Carmustine", "drug_proposed": "Sparfloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0675", "level": "minor", "drug_current": "Metronidazole", "drug_proposed": "Procainamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0676", "level": "minor", "drug_current": "Trovafloxacin", "drug_proposed": "Streptozocin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0677", "level": "minor", "drug_current": "Fosinopril", "drug_proposed": "Calcium carbonate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0678", "level": "minor", "drug_current": "Streptozocin", "drug_proposed": "Ciprofloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0679", "level": "minor", "drug_current": "Enoxacin", "drug_proposed": "Pentostatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0680", "level": "minor", "drug_current": "Sarecycline", "drug_proposed": "Fidaxomicin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0681", "level": "minor", "drug_current": "Lorazepam", "drug_proposed": "Theophylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0682", "level": "minor", "drug_current": "Ascorbic acid", "drug_proposed": "Ephedrine (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0683", "level": "minor", "drug_current": "Ephedrine (nasal)", "drug_proposed": "Sodium phosphate, monobasic", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0684", "level": "minor", "drug_current": "Bicalutamide", "drug_proposed": "Doravirine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0685", "level": "minor", "drug_current": "Omeprazole", "drug_proposed": "Sonidegib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0686", "level": "minor", "drug_current": "Levofloxacin", "drug_proposed": "Topotecan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0687", "level": "minor", "drug_current": "Mefenamic acid", "drug_proposed": "Nizatidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0688", "level": "minor", "drug_current": "Famotidine", "drug_proposed": "Triamterene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0689", "level": "minor", "drug_current": "Dapsone (topical)", "drug_proposed": "Prednisolone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0690", "level": "minor", "drug_current": "Aluminum hydroxide", "drug_proposed": "Digitoxin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0691", "level": "minor", "drug_current": "Betamethasone (topical)", "drug_proposed": "Insulin degludec", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0692", "level": "minor", "drug_current": "Abiraterone", "drug_proposed": "Doravirine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0693", "level": "minor", "drug_current": "Dabrafenib", "drug_proposed": "Fostemsavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0694", "level": "minor", "drug_current": "Moexipril", "drug_proposed": "Peginesatide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0695", "level": "minor", "drug_current": "Insulin human (regular)", "drug_proposed": "Methylcellulose", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0696", "level": "minor", "drug_current": "Ceritinib", "drug_proposed": "Ambrisentan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0697", "level": "minor", "drug_current": "Mechlorethamine", "drug_proposed": "Tacrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0698", "level": "minor", "drug_current": "Sulfamethoxazole", "drug_proposed": "Osimertinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0699", "level": "minor", "drug_current": "Troglitazone", "drug_proposed": "Diflorasone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0700", "level": "minor", "drug_current": "Ethinylestradiol", "drug_proposed": "Doxepin (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0701", "level": "minor", "drug_current": "Exenatide", "drug_proposed": "Triamcinolone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0702", "level": "minor", "drug_current": "Propantheline", "drug_proposed": "Benzthiazide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0703", "level": "minor", "drug_current": "Ponatinib", "drug_proposed": "Aluminum hydroxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0704", "level": "minor", "drug_current": "Vitamin E", "drug_proposed": "Upadacitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0705", "level": "minor", "drug_current": "Linagliptin", "drug_proposed": "Diflorasone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0706", "level": "minor", "drug_current": "Methyldopa", "drug_proposed": "Glyburide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0707", "level": "minor", "drug_current": "Dapsone (topical)", "drug_proposed": "Dabrafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0708", "level": "minor", "drug_current": "Betamethasone", "drug_proposed": "Salbutamol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0709", "level": "minor", "drug_current": "Doxorubicin (liposomal)", "drug_proposed": "Peginterferon alfa-2b", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0710", "level": "minor", "drug_current": "Clonazepam", "drug_proposed": "Oxtriphylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0711", "level": "minor", "drug_current": "Fluconazole", "drug_proposed": "Ritonavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0712", "level": "minor", "drug_current": "Osilodrostat", "drug_proposed": "Sibutramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0713", "level": "minor", "drug_current": "Theophylline", "drug_proposed": "Temazepam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0714", "level": "minor", "drug_current": "Temsirolimus", "drug_proposed": "Armodafinil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0715", "level": "minor", "drug_current": "Fluorouracil", "drug_proposed": "Cinoxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0716", "level": "minor", "drug_current": "Insulin human (zinc)", "drug_proposed": "Betamethasone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0717", "level": "minor", "drug_current": "Insulin human (isophane)", "drug_proposed": "Clocortolone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0718", "level": "minor", "drug_current": "Thiopental", "drug_proposed": "Mitotane", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0719", "level": "minor", "drug_current": "Timolol", "drug_proposed": "Levothyroxine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0720", "level": "minor", "drug_current": "Flibanserin", "drug_proposed": "Prucalopride", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0721", "level": "minor", "drug_current": "Nalidixic acid", "drug_proposed": "Vincristine (liposome)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0722", "level": "minor", "drug_current": "Ciprofloxacin", "drug_proposed": "Ruxolitinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0723", "level": "minor", "drug_current": "Desoximetasone (topical)", "drug_proposed": "Glipizide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0724", "level": "minor", "drug_current": "Sulfamethoxazole", "drug_proposed": "Oxytocin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0725", "level": "minor", "drug_current": "Etodolac", "drug_proposed": "Ranitidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0726", "level": "minor", "drug_current": "Pimecrolimus (topical)", "drug_proposed": "Chloramphenicol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0727", "level": "minor", "drug_current": "Sparfloxacin", "drug_proposed": "Cyclophosphamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0728", "level": "minor", "drug_current": "Potassium citrate", "drug_proposed": "Insulin human (regular)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0729", "level": "minor", "drug_current": "Metronidazole", "drug_proposed": "Ribociclib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0730", "level": "minor", "drug_current": "Brigatinib", "drug_proposed": "Indacaterol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0731", "level": "minor", "drug_current": "Theophylline", "drug_proposed": "Clorazepic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0732", "level": "minor", "drug_current": "Clocortolone (topical)", "drug_proposed": "Ertugliflozin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0733", "level": "minor", "drug_current": "Famotidine", "drug_proposed": "Ibuprofen", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0734", "level": "minor", "drug_current": "Sibutramine", "drug_proposed": "Delavirdine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0735", "level": "minor", "drug_current": "Sucralfate", "drug_proposed": "Labetalol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0736", "level": "minor", "drug_current": "Ribociclib", "drug_proposed": "Mirabegron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0737", "level": "minor", "drug_current": "Garlic", "drug_proposed": "Insulin human (regular)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0738", "level": "minor", "drug_current": "Sitagliptin", "drug_proposed": "Alclometasone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0739", "level": "minor", "drug_current": "Pentostatin", "drug_proposed": "Moxifloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0740", "level": "minor", "drug_current": "Fedratinib", "drug_proposed": "Mirabegron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0741", "level": "minor", "drug_current": "Desoximetasone (topical)", "drug_proposed": "Nateglinide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0742", "level": "minor", "drug_current": "Insulin human (inhalation, rapid acting)", "drug_proposed": "Potassium gluconate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0743", "level": "minor", "drug_current": "Prochlorperazine", "drug_proposed": "Aluminum hydroxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0744", "level": "minor", "drug_current": "Esomeprazole", "drug_proposed": "Cannabidiol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0745", "level": "minor", "drug_current": "Dicloxacillin", "drug_proposed": "Clarithromycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0746", "level": "minor", "drug_current": "Sucralfate", "drug_proposed": "Theophylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0747", "level": "minor", "drug_current": "Metronidazole", "drug_proposed": "Pasireotide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0748", "level": "minor", "drug_current": "Insulin lispro (protamine)", "drug_proposed": "Potassium citrate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-minor-0749", "level": "minor", "drug_current": "Sitagliptin", "drug_proposed": "Flurandrenolide (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0750", "level": "negative", "drug_current": "Droperidol", "drug_proposed": "Flecainide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0751", "level": "negative", "drug_current": "Meprobamate", "drug_proposed": "Chloramphenicol (ophthalmic)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0752", "level": "negative", "drug_current": "Methoxsalen", "drug_proposed": "Bimatoprost", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0753", "level": "negative", "drug_current": "Primaquine", "drug_proposed": "Opicapone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0754", "level": "negative", "drug_current": "Methylergometrine", "drug_proposed": "Sucralfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0755", "level": "negative", "drug_current": "Vismodegib", "drug_proposed": "Folic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0756", "level": "negative", "drug_current": "Lepirudin", "drug_proposed": "Lithium carbonate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0757", "level": "negative", "drug_current": "Bethanechol", "drug_proposed": "Nabilone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0758", "level": "negative", "drug_current": "Orphenadrine", "drug_proposed": "Interferon beta-1a", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0759", "level": "negative", "drug_current": "Voxelotor", "drug_proposed": "Dihydroergotamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0760", "level": "negative", "drug_current": "Progesterone (topical)", "drug_proposed": "Rivaroxaban", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0761", "level": "negative", "drug_current": "Stiripentol", "drug_proposed": "Perphenazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0762", "level": "negative", "drug_current": "Pentobarbital", "drug_proposed": "Levonordefrin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0763", "level": "negative", "drug_current": "Polythiazide", "drug_proposed": "Stavudine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0764", "level": "negative", "drug_current": "Etravirine", "drug_proposed": "Amphotericin B", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0765", "level": "negative", "drug_current": "Linezolid", "drug_proposed": "Ticlopidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0766", "level": "negative", "drug_current": "Darolutamide", "drug_proposed": "Timolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0767", "level": "negative", "drug_current": "Olmesartan", "drug_proposed": "Prasterone enantate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0768", "level": "negative", "drug_current": "Cocaine (topical)", "drug_proposed": "Cenobamate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0769", "level": "negative", "drug_current": "Ambrisentan", "drug_proposed": "Pirfenidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0770", "level": "negative", "drug_current": "Chloramphenicol (ophthalmic)", "drug_proposed": "Phensuximide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0771", "level": "negative", "drug_current": "Thyroid, porcine", "drug_proposed": "Caplacizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0772", "level": "negative", "drug_current": "Nabilone", "drug_proposed": "Thyrotropin alfa", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0773", "level": "negative", "drug_current": "Echinacea", "drug_proposed": "Aminobenzoic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0774", "level": "negative", "drug_current": "Turmeric", "drug_proposed": "Pentostatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0775", "level": "negative", "drug_current": "Prednicarbate (topical)", "drug_proposed": "Ivermectin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0776", "level": "negative", "drug_current": "Etelcalcetide", "drug_proposed": "Methazolamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0777", "level": "negative", "drug_current": "Clofibrate", "drug_proposed": "Phenylephrine (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0778", "level": "negative", "drug_current": "Cisapride", "drug_proposed": "Enoxaparin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0779", "level": "negative", "drug_current": "Calcipotriol", "drug_proposed": "Theophylline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0780", "level": "negative", "drug_current": "Ceritinib", "drug_proposed": "Glecaprevir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0781", "level": "negative", "drug_current": "Streptozocin", "drug_proposed": "Sulfinpyrazone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0782", "level": "negative", "drug_current": "Loxapine", "drug_proposed": "Ocrelizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0783", "level": "negative", "drug_current": "Spironolactone", "drug_proposed": "Goldenseal", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0784", "level": "negative", "drug_current": "Risankizumab", "drug_proposed": "Racepinephrine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0785", "level": "negative", "drug_current": "Conjugated estrogens", "drug_proposed": "Doxercalciferol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0786", "level": "negative", "drug_current": "Olsalazine", "drug_proposed": "Dexmedetomidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0787", "level": "negative", "drug_current": "Amcinonide", "drug_proposed": "Dopamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0788", "level": "negative", "drug_current": "Entacapone", "drug_proposed": "Talimogene laherparepvec", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0789", "level": "negative", "drug_current": "Doxacurium", "drug_proposed": "Tyropanoic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0790", "level": "negative", "drug_current": "Ticarcillin", "drug_proposed": "Gabapentin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0791", "level": "negative", "drug_current": "Clobetasol (topical)", "drug_proposed": "Codeine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0792", "level": "negative", "drug_current": "Isradipine", "drug_proposed": "Dronedarone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0793", "level": "negative", "drug_current": "Inotersen", "drug_proposed": "Cenobamate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0794", "level": "negative", "drug_current": "Acetylcysteine", "drug_proposed": "Ciclopirox", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0795", "level": "negative", "drug_current": "Lenalidomide", "drug_proposed": "Etravirine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0796", "level": "negative", "drug_current": "Cefepime", "drug_proposed": "Tromethamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0797", "level": "negative", "drug_current": "Omadacycline", "drug_proposed": "Ixekizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0798", "level": "negative", "drug_current": "Halothane", "drug_proposed": "Sacituzumab govitecan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0799", "level": "negative", "drug_current": "Insulin glargine", "drug_proposed": "Dolasetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0800", "level": "negative", "drug_current": "Castor oil", "drug_proposed": "Metoprolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0801", "level": "negative", "drug_current": "Flunisolide (nasal)", "drug_proposed": "Triamterene", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0802", "level": "negative", "drug_current": "Betamethasone (topical)", "drug_proposed": "Zolmitriptan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0803", "level": "negative", "drug_current": "Collagenase clostridium histolyticum", "drug_proposed": "Flurazepam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0804", "level": "negative", "drug_current": "Lanthanum carbonate", "drug_proposed": "Calcium citrate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0805", "level": "negative", "drug_current": "Venetoclax", "drug_proposed": "Megestrol acetate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0806", "level": "negative", "drug_current": "Desogestrel", "drug_proposed": "Clocortolone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0807", "level": "negative", "drug_current": "Rifampicin", "drug_proposed": "Valsartan", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0808", "level": "negative", "drug_current": "Plantago seed", "drug_proposed": "Terazosin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0809", "level": "negative", "drug_current": "Aztreonam", "drug_proposed": "Insulin human (isophane)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0810", "level": "negative", "drug_current": "Alogliptin", "drug_proposed": "Duloxetine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0811", "level": "negative", "drug_current": "Pravastatin", "drug_proposed": "Velpatasvir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0812", "level": "negative", "drug_current": "Opicapone", "drug_proposed": "Phenobarbital", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0813", "level": "negative", "drug_current": "Remdesivir", "drug_proposed": "Dicoumarol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0814", "level": "negative", "drug_current": "Tolcapone", "drug_proposed": "Vorinostat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0815", "level": "negative", "drug_current": "Olmesartan", "drug_proposed": "Tiludronic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0816", "level": "negative", "drug_current": "Doxapram", "drug_proposed": "Macimorelin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0817", "level": "negative", "drug_current": "Alteplase", "drug_proposed": "Indapamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0818", "level": "negative", "drug_current": "Osilodrostat", "drug_proposed": "Rofecoxib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0819", "level": "negative", "drug_current": "Zolpidem", "drug_proposed": "Tocilizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0820", "level": "negative", "drug_current": "Calcitriol (topical)", "drug_proposed": "Clonazepam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0821", "level": "negative", "drug_current": "Selpercatinib", "drug_proposed": "Norgestimate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0822", "level": "negative", "drug_current": "Gadoteric acid", "drug_proposed": "Granisetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0823", "level": "negative", "drug_current": "Phenylephrine (nasal)", "drug_proposed": "Insulin lispro", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0824", "level": "negative", "drug_current": "Mecasermin", "drug_proposed": "Glycopyrronium (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0825", "level": "negative", "drug_current": "Methacholine", "drug_proposed": "Tetracycline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0826", "level": "negative", "drug_current": "Fosinopril", "drug_proposed": "Tetracaine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0827", "level": "negative", "drug_current": "Orphenadrine", "drug_proposed": "Phenylephrine (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0828", "level": "negative", "drug_current": "Gadopentetic acid", "drug_proposed": "Brimonidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0829", "level": "negative", "drug_current": "Meperidine", "drug_proposed": "Atovaquone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0830", "level": "negative", "drug_current": "Phenelzine", "drug_proposed": "Halothane", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0831", "level": "negative", "drug_current": "Cisplatin", "drug_proposed": "Reserpine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0832", "level": "negative", "drug_current": "Mycophenolate mofetil", "drug_proposed": "Lopinavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0833", "level": "negative", "drug_current": "Axitinib", "drug_proposed": "Doxylamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0834", "level": "negative", "drug_current": "Biperiden", "drug_proposed": "Selinexor", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0835", "level": "negative", "drug_current": "Tetryzoline (nasal)", "drug_proposed": "Binimetinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0836", "level": "negative", "drug_current": "Dalteparin", "drug_proposed": "Methylene blue", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0837", "level": "negative", "drug_current": "Clobetasol (topical)", "drug_proposed": "Nicotinamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0838", "level": "negative", "drug_current": "Vorapaxar", "drug_proposed": "Isradipine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0839", "level": "negative", "drug_current": "Esketamine", "drug_proposed": "Vortioxetine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0840", "level": "negative", "drug_current": "Naratriptan", "drug_proposed": "Corticotropin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0841", "level": "negative", "drug_current": "Methylergometrine", "drug_proposed": "Testosterone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0842", "level": "negative", "drug_current": "Zidovudine", "drug_proposed": "Cefazolin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0843", "level": "negative", "drug_current": "Daunorubicin", "drug_proposed": "Amcinonide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0844", "level": "negative", "drug_current": "Methacholine", "drug_proposed": "Erlotinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0845", "level": "negative", "drug_current": "Rifabutin", "drug_proposed": "Nintedanib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0846", "level": "negative", "drug_current": "Rolapitant", "drug_proposed": "Calaspargase pegol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0847", "level": "negative", "drug_current": "Nintedanib", "drug_proposed": "Sparfloxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0848", "level": "negative", "drug_current": "Pyrazinamide", "drug_proposed": "Bromfenac", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0849", "level": "negative", "drug_current": "Rofecoxib", "drug_proposed": "Denosumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0850", "level": "negative", "drug_current": "Plantago seed", "drug_proposed": "Triethylenetetramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0851", "level": "negative", "drug_current": "Perampanel", "drug_proposed": "Hydralazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0852", "level": "negative", "drug_current": "Atazanavir", "drug_proposed": "Aminobenzoic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0853", "level": "negative", "drug_current": "Netilmicin", "drug_proposed": "Aminoglutethimide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0854", "level": "negative", "drug_current": "Decitabine", "drug_proposed": "Alendronic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0855", "level": "negative", "drug_current": "Tranexamic acid", "drug_proposed": "Diiodohydroxyquinoline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0856", "level": "negative", "drug_current": "Amiloride", "drug_proposed": "Iopodic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0857", "level": "negative", "drug_current": "Ramipril", "drug_proposed": "Iodipamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0858", "level": "negative", "drug_current": "Amantadine", "drug_proposed": "Nelarabine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0859", "level": "negative", "drug_current": "Sulfinpyrazone", "drug_proposed": "Mestranol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0860", "level": "negative", "drug_current": "Almotriptan", "drug_proposed": "Testosterone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0861", "level": "negative", "drug_current": "Cobicistat", "drug_proposed": "Triprolidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0862", "level": "negative", "drug_current": "Bepridil", "drug_proposed": "Aminosalicylic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0863", "level": "negative", "drug_current": "Relugolix", "drug_proposed": "Lincomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0864", "level": "negative", "drug_current": "Amoxicillin", "drug_proposed": "Oxymetazoline (ophthalmic)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0865", "level": "negative", "drug_current": "Selumetinib", "drug_proposed": "Neomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0866", "level": "negative", "drug_current": "Morphine (liposomal)", "drug_proposed": "Sucralfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0867", "level": "negative", "drug_current": "Doxapram", "drug_proposed": "Famotidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0868", "level": "negative", "drug_current": "Ropinirole", "drug_proposed": "Ginger", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0869", "level": "negative", "drug_current": "Belantamab mafodotin", "drug_proposed": "Gabapentin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0870", "level": "negative", "drug_current": "Aprepitant", "drug_proposed": "Triamcinolone (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0871", "level": "negative", "drug_current": "Mexiletine", "drug_proposed": "Solriamfetol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0872", "level": "negative", "drug_current": "Butalbital", "drug_proposed": "Aztreonam", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0873", "level": "negative", "drug_current": "Nelarabine", "drug_proposed": "Budesonide (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0874", "level": "negative", "drug_current": "Garlic", "drug_proposed": "Paromomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0875", "level": "negative", "drug_current": "Ambrisentan", "drug_proposed": "Estrone sulfate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0876", "level": "negative", "drug_current": "Altretamine", "drug_proposed": "Berotralstat", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0877", "level": "negative", "drug_current": "Verapamil", "drug_proposed": "Etidronic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0878", "level": "negative", "drug_current": "Potassium acetate", "drug_proposed": "Isavuconazonium", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0879", "level": "negative", "drug_current": "Carmustine", "drug_proposed": "Zonisamide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0880", "level": "negative", "drug_current": "Cefuroxime", "drug_proposed": "Lonafarnib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0881", "level": "negative", "drug_current": "Baclofen", "drug_proposed": "Bivalirudin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0882", "level": "negative", "drug_current": "Vitamin D", "drug_proposed": "Piperacillin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0883", "level": "negative", "drug_current": "Midazolam", "drug_proposed": "Fluvoxamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0884", "level": "negative", "drug_current": "Durvalumab", "drug_proposed": "Pralatrexate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0885", "level": "negative", "drug_current": "Ifosfamide", "drug_proposed": "Torasemide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0886", "level": "negative", "drug_current": "Exenatide", "drug_proposed": "Oxymetazoline (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0887", "level": "negative", "drug_current": "Tirofiban", "drug_proposed": "Ketoconazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0888", "level": "negative", "drug_current": "Dantrolene", "drug_proposed": "Carvedilol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0889", "level": "negative", "drug_current": "Etodolac", "drug_proposed": "Lofexidine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0890", "level": "negative", "drug_current": "Tizanidine", "drug_proposed": "Doxercalciferol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0891", "level": "negative", "drug_current": "Lumateperone", "drug_proposed": "Citalopram", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0892", "level": "negative", "drug_current": "Mupirocin", "drug_proposed": "Glyburide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0893", "level": "negative", "drug_current": "Quinidine", "drug_proposed": "Meclofenamic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0894", "level": "negative", "drug_current": "Tiludronic acid", "drug_proposed": "Cromoglicic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0895", "level": "negative", "drug_current": "Ospemifene", "drug_proposed": "Timolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0896", "level": "negative", "drug_current": "Verteporfin", "drug_proposed": "Lisinopril", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0897", "level": "negative", "drug_current": "Paliperidone", "drug_proposed": "Cinoxacin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0898", "level": "negative", "drug_current": "Calcium carbonate", "drug_proposed": "Estrone sulfate (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0899", "level": "negative", "drug_current": "Amprenavir", "drug_proposed": "Dicyclomine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0900", "level": "negative", "drug_current": "Isoflurophate (ophthalmic)", "drug_proposed": "Penbutolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0901", "level": "negative", "drug_current": "Alfuzosin", "drug_proposed": "Lutetium Lu 177 dotatate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0902", "level": "negative", "drug_current": "Chlordiazepoxide", "drug_proposed": "Pexidartinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0903", "level": "negative", "drug_current": "Spironolactone", "drug_proposed": "Zileuton", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0904", "level": "negative", "drug_current": "Levodopa", "drug_proposed": "Carteolol (ophthalmic)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0905", "level": "negative", "drug_current": "Fosnetupitant", "drug_proposed": "Pralsetinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0906", "level": "negative", "drug_current": "Pexidartinib", "drug_proposed": "Fosaprepitant", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0907", "level": "negative", "drug_current": "Idelalisib", "drug_proposed": "Meprobamate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0908", "level": "negative", "drug_current": "Omadacycline", "drug_proposed": "Hydrocortisone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0909", "level": "negative", "drug_current": "Macimorelin", "drug_proposed": "Methoxamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0910", "level": "negative", "drug_current": "Fosnetupitant", "drug_proposed": "Sipuleucel-T", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0911", "level": "negative", "drug_current": "Tadalafil", "drug_proposed": "Risperidone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0912", "level": "negative", "drug_current": "Insulin lispro (protamine)", "drug_proposed": "Sevoflurane", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0913", "level": "negative", "drug_current": "Temsirolimus", "drug_proposed": "Calaspargase pegol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0914", "level": "negative", "drug_current": "Methacholine", "drug_proposed": "Amiodarone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0915", "level": "negative", "drug_current": "Fexofenadine", "drug_proposed": "Phenobarbital", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0916", "level": "negative", "drug_current": "Clove", "drug_proposed": "Carfilzomib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0917", "level": "negative", "drug_current": "Oxaliplatin", "drug_proposed": "Linagliptin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0918", "level": "negative", "drug_current": "Stanozolol", "drug_proposed": "Alprostadil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0919", "level": "negative", "drug_current": "Frangula purshiana bark", "drug_proposed": "Potassium perchlorate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0920", "level": "negative", "drug_current": "Mipomersen", "drug_proposed": "Milnacipran", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0921", "level": "negative", "drug_current": "Insulin lispro", "drug_proposed": "Granisetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0922", "level": "negative", "drug_current": "Oxacillin", "drug_proposed": "Encorafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0923", "level": "negative", "drug_current": "Interferon alfa-n1", "drug_proposed": "Acebutolol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0924", "level": "negative", "drug_current": "Dihydroergotamine", "drug_proposed": "Methyltestosterone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0925", "level": "negative", "drug_current": "Clofibrate", "drug_proposed": "Ledipasvir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0926", "level": "negative", "drug_current": "Valsartan", "drug_proposed": "Mexiletine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0927", "level": "negative", "drug_current": "Molindone", "drug_proposed": "Secnidazole", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0928", "level": "negative", "drug_current": "Enalapril", "drug_proposed": "Echothiophate (ophthalmic)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0929", "level": "negative", "drug_current": "Doxorubicin (liposomal)", "drug_proposed": "Chlorcyclizine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0930", "level": "negative", "drug_current": "Plicamycin", "drug_proposed": "Chlordiazepoxide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0931", "level": "negative", "drug_current": "Remimazolam", "drug_proposed": "Hydroxocobalamin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0932", "level": "negative", "drug_current": "Clemastine", "drug_proposed": "Cefepime", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0933", "level": "negative", "drug_current": "Apremilast", "drug_proposed": "Anagrelide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0934", "level": "negative", "drug_current": "Eltrombopag", "drug_proposed": "Ondansetron", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0935", "level": "negative", "drug_current": "Amcinonide", "drug_proposed": "Methadone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0936", "level": "negative", "drug_current": "Acarbose", "drug_proposed": "Duvelisib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0937", "level": "negative", "drug_current": "Lixisenatide", "drug_proposed": "Niraparib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0938", "level": "negative", "drug_current": "Entrectinib", "drug_proposed": "Methyldopa", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0939", "level": "negative", "drug_current": "Palbociclib", "drug_proposed": "Eribulin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0940", "level": "negative", "drug_current": "Lixisenatide", "drug_proposed": "Carisoprodol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0941", "level": "negative", "drug_current": "Brexanolone", "drug_proposed": "Budesonide (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0942", "level": "negative", "drug_current": "Fostemsavir", "drug_proposed": "Certolizumab pegol", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0943", "level": "negative", "drug_current": "Diphenoxylate", "drug_proposed": "Cyclobenzaprine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0944", "level": "negative", "drug_current": "Lactobacillus acidophilus", "drug_proposed": "Tadalafil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0945", "level": "negative", "drug_current": "Azelastine", "drug_proposed": "Troleandomycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0946", "level": "negative", "drug_current": "Fluoxymesterone", "drug_proposed": "Nisoldipine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0947", "level": "negative", "drug_current": "Tedizolid", "drug_proposed": "Mesalazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0948", "level": "negative", "drug_current": "Sipuleucel-T", "drug_proposed": "Galantamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0949", "level": "negative", "drug_current": "Rapacuronium", "drug_proposed": "Conjugated estrogens", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0950", "level": "negative", "drug_current": "Clobetasol (topical)", "drug_proposed": "Antithrombin Alfa", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0951", "level": "negative", "drug_current": "Entrectinib", "drug_proposed": "Naldemedine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0952", "level": "negative", "drug_current": "Ethotoin", "drug_proposed": "Levothyroxine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0953", "level": "negative", "drug_current": "Oxymetazoline (topical)", "drug_proposed": "Treprostinil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0954", "level": "negative", "drug_current": "Alteplase", "drug_proposed": "Mecasermin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0955", "level": "negative", "drug_current": "Potassium bicarbonate", "drug_proposed": "Trimipramine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0956", "level": "negative", "drug_current": "Alfentanil", "drug_proposed": "Nitrous acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0957", "level": "negative", "drug_current": "Nitrofurantoin", "drug_proposed": "Temsirolimus", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0958", "level": "negative", "drug_current": "Calcium citrate", "drug_proposed": "Levocarnitine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0959", "level": "negative", "drug_current": "Probenecid", "drug_proposed": "Butabarbital", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0960", "level": "negative", "drug_current": "Emtricitabine", "drug_proposed": "Tetraferric tricitrate decahydrate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0961", "level": "negative", "drug_current": "Eprosartan", "drug_proposed": "Mefenamic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0962", "level": "negative", "drug_current": "Pancuronium", "drug_proposed": "Mecasermin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0963", "level": "negative", "drug_current": "Celecoxib", "drug_proposed": "Gentamicin (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0964", "level": "negative", "drug_current": "Trimethobenzamide", "drug_proposed": "Sevoflurane", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0965", "level": "negative", "drug_current": "Tolbutamide", "drug_proposed": "Clindamycin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0966", "level": "negative", "drug_current": "Nitric Oxide", "drug_proposed": "Pyridostigmine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0967", "level": "negative", "drug_current": "Zafirlukast", "drug_proposed": "Olsalazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0968", "level": "negative", "drug_current": "Acyclovir", "drug_proposed": "Cocaine (topical)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0969", "level": "negative", "drug_current": "Chlorphenesin", "drug_proposed": "Furosemide", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0970", "level": "negative", "drug_current": "Liraglutide", "drug_proposed": "Dextran (-1)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0971", "level": "negative", "drug_current": "Baclofen", "drug_proposed": "Entecavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0972", "level": "negative", "drug_current": "Topiramate", "drug_proposed": "Fingolimod", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0973", "level": "negative", "drug_current": "Clofazimine", "drug_proposed": "Norgestimate", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0974", "level": "negative", "drug_current": "Chlorambucil", "drug_proposed": "Nitisinone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0975", "level": "negative", "drug_current": "Benazepril", "drug_proposed": "Triamcinolone (nasal)", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0976", "level": "negative", "drug_current": "Netupitant", "drug_proposed": "Entecavir", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0977", "level": "negative", "drug_current": "Sonidegib", "drug_proposed": "Fluvastatin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0978", "level": "negative", "drug_current": "Nabumetone", "drug_proposed": "Aminolevulinic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0979", "level": "negative", "drug_current": "Methsuximide", "drug_proposed": "Strontium chloride Sr-89", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0980", "level": "negative", "drug_current": "Pirfenidone", "drug_proposed": "Desogestrel", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0981", "level": "negative", "drug_current": "Lumacaftor", "drug_proposed": "Promethazine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0982", "level": "negative", "drug_current": "Istradefylline", "drug_proposed": "Selegiline", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0983", "level": "negative", "drug_current": "Chlordiazepoxide", "drug_proposed": "Estrone", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0984", "level": "negative", "drug_current": "Dacomitinib", "drug_proposed": "Trastuzumab emtansine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0985", "level": "negative", "drug_current": "Phentolamine", "drug_proposed": "Etanercept", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0986", "level": "negative", "drug_current": "Niraparib", "drug_proposed": "Chenodeoxycholic acid", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0987", "level": "negative", "drug_current": "Zileuton", "drug_proposed": "Chlorambucil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0988", "level": "negative", "drug_current": "Clotrimazole", "drug_proposed": "Pyrimethamine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0989", "level": "negative", "drug_current": "Mifepristone", "drug_proposed": "Bevacizumab", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0990", "level": "negative", "drug_current": "Betaxolol (ophthalmic)", "drug_proposed": "Pentobarbital", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0991", "level": "negative", "drug_current": "Pimecrolimus", "drug_proposed": "Selumetinib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0992", "level": "negative", "drug_current": "Remimazolam", "drug_proposed": "Cefadroxil", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0993", "level": "negative", "drug_current": "Chamomile", "drug_proposed": "Tagraxofusp", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0994", "level": "negative", "drug_current": "Risedronic acid", "drug_proposed": "Urokinase", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0995", "level": "negative", "drug_current": "Triamcinolone (nasal)", "drug_proposed": "Kaolin", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0996", "level": "negative", "drug_current": "Dimethyl fumarate", "drug_proposed": "Icosapent", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0997", "level": "negative", "drug_current": "Colistimethate", "drug_proposed": "Nevirapine", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0998", "level": "negative", "drug_current": "Ketamine", "drug_proposed": "Sorafenib", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}
+{"uid": "ddinter-negative-0999", "level": "negative", "drug_current": "Gadoversetamide", "drug_proposed": "Plantago seed", "parse_ok": true, "pred_unsafe": false, "pred_ddi": false, "pred_cats": []}

@@ -1,0 +1,52 @@
+
+=== grpo ===  scored 1000 (missing 0)
+stratum        n  DDI flag   unsafe  parseX   other categories fired
+major        250     0.072    0.076       1   Substance Use=3, Cardiac Impairment=1, Infection=1, Bleeding=1, Dosage & Toxicity=1
+moderate     250     0.020    0.020       1   
+minor        250     0.004    0.004       0   
+negative     250     0.008    0.008       0   
+primary_ddi_flag       P=0.920 R=0.046 F1=0.088 acc=0.361 balAcc=0.519 FPR=0.008 (TP=23 FP=2 FN=477 TN=248)  F1 CI95 [0.055, 0.121]
+primary_is_unsafe      P=0.923 R=0.048 F1=0.091 acc=0.363 balAcc=0.520 FPR=0.008 (TP=24 FP=2 FN=476 TN=248)
+major_only_ddi_flag    P=0.900 R=0.072 F1=0.133 acc=0.532 balAcc=0.532 FPR=0.008 (TP=18 FP=2 FN=232 TN=248)
+
+=== sft ===  scored 1000 (missing 0)
+stratum        n  DDI flag   unsafe  parseX   other categories fired
+major        250     0.036    0.040       0   Substance Use=3, Bleeding=2, Cardiac Impairment=1
+moderate     250     0.020    0.020       0   
+minor        250     0.000    0.000       0   
+negative     250     0.008    0.012       0   
+primary_ddi_flag       P=0.875 R=0.028 F1=0.054 acc=0.349 balAcc=0.510 FPR=0.008 (TP=14 FP=2 FN=486 TN=248)  F1 CI95 [0.029, 0.084]
+primary_is_unsafe      P=0.833 R=0.030 F1=0.058 acc=0.349 balAcc=0.509 FPR=0.012 (TP=15 FP=3 FN=485 TN=247)
+major_only_ddi_flag    P=0.818 R=0.036 F1=0.069 acc=0.514 balAcc=0.514 FPR=0.008 (TP=9 FP=2 FN=241 TN=248)
+
+=== dpo ===  scored 1000 (missing 0)
+stratum        n  DDI flag   unsafe  parseX   other categories fired
+major        250     0.008    0.008       0   Substance Use=2
+moderate     250     0.000    0.000       0   
+minor        250     0.000    0.000       0   
+negative     250     0.000    0.000       0   
+primary_ddi_flag       P=1.000 R=0.004 F1=0.008 acc=0.336 balAcc=0.502 FPR=0.000 (TP=2 FP=0 FN=498 TN=250)  F1 CI95 [0.000, 0.020]
+primary_is_unsafe      P=1.000 R=0.004 F1=0.008 acc=0.336 balAcc=0.502 FPR=0.000 (TP=2 FP=0 FN=498 TN=250)
+major_only_ddi_flag    P=1.000 R=0.008 F1=0.016 acc=0.504 balAcc=0.504 FPR=0.000 (TP=2 FP=0 FN=248 TN=250)
+
+=== guard_sft ===  scored 1000 (missing 0)
+stratum        n  DDI flag   unsafe  parseX   other categories fired
+major        250     0.076    0.076       0   Cardiac Impairment=5, Substance Use=4, Bleeding=3, Respiratory Impairment=1
+moderate     250     0.024    0.024       0   Cardiac Impairment=2
+minor        250     0.016    0.016       0   Bleeding=2, Cardiac Impairment=2
+negative     250     0.028    0.024       0   Substance Use=1, Bleeding=1, Cardiac Impairment=1
+primary_ddi_flag       P=0.781 R=0.050 F1=0.094 acc=0.357 balAcc=0.511 FPR=0.028 (TP=25 FP=7 FN=475 TN=243)  F1 CI95 [0.060, 0.129]
+primary_is_unsafe      P=0.806 R=0.050 F1=0.094 acc=0.359 balAcc=0.513 FPR=0.024 (TP=25 FP=6 FN=475 TN=244)
+major_only_ddi_flag    P=0.731 R=0.076 F1=0.138 acc=0.524 balAcc=0.524 FPR=0.028 (TP=19 FP=7 FN=231 TN=243)
+
+=== guard_grpo ===  scored 1000 (missing 0)
+stratum        n  DDI flag   unsafe  parseX   other categories fired
+major        250     0.676    0.672       1   Bleeding=19, Infection=17, Cardiac Impairment=13, Allergy & Adverse Drug Reaction=5, Substance Use=4, Respiratory Impairment=1
+moderate     250     0.516    0.516       1   Cardiac Impairment=12, Bleeding=9, Infection=5, Allergy & Adverse Drug Reaction=2, Hepatic Impairment=1
+minor        250     0.420    0.420       0   Cardiac Impairment=10, Bleeding=5, Infection=3
+negative     250     0.340    0.340       0   Bleeding=9, Cardiac Impairment=6, Infection=2, Allergy & Adverse Drug Reaction=1, Substance Use=1, Renal Impairment=1
+primary_ddi_flag       P=0.778 R=0.596 F1=0.675 acc=0.617 balAcc=0.628 FPR=0.340 (TP=298 FP=85 FN=202 TN=165)  F1 CI95 [0.640, 0.710]
+primary_is_unsafe      P=0.777 R=0.594 F1=0.673 acc=0.616 balAcc=0.627 FPR=0.340 (TP=297 FP=85 FN=203 TN=165)
+major_only_ddi_flag    P=0.665 R=0.676 F1=0.671 acc=0.668 balAcc=0.668 FPR=0.340 (TP=169 FP=85 FN=81 TN=165)
+
+metrics -> /users/PCS0289/sarakhosravi/Guardrail/Claude/External_Eval/ddinter/outputs/ddinter_metrics.json

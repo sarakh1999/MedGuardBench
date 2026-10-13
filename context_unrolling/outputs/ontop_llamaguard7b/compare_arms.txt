@@ -1,0 +1,41 @@
+                                          SFT (ckpt-950) sft+1ep_unrolled_v4pr
+------------------------------------------------------------------------------
+n scored                                             754                   754
+verdict accuracy                                   0.914                 0.911
+  95% CI                                   [0.895,0.932]         [0.891,0.930]
+verdict balanced acc                               0.915                 0.908
+verdict macro-F1                                   0.914                 0.910
+missed-unsafe rate (FNR)                           0.102                 0.042
+over-block rate (FPR)                              0.068                 0.142
+
+category macro-F1                                  0.637                 0.655
+  95% CI                                   [0.592,0.673]         [0.603,0.696]
+category micro-F1                                  0.721                 0.727
+exact match (all 17)                               0.649                 0.642
+samples-F1                                         0.810                 0.802
+
+verdict parse rate                                 1.000                 0.999
+risk_analysis parse rate                           1.000                 0.999
+verdict/category inconsistency                     0.000                 0.000
+mean generated tokens                                811                   789
+mean gen seconds                                     4.1                   4.2
+
+per-category F1 (support = positives in the scored subset)
+category                                 supp  SFT (ckpt-950)  sft+1ep_unroll
+Allergy & Adverse Drug Reaction Risk       58           0.472           0.500
+Drug-Drug Interaction Risk                195           0.839           0.841
+Drug-Food Interaction Risk                 28           0.512           0.588
+Dosage & Toxicity Risk                     70           0.517           0.512
+Renal Impairment Risk                      33           0.719           0.657
+Hepatic Impairment Risk                    38           0.845           0.833
+Cardiac Impairment Risk                    80           0.841           0.829
+Respiratory Impairment Risk                25           0.681           0.700
+Bleeding Risk                              26           0.571           0.591
+Infection Risk                             26           0.564           0.700
+Pregnancy & Breastfeeding Risk             27           0.943           0.929
+Alcohol Use Risk                           31           0.931           0.931
+Tobacco Use Risk                            9           0.000           0.154
+Substance Use Risk                         19           0.878           0.872
+Caffeine Intake Risk                        3           0.333           0.333
+Weight/BMI Risk                            14           0.571           0.609
+Age Risk                                   65           0.613           0.554

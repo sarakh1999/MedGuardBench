@@ -3,11 +3,11 @@
   "alpha_pattern": {},
   "arrow_config": null,
   "auto_mapping": {
-    "base_model_class": "Qwen3ForCausalLM",
-    "parent_library": "transformers.models.qwen3.modeling_qwen3",
+    "base_model_class": "Gemma2ForCausalLM",
+    "parent_library": "transformers.models.gemma2.modeling_gemma2",
     "unsloth_fixed": true
   },
-  "base_model_name_or_path": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/Qwen3-8B-Instruct/checkpoint-950-merged",
+  "base_model_name_or_path": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/ShieldGemma-9B/final_adapter-merged",
   "bias": "none",
   "corda_config": null,
   "ensure_weight_tying": false,
@@ -36,12 +36,12 @@
   "rank_pattern": {},
   "revision": null,
   "target_modules": [
+    "v_proj",
     "q_proj",
     "k_proj",
-    "o_proj",
     "up_proj",
+    "o_proj",
     "down_proj",
-    "v_proj",
     "gate_proj"
   ],
   "target_parameters": null,

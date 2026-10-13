@@ -1,0 +1,63 @@
+{
+  "run_name": "grpo-guided-v2",
+  "seed": 42,
+  "policy_init_and_kl_reference": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/Qwen3Guard-Gen-8B/checkpoint-900-merged",
+  "sft_adapter_checkpoint": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/Qwen3Guard-Gen-8B/checkpoint-900",
+  "train_file": "/users/PCS0289/sarakhosravi/Guardrail/Claude/GRPO/data/legacy_v1-qwen3guard-8b/grpo_train_guided.jsonl",
+  "num_generations": 8,
+  "prompts_per_step": 8,
+  "learning_rate": 5e-05,
+  "beta": 0.0,
+  "epsilon_low": 0.2,
+  "epsilon_high": 0.28,
+  "num_iterations": 2,
+  "scale_rewards": "batch",
+  "mask_truncated_completions": true,
+  "max_grad_norm": 0.5,
+  "reference_guidance": {
+    "enabled": true,
+    "min_shortfall": 0.2,
+    "stats": {
+      "groups": 920,
+      "zero_var_wrong": 65,
+      "injected": 64,
+      "ref_missing": 1,
+      "ref_too_long": 0
+    }
+  },
+  "temperature": 1.0,
+  "max_prompt_length": 1024,
+  "max_completion_length": 1536,
+  "epochs": 1.0,
+  "max_steps": -1,
+  "load_in_4bit": false,
+  "grpo_mini_batch": 32,
+  "vllm_gpu_util": 0.45,
+  "data_condition": "legacy_v1",
+  "lora": {
+    "r": 16,
+    "alpha": 32
+  },
+  "n_train_scenarios": 3019,
+  "target_categories": [
+    "Allergy & Adverse Drug Reaction Risk",
+    "Dosage & Toxicity Risk",
+    "Drug-Food Interaction Risk"
+  ],
+  "reward_weights": {
+    "verdict": 0.5,
+    "decisive_category": 1.5,
+    "other_categories": 0.5,
+    "schema": 0.2,
+    "target_bonus": 0.3,
+    "length_penalty": 0.05,
+    "length_budget_tokens": 1200,
+    "consistency_penalty": 0.3,
+    "wrong_verdict_category_scale": 0.25,
+    "require_json_verdict": true,
+    "verdict_fn_penalty": 1.0,
+    "category_fp_penalty": 0.3
+  },
+  "sft_baseline": null,
+  "preregistered": null
+}

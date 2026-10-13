@@ -282,6 +282,29 @@ def main():
     print(f"Partial-miss audited: {n_enriched} mined scenarios enriched, {len(extra_pm)} added  dropped={dict(d3)}")
 
     all_s = mined + twins + singles + extra_pm
+    if getattr(C, "OUTPUT_FORMAT", "json") == "llamaguard":
+        # The twins / audited partial misses are authored in the Qwen JSON
+        # lineage (system + user prompt, JSON reference). Re-express them in
+        # the LlamaGuard lineage this backbone was fine-tuned on, so injected
+        # references are in the policy's own output format.
+        from llama_format import qwen_prompt_to_llama, json_to_llamaguard
+        n_prompt = n_ref = n_ref_fail = 0
+        for s in all_s:
+            new_prompt = qwen_prompt_to_llama(s["messages_prompt"])
+            if new_prompt != s["messages_prompt"]:
+                s["messages_prompt"] = s["prompt"] = new_prompt
+                n_prompt += 1
+            ref = s.get("reference_completion") or ""
+            if ref.lstrip().startswith("{"):
+                lg = json_to_llamaguard(ref)
+                if lg and parse_completion(lg, strict_json=True)["verdict"] == s["gold_verdict"]:
+                    s["reference_completion"] = lg
+                    n_ref += 1
+                else:
+                    s["reference_completion"] = ""
+                    n_ref_fail += 1
+        print(f"LlamaGuard format: {n_prompt} prompts re-wrapped, {n_ref} JSON references "
+              f"converted, {n_ref_fail} dropped")
     n = write_scenarios(all_s, args.out)
     back = load_scenarios(args.out)
     assert len(back) == n, "round-trip mismatch"

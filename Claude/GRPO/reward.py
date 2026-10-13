@@ -335,6 +335,18 @@ def parse_completion(text, strict_json=False):
                 categories.setdefault(k, v)
             source = "json"
 
+    if verdict is None and source == "text":
+        # LlamaGuard-format completion ("Reasoning: ...", a line that is
+        # exactly safe/unsafe, then O-codes). The verdict line is an explicit
+        # decision, so it counts in strict mode too; the category vector is
+        # fully determined (safe -> all False, unsafe -> the listed codes).
+        from llama_format import parse_llamaguard
+        lg = parse_llamaguard(text, RISK_CATEGORIES)
+        if lg is not None:
+            verdict, lg_cats = lg
+            categories = dict(lg_cats)
+            source = "llamaguard"
+
     if verdict is None and not strict_json:
         verdict = _verdict_from_text(text)
         if categories:
