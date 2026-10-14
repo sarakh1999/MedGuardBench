@@ -42,7 +42,7 @@ if Version(trl.__version__) < Version("0.15.0"):
 from trl import GRPOConfig, GRPOTrainer
 
 import grpo_config as C
-from data_utils import load_scenarios, to_trl_dataset, apply_template_override
+from data_utils import load_scenarios, to_trl_dataset, apply_template_override, model_prompt
 from reward import (make_trl_reward_func, reward_ceiling_for, parse_completion,
                     compute_reward)
 
@@ -207,7 +207,7 @@ def check_prompt_lengths(tokenizer, scenarios, limit):
     lengths = []
     for s in scenarios:
         ids = tokenizer.apply_chat_template(
-            s["messages_prompt"], tokenize=True, add_generation_prompt=True)
+            model_prompt(s), tokenize=True, add_generation_prompt=True)
         lengths.append(len(ids))
     n_over = sum(1 for n in lengths if n > limit)
     print(f"Prompt tokens: max {max(lengths)}, p95 "

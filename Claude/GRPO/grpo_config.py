@@ -53,6 +53,9 @@ LEGACY_RUNS = {
     # ShieldGemma-9B SFT retrained with sft_train.py (the Aug-1 run in
     # ShieldGemma-9B_broken_aug1 never converged, eval_loss 2.48).
     "shieldgemma-9b": ("ShieldGemma-9B", "google/shieldgemma-9b", "final_adapter"),
+    # Llama-3.1-8B base (unsloth mirror = identical weights to meta-llama/Llama-3.1-8B,
+    # which is what sft_train.py resolves to); SFT used the Llama-3 header template.
+    "llama31-8b": ("Llama-3.1-8B", "unsloth/llama-3.1-8b", "final_adapter"),
     # ShieldGemma-2B SFT written by Claude/SFT/blind/sft_train.py on the legacy
     # data (Claude/SFT/new_data_chatml_ShieldGemma; same rows as the Qwen ChatML
     # files up to "72" vs "72.0" formatting). Best checkpoint by eval_loss is
@@ -77,7 +80,25 @@ OUTPUT_FORMAT = "llamaguard" if IS_LLAMA else "json"
 # (outputs/legacy_v1/...) is kept unchanged; other backbones get a suffix.
 CONDITION_TAG = DATA_CONDITION if MODEL == "qwen3-4b" else f"{DATA_CONDITION}-{MODEL}"
 
-if DATA_CONDITION == "legacy_v1":
+# Non-personalized pipeline (MGB_NOPROFILE=1): the policy never sees the
+# "Patient Profile" block (data_utils.strip_profile_messages) and starts from
+# an SFT run trained on profile-stripped data (Claude/Ablation/data/noprofile_sft).
+NOPROFILE = _os.environ.get("MGB_NOPROFILE", "0") == "1"
+if NOPROFILE:
+    CONDITION_TAG = f"{CONDITION_TAG}-noprofile"
+
+if DATA_CONDITION == "legacy_v1" and NOPROFILE:
+    if MODEL != "qwen3-4b":
+        raise SystemExit("MGB_NOPROFILE=1 is only set up for MGB_MODEL=qwen3-4b")
+    LEGACY_FP16_BASE = LEGACY_RUNS[MODEL][1]
+    DATA_DIR = PROJECT_ROOT / "Claude" / "Ablation" / "data" / "noprofile_sft"
+    SFT_RUN_DIR = PROJECT_ROOT / "Claude" / "SFT" / "new_outputs" / "Qwen3-4B-noprofile"
+    _best_ckpt = _os.environ.get("MGB_SFT_CHECKPOINT", "final_adapter")
+    SFT_ADAPTER_PATH = SFT_RUN_DIR / _best_ckpt
+    SFT_MERGED_PATH = SFT_RUN_DIR / f"{_best_ckpt}-merged"
+    SFT_METRICS_JSON = SFT_RUN_DIR / "test_predictions_sft_metrics.json"
+    SFT_PER_CATEGORY_CSV = SFT_RUN_DIR / "test_predictions_sft_per_category.csv"
+elif DATA_CONDITION == "legacy_v1":
     if MODEL not in LEGACY_RUNS:
         raise SystemExit(f"MGB_MODEL={MODEL!r} has no legacy_v1 SFT run; choose from {sorted(LEGACY_RUNS)}")
     _run_name, LEGACY_FP16_BASE, _best_ckpt = LEGACY_RUNS[MODEL]
@@ -520,7 +541,13 @@ GEMMA_EOS = "<end_of_turn>"
 # (<tool_call> loops, empty output, garbage). Supplying the prefix removes
 # that failure mode without changing what the model learned.
 # Set to "" when the SFT run used the official (no-think) template.
-if DATA_CONDITION == "legacy_v1" and "guard" not in MODEL.lower() and not IS_GEMMA and not IS_LLAMA:
+if "MGB_ASSISTANT_PREFIX" in _os.environ:
+    ASSISTANT_PREFIX = _os.environ["MGB_ASSISTANT_PREFIX"].encode().decode("unicode_escape")
+elif DATA_CONDITION == "legacy_v1" and NOPROFILE:
+    # Qwen3-4B-noprofile was trained with Claude/SFT/blind/sft_train.py on the
+    # official Qwen3-4B-Instruct-2507 (no-think) template: targets start at '{'.
+    ASSISTANT_PREFIX = ""
+elif DATA_CONDITION == "legacy_v1" and "guard" not in MODEL.lower() and not IS_GEMMA and not IS_LLAMA:
     ASSISTANT_PREFIX = "<think>\n\n</think>\n\n"
 else:
     # Official no-think template, or the Qwen3Guard SFT runs: those were

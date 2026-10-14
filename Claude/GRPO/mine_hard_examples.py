@@ -29,7 +29,7 @@ from tqdm import tqdm
 
 import grpo_config as C
 from reward import compute_reward, canonical_category, reward_ceiling_for
-from data_utils import load_scenarios, apply_template_override, write_scenarios
+from data_utils import load_scenarios, apply_template_override, write_scenarios, model_prompt
 
 
 def generate_samples(model, tokenizer, scenarios, n_samples, temperature,
@@ -66,7 +66,7 @@ def generate_samples(model, tokenizer, scenarios, n_samples, temperature,
             batch = todo[i:i + batch_size]
             prompts = [
                 tokenizer.apply_chat_template(
-                    s["messages_prompt"], tokenize=False, add_generation_prompt=True)
+                    model_prompt(s), tokenize=False, add_generation_prompt=True)
                 for s in batch
             ]
             outputs = model.fast_generate(prompts, sampling_params=sampling)

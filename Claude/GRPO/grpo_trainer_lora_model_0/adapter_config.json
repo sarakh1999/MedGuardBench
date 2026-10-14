@@ -3,11 +3,11 @@
   "alpha_pattern": {},
   "arrow_config": null,
   "auto_mapping": {
-    "base_model_class": "Gemma2ForCausalLM",
-    "parent_library": "transformers.models.gemma2.modeling_gemma2",
+    "base_model_class": "LlamaForCausalLM",
+    "parent_library": "transformers.models.llama.modeling_llama",
     "unsloth_fixed": true
   },
-  "base_model_name_or_path": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/ShieldGemma-9B/final_adapter-merged",
+  "base_model_name_or_path": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/Llama-Guard-2-8B/checkpoint-900-merged",
   "bias": "none",
   "corda_config": null,
   "ensure_weight_tying": false,
@@ -36,13 +36,13 @@
   "rank_pattern": {},
   "revision": null,
   "target_modules": [
-    "v_proj",
+    "gate_proj",
     "q_proj",
     "k_proj",
-    "up_proj",
-    "o_proj",
     "down_proj",
-    "gate_proj"
+    "up_proj",
+    "v_proj",
+    "o_proj"
   ],
   "target_parameters": null,
   "task_type": "CAUSAL_LM",

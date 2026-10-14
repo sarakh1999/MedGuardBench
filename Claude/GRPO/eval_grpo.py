@@ -28,7 +28,7 @@ import numpy as np
 from tqdm import tqdm
 
 import grpo_config as C
-from data_utils import load_scenarios, apply_template_override
+from data_utils import load_scenarios, apply_template_override, model_prompt
 from reward import parse_completion, canonical_category
 
 
@@ -198,7 +198,7 @@ def generate(model_path, scenarios, max_new_tokens=2048, load_in_4bit=C.LOAD_IN_
 
     prompts = [
         tokenizer.apply_chat_template(
-            s["messages_prompt"], tokenize=False, add_generation_prompt=True)
+            model_prompt(s), tokenize=False, add_generation_prompt=True)
         for s in scenarios
     ]
 

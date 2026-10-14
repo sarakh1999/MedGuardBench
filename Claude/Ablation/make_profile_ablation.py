@@ -41,6 +41,7 @@ def main():
     ap.add_argument("--src", default=str(SRC))
     ap.add_argument("--out", default=str(ROOT / "Claude/Ablation/data"))
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--prefix", default="test", help="output file prefix (test|train|val)")
     a = ap.parse_args()
     rows = [json.loads(l) for l in open(a.src)]
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
@@ -57,16 +58,16 @@ def main():
             break
 
     def write(name, user_texts):
-        with open(out / f"test_{name}.jsonl", "w") as f:
+        with open(out / f"{a.prefix}_{name}.jsonl", "w") as f:
             for r, txt in zip(rows, user_texts):
                 msgs = [dict(m, content=txt) if m["role"] == "user" else m for m in r["messages"]]
                 f.write(json.dumps({**r, "messages": msgs}, ensure_ascii=False) + "\n")
-        print(f"wrote {out / f'test_{name}.jsonl'}  ({n} rows)")
+        print(f"wrote {out / f'{a.prefix}_{name}.jsonl'}  ({n} rows)")
 
     write("true", [p + rest for p, rest in zip(profiles, rests)])
     write("noprofile", rests)
     write("shuffled", [profiles[perm[i]] + rests[i] for i in range(n)])
-    json.dump({"seed": a.seed, "perm": perm}, open(out / "shuffle_perm.json", "w"))
+    json.dump({"seed": a.seed, "perm": perm}, open(out / f"{a.prefix}_shuffle_perm.json" if a.prefix != "test" else out / "shuffle_perm.json", "w"))
     print("example noprofile user turn:\n" + rests[0][:400])
 
 

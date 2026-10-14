@@ -299,6 +299,38 @@ def apply_assistant_prefix(tokenizer, prefix):
     return tokenizer
 
 
+# ---------------------------------------------------------------------------
+# Non-personalized condition: MGB_NOPROFILE=1 rebuilds every user turn as
+# drug + dose + duration + diagnosis + presenting symptoms only (no Patient
+# Profile, no free-text scenario) and rewords the system prompt; see
+# Claude/Ablation/nonpersonalized.py (single source of truth, also used to
+# write the SFT/CU datasets). Applied at model-input time only (the three
+# apply_chat_template sites + the TRL dataset), so the on-disk scenarios keep
+# their Patient ID for leakage checks / twin matching in build_grpo_from_dpo.
+# ---------------------------------------------------------------------------
+import os as _os
+import sys as _sys
+NOPROFILE = _os.environ.get("MGB_NOPROFILE", "0") == "1"
+if NOPROFILE:
+    import grpo_config as _C
+    _sys.path.insert(0, str(_C.PROJECT_ROOT / "Claude" / "Ablation"))
+    from nonpersonalized import transform_messages as _nonpersonalized_messages
+
+
+def strip_profile_messages(messages):
+    """Non-personalized copy of the prompt messages. No-op unless MGB_NOPROFILE=1."""
+    if not NOPROFILE:
+        return messages
+    # verify=True: fail loudly if a prompt layout is not handled (would otherwise
+    # silently leak the profile into the non-personalized run).
+    return _nonpersonalized_messages(messages, verify=True)
+
+
+def model_prompt(scenario):
+    """Messages actually shown to the policy for this scenario."""
+    return strip_profile_messages(scenario["messages_prompt"])
+
+
 def to_trl_dataset(scenarios):
     """Convert to a HF Dataset with the columns the reward function reads.
 
@@ -310,7 +342,7 @@ def to_trl_dataset(scenarios):
     from datasets import Dataset
     return Dataset.from_list([
         {
-            "prompt": s["prompt"],
+            "prompt": strip_profile_messages(s["prompt"]),
             "gold_verdict": s["gold_verdict"],
             "gold_categories": json.dumps(s["gold_categories"]),
             "decisive_category": s["decisive_category"] or "",
