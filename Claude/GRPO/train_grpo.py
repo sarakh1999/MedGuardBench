@@ -382,7 +382,7 @@ def main():
         # Logging and checkpoints
         logging_steps=C.LOGGING_STEPS,
         save_steps=C.SAVE_STEPS,
-        save_total_limit=3,
+        save_total_limit=C.SAVE_TOTAL_LIMIT,
         report_to="none",
 
         use_vllm=args.use_vllm,
@@ -409,6 +409,8 @@ def main():
           f"({batch} x {grad_accum} completions)")
     print(f"  learning rate:      {args.learning_rate}")
     print(f"  beta (KL):          {args.beta}")
+    print(f"  recipe:             {C.GRPO_RECIPE}  (verdict FP penalty {C.W_VERDICT_FP_PENALTY}, "
+          f"min safe frac {C.MINING_MIN_SAFE_FRAC}, save every {C.SAVE_STEPS} keep {C.SAVE_TOTAL_LIMIT})")
     print(f"  clip eps low/high:  {C.EPSILON_LOW} / {args.epsilon_high}")
     print(f"  mu (iterations):    {args.num_iterations}")
     print(f"  scale_rewards:      {args.scale_rewards}")
@@ -454,6 +456,11 @@ def main():
             "prompts_per_step": n_prompts_per_step,
             "learning_rate": args.learning_rate,
             "beta": args.beta,
+            "recipe": C.GRPO_RECIPE,
+            "w_verdict_fp_penalty": C.W_VERDICT_FP_PENALTY,
+            "mining_min_safe_frac": C.MINING_MIN_SAFE_FRAC,
+            "save_steps": C.SAVE_STEPS,
+            "save_total_limit": C.SAVE_TOTAL_LIMIT,
             "epsilon_low": C.EPSILON_LOW,
             "epsilon_high": args.epsilon_high,
             "num_iterations": args.num_iterations,

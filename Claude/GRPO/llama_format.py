@@ -10,7 +10,7 @@ the assistant emits
     O4,O6,O15          (only when unsafe; O<i> indexes risk_categories.txt)
 
 trained under the plain Llama-3 chat template (system/user/assistant headers,
-<|eot_id|> turn terminator). This module provides the pieces the Qwen/Gemma
+<|eot_id|> after system/user turns, <|end_of_text|> after assistant turns). This module provides the pieces the Qwen/Gemma
 pipeline needs to run unchanged on that lineage: template + eos, a parser for
 reward.parse_completion, and converters so the guided set (counterfactual
 twins, audited partial misses, all authored in the Qwen JSON format) can be
@@ -27,13 +27,18 @@ LLAMA3_CHAT_TEMPLATE = (
     "{{- bos_token }}"
     "{%- for message in messages %}"
     "{{- '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n' "
-    "+ message['content'] | trim + '<|eot_id|>' }}"
+    "+ message['content'] | trim }}"
+    "{%- if message['role'] == 'assistant' %}{{- eos_token }}{%- else %}{{- '<|eot_id|>' }}{%- endif %}"
     "{%- endfor %}"
     "{%- if add_generation_prompt %}"
     "{{- '<|start_header_id|>assistant<|end_header_id|>\n\n' }}"
     "{%- endif %}"
 )
-LLAMA_EOS = "<|eot_id|>"
+# Assistant turns end with <|end_of_text|> (the native eos), not <|eot_id|>:
+# <|eot_id|> has an untrained (zero) embedding in Llama-3.1-8B base and
+# Meta-Llama-Guard-2-8B, so SFT LoRAs never learned to emit it and the policy
+# ran to max tokens. Must match Claude/SFT/blind/sft_train.py LLAMA3_TEMPLATE.
+LLAMA_EOS = "<|end_of_text|>"
 LLAMA_MARKERS = ("llama", "Llama")
 
 _VERDICT_LINE = re.compile(r"^[ \t]*(safe|unsafe)[ \t]*$", re.IGNORECASE | re.MULTILINE)

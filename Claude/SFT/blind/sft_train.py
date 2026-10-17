@@ -63,11 +63,19 @@ CHATML_TEMPLATE = (
     "{%- endif %}"
 )
 
+# Assistant turns end with the tokenizer eos (<|end_of_text|>), NOT <|eot_id|>:
+# in Llama-3.1-8B (base) and Meta-Llama-Guard-2-8B the <|eot_id|> embedding is
+# untrained (all-zero row), and a LoRA on attention/MLP only cannot learn to
+# emit it. Models trained with <|eot_id|> never stopped (every generation ran
+# to max_new_tokens; "safe" cases parsed only via the default). <|end_of_text|>
+# is a trained token in both checkpoints, and it is the native eos, so HF
+# generate / vLLM / TRL stop on it without any override.
 LLAMA3_TEMPLATE = (
     "{{- bos_token }}"
     "{%- for message in messages %}"
     "{{- '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n' "
-    "+ message['content'] | trim + '<|eot_id|>' }}"
+    "+ message['content'] | trim }}"
+    "{%- if message['role'] == 'assistant' %}{{- eos_token }}{%- else %}{{- '<|eot_id|>' }}{%- endif %}"
     "{%- endfor %}"
     "{%- if add_generation_prompt %}"
     "{{- '<|start_header_id|>assistant<|end_header_id|>\n\n' }}"
@@ -122,7 +130,38 @@ GEMMA_TEMPLATE = (
     "{%- endif %}"
 )
 
+# Mistral v0.3 instruct format (Mistral-7B-Instruct-v0.3 and WildGuard, which
+# is a Mistral-7B-v0.3 fine-tune): "<s>[INST] system\n\nuser [/INST] answer</s>".
+# [INST] / [/INST] are control tokens in the v0.3 tokenizer. Mistral has no
+# system role, so it is folded into the first user turn exactly as the official
+# template does. WildGuard's own prompt is a fixed harm-classifier form that has
+# no assistant turn, so (like the other guard models) it must be replaced.
+MISTRAL_TEMPLATE = (
+    "{{- bos_token }}"
+    "{%- set ns = namespace(system='') %}"
+    "{%- for message in messages %}"
+    "{%- if message['role'] == 'system' %}"
+    "{%- set ns.system = message['content'] %}"
+    "{%- endif %}"
+    "{%- endfor %}"
+    "{%- set loop_messages = messages | rejectattr('role', 'equalto', 'system') | list %}"
+    "{%- for message in loop_messages %}"
+    "{%- if message['role'] == 'user' %}"
+    "{%- if loop.first and ns.system %}"
+    "{{- '[INST] ' + ns.system + '\n\n' + message['content'] | trim + ' [/INST]' }}"
+    "{%- else %}"
+    "{{- '[INST] ' + message['content'] | trim + ' [/INST]' }}"
+    "{%- endif %}"
+    "{%- elif message['role'] == 'assistant' %}"
+    "{{- ' ' + message['content'] | trim + eos_token }}"
+    "{%- endif %}"
+    "{%- endfor %}"
+)
+
 FAMILIES = {
+    "mistral": dict(template=MISTRAL_TEMPLATE,
+                    instruction_part="[INST]",
+                    response_part="[/INST]"),
     "chatml": dict(template=CHATML_TEMPLATE,
                    instruction_part="<|im_start|>user\n",
                    response_part="<|im_start|>assistant\n"),
@@ -168,6 +207,19 @@ MODELS = {
                            data=DATA_GEMMA, out="ShieldGemma-2B", max_seq=2048),
     "shieldgemma-9b": dict(hf="google/shieldgemma-9b", family="gemma", override_template=True,
                            data=DATA_GEMMA, out="ShieldGemma-9B", max_seq=2048),
+    # Mistral lineage (JSON output, same rows as the Qwen ChatML files). The
+    # Mistral-7B-Instruct template is replaced by MISTRAL_TEMPLATE only to fold
+    # the system turn identically at train and eval time (the official one is
+    # equivalent up to whitespace); WildGuard ships a classifier prompt.
+    "mistral-7b":     dict(hf="unsloth/Mistral-7B-Instruct-v0.3", family="mistral", override_template=True,
+                           data=DATA_QWEN, out="Mistral-7B-Instruct-v0.3", max_seq=2048),
+    "wildguard-7b":   dict(hf="allenai/wildguard", family="mistral", override_template=True,
+                           data=DATA_QWEN, out="WildGuard-7B", max_seq=2048),
+    # Zero-shot reference only (eval_sft.py --base; never fine-tuned): Llama-3.3-70B-Instruct
+    # in Unsloth's pre-quantised bnb-4bit form (~40 GB, needs an 80 GB GPU). Its own
+    # chat template is kept; JSON output via the schema-in-prompt base protocol.
+    "llama3.3-70b":   dict(hf="unsloth/Llama-3.3-70B-Instruct-bnb-4bit", family="llama3", override_template=False,
+                           data=DATA_QWEN, out="Llama-3.3-70B-Instruct", max_seq=4096),
 }
 
 OUTPUT_ROOT = os.environ.get("SFT_OUTPUT_ROOT", "Claude/SFT/outputs_blind_v2")

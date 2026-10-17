@@ -1,0 +1,147 @@
+{
+  "model": "/users/PCS0289/sarakhosravi/Guardrail/Claude/SFT/new_outputs/Qwen3Guard-Gen-8B/checkpoint-900-merged",
+  "predictions_file": "/users/PCS0289/sarakhosravi/Guardrail/Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/test_predictions.jsonl",
+  "grpo": {
+    "n": 754,
+    "accuracy": 0.7652519893899205,
+    "recall_unsafe": 0.7518610421836228,
+    "precision_unsafe": 0.7973684210526316,
+    "fpr": 0.21937321937321938,
+    "fnr": 0.24813895781637718,
+    "confusion": {
+      "TP": 303,
+      "FP": 77,
+      "TN": 274,
+      "FN": 100
+    },
+    "f1_unsafe": 0.7739463601532568,
+    "macro_f1": 0.24847964775572642,
+    "micro_f1": 0.3263825929283772,
+    "exact_match": 0.44562334217506633,
+    "parse_failures": 1,
+    "per_category": {
+      "Allergy & Adverse Drug Reaction Risk": {
+        "f1": 0.27419354838709675,
+        "support": 58,
+        "tp": 17,
+        "fp": 49,
+        "fn": 41
+      },
+      "Drug-Drug Interaction Risk": {
+        "f1": 0.3916083916083916,
+        "support": 195,
+        "tp": 56,
+        "fp": 35,
+        "fn": 139
+      },
+      "Drug-Food Interaction Risk": {
+        "f1": 0.19999999999999998,
+        "support": 28,
+        "tp": 6,
+        "fp": 26,
+        "fn": 22
+      },
+      "Dosage & Toxicity Risk": {
+        "f1": 0.46969696969696967,
+        "support": 70,
+        "tp": 31,
+        "fp": 31,
+        "fn": 39
+      },
+      "Renal Impairment Risk": {
+        "f1": 0.5769230769230769,
+        "support": 33,
+        "tp": 15,
+        "fp": 4,
+        "fn": 18
+      },
+      "Hepatic Impairment Risk": {
+        "f1": 0.21739130434782608,
+        "support": 38,
+        "tp": 5,
+        "fp": 3,
+        "fn": 33
+      },
+      "Cardiac Impairment Risk": {
+        "f1": 0.02439024390243903,
+        "support": 80,
+        "tp": 1,
+        "fp": 1,
+        "fn": 79
+      },
+      "Respiratory Impairment Risk": {
+        "f1": 0.0,
+        "support": 25,
+        "tp": 0,
+        "fp": 0,
+        "fn": 25
+      },
+      "Bleeding Risk": {
+        "f1": 0.3684210526315789,
+        "support": 26,
+        "tp": 7,
+        "fp": 5,
+        "fn": 19
+      },
+      "Infection Risk": {
+        "f1": 0.5098039215686274,
+        "support": 26,
+        "tp": 13,
+        "fp": 12,
+        "fn": 13
+      },
+      "Pregnancy & Breastfeeding Risk": {
+        "f1": 0.5853658536585367,
+        "support": 27,
+        "tp": 12,
+        "fp": 2,
+        "fn": 15
+      },
+      "Alcohol Use Risk": {
+        "f1": 0.0625,
+        "support": 31,
+        "tp": 1,
+        "fp": 0,
+        "fn": 30
+      },
+      "Tobacco Use Risk": {
+        "f1": 0.0,
+        "support": 9,
+        "tp": 0,
+        "fp": 0,
+        "fn": 9
+      },
+      "Substance Use Risk": {
+        "f1": 0.0,
+        "support": 19,
+        "tp": 0,
+        "fp": 0,
+        "fn": 19
+      },
+      "Caffeine Intake Risk": {
+        "f1": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3
+      },
+      "Weight/BMI Risk": {
+        "f1": 0.21052631578947364,
+        "support": 14,
+        "tp": 2,
+        "fp": 3,
+        "fn": 12
+      },
+      "Age Risk": {
+        "f1": 0.33333333333333337,
+        "support": 65,
+        "tp": 14,
+        "fp": 5,
+        "fn": 51
+      }
+    }
+  },
+  "preregistered_outcomes": {},
+  "sft_baseline": null,
+  "preregistered_thresholds": null
+}

@@ -5,8 +5,9 @@ model_name: Llama-3.1-8B
 tags:
 - generated_from_trainer
 - sft
-- unsloth
+- hf_jobs
 - trl
+- unsloth
 licence: license
 ---
 
@@ -37,8 +38,8 @@ This model was trained with SFT.
 
 - TRL: 0.24.0
 - Transformers: 4.57.6
-- Pytorch: 2.10.0
-- Datasets: 4.8.3
+- Pytorch: 2.11.0
+- Datasets: 4.3.0
 - Tokenizers: 0.22.2
 
 ## Citations

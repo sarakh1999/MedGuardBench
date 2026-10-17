@@ -26,9 +26,10 @@ ROOT=/users/PCS0289/sarakhosravi/Guardrail
 HERE=$ROOT/Claude/External_Eval/ddinter
 GRPO_DIR=$ROOT/Claude/GRPO
 TEST=$HERE/data/ddinter_test.jsonl
-MODELS="${MODELS:-grpo sft}"
+MODELS="${MODELS:-base grpo sft}"
 
 declare -A PATHS=(
+  [base]=/fs/scratch/PCS0289/sarakhosravi/huggingface/hub/models--Qwen--Qwen3-4B-Instruct-2507/snapshots/cdbee75f17c01a7cc42f958dc650907174af0554/
   [grpo]=$GRPO_DIR/outputs/legacy_v1/grpo-guided-v2/final
   [sft]=$ROOT/Claude/SFT/new_outputs/Qwen3-4B-Instruct/checkpoint-950-merged
 )
@@ -49,6 +50,7 @@ export TOKENIZERS_PARALLELISM=false
 export VLLM_WORKER_MULTIPROC_METHOD=spawn
 export CC=/usr/bin/gcc CXX=/usr/bin/g++
 export UNSLOTH_VLLM_NO_FLASHINFER=1
+export HF_HOME="${HF_HOME:-/fs/scratch/PCS0289/${USER}/huggingface}"
 export MGB_DATA_CONDITION=legacy_v1 MGB_MODEL=qwen3-4b
 
 [[ -f "$TEST" ]] || python "$HERE/build_ddinter_test.py"

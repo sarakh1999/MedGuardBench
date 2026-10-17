@@ -67,12 +67,17 @@ LEGACY_RUNS = {
     # the context-unrolling arms (ontop_llamaguard2) start from. See
     # llama_format.py: the whole stack switches to the native
     # "Reasoning: ... / safe|unsafe / O-codes" format for this backbone.
-    "llamaguard2-8b": ("Llama-Guard-2-8B", "meta-llama/Meta-Llama-Guard-2-8B", "checkpoint-900"),
+    "llamaguard2-8b": ("Llama-Guard-2-8B", "meta-llama/Meta-Llama-Guard-2-8B", "final_adapter"),
+    # Mistral lineage, SFT by Claude/SFT/blind/sft_train.py with the Mistral
+    # [INST] template (MISTRAL_CHAT_TEMPLATE below) on the Qwen JSON rows.
+    "mistral-7b":   ("Mistral-7B-Instruct-v0.3", "unsloth/Mistral-7B-Instruct-v0.3", "final_adapter"),
+    "wildguard-7b": ("WildGuard-7B", "allenai/wildguard", "final_adapter"),
 }
 
 # Model families whose SFT used the Gemma turn format rather than ChatML.
 IS_GEMMA = "gemma" in MODEL.lower()
 IS_LLAMA = "llama" in MODEL.lower()
+IS_MISTRAL = any(m in MODEL.lower() for m in ("mistral", "wildguard"))
 # Completion format the SFT model was trained to emit (see llama_format.py).
 OUTPUT_FORMAT = "llamaguard" if IS_LLAMA else "json"
 
@@ -87,12 +92,24 @@ NOPROFILE = _os.environ.get("MGB_NOPROFILE", "0") == "1"
 if NOPROFILE:
     CONDITION_TAG = f"{CONDITION_TAG}-noprofile"
 
+# Non-personalized SFT runs written by Claude/SFT/blind/sft_train.py on
+# Claude/Ablation/data/noprofile_sft (ChatML; the Qwen / Qwen3Guard lineage).
+NOPROFILE_RUNS = {
+    "qwen3-4b":      "Qwen3-4B-noprofile",
+    "qwen3-8b":      "Qwen3-8B-noprofile",
+    "qwen3guard-4b": "Qwen3Guard-4B-noprofile",
+    "qwen3guard-8b": "Qwen3Guard-8B-noprofile",
+    "qwen3-14b":     "Qwen3-14B-noprofile",
+    "shieldgemma-2b": "ShieldGemma-2B-noprofile",   # same rows, Gemma turn format applied by sft_train.py
+}
+
 if DATA_CONDITION == "legacy_v1" and NOPROFILE:
-    if MODEL != "qwen3-4b":
-        raise SystemExit("MGB_NOPROFILE=1 is only set up for MGB_MODEL=qwen3-4b")
+    if MODEL not in NOPROFILE_RUNS:
+        raise SystemExit(f"MGB_NOPROFILE=1 has no non-personalized SFT run for MGB_MODEL={MODEL!r}; "
+                         f"choose from {sorted(NOPROFILE_RUNS)}")
     LEGACY_FP16_BASE = LEGACY_RUNS[MODEL][1]
     DATA_DIR = PROJECT_ROOT / "Claude" / "Ablation" / "data" / "noprofile_sft"
-    SFT_RUN_DIR = PROJECT_ROOT / "Claude" / "SFT" / "new_outputs" / "Qwen3-4B-noprofile"
+    SFT_RUN_DIR = PROJECT_ROOT / "Claude" / "SFT" / "new_outputs" / NOPROFILE_RUNS[MODEL]
     _best_ckpt = _os.environ.get("MGB_SFT_CHECKPOINT", "final_adapter")
     SFT_ADAPTER_PATH = SFT_RUN_DIR / _best_ckpt
     SFT_MERGED_PATH = SFT_RUN_DIR / f"{_best_ckpt}-merged"
@@ -237,6 +254,37 @@ W_VERDICT_FN_PENALTY = 1.0
 # Penalize each spurious positive category to prevent over-flagging (e.g. Allergy FPs).
 W_CATEGORY_FP_PENALTY = 0.3
 
+# ------------------------------------------------------------
+# Recipe "v3" (MGB_GRPO_RECIPE=v3): over-blocking fix
+# ------------------------------------------------------------
+# Post-mortem of grpo-guided-v2 across backbones (2026-10-15): three of the
+# eight runs regressed the same way -- unsafe recall -> 98-99 % while the
+# safe-case FPR exploded (ShieldGemma-2B 15 -> 40 %, ShieldGemma-9B 10 -> 28 %,
+# Qwen3Guard-8B 17 -> 28 %), with the extra false positives concentrated in
+# the categories the reward emphasises (Allergy, Dosage, DDI, Drug-Food).
+# The train reward stayed flat (~2.0) for those runs, i.e. the policy did
+# not get better on the hard set, it drifted.  Three things in v2 push in
+# that direction and nothing pulls back:
+#   * the mined set is ~78 % gold-unsafe (test is 53 %): safe scenarios are
+#     only mined when the SFT policy already wavers on them;
+#   * the verdict penalties are asymmetric: a missed unsafe case costs
+#     W_VERDICT + W_VERDICT_FN_PENALTY, over-blocking a safe case costs only
+#     W_VERDICT (plus 0.3 per hallucinated category);
+#   * BETA = 0: no KL leash to the SFT reference, so a run that finds no
+#     reward gradient can still wander arbitrarily far.
+# v3 keeps everything else identical and adds: a symmetric over-blocking
+# penalty, a minimum share of gold-safe scenarios in the GRPO set (topped up
+# from the mining cache), a small KL leash, and enough checkpoints to pick
+# the best one on the VALIDATION split instead of taking the last step.
+GRPO_RECIPE = _os.environ.get("MGB_GRPO_RECIPE", "v2")
+_V3 = GRPO_RECIPE == "v3"
+# Penalty for predicting unsafe on a gold-safe scenario (the mirror of
+# W_VERDICT_FN_PENALTY). 0.0 reproduces v2.
+W_VERDICT_FP_PENALTY = float(_os.environ.get("MGB_W_VERDICT_FP", "0.5" if _V3 else "0.0"))
+# Minimum fraction of gold-safe scenarios in the mined GRPO set
+# (mine_hard_examples.py --min-safe-frac). 0 = no top-up (v2 behaviour).
+MINING_MIN_SAFE_FRAC = float(_os.environ.get("MGB_MIN_SAFE_FRAC", "0.40" if _V3 else "0.0"))
+
 REWARD_PARSE_FAIL = -1.0   # unparseable completion
 
 # Reference completions are 749-1007 tokens (5th-95th pct, mean 867). The
@@ -314,7 +362,9 @@ LEARNING_RATE = 5e-5
 # change, so the KL term opposes the reward exactly on the systematic
 # errors (Allergy/Dosage/Infection -> DDI). The PPO clip (epsilon) already
 # bounds each step; a KL leash is not needed for stability at this scale.
-BETA = 0.0
+# (v3: 0.04 -- see the recipe note above W_VERDICT_FP_PENALTY; three v2 runs
+# drifted into over-blocking with no reward gain, which a leash prevents.)
+BETA = float(_os.environ.get("MGB_GRPO_BETA", "0.04" if _V3 else "0.0"))
 # DAPO "clip-higher": allow tokens with positive advantage to grow more per
 # step than they may shrink. The tokens we need to raise ("true" for a
 # missed category) are currently LOW-probability, and a symmetric 0.2 clip
@@ -377,6 +427,12 @@ LORA_TARGET_MODULES = [
 ]
 
 SAVE_STEPS = 25
+# How many checkpoints to keep. v2 kept the last 3 (resume only). v3 keeps
+# every SAVE_STEPS*2 = 50 steps for the whole run so select_grpo_checkpoint.py
+# can pick the best one on the validation split (~0.5 GB per checkpoint).
+SAVE_TOTAL_LIMIT = int(_os.environ.get("MGB_SAVE_TOTAL_LIMIT", "30" if _V3 else "3"))
+if _V3:
+    SAVE_STEPS = 50
 LOGGING_STEPS = 5
 
 USE_VLLM = True              # vLLM-backed generation; big speedup
@@ -529,6 +585,33 @@ GEMMA_CHAT_TEMPLATE = (
 GEMMA_MARKERS = ("gemma", "Gemma")
 GEMMA_EOS = "<end_of_turn>"
 
+# Mistral v0.3 / WildGuard: identical to sft_train.MISTRAL_TEMPLATE. The
+# assistant turn ends with the native eos (</s>), so no eos swap is needed.
+# "[INST] ... [/INST]" closes the user turn, so the generation prompt is implicit
+# (no add_generation_prompt text) and ASSISTANT_PREFIX is "".
+MISTRAL_CHAT_TEMPLATE = (
+    "{{- bos_token }}"
+    "{%- set ns = namespace(system='') %}"
+    "{%- for message in messages %}"
+    "{%- if message['role'] == 'system' %}"
+    "{%- set ns.system = message['content'] %}"
+    "{%- endif %}"
+    "{%- endfor %}"
+    "{%- set loop_messages = messages | rejectattr('role', 'equalto', 'system') | list %}"
+    "{%- for message in loop_messages %}"
+    "{%- if message['role'] == 'user' %}"
+    "{%- if loop.first and ns.system %}"
+    "{{- '[INST] ' + ns.system + '\n\n' + message['content'] | trim + ' [/INST]' }}"
+    "{%- else %}"
+    "{{- '[INST] ' + message['content'] | trim + ' [/INST]' }}"
+    "{%- endif %}"
+    "{%- elif message['role'] == 'assistant' %}"
+    "{{- ' ' + message['content'] | trim + eos_token }}"
+    "{%- endif %}"
+    "{%- endfor %}"
+)
+MISTRAL_MARKERS = ("mistral", "Mistral", "wildguard", "WildGuard")
+
 # Text the SFT model was trained to emit at the very start of every answer,
 # before the JSON. It is placed in the generation prompt (right after
 # '<|im_start|>assistant\n') so the policy starts directly at '{'.
@@ -544,10 +627,11 @@ GEMMA_EOS = "<end_of_turn>"
 if "MGB_ASSISTANT_PREFIX" in _os.environ:
     ASSISTANT_PREFIX = _os.environ["MGB_ASSISTANT_PREFIX"].encode().decode("unicode_escape")
 elif DATA_CONDITION == "legacy_v1" and NOPROFILE:
-    # Qwen3-4B-noprofile was trained with Claude/SFT/blind/sft_train.py on the
-    # official Qwen3-4B-Instruct-2507 (no-think) template: targets start at '{'.
+    # The *-noprofile runs were trained with Claude/SFT/blind/sft_train.py on the
+    # official no-think template (Qwen3-*-Instruct-2507) or the standard ChatML
+    # override (Qwen3Guard): targets start at '{', no <think> scaffold.
     ASSISTANT_PREFIX = ""
-elif DATA_CONDITION == "legacy_v1" and "guard" not in MODEL.lower() and not IS_GEMMA and not IS_LLAMA:
+elif DATA_CONDITION == "legacy_v1" and "guard" not in MODEL.lower() and not IS_GEMMA and not IS_LLAMA and not IS_MISTRAL:
     ASSISTANT_PREFIX = "<think>\n\n</think>\n\n"
 else:
     # Official no-think template, or the Qwen3Guard SFT runs: those were

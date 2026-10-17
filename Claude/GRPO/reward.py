@@ -25,7 +25,7 @@ from grpo_config import (
     RISK_CATEGORIES, TARGET_CATEGORIES,
     W_VERDICT, W_DECISIVE_CATEGORY, W_OTHER_CATEGORIES, W_SCHEMA,
     W_LENGTH_PENALTY, W_TARGET_BONUS, W_CONSISTENCY_PENALTY,
-    W_VERDICT_FN_PENALTY, W_CATEGORY_FP_PENALTY,
+    W_VERDICT_FN_PENALTY, W_VERDICT_FP_PENALTY, W_CATEGORY_FP_PENALTY,
     REWARD_PARSE_FAIL, LENGTH_BUDGET_TOKENS,
     WRONG_VERDICT_CATEGORY_SCALE, REQUIRE_JSON_VERDICT_IN_TRAINING,
 )
@@ -175,11 +175,14 @@ def _categories_from_json_kv(text):
 
 def _find_category_dict(obj):
     """Locate the 17-category mapping anywhere in a nested dict."""
-    keys_for = ("risk_categories", "riskcategories", "risk_analysis",
-                "categories", "risks", "category_audit", "categoryaudit")
-
     def norm_key(k):
         return re.sub(r"[^a-z0-9]+", "", str(k).lower())
+
+    # normalised like the keys they are compared with ("risk_analysis" used to
+    # be listed un-normalised, so a risk_analysis dict with < 3 categories --
+    # typical of zero-shot base models -- was never found)
+    keys_for = {norm_key(k) for k in ("risk_categories", "risk_analysis", "categories",
+                                      "risks", "category_audit")}
 
     # Direct hit on a known container key
     for k, v in obj.items():
@@ -481,6 +484,16 @@ def compute_reward(completion, gold_verdict, gold_categories,
     else:
         parts["verdict_fn"] = 0.0
 
+    # 7b. Over-blocking penalty: safe case called unsafe (False Positive).
+    # Mirror of 7 (weight 0.0 under recipe v2). Without it the only cost of
+    # flagging a safe patient was the lost W_VERDICT, half the cost of a
+    # missed unsafe case, and three v2 runs drifted to ~99 % recall at
+    # 28-40 % FPR.
+    if gold_verdict is True and parsed["verdict"] is False:
+        parts["verdict_fp"] = -W_VERDICT_FP_PENALTY
+    else:
+        parts["verdict_fp"] = 0.0
+
     # 8. Hallucination penalty: Per-category False Positives (over-flagging).
     # Penalizes each extraneous risk category proportionally, stopping the policy
     # from shotgun-flagging categories (e.g. Allergy FPs) without consequence.
@@ -642,6 +655,19 @@ def _tests():
         {"is_safe": True, "risk_categories": gold_cats}), False, gold_cats, "Age Risk", return_parts=True)
     check("wrong verdict penalized", r_wrong_verdict < r_perfect)
     check("missed unsafe incurs verdict_fn penalty", parts_wv.get("verdict_fn") == -W_VERDICT_FN_PENALTY)
+    check("missed unsafe does not incur verdict_fp", parts_wv.get("verdict_fp") == 0.0)
+
+    # Over-blocking: gold safe, model says unsafe with one hallucinated category
+    all_false = {c: False for c in gold_cats}
+    r_safe_ok, parts_safe_ok = compute_reward(json.dumps(
+        {"is_safe": True, "risk_categories": all_false}), True, all_false, None, return_parts=True)
+    overblock = dict(all_false)
+    overblock["Allergy & Adverse Drug Reaction Risk"] = True
+    r_ob, parts_ob = compute_reward(json.dumps(
+        {"is_safe": False, "risk_categories": overblock}), True, all_false, None, return_parts=True)
+    check("over-blocking incurs verdict_fp penalty", parts_ob.get("verdict_fp") == -W_VERDICT_FP_PENALTY)
+    check("over-blocking scores below correct safe", r_ob < r_safe_ok, f"{r_ob:.3f} vs {r_safe_ok:.3f}")
+    check("correct safe has no verdict_fp", parts_safe_ok.get("verdict_fp") == 0.0)
 
     # Hallucinating extraneous categories incurs penalty per hallucinated category
     one_hallucination = dict(gold_cats)

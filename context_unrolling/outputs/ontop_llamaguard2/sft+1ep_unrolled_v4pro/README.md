@@ -5,8 +5,9 @@ model_name: sft+1ep_unrolled_v4pro
 tags:
 - generated_from_trainer
 - trl
-- sft
+- hf_jobs
 - unsloth
+- sft
 licence: license
 ---
 
@@ -37,8 +38,8 @@ This model was trained with SFT.
 
 - TRL: 0.24.0
 - Transformers: 4.57.6
-- Pytorch: 2.10.0
-- Datasets: 4.8.3
+- Pytorch: 2.11.0
+- Datasets: 4.3.0
 - Tokenizers: 0.22.2
 
 ## Citations

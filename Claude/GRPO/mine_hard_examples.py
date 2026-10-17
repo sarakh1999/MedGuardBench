@@ -13,6 +13,15 @@ Why this step exists:
   keeps only scenarios where the group disagrees or is consistently wrong,
   and oversamples the categories that are currently at floor.
 
+Recipe v3 adds --min-safe-frac: hard-example mining keeps a safe scenario only
+when the SFT policy already wavers on it, so the mined set ends up ~78 %
+gold-unsafe (test is 53 %) and GRPO generalises "flag something" to safe
+patients. This tops up gold-safe scenarios from the cache until they are at
+least that fraction. FIX (2026-10-15): if the cache does not contain enough
+safe scenarios to reach the target, the script now WARNS loudly instead of
+silently writing an under-balanced set -- an under-balanced set is exactly
+what caused the v2 over-blocking drift.
+
 Usage:
     python mine_hard_examples.py
     python mine_hard_examples.py --limit 200        # quick smoke test
@@ -21,6 +30,7 @@ Usage:
 
 import argparse
 import json
+import math
 import statistics
 from collections import Counter
 from pathlib import Path
@@ -82,7 +92,7 @@ def generate_samples(model, tokenizer, scenarios, n_samples, temperature,
 def score_and_filter(scenarios, cache_path):
     """Score cached samples and decide which scenarios to keep."""
     by_uid = {s["uid"]: s for s in scenarios}
-    kept, stats = [], []
+    kept, stats, skipped_safe = [], [], []
 
     with open(cache_path) as f:
         for line in f:
@@ -144,16 +154,52 @@ def score_and_filter(scenarios, cache_path):
                 "reason": "variance" if has_signal else ("low_mean" if is_hard else "skip"),
             })
 
+            item = dict(scenario)
+            item["mining_mean_reward"] = round(mean_r, 4)
+            item["mining_reward_variance"] = round(var_cat, 6)
+            item["mining_mean_category_score"] = round(mean_cat, 4)
+            item["mining_parse_failures"] = n_parse_fail
             if has_signal or is_hard:
-                item = dict(scenario)
-                item["mining_mean_reward"] = round(mean_r, 4)
-                item["mining_reward_variance"] = round(var_cat, 6)
-                item["mining_mean_category_score"] = round(mean_cat, 4)
-                item["mining_parse_failures"] = n_parse_fail
                 item["mining_reason"] = "variance" if has_signal else "low_mean"
                 kept.append(item)
+            elif scenario["gold_verdict"] is True:
+                # Zero-variance-correct SAFE scenarios: no gradient on their
+                # own, kept aside so --min-safe-frac can rebalance the set.
+                item["mining_reason"] = "safe_balance"
+                skipped_safe.append(item)
 
-    return kept, stats
+    return kept, stats, skipped_safe
+
+
+def top_up_safe(kept, skipped_safe, min_frac, seed):
+    """Append gold-safe scenarios until they are >= min_frac of the set.
+
+    Returns (new_kept, n_added, need, available). n_added < need means the
+    mining cache ran out of safe scenarios and the target fraction was NOT
+    reached -- the caller must warn, because an under-balanced set is what
+    caused the v2 over-blocking drift.
+
+    Candidates are taken from the mining cache, highest category-score
+    variance first (closest to the decision boundary), then random; every
+    added safe scenario still scores the policy's samples at training time,
+    so a sample that over-blocks gets a negative advantage against its group.
+    """
+    if min_frac <= 0 or not skipped_safe:
+        return kept, 0, 0, len(skipped_safe)
+    n_safe = sum(1 for s in kept if s["gold_verdict"] is True)
+    n_total = len(kept)
+    # smallest k with (n_safe + k) / (n_total + k) >= min_frac
+    need = max(0, math.ceil((min_frac * n_total - n_safe) / (1.0 - min_frac)))
+    if need == 0:
+        return kept, 0, 0, len(skipped_safe)
+    import random
+    pool = sorted(skipped_safe,
+                  key=lambda s: (-s["mining_reward_variance"], s["mining_mean_reward"]))
+    boundary = [s for s in pool if s["mining_reward_variance"] > 0]
+    rest = [s for s in pool if s["mining_reward_variance"] <= 0]
+    random.Random(seed).shuffle(rest)
+    added = (boundary + rest)[:need]
+    return kept + added, len(added), need, len(skipped_safe)
 
 
 def oversample_targets(kept, factor):
@@ -187,6 +233,12 @@ def main():
                     help="skip generation, re-filter the existing cache")
     ap.add_argument("--out", default=str(C.HARD_EXAMPLES_JSONL))
     ap.add_argument("--cache", default=str(C.MINING_CACHE_JSONL))
+    ap.add_argument("--min-safe-frac", type=float, default=C.MINING_MIN_SAFE_FRAC,
+                    help="top up gold-safe scenarios from the cache until they are at least "
+                         "this fraction of the GRPO set (0 = off; recipe v3 default 0.40)")
+    ap.add_argument("--allow-unbalanced", action="store_true",
+                    help="write the set even if the cache cannot reach --min-safe-frac "
+                         "(default: still write, but exit non-zero so a chain can stop)")
     args = ap.parse_args()
 
     cache_path = Path(args.cache)
@@ -238,13 +290,14 @@ def main():
         print(f"Reusing cache at {cache_path}")
 
     print("\nScoring and filtering...")
-    kept, stats = score_and_filter(scenarios, cache_path)
+    kept, stats, skipped_safe = score_and_filter(scenarios, cache_path)
 
     reasons = Counter(s["reason"] for s in stats)
     print(f"\n  scored:          {len(stats)}")
     print(f"  kept (variance): {reasons['variance']}")
     print(f"  kept (low mean): {reasons['low_mean']}")
     print(f"  dropped:         {reasons['skip']}")
+    print(f"  safe held aside: {len(skipped_safe)} (available for --min-safe-frac top-up)")
     if stats:
         means = [s["mean"] for s in stats]
         print(f"  mean reward:     {statistics.fmean(means):.3f}")
@@ -260,6 +313,30 @@ def main():
 
     kept = oversample_targets(kept, C.TARGET_CATEGORY_OVERSAMPLE)
     print(f"\n  after target oversampling: {len(kept)}")
+
+    n_safe0 = sum(1 for k in kept if k["gold_verdict"] is True)
+    kept, n_added, need, available = top_up_safe(
+        kept, skipped_safe, args.min_safe_frac, args.sample_seed)
+    n_safe1 = sum(1 for k in kept if k["gold_verdict"] is True)
+    achieved = n_safe1 / max(len(kept), 1)
+    print(f"  gold-safe share: {n_safe0}/{len(kept) - n_added} = {n_safe0 / max(len(kept) - n_added, 1):.2f}"
+          f" -> {n_safe1}/{len(kept)} = {achieved:.2f}"
+          f" (+{n_added} safe scenarios from cache, min-safe-frac {args.min_safe_frac})")
+
+    # FIX: warn loudly if the cache could not supply enough safe scenarios to
+    # reach the target. An under-balanced set is the exact condition that made
+    # three v2 runs drift into over-blocking.
+    unbalanced = args.min_safe_frac > 0 and achieved < args.min_safe_frac - 1e-6
+    if unbalanced:
+        print("\n" + "!" * 72)
+        print(f"  WARNING: could not reach min-safe-frac={args.min_safe_frac:.2f}. "
+              f"Needed {need} safe scenarios, only {available} were held aside "
+              f"(added {n_added}); achieved {achieved:.2f}.")
+        print("  The GRPO set is still unsafe-heavy -- this is the setup that caused the")
+        print("  v2 over-blocking drift. Options: lower --min-safe-frac, mine MORE training")
+        print("  scenarios so more gold-safe ones land in the cache, or add safe scenarios")
+        print("  directly. Proceeding to write the file, but exiting non-zero so a chain stops.")
+        print("!" * 72)
 
     cat_counts = Counter(
         canonical_category(k.get("decisive_category") or "") or "(none)"
@@ -285,6 +362,10 @@ def main():
         print("\n  WARNING: fewer than 100 hard examples. GRPO has little to")
         print("  work with. Consider raising MINING_MAX_MEAN_CATEGORY_FRAC or")
         print("  MINING_TEMPERATURE to surface more disagreement.")
+
+    if unbalanced and not args.allow_unbalanced:
+        import sys
+        sys.exit(3)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,18 @@
+,"Train (n=3,772)",Validation (n=503),Test (n=754),Total
+Drug-Drug Interaction Risk,936,127,181,1244
+Dosage & Toxicity Risk,388,52,92,532
+Cardiac Impairment Risk,387,63,65,515
+Age Risk,330,28,64,422
+Allergy & Adverse Drug Reaction Risk,306,35,59,400
+Renal Impairment Risk,202,35,40,277
+Bleeding Risk,202,39,21,262
+Hepatic Impairment Risk,167,19,52,238
+Respiratory Impairment Risk,171,15,41,227
+Pregnancy & Breastfeeding Risk,152,12,34,198
+Drug-Food Interaction Risk,145,21,31,197
+Infection Risk,140,21,25,186
+Alcohol Use Risk,133,10,34,177
+Substance Use Risk,93,5,26,124
+Weight/BMI Risk,76,11,14,101
+Tobacco Use Risk,50,6,8,64
+Caffeine Intake Risk,19,3,3,25
