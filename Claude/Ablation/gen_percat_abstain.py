@@ -10,6 +10,9 @@ import recompute_729 as R
 
 PAPER = os.path.join(R.OUT_DIR, "paper")
 MAIN = json.load(open(os.path.join(PAPER, "main_729_abstain.json")))
+# Table 1 zero-shot rows for these backbones are the re-generated runs (rescore_regen_base_729.py)
+for _k, _c in json.load(open(os.path.join(PAPER, "regen_base_729_abstain.json"))).items():
+    MAIN[_k][0] = _c
 
 CATS = [
     "Drug-Drug Interaction Risk", "Cardiac Impairment Risk", "Dosage & Toxicity Risk",
@@ -55,17 +58,14 @@ def getcol(m, ai):
     return MAIN[m][ai]
 
 
-# panel specs: (model, n_arms)
-PANEL_A = [("q4", 4), ("q8", 4), ("q14", 4), ("g4", 4), ("g8", 4)]
-PANEL_B = [("l31", 4), ("lg7", 3), ("lg2", 4), ("s2", 4), ("s9", 4), ("mg", 3)]
+# panel specs: (model, arm indices); 0=Base 1=SFT 2=CU 3=GRPO
+ALL4, NO_GRPO = (0, 1, 2, 3), (0, 1, 2)
+PANEL_A = [("q4", ALL4), ("q8", ALL4), ("q14", ALL4), ("g4", ALL4), ("g8", ALL4), ("wg", (1, 2))]
+PANEL_B = [("l31", ALL4), ("lg7", NO_GRPO), ("lg2", ALL4), ("s2", ALL4), ("s9", ALL4), ("mg", NO_GRPO)]
 
 
 def cols_for(panel):
-    out = []
-    for m, n in panel:
-        for ai in range(n):
-            out.append(getcol(m, ai))
-    return out
+    return [getcol(m, ai) for m, arms in panel for ai in arms]
 
 
 def emit(cols, other):
@@ -93,8 +93,8 @@ print("\n".join(emit(cols_b, cols_a)))
 
 # unparsable diagnostics
 print("\n=== n_unpars per column ===")
-for m, n in PANEL_A + PANEL_B:
-    for ai in range(n):
+for m, arms in PANEL_A + PANEL_B:
+    for ai in arms:
         c = getcol(m, ai)
         if c:
             print(f"{m} arm{ai}: unpars={c.get('n_unpars')} mic={c.get('mic')} mac={c.get('mac')}")

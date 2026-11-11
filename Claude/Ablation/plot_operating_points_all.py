@@ -18,6 +18,7 @@ Outputs (Claude/Ablation/report/):
 import argparse
 import csv
 import glob
+import json
 import os
 import sys
 
@@ -86,7 +87,10 @@ def main():
     gold = load_gold("true"); n = len(gold)
     gv = np.array([g[0] for g in gold]); gc = np.array([[g[1][c] for c in RISK_CATEGORIES] for g in gold])
     import recompute_729 as R
+    from rescore_regen_base_729 import DRIFT_ROWS
     _, keep = R.keep_mask()
+    keep = np.asarray(keep, dtype=bool).copy()
+    keep[DRIFT_ROWS] = False
     idx = np.flatnonzero(keep)
     print(f"scoring the {len(idx)}-row drug-disjoint test split (dropped {n - len(idx)} cross-split rows)")
 
@@ -99,9 +103,9 @@ def main():
         p = os.path.join(ROOT, "Claude/SFT/new_outputs", run, "test_predictions_sft.jsonl")
         if os.path.exists(p):
             runs[(model, "sft-noprofile", "nonpersonalized")] = p
-    from audit_729 import load_any, table1_files
-    for (model, arm), p in table1_files().items():
-        runs[(model, arm, "true")] = p
+    from audit_729 import DIRKEY, load_any
+    for k in DIRKEY.values():
+        runs.pop((k, "base", "true"), None)  # Table 1 cells come from the authoritative scores below
 
     res = {}
     for k, p in sorted(runs.items()):
@@ -110,7 +114,26 @@ def main():
             print(f"  skip {k}: {n_rows}/{n} rows"); continue
         if not parsed.any():
             print(f"  skip {k}: no parsable verdicts"); continue
-        res[k] = metrics(gv, gc, pv, pc, idx)
+        res[k] = metrics(gv, gc, pv, pc, idx[parsed[idx]])  # unparsable rows excluded, as in the tables
+
+    # Truncated prediction files: fall back to the Table 7 (profile perturbation) scores
+    prof = json.load(open(os.path.join(R.OUT_DIR, "paper", "profile_729_abstain.json")))
+    for k in runs:
+        c = prof.get("|".join(k))
+        if k not in res and c and c.get("rec") is not None:
+            res[k] = {"recall": c["rec"] / 100, "fpr": c["fpr"] / 100, "acc": c["acc"] / 100, "macro_f1": c["mac"] / 100}
+            print(f"  {k}: using Table 7 scores")
+
+    # Table 1 cells: same scores as the typeset table (some prediction files are no longer on disk)
+    main = json.load(open(os.path.join(R.OUT_DIR, "paper", "main_729_abstain.json")))
+    for key, c in json.load(open(os.path.join(R.OUT_DIR, "paper", "regen_base_729_abstain.json"))).items():
+        main[key][0] = c
+    main["lg2"][0] = {"rec": 97.4, "fpr": 80.3, "acc": 60.1, "mac": 0.0}  # outputs/llamaguard2-8b/base/true
+    for key, arms in main.items():
+        for arm, c in zip(ARMS, arms):
+            if c and c.get("rec") is not None:
+                res[(DIRKEY[key], arm, "true")] = {"recall": c["rec"] / 100, "fpr": c["fpr"] / 100,
+                                                   "acc": c["acc"] / 100, "macro_f1": c["mac"] / 100}
 
     pts = []  # (model, system, metrics)
     for model in MODEL_ORDER:
