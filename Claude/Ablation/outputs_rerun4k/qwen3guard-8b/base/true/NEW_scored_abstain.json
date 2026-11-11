@@ -1,0 +1,31 @@
+{
+ "metrics": {
+  "acc": 79.50819672131148,
+  "rec": 86.38743455497382,
+  "fpr": 28.000000000000004,
+  "mic": 53.120243531202426,
+  "mac": 41.04899346540235,
+  "em": 50.0,
+  "n_unp": 0,
+  "n_scored": 732
+ },
+ "per_cat": {
+  "Allergy & Adverse Drug Reaction Risk": 41.7,
+  "Drug-Drug Interaction Risk": 69.3,
+  "Drug-Food Interaction Risk": 31.8,
+  "Dosage & Toxicity Risk": 41.2,
+  "Renal Impairment Risk": 46.6,
+  "Hepatic Impairment Risk": 66.7,
+  "Cardiac Impairment Risk": 49.6,
+  "Respiratory Impairment Risk": 41.0,
+  "Bleeding Risk": 38.3,
+  "Infection Risk": 8.7,
+  "Pregnancy & Breastfeeding Risk": 75.6,
+  "Alcohol Use Risk": 77.4,
+  "Tobacco Use Risk": 0.0,
+  "Substance Use Risk": 50.0,
+  "Caffeine Intake Risk": 14.3,
+  "Weight/BMI Risk": 22.2,
+  "Age Risk": 23.4
+ }
+}

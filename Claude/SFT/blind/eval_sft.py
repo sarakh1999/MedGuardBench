@@ -55,32 +55,53 @@ def load_risk_categories(path):
         return [ln.strip() for ln in f if ln.strip() and not ln.startswith("#")]
 
 
+_SMART_QUOTES = {ord("\u2018"): "'", ord("\u2019"): "'",
+                 ord("\u201c"): '"', ord("\u201d"): '"'}
+
+
+def _normalise_quotes(text):
+    return text.translate(_SMART_QUOTES)
+
+
 def _strip_noise(text):
     for noise in ("</tool_call>", "<tool_call>", "<think>", "</think>"):
         text = text.replace(noise, "")
     return text
 
 
+def _coerce_bool_literals(js):
+    # some models answer with Yes/No (or capitalised True/False) in value
+    # position instead of JSON booleans; normalise only after a ':' so string
+    # contents are left untouched.
+    js = re.sub(r':\s*"?(Yes|yes)"?(\s*[,}\]])', r': true\2', js)
+    js = re.sub(r':\s*"?(No|no)"?(\s*[,}\]])', r': false\2', js)
+    js = re.sub(r':\s*(True|False)(\s*[,}\]])',
+                lambda m: f": {m.group(1).lower()}{m.group(2)}", js)
+    return js
+
+
 def extract_json_dict(text):
-    m = re.search(r"\{.*\}", _strip_noise(text), re.DOTALL)
+    m = re.search(r"\{.*\}", _normalise_quotes(_strip_noise(text)), re.DOTALL)
     if m:
-        try:
-            data = json.loads(m.group())
-            if isinstance(data, dict):
-                return data
-        except json.JSONDecodeError:
-            pass
+        for candidate in (m.group(), _coerce_bool_literals(m.group())):
+            try:
+                data = json.loads(candidate)
+                if isinstance(data, dict):
+                    return data
+            except json.JSONDecodeError:
+                continue
     return None
 
 
 def recover_partial_risk_analysis(text, categories):
-    cleaned = _strip_noise(text)
+    cleaned = _normalise_quotes(_strip_noise(text))
     out, n_found = {c: False for c in categories}, 0
     for c in categories:
         for variant in (c, c.replace("-", "\u2013")):
-            m = re.search(rf'"{re.escape(variant)}"\s*:\s*(true|false)', cleaned, re.IGNORECASE)
+            m = re.search(rf'"{re.escape(variant)}"\s*:\s*"?(true|false|yes|no)"?',
+                          cleaned, re.IGNORECASE)
             if m:
-                out[c] = m.group(1).lower() == "true"
+                out[c] = m.group(1).lower() in ("true", "yes")
                 n_found += 1
                 break
     return out, n_found
@@ -123,9 +144,11 @@ def extract_is_safe(text):
     parsed = extract_json_dict(text)
     if parsed and "is_safe" in parsed:
         return bool(parsed["is_safe"])
-    m = re.search(r'"is_safe"\s*:\s*(true|false)', text, re.IGNORECASE)
+    # tolerate smart quotes and a mis-spelled key ("is_safe" / "is safe" / "Is Safe")
+    m = re.search(r'["\']?\s*is[ _]?safe\s*["\']?\s*:\s*["\']?(true|false|yes|no)',
+                  _normalise_quotes(text), re.IGNORECASE)
     if m:
-        return m.group(1).lower() == "true"
+        return m.group(1).lower() in ("true", "yes")
     lg = parse_llamaguard(text)
     return lg[0] if lg else None
 
@@ -191,6 +214,23 @@ def main():
     ap.add_argument("--schema-in-prompt", action="store_true",
                     help="append the 17 category names to the system prompt "
                          "(default for --base, as in Base_Models/*_w_schemas.py)")
+    ap.add_argument("--no-repeat-ngram-size", type=int, default=0,
+                    help="block repeating n-grams during decoding (0 = off); breaks "
+                         "degenerate verbatim loops that otherwise fill the budget")
+    ap.add_argument("--repetition-penalty", type=float, default=1.0,
+                    help="HF repetition_penalty (1.0 = off)")
+    ap.add_argument("--prime", default=None,
+                    help="prime the assistant turn with this literal text (e.g. the "
+                         "JSON opening '{\\n  \"reasoning\": \"'). For non-instruction-tuned "
+                         "base models that otherwise ignore the 'output JSON' instruction "
+                         "and continue into code/prose. The prime is prepended to the stored "
+                         "response so parsing sees the full JSON object.")
+    ap.add_argument("--no-think", action="store_true",
+                    help="Qwen3 family: pre-fill an empty '<think></think>' block in the "
+                         "generation prompt (enable_thinking=False). The custom ChatML "
+                         "template does not suppress reasoning, so Qwen3-based models "
+                         "(e.g. Qwen3Guard-Gen) otherwise emit <think> and loop past the "
+                         "token budget without ever committing to the JSON verdict.")
     args = ap.parse_args()
     schema_in_prompt = args.schema_in_prompt or args.base
 
@@ -260,8 +300,15 @@ def main():
             prompts, gts = [], []
             for i in idxs:
                 msgs = test_ds[i]["messages"]
-                prompts.append(tokenizer.apply_chat_template(
-                    prompt_messages(msgs), tokenize=False, add_generation_prompt=True))
+                p = tokenizer.apply_chat_template(
+                    prompt_messages(msgs), tokenize=False, add_generation_prompt=True)
+                if args.no_think and p.rstrip().endswith("<|im_start|>assistant"):
+                    # enable_thinking=False: seed an empty reasoning block so the
+                    # model emits the answer directly instead of looping in <think>.
+                    p = p + "<think>\n\n</think>\n\n"
+                if args.prime:
+                    p = p + args.prime
+                prompts.append(p)
                 gts.append(next((m["content"] for m in msgs if m["role"] == "assistant"), ""))
             enc = tokenizer(prompts, return_tensors="pt", padding=True,
                             add_special_tokens=False).to("cuda")
@@ -270,13 +317,17 @@ def main():
                 out = model.generate(**enc, max_new_tokens=args.max_new_tokens,
                                      do_sample=False, use_cache=True,
                                      eos_token_id=eos_ids,
-                                     pad_token_id=tokenizer.pad_token_id)
+                                     pad_token_id=tokenizer.pad_token_id,
+                                     no_repeat_ngram_size=args.no_repeat_ngram_size or None,
+                                     repetition_penalty=args.repetition_penalty)
             secs = time.time() - t0
             plen = enc["input_ids"].shape[1]
             for j, i in enumerate(idxs):
                 gen = out[j][plen:]
                 n_tok = int((gen != tokenizer.pad_token_id).sum())
                 response = tokenizer.decode(gen, skip_special_tokens=True)
+                if args.prime:
+                    response = args.prime + response
                 pred_safe = extract_is_safe(response)
                 parsed_ok = pred_safe is not None
                 if not parsed_ok:
