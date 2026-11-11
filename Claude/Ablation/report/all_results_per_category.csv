@@ -1,0 +1,1208 @@
+model,arm,condition,source,category,f1,support,file
+llama31-8b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.5905,58,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8017,195,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.5667,28,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.5455,70,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Renal Impairment Risk,0.6984,33,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7619,38,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.7941,80,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.5500,25,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Bleeding Risk,0.6341,26,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Infection Risk,0.6190,26,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9286,27,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Alcohol Use Risk,0.9492,31,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Tobacco Use Risk,0.1538,9,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Substance Use Risk,0.9231,19,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Caffeine Intake Risk,0.2857,3,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Weight/BMI Risk,0.4762,14,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llama31-8b,GRPO,true,grpo-native,Age Risk,0.6154,65,Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.6122,58,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8702,195,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.5818,28,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.5758,70,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Renal Impairment Risk,0.7500,33,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7385,38,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.7857,80,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.7143,25,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Bleeding Risk,0.6341,26,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Infection Risk,0.5263,26,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9630,27,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Alcohol Use Risk,0.9492,31,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Tobacco Use Risk,0.4000,9,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Substance Use Risk,0.9000,19,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Caffeine Intake Risk,0.3333,3,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Weight/BMI Risk,0.5000,14,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+llamaguard2-8b,GRPO,true,grpo-native,Age Risk,0.6538,65,Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Allergy & Adverse Drug Reaction Risk,0.2558,58,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Drug-Drug Interaction Risk,0.5943,195,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Drug-Food Interaction Risk,0.4167,28,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Dosage & Toxicity Risk,0.5120,70,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Renal Impairment Risk,0.5833,33,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Hepatic Impairment Risk,0.6441,38,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Cardiac Impairment Risk,0.5882,80,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Respiratory Impairment Risk,0.4571,25,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Bleeding Risk,0.4118,26,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Infection Risk,0.6154,26,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Pregnancy & Breastfeeding Risk,0.9057,27,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Alcohol Use Risk,0.7083,31,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Tobacco Use Risk,0.0000,9,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Substance Use Risk,0.7500,19,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Caffeine Intake Risk,0.0000,3,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Weight/BMI Risk,0.1905,14,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-NP,nonpersonalized,grpo-native,Age Risk,0.4667,65,Claude/GRPO/outputs/legacy_v1-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Allergy & Adverse Drug Reaction Risk,0.4685,58,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Drug-Drug Interaction Risk,0.5969,195,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Drug-Food Interaction Risk,0.5000,28,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Dosage & Toxicity Risk,0.5310,70,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Renal Impairment Risk,0.6538,33,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Hepatic Impairment Risk,0.6071,38,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Cardiac Impairment Risk,0.7424,80,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Respiratory Impairment Risk,0.5128,25,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Bleeding Risk,0.4444,26,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Infection Risk,0.6364,26,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Pregnancy & Breastfeeding Risk,0.9020,27,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Alcohol Use Risk,0.7347,31,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Tobacco Use Risk,0.0000,9,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Substance Use Risk,0.7059,19,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Caffeine Intake Risk,0.0000,3,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Weight/BMI Risk,0.3636,14,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO-NP,nonpersonalized,grpo-native,Age Risk,0.4889,65,Claude/GRPO/outputs/legacy_v1-qwen3-14b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.6087,58,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8599,195,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.6970,28,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.6370,70,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Renal Impairment Risk,0.7797,33,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7937,38,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.7910,80,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.7317,25,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Bleeding Risk,0.6500,26,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Infection Risk,0.5946,26,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9811,27,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Alcohol Use Risk,0.9333,31,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Tobacco Use Risk,0.2000,9,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Substance Use Risk,0.9231,19,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Caffeine Intake Risk,0.5000,3,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Weight/BMI Risk,0.2857,14,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-14b,GRPO,true,grpo-native,Age Risk,0.6916,65,Claude/GRPO/outputs/legacy_v1-qwen3-14b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.6796,58,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8558,195,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.6667,28,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.5985,70,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Renal Impairment Risk,0.8308,33,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7937,38,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.8088,80,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.7179,25,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Bleeding Risk,0.6000,26,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Infection Risk,0.6316,26,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9630,27,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Alcohol Use Risk,0.9333,31,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Tobacco Use Risk,0.1818,9,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Substance Use Risk,0.9231,19,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Caffeine Intake Risk,0.3333,3,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Weight/BMI Risk,0.5000,14,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO,true,grpo-native,Age Risk,0.6486,65,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.4651,58,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Drug-Drug Interaction Risk,0.8499,195,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Drug-Food Interaction Risk,0.5385,28,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Dosage & Toxicity Risk,0.6176,70,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Renal Impairment Risk,0.7692,33,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Hepatic Impairment Risk,0.7500,38,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Cardiac Impairment Risk,0.8052,80,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Respiratory Impairment Risk,0.7317,25,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Bleeding Risk,0.6250,26,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Infection Risk,0.6154,26,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9630,27,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Alcohol Use Risk,0.9333,31,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Tobacco Use Risk,0.4286,9,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Substance Use Risk,0.9000,19,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Caffeine Intake Risk,0.3333,3,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Weight/BMI Risk,0.5185,14,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-8b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Age Risk,0.7009,65,Claude/GRPO/outputs/legacy_v1-qwen3-8b/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Allergy & Adverse Drug Reaction Risk,0.3269,58,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Drug-Drug Interaction Risk,0.5819,195,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Drug-Food Interaction Risk,0.2927,28,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Dosage & Toxicity Risk,0.4724,70,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Renal Impairment Risk,0.6154,33,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Hepatic Impairment Risk,0.6207,38,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Cardiac Impairment Risk,0.6102,80,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Respiratory Impairment Risk,0.4242,25,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Bleeding Risk,0.5143,26,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Infection Risk,0.5946,26,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Pregnancy & Breastfeeding Risk,0.8302,27,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Alcohol Use Risk,0.7347,31,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Tobacco Use Risk,0.0000,9,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Substance Use Risk,0.7500,19,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Caffeine Intake Risk,0.0000,3,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Weight/BMI Risk,0.1000,14,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO-NP,nonpersonalized,grpo-native,Age Risk,0.4598,65,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b-noprofile/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.5238,58,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8552,195,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.6667,28,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.5634,70,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Renal Impairment Risk,0.7273,33,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7812,38,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.8649,80,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.6829,25,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Bleeding Risk,0.6512,26,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Infection Risk,0.5946,26,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9286,27,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Alcohol Use Risk,0.9492,31,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Tobacco Use Risk,0.2667,9,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Substance Use Risk,0.9231,19,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Caffeine Intake Risk,0.2222,3,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Weight/BMI Risk,0.4000,14,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-4b,GRPO,true,grpo-native,Age Risk,0.6610,65,Claude/GRPO/outputs/legacy_v1-qwen3guard-4b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.5965,58,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8172,195,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.6329,28,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.6000,70,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Renal Impairment Risk,0.7429,33,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7576,38,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.7647,80,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.7143,25,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Bleeding Risk,0.5238,26,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Infection Risk,0.5946,26,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.8772,27,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Alcohol Use Risk,0.9492,31,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Tobacco Use Risk,0.1538,9,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Substance Use Risk,0.9231,19,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Caffeine Intake Risk,0.2000,3,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Weight/BMI Risk,0.4615,14,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3guard-8b,GRPO,true,grpo-native,Age Risk,0.6271,65,Claude/GRPO/outputs/legacy_v1-qwen3guard-8b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.5490,58,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.7813,195,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.5263,28,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.5036,70,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Renal Impairment Risk,0.7500,33,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7385,38,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.6822,80,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.6842,25,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Bleeding Risk,0.5000,26,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Infection Risk,0.6316,26,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.8814,27,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Alcohol Use Risk,0.8475,31,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Tobacco Use Risk,0.1538,9,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Substance Use Risk,0.9000,19,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Caffeine Intake Risk,0.1818,3,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Weight/BMI Risk,0.1905,14,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-2b,GRPO,true,grpo-native,Age Risk,0.5102,65,Claude/GRPO/outputs/legacy_v1-shieldgemma-2b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.5926,58,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8318,195,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.7143,28,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.5190,70,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Renal Impairment Risk,0.6875,33,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7619,38,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.7945,80,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.6316,25,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Bleeding Risk,0.6667,26,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Infection Risk,0.6341,26,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9434,27,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Alcohol Use Risk,0.9153,31,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Tobacco Use Risk,0.2000,9,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Substance Use Risk,0.8649,19,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Caffeine Intake Risk,0.3333,3,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Weight/BMI Risk,0.4545,14,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+shieldgemma-9b,GRPO,true,grpo-native,Age Risk,0.6372,65,Claude/GRPO/outputs/legacy_v1-shieldgemma-9b/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.5203,58,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Drug-Drug Interaction Risk,0.7664,195,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Drug-Food Interaction Risk,0.7353,28,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Dosage & Toxicity Risk,0.4928,70,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Renal Impairment Risk,0.7419,33,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Hepatic Impairment Risk,0.7742,38,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Cardiac Impairment Risk,0.8138,80,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Respiratory Impairment Risk,0.5000,25,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Bleeding Risk,0.6087,26,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Infection Risk,0.7000,26,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9455,27,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Alcohol Use Risk,0.9180,31,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Tobacco Use Risk,0.2857,9,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Substance Use Risk,0.8571,19,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Caffeine Intake Risk,0.5714,3,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Weight/BMI Risk,0.5600,14,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-guided-v2-noguide,true,grpo-native,Age Risk,0.6435,65,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2-noguide/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.5333,58,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Drug-Drug Interaction Risk,0.8483,195,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Drug-Food Interaction Risk,0.6984,28,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Dosage & Toxicity Risk,0.5672,70,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Renal Impairment Risk,0.7812,33,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Hepatic Impairment Risk,0.7692,38,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Cardiac Impairment Risk,0.8356,80,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Respiratory Impairment Risk,0.6667,25,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Bleeding Risk,0.6222,26,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Infection Risk,0.6667,26,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9811,27,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Alcohol Use Risk,0.9492,31,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Tobacco Use Risk,0.4615,9,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Substance Use Risk,0.9231,19,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Caffeine Intake Risk,0.2857,3,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Weight/BMI Risk,0.3478,14,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO,true,grpo-native,Age Risk,0.7048,65,Claude/GRPO/outputs/legacy_v1/grpo-guided-v2/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.4742,58,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Drug-Drug Interaction Risk,0.8093,195,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Drug-Food Interaction Risk,0.5818,28,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Dosage & Toxicity Risk,0.5857,70,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Renal Impairment Risk,0.8182,33,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Hepatic Impairment Risk,0.8060,38,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Cardiac Impairment Risk,0.8082,80,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Respiratory Impairment Risk,0.7000,25,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Bleeding Risk,0.6222,26,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Infection Risk,0.6154,26,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Pregnancy & Breastfeeding Risk,1.0000,27,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Alcohol Use Risk,0.9508,31,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Tobacco Use Risk,0.6250,9,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Substance Use Risk,0.9000,19,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Caffeine Intake Risk,0.2500,3,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Weight/BMI Risk,0.5385,14,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-cat-lr2e-5,true,grpo-native,Age Risk,0.6481,65,Claude/GRPO/outputs/legacy_v1/grpo-legacy-cat-lr2e-5/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Allergy & Adverse Drug Reaction Risk,0.4694,58,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Drug-Drug Interaction Risk,0.8027,195,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Drug-Food Interaction Risk,0.5200,28,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Dosage & Toxicity Risk,0.4730,70,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Renal Impairment Risk,0.7027,33,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Hepatic Impairment Risk,0.7714,38,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Cardiac Impairment Risk,0.7808,80,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Respiratory Impairment Risk,0.6818,25,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Bleeding Risk,0.6222,26,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Infection Risk,0.5556,26,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Pregnancy & Breastfeeding Risk,0.9434,27,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Alcohol Use Risk,0.9492,31,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Tobacco Use Risk,0.4286,9,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Substance Use Risk,0.8947,19,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Caffeine Intake Risk,0.2222,3,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Weight/BMI Risk,0.5517,14,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-4b,GRPO-grpo-legacy-lr5e-6,true,grpo-native,Age Risk,0.6491,65,Claude/GRPO/outputs/legacy_v1/grpo-legacy-lr5e-6/final/eval/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3368,58,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.3899,195,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.4167,28,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.3838,70,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Renal Impairment Risk,0.6122,33,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.6984,38,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Bleeding Risk,0.4444,26,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Infection Risk,0.5091,26,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.8163,27,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Alcohol Use Risk,0.7692,31,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Weight/BMI Risk,0.0000,14,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,nonpersonalized,ablation-harness,Age Risk,0.2162,65,Claude/Ablation/outputs/qwen3-14b/cu/nonpersonalized/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5227,58,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7845,195,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Drug-Food Interaction Risk,0.6230,28,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5616,70,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Renal Impairment Risk,0.6296,33,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Hepatic Impairment Risk,0.7576,38,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Respiratory Impairment Risk,0.1481,25,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Bleeding Risk,0.6364,26,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Infection Risk,0.7143,26,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.7843,27,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Alcohol Use Risk,0.7692,31,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Weight/BMI Risk,0.3158,14,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,noprofile,ablation-harness,Age Risk,0.4587,65,Claude/Ablation/outputs/qwen3-14b/cu/noprofile/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4286,58,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6652,195,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4118,28,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5424,70,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Renal Impairment Risk,0.4062,33,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Hepatic Impairment Risk,0.4651,38,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Cardiac Impairment Risk,0.4444,80,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Respiratory Impairment Risk,0.3922,25,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Bleeding Risk,0.3256,26,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Infection Risk,0.4681,26,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.6667,27,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Alcohol Use Risk,0.5797,31,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Tobacco Use Risk,0.2667,9,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Substance Use Risk,0.4681,19,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Weight/BMI Risk,0.4167,14,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,shuffled,ablation-harness,Age Risk,0.4783,65,Claude/Ablation/outputs/qwen3-14b/cu/shuffled/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5333,58,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Drug-Drug Interaction Risk,0.8491,195,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Drug-Food Interaction Risk,0.7536,28,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Dosage & Toxicity Risk,0.5378,70,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Renal Impairment Risk,0.7273,33,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Hepatic Impairment Risk,0.8333,38,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Cardiac Impairment Risk,0.8451,80,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Respiratory Impairment Risk,0.6818,25,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Bleeding Risk,0.5789,26,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Infection Risk,0.6154,26,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9811,27,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Alcohol Use Risk,0.9333,31,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Tobacco Use Risk,0.4615,9,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Weight/BMI Risk,0.6364,14,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,cu,true,ablation-harness,Age Risk,0.5818,65,Claude/Ablation/outputs/qwen3-14b/cu/true/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3893,58,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.4326,195,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.4528,28,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.4368,70,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Renal Impairment Risk,0.6792,33,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.6000,38,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Bleeding Risk,0.4615,26,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Infection Risk,0.5217,26,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.8846,27,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Alcohol Use Risk,0.5116,31,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Weight/BMI Risk,0.4211,14,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,nonpersonalized,ablation-harness,Age Risk,0.4494,65,Claude/Ablation/outputs/qwen3-14b/grpo/nonpersonalized/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.6154,58,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.8079,195,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Drug-Food Interaction Risk,0.6296,28,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5674,70,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Renal Impairment Risk,0.6667,33,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Hepatic Impairment Risk,0.7385,38,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Bleeding Risk,0.6190,26,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Infection Risk,0.6500,26,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.9455,27,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Alcohol Use Risk,0.6809,31,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Substance Use Risk,0.1000,19,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Weight/BMI Risk,0.4167,14,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,noprofile,ablation-harness,Age Risk,0.6774,65,Claude/Ablation/outputs/qwen3-14b/grpo/noprofile/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4651,58,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6912,195,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4407,28,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5241,70,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Renal Impairment Risk,0.4507,33,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Hepatic Impairment Risk,0.6098,38,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Cardiac Impairment Risk,0.4354,80,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Respiratory Impairment Risk,0.4186,25,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Bleeding Risk,0.3810,26,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Infection Risk,0.4762,26,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.7027,27,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Alcohol Use Risk,0.6875,31,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Tobacco Use Risk,0.3077,9,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Substance Use Risk,0.6000,19,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Caffeine Intake Risk,0.4000,3,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Weight/BMI Risk,0.5185,14,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,shuffled,ablation-harness,Age Risk,0.5035,65,Claude/Ablation/outputs/qwen3-14b/grpo/shuffled/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.6087,58,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Drug-Drug Interaction Risk,0.8723,195,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Drug-Food Interaction Risk,0.6984,28,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Dosage & Toxicity Risk,0.6015,70,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Renal Impairment Risk,0.7869,33,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Hepatic Impairment Risk,0.7937,38,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Cardiac Impairment Risk,0.8000,80,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Respiratory Impairment Risk,0.7317,25,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Bleeding Risk,0.6316,26,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Infection Risk,0.6316,26,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9811,27,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Alcohol Use Risk,0.9333,31,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Tobacco Use Risk,0.3636,9,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Caffeine Intake Risk,0.2857,3,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Weight/BMI Risk,0.4167,14,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,grpo,true,ablation-harness,Age Risk,0.7222,65,Claude/Ablation/outputs/qwen3-14b/grpo/true/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.2118,58,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.4086,195,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.1053,28,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.4084,70,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Renal Impairment Risk,0.6182,33,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.6557,38,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Bleeding Risk,0.4878,26,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Infection Risk,0.5600,26,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.9259,27,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Alcohol Use Risk,0.4651,31,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Weight/BMI Risk,0.1111,14,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,nonpersonalized,ablation-harness,Age Risk,0.3415,65,Claude/Ablation/outputs/qwen3-14b/sft/nonpersonalized/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4390,58,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7813,195,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4583,28,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5897,70,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Renal Impairment Risk,0.6769,33,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Hepatic Impairment Risk,0.7164,38,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Bleeding Risk,0.6087,26,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Infection Risk,0.7143,26,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.8929,27,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Alcohol Use Risk,0.8148,31,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Weight/BMI Risk,0.3810,14,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,noprofile,ablation-harness,Age Risk,0.4771,65,Claude/Ablation/outputs/qwen3-14b/sft/noprofile/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4490,58,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6395,195,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4400,28,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5197,70,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Renal Impairment Risk,0.4235,33,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Hepatic Impairment Risk,0.5556,38,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Cardiac Impairment Risk,0.4859,80,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Respiratory Impairment Risk,0.4231,25,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Bleeding Risk,0.4615,26,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Infection Risk,0.5306,26,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.5882,27,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Alcohol Use Risk,0.6567,31,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Tobacco Use Risk,0.4000,9,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Substance Use Risk,0.5652,19,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Caffeine Intake Risk,0.4000,3,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Weight/BMI Risk,0.5185,14,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,shuffled,ablation-harness,Age Risk,0.4177,65,Claude/Ablation/outputs/qwen3-14b/sft/shuffled/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5287,58,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Drug-Drug Interaction Risk,0.8475,195,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Drug-Food Interaction Risk,0.6415,28,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Dosage & Toxicity Risk,0.6290,70,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Renal Impairment Risk,0.7222,33,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Hepatic Impairment Risk,0.8169,38,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Cardiac Impairment Risk,0.8671,80,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Respiratory Impairment Risk,0.6512,25,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Bleeding Risk,0.6087,26,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Infection Risk,0.6000,26,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9615,27,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Alcohol Use Risk,0.9333,31,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Tobacco Use Risk,0.5000,9,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Weight/BMI Risk,0.5455,14,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-14b,sft,true,ablation-harness,Age Risk,0.6609,65,Claude/Ablation/outputs/qwen3-14b/sft/true/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.0000,58,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.3788,195,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.2222,28,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.3846,70,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Renal Impairment Risk,0.5106,33,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.5763,38,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0247,80,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Bleeding Risk,0.5000,26,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Infection Risk,0.5385,26,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.4211,27,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Alcohol Use Risk,0.1765,31,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Weight/BMI Risk,0.1111,14,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,nonpersonalized,ablation-harness,Age Risk,0.2500,65,Claude/Ablation/outputs/qwen3-4b/cu/nonpersonalized/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.0952,58,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7146,195,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4906,28,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Dosage & Toxicity Risk,0.4590,70,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Renal Impairment Risk,0.6000,33,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Hepatic Impairment Risk,0.6667,38,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Cardiac Impairment Risk,0.0247,80,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Bleeding Risk,0.6364,26,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Infection Risk,0.5263,26,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.3684,27,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Alcohol Use Risk,0.1212,31,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Substance Use Risk,0.1818,19,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Weight/BMI Risk,0.3333,14,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,noprofile,ablation-harness,Age Risk,0.4952,65,Claude/Ablation/outputs/qwen3-4b/cu/noprofile/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.0000,58,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6036,195,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4151,28,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Dosage & Toxicity Risk,0.4038,70,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Renal Impairment Risk,0.3820,33,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Hepatic Impairment Risk,0.5542,38,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Cardiac Impairment Risk,0.3974,80,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Respiratory Impairment Risk,0.2703,25,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Bleeding Risk,0.4091,26,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Infection Risk,0.4186,26,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.6129,27,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Alcohol Use Risk,0.7077,31,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Tobacco Use Risk,0.1429,9,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Substance Use Risk,0.4889,19,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Weight/BMI Risk,0.2308,14,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,shuffled,ablation-harness,Age Risk,0.3885,65,Claude/Ablation/outputs/qwen3-4b/cu/shuffled/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.0000,58,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Drug-Drug Interaction Risk,0.7380,195,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Drug-Food Interaction Risk,0.6667,28,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Dosage & Toxicity Risk,0.4950,70,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Renal Impairment Risk,0.7097,33,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Hepatic Impairment Risk,0.8000,38,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Cardiac Impairment Risk,0.7121,80,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Respiratory Impairment Risk,0.6500,25,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Bleeding Risk,0.4390,26,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Infection Risk,0.3226,26,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9200,27,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Alcohol Use Risk,0.8929,31,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Tobacco Use Risk,0.2000,9,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Substance Use Risk,0.8000,19,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Weight/BMI Risk,0.3333,14,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,cu,true,ablation-harness,Age Risk,0.6126,65,Claude/Ablation/outputs/qwen3-4b/cu/true/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3735,58,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.4000,195,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.1224,28,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.2878,70,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Renal Impairment Risk,0.4186,33,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.4815,38,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Bleeding Risk,0.5263,26,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Infection Risk,0.4898,26,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.4324,27,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Alcohol Use Risk,0.1765,31,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Weight/BMI Risk,0.2222,14,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,nonpersonalized,ablation-harness,Age Risk,0.4783,65,Claude/Ablation/outputs/qwen3-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5693,58,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.8126,195,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4706,28,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5562,70,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Renal Impairment Risk,0.4255,33,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Hepatic Impairment Risk,0.6667,38,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Respiratory Impairment Risk,0.0769,25,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Bleeding Risk,0.5909,26,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Infection Risk,0.5641,26,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.2857,27,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Alcohol Use Risk,0.3243,31,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Tobacco Use Risk,0.3077,9,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Weight/BMI Risk,0.1250,14,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,noprofile,ablation-harness,Age Risk,0.5882,65,Claude/Ablation/outputs/qwen3-4b/grpo/noprofile/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4384,58,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6816,195,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4561,28,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5256,70,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Renal Impairment Risk,0.4058,33,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Hepatic Impairment Risk,0.6329,38,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Cardiac Impairment Risk,0.4713,80,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Respiratory Impairment Risk,0.4167,25,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Bleeding Risk,0.4706,26,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Infection Risk,0.4889,26,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.7429,27,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Alcohol Use Risk,0.7692,31,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Tobacco Use Risk,0.3077,9,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Substance Use Risk,0.5417,19,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Weight/BMI Risk,0.5600,14,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,shuffled,ablation-harness,Age Risk,0.5487,65,Claude/Ablation/outputs/qwen3-4b/grpo/shuffled/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5098,58,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Drug-Drug Interaction Risk,0.8404,195,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Drug-Food Interaction Risk,0.6557,28,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Dosage & Toxicity Risk,0.5652,70,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Renal Impairment Risk,0.7500,33,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Hepatic Impairment Risk,0.7879,38,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Cardiac Impairment Risk,0.8082,80,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Respiratory Impairment Risk,0.6383,25,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Bleeding Risk,0.6512,26,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Infection Risk,0.7000,26,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9811,27,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Alcohol Use Risk,0.9492,31,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Tobacco Use Risk,0.4615,9,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Caffeine Intake Risk,0.2857,3,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Weight/BMI Risk,0.5000,14,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,grpo,true,ablation-harness,Age Risk,0.6602,65,Claude/Ablation/outputs/qwen3-4b/grpo/true/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.2617,58,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.3852,195,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.2667,28,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.4430,70,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Renal Impairment Risk,0.3721,33,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.2609,38,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Bleeding Risk,0.3784,26,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Infection Risk,0.5833,26,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.6818,27,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Alcohol Use Risk,0.4500,31,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Weight/BMI Risk,0.2353,14,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,nonpersonalized,ablation-harness,Age Risk,0.2716,65,Claude/Ablation/outputs/qwen3-4b/sft/nonpersonalized/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3922,58,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7445,195,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4186,28,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5424,70,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Renal Impairment Risk,0.5091,33,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Hepatic Impairment Risk,0.5484,38,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Respiratory Impairment Risk,0.0769,25,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Bleeding Risk,0.5000,26,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Infection Risk,0.5405,26,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.1875,27,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Alcohol Use Risk,0.2286,31,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Weight/BMI Risk,0.3158,14,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,noprofile,ablation-harness,Age Risk,0.3922,65,Claude/Ablation/outputs/qwen3-4b/sft/noprofile/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3818,58,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6693,195,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4681,28,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Dosage & Toxicity Risk,0.4500,70,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Renal Impairment Risk,0.3878,33,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Hepatic Impairment Risk,0.5495,38,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Cardiac Impairment Risk,0.4405,80,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Respiratory Impairment Risk,0.3333,25,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Bleeding Risk,0.5769,26,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Infection Risk,0.4390,26,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.6944,27,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Alcohol Use Risk,0.7463,31,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Tobacco Use Risk,0.1333,9,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Substance Use Risk,0.5778,19,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Caffeine Intake Risk,0.2000,3,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Weight/BMI Risk,0.5000,14,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,shuffled,ablation-harness,Age Risk,0.4805,65,Claude/Ablation/outputs/qwen3-4b/sft/shuffled/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4444,58,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Drug-Drug Interaction Risk,0.8036,195,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Drug-Food Interaction Risk,0.5200,28,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Dosage & Toxicity Risk,0.5128,70,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Renal Impairment Risk,0.6753,33,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Hepatic Impairment Risk,0.7397,38,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Cardiac Impairment Risk,0.8085,80,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Respiratory Impairment Risk,0.6512,25,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Bleeding Risk,0.5833,26,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Infection Risk,0.6316,26,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9630,27,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Alcohol Use Risk,0.9677,31,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Tobacco Use Risk,0.4444,9,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Caffeine Intake Risk,0.2000,3,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Weight/BMI Risk,0.5000,14,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-4b,sft,true,ablation-harness,Age Risk,0.6435,65,Claude/Ablation/outputs/qwen3-4b/sft/true/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.1644,58,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.3451,195,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.1212,28,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.5833,70,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Renal Impairment Risk,0.5714,33,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.2727,38,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.1798,80,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Bleeding Risk,0.4571,26,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Infection Risk,0.5283,26,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.3030,27,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Alcohol Use Risk,0.1765,31,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Weight/BMI Risk,0.1333,14,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,nonpersonalized,ablation-harness,Age Risk,0.3117,65,Claude/Ablation/outputs/qwen3-8b/cu/nonpersonalized/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4444,58,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.8160,195,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4364,28,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5693,70,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Renal Impairment Risk,0.5926,33,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Hepatic Impairment Risk,0.5455,38,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Cardiac Impairment Risk,0.2857,80,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Respiratory Impairment Risk,0.0769,25,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Bleeding Risk,0.5455,26,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Infection Risk,0.6047,26,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.4865,27,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Alcohol Use Risk,0.5455,31,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Weight/BMI Risk,0.3000,14,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,noprofile,ablation-harness,Age Risk,0.5000,65,Claude/Ablation/outputs/qwen3-8b/cu/noprofile/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4286,58,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.7133,195,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Drug-Food Interaction Risk,0.5283,28,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5225,70,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Renal Impairment Risk,0.4595,33,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Hepatic Impairment Risk,0.5952,38,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Cardiac Impairment Risk,0.4903,80,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Respiratory Impairment Risk,0.3810,25,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Bleeding Risk,0.4583,26,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Infection Risk,0.5306,26,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.8197,27,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Alcohol Use Risk,0.7143,31,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Tobacco Use Risk,0.1667,9,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Substance Use Risk,0.5714,19,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Weight/BMI Risk,0.4545,14,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,shuffled,ablation-harness,Age Risk,0.4722,65,Claude/Ablation/outputs/qwen3-8b/cu/shuffled/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4691,58,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Drug-Drug Interaction Risk,0.8698,195,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Drug-Food Interaction Risk,0.6885,28,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Dosage & Toxicity Risk,0.5965,70,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Renal Impairment Risk,0.6957,33,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Hepatic Impairment Risk,0.8451,38,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Cardiac Impairment Risk,0.8289,80,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Respiratory Impairment Risk,0.6341,25,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Bleeding Risk,0.6512,26,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Infection Risk,0.7143,26,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9231,27,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Alcohol Use Risk,0.9333,31,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Tobacco Use Risk,0.4615,9,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Substance Use Risk,0.9000,19,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Caffeine Intake Risk,0.2857,3,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Weight/BMI Risk,0.4545,14,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,cu,true,ablation-harness,Age Risk,0.5769,65,Claude/Ablation/outputs/qwen3-8b/cu/true/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5455,58,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.8372,195,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Drug-Food Interaction Risk,0.5085,28,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5037,70,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Renal Impairment Risk,0.6667,33,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Hepatic Impairment Risk,0.3043,38,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Cardiac Impairment Risk,0.0244,80,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Bleeding Risk,0.6047,26,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Infection Risk,0.5405,26,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.6957,27,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Alcohol Use Risk,0.4103,31,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Substance Use Risk,0.1000,19,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Weight/BMI Risk,0.1333,14,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,noprofile,ablation-harness,Age Risk,0.2750,65,Claude/Ablation/outputs/qwen3-8b/grpo/noprofile/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4865,58,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.7238,195,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4074,28,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5630,70,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Renal Impairment Risk,0.5405,33,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Hepatic Impairment Risk,0.6076,38,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Cardiac Impairment Risk,0.4706,80,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Respiratory Impairment Risk,0.4545,25,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Bleeding Risk,0.4651,26,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Infection Risk,0.6047,26,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.7353,27,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Alcohol Use Risk,0.7869,31,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Tobacco Use Risk,0.1667,9,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Substance Use Risk,0.6087,19,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Caffeine Intake Risk,0.4000,3,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Weight/BMI Risk,0.4545,14,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,shuffled,ablation-harness,Age Risk,0.5581,65,Claude/Ablation/outputs/qwen3-8b/grpo/shuffled/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.6796,58,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Drug-Drug Interaction Risk,0.8544,195,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Drug-Food Interaction Risk,0.6667,28,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Dosage & Toxicity Risk,0.6087,70,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Renal Impairment Risk,0.8308,33,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Hepatic Impairment Risk,0.8000,38,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Cardiac Impairment Risk,0.8261,80,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Respiratory Impairment Risk,0.7179,25,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Bleeding Risk,0.6154,26,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Infection Risk,0.6316,26,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9455,27,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Alcohol Use Risk,0.9333,31,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Tobacco Use Risk,0.1818,9,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Weight/BMI Risk,0.5455,14,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,grpo,true,ablation-harness,Age Risk,0.6857,65,Claude/Ablation/outputs/qwen3-8b/grpo/true/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.2222,58,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.4315,195,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.0816,28,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.4593,70,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Renal Impairment Risk,0.6296,33,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.4286,38,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.4071,80,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Bleeding Risk,0.4615,26,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Infection Risk,0.5600,26,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.6512,27,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Alcohol Use Risk,0.6383,31,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Weight/BMI Risk,0.1176,14,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,nonpersonalized,ablation-harness,Age Risk,0.3721,65,Claude/Ablation/outputs/qwen3-8b/sft/nonpersonalized/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4091,58,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7657,195,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Drug-Food Interaction Risk,0.3774,28,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5390,70,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Renal Impairment Risk,0.6667,33,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Hepatic Impairment Risk,0.5714,38,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Cardiac Impairment Risk,0.0471,80,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Bleeding Risk,0.5581,26,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Infection Risk,0.6667,26,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.6818,27,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Alcohol Use Risk,0.3684,31,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Substance Use Risk,0.0952,19,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Weight/BMI Risk,0.2222,14,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,noprofile,ablation-harness,Age Risk,0.4839,65,Claude/Ablation/outputs/qwen3-8b/sft/noprofile/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3696,58,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6692,195,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Drug-Food Interaction Risk,0.3929,28,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5037,70,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Renal Impairment Risk,0.4706,33,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Hepatic Impairment Risk,0.6076,38,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Cardiac Impairment Risk,0.4841,80,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Respiratory Impairment Risk,0.3415,25,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Bleeding Risk,0.5769,26,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Infection Risk,0.5652,26,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.7429,27,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Alcohol Use Risk,0.7429,31,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Tobacco Use Risk,0.3333,9,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Substance Use Risk,0.6250,19,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Caffeine Intake Risk,0.2500,3,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Weight/BMI Risk,0.5185,14,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,shuffled,ablation-harness,Age Risk,0.4734,65,Claude/Ablation/outputs/qwen3-8b/sft/shuffled/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4762,58,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Drug-Drug Interaction Risk,0.8209,195,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Drug-Food Interaction Risk,0.5385,28,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Dosage & Toxicity Risk,0.5538,70,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Renal Impairment Risk,0.6486,33,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Hepatic Impairment Risk,0.7568,38,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Cardiac Impairment Risk,0.8085,80,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Respiratory Impairment Risk,0.7317,25,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Bleeding Risk,0.5957,26,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Infection Risk,0.6316,26,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9259,27,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Alcohol Use Risk,0.9355,31,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Tobacco Use Risk,0.4000,9,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Caffeine Intake Risk,0.2857,3,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Weight/BMI Risk,0.4800,14,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3-8b,sft,true,ablation-harness,Age Risk,0.6667,65,Claude/Ablation/outputs/qwen3-8b/sft/true/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.1918,58,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.2623,195,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.1579,28,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.5088,70,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Renal Impairment Risk,0.0588,33,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.0513,38,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Bleeding Risk,0.3889,26,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Infection Risk,0.5000,26,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.0000,27,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Alcohol Use Risk,0.0000,31,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Weight/BMI Risk,0.0000,14,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,nonpersonalized,ablation-harness,Age Risk,0.1690,65,Claude/Ablation/outputs/qwen3guard-4b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4390,58,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7692,195,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4286,28,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5797,70,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Renal Impairment Risk,0.3415,33,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Hepatic Impairment Risk,0.1905,38,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Bleeding Risk,0.6047,26,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Infection Risk,0.6512,26,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.1875,27,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Alcohol Use Risk,0.0000,31,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Weight/BMI Risk,0.2500,14,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,noprofile,ablation-harness,Age Risk,0.2078,65,Claude/Ablation/outputs/qwen3guard-4b/cu/noprofile/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3830,58,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6789,195,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4068,28,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5254,70,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Renal Impairment Risk,0.5263,33,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Hepatic Impairment Risk,0.5437,38,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Cardiac Impairment Risk,0.4681,80,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Respiratory Impairment Risk,0.3529,25,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Bleeding Risk,0.4615,26,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Infection Risk,0.4151,26,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.6133,27,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Alcohol Use Risk,0.6857,31,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Tobacco Use Risk,0.1333,9,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Substance Use Risk,0.5490,19,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Caffeine Intake Risk,0.2000,3,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Weight/BMI Risk,0.4444,14,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,shuffled,ablation-harness,Age Risk,0.4583,65,Claude/Ablation/outputs/qwen3guard-4b/cu/shuffled/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4419,58,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Drug-Drug Interaction Risk,0.8120,195,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Drug-Food Interaction Risk,0.5714,28,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Dosage & Toxicity Risk,0.5133,70,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Renal Impairment Risk,0.7941,33,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Hepatic Impairment Risk,0.7647,38,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Cardiac Impairment Risk,0.7722,80,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Respiratory Impairment Risk,0.6977,25,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Bleeding Risk,0.5714,26,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Infection Risk,0.5854,26,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.8966,27,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Alcohol Use Risk,0.9153,31,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Tobacco Use Risk,0.3077,9,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Substance Use Risk,0.8333,19,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Caffeine Intake Risk,0.2500,3,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Weight/BMI Risk,0.2727,14,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,cu,true,ablation-harness,Age Risk,0.6415,65,Claude/Ablation/outputs/qwen3guard-4b/cu/true/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.2941,58,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.3883,195,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.3846,28,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.3134,70,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Renal Impairment Risk,0.3721,33,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.1000,38,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0233,80,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Bleeding Risk,0.4118,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Infection Risk,0.5714,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.4324,27,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Alcohol Use Risk,0.0000,31,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Weight/BMI Risk,0.2353,14,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,nonpersonalized,ablation-harness,Age Risk,0.4368,65,Claude/Ablation/outputs/qwen3guard-4b/grpo/nonpersonalized/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5039,58,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7485,195,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Drug-Food Interaction Risk,0.5974,28,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5029,70,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Renal Impairment Risk,0.4348,33,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Hepatic Impairment Risk,0.2857,38,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Cardiac Impairment Risk,0.0247,80,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Bleeding Risk,0.5000,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Infection Risk,0.6667,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.3429,27,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Alcohol Use Risk,0.0000,31,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Weight/BMI Risk,0.3333,14,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,noprofile,ablation-harness,Age Risk,0.6357,65,Claude/Ablation/outputs/qwen3guard-4b/grpo/noprofile/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4476,58,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.7146,195,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Drug-Food Interaction Risk,0.5195,28,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Dosage & Toxicity Risk,0.4795,70,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Renal Impairment Risk,0.5405,33,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Hepatic Impairment Risk,0.5747,38,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Cardiac Impairment Risk,0.5333,80,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Respiratory Impairment Risk,0.4762,25,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Bleeding Risk,0.5333,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Infection Risk,0.4681,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.6849,27,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Alcohol Use Risk,0.7353,31,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Substance Use Risk,0.5417,19,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Caffeine Intake Risk,0.2500,3,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Weight/BMI Risk,0.4615,14,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,shuffled,ablation-harness,Age Risk,0.5224,65,Claude/Ablation/outputs/qwen3guard-4b/grpo/shuffled/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.5000,58,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Drug-Drug Interaction Risk,0.8578,195,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Drug-Food Interaction Risk,0.6753,28,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Dosage & Toxicity Risk,0.5775,70,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Renal Impairment Risk,0.7077,33,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Hepatic Impairment Risk,0.8000,38,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Cardiac Impairment Risk,0.8667,80,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Respiratory Impairment Risk,0.7000,25,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Bleeding Risk,0.6512,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Infection Risk,0.5946,26,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9123,27,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Alcohol Use Risk,0.9492,31,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Tobacco Use Risk,0.2667,9,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Caffeine Intake Risk,0.2222,3,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Weight/BMI Risk,0.4167,14,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,grpo,true,ablation-harness,Age Risk,0.6612,65,Claude/Ablation/outputs/qwen3guard-4b/grpo/true/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.1882,58,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.4221,195,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.2105,28,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.4497,70,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Renal Impairment Risk,0.1622,33,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.0513,38,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Bleeding Risk,0.3889,26,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Infection Risk,0.4681,26,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.2000,27,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Alcohol Use Risk,0.0000,31,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Weight/BMI Risk,0.2222,14,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,nonpersonalized,ablation-harness,Age Risk,0.3529,65,Claude/Ablation/outputs/qwen3guard-4b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4096,58,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7627,195,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4167,28,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5605,70,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Renal Impairment Risk,0.4091,33,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Hepatic Impairment Risk,0.1395,38,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Cardiac Impairment Risk,0.0723,80,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Bleeding Risk,0.5417,26,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Infection Risk,0.6500,26,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.3030,27,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Alcohol Use Risk,0.0625,31,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Weight/BMI Risk,0.4211,14,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,noprofile,ablation-harness,Age Risk,0.5932,65,Claude/Ablation/outputs/qwen3guard-4b/sft/noprofile/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4000,58,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6948,195,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Drug-Food Interaction Risk,0.3846,28,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5224,70,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Renal Impairment Risk,0.4368,33,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Hepatic Impairment Risk,0.5455,38,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Cardiac Impairment Risk,0.4946,80,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Respiratory Impairment Risk,0.3830,25,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Bleeding Risk,0.4483,26,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Infection Risk,0.4545,26,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.7027,27,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Alcohol Use Risk,0.6866,31,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Tobacco Use Risk,0.1429,9,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Substance Use Risk,0.5455,19,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Caffeine Intake Risk,0.2500,3,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Weight/BMI Risk,0.4800,14,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,shuffled,ablation-harness,Age Risk,0.4832,65,Claude/Ablation/outputs/qwen3guard-4b/sft/shuffled/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4578,58,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Drug-Drug Interaction Risk,0.8103,195,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Drug-Food Interaction Risk,0.5091,28,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Dosage & Toxicity Risk,0.5512,70,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Renal Impairment Risk,0.8333,33,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Hepatic Impairment Risk,0.7838,38,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Cardiac Impairment Risk,0.7285,80,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Respiratory Impairment Risk,0.6818,25,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Bleeding Risk,0.6250,26,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Infection Risk,0.6316,26,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9286,27,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Alcohol Use Risk,0.9492,31,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Tobacco Use Risk,0.3077,9,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Caffeine Intake Risk,0.2857,3,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Weight/BMI Risk,0.4167,14,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-4b,sft,true,ablation-harness,Age Risk,0.6667,65,Claude/Ablation/outputs/qwen3guard-4b/sft/true/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.2574,58,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.3895,195,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.1463,28,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.4956,70,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Renal Impairment Risk,0.6122,33,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.2222,38,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0909,80,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Bleeding Risk,0.4706,26,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Infection Risk,0.5098,26,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.1818,27,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Alcohol Use Risk,0.0000,31,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Weight/BMI Risk,0.1250,14,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,nonpersonalized,ablation-harness,Age Risk,0.3614,65,Claude/Ablation/outputs/qwen3guard-8b/cu/nonpersonalized/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4516,58,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7563,195,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Drug-Food Interaction Risk,0.3846,28,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Dosage & Toxicity Risk,0.4737,70,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Renal Impairment Risk,0.6102,33,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Hepatic Impairment Risk,0.3673,38,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Cardiac Impairment Risk,0.1429,80,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Bleeding Risk,0.5366,26,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Infection Risk,0.6667,26,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.2941,27,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Alcohol Use Risk,0.1212,31,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Weight/BMI Risk,0.2857,14,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,noprofile,ablation-harness,Age Risk,0.5391,65,Claude/Ablation/outputs/qwen3guard-8b/cu/noprofile/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.3960,58,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6752,195,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Drug-Food Interaction Risk,0.4528,28,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Dosage & Toxicity Risk,0.4694,70,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Renal Impairment Risk,0.4267,33,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Hepatic Impairment Risk,0.5814,38,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Cardiac Impairment Risk,0.4459,80,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Respiratory Impairment Risk,0.4348,25,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Bleeding Risk,0.4000,26,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Infection Risk,0.5769,26,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.6667,27,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Alcohol Use Risk,0.6667,31,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Tobacco Use Risk,0.1333,9,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Substance Use Risk,0.5490,19,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Caffeine Intake Risk,0.2500,3,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Weight/BMI Risk,0.3846,14,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,shuffled,ablation-harness,Age Risk,0.5797,65,Claude/Ablation/outputs/qwen3guard-8b/cu/shuffled/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4651,58,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Drug-Drug Interaction Risk,0.8145,195,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Drug-Food Interaction Risk,0.5769,28,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Dosage & Toxicity Risk,0.5400,70,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Renal Impairment Risk,0.7647,33,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Hepatic Impairment Risk,0.7714,38,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Cardiac Impairment Risk,0.7755,80,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Respiratory Impairment Risk,0.5405,25,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Bleeding Risk,0.4103,26,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Infection Risk,0.7317,26,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9412,27,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Alcohol Use Risk,0.9032,31,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Tobacco Use Risk,0.3333,9,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Weight/BMI Risk,0.4615,14,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,cu,true,ablation-harness,Age Risk,0.5631,65,Claude/Ablation/outputs/qwen3guard-8b/cu/true/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.2742,58,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Drug-Drug Interaction Risk,0.3916,195,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Drug-Food Interaction Risk,0.2000,28,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Dosage & Toxicity Risk,0.4697,70,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Renal Impairment Risk,0.5769,33,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Hepatic Impairment Risk,0.2174,38,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Cardiac Impairment Risk,0.0244,80,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Bleeding Risk,0.3684,26,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Infection Risk,0.5098,26,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Pregnancy & Breastfeeding Risk,0.5854,27,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Alcohol Use Risk,0.0625,31,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Weight/BMI Risk,0.2105,14,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,nonpersonalized,ablation-harness,Age Risk,0.3333,65,Claude/Ablation/outputs/qwen3guard-8b/sft/nonpersonalized/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4231,58,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Drug-Drug Interaction Risk,0.7418,195,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Drug-Food Interaction Risk,0.4400,28,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Dosage & Toxicity Risk,0.5789,70,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Renal Impairment Risk,0.6129,33,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Hepatic Impairment Risk,0.5000,38,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Cardiac Impairment Risk,0.0000,80,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Respiratory Impairment Risk,0.0000,25,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Bleeding Risk,0.5185,26,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Infection Risk,0.6087,26,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Pregnancy & Breastfeeding Risk,0.6667,27,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Alcohol Use Risk,0.1212,31,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Tobacco Use Risk,0.0000,9,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Substance Use Risk,0.0000,19,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Caffeine Intake Risk,0.0000,3,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Weight/BMI Risk,0.3810,14,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,noprofile,ablation-harness,Age Risk,0.5541,65,Claude/Ablation/outputs/qwen3guard-8b/sft/noprofile/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4068,58,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Drug-Drug Interaction Risk,0.6461,195,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Drug-Food Interaction Risk,0.3860,28,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Dosage & Toxicity Risk,0.5000,70,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Renal Impairment Risk,0.4255,33,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Hepatic Impairment Risk,0.5000,38,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Cardiac Impairment Risk,0.3953,80,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Respiratory Impairment Risk,0.4000,25,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Bleeding Risk,0.4667,26,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Infection Risk,0.4906,26,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Pregnancy & Breastfeeding Risk,0.6933,27,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Alcohol Use Risk,0.7164,31,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Tobacco Use Risk,0.2500,9,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Substance Use Risk,0.5283,19,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Caffeine Intake Risk,0.3636,3,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Weight/BMI Risk,0.4762,14,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,shuffled,ablation-harness,Age Risk,0.4785,65,Claude/Ablation/outputs/qwen3guard-8b/sft/shuffled/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Allergy & Adverse Drug Reaction Risk,0.4554,58,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Drug-Drug Interaction Risk,0.8259,195,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Drug-Food Interaction Risk,0.5455,28,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Dosage & Toxicity Risk,0.5954,70,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Renal Impairment Risk,0.7397,33,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Hepatic Impairment Risk,0.7297,38,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Cardiac Impairment Risk,0.8322,80,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Respiratory Impairment Risk,0.6667,25,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Bleeding Risk,0.6038,26,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Infection Risk,0.6000,26,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Pregnancy & Breastfeeding Risk,0.9455,27,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Alcohol Use Risk,0.9667,31,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Tobacco Use Risk,0.1667,9,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Substance Use Risk,0.9231,19,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Caffeine Intake Risk,0.3333,3,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Weight/BMI Risk,0.5185,14,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json
+qwen3guard-8b,sft,true,ablation-harness,Age Risk,0.5926,65,Claude/Ablation/outputs/qwen3guard-8b/sft/true/eval_metrics.json

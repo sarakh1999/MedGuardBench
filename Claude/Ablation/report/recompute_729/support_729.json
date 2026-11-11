@@ -1,0 +1,26 @@
+{
+  "n": 729,
+  "unsafe": 379,
+  "safe": 350,
+  "profile_only": 145,
+  "prescription": 234,
+  "support": {
+    "Allergy & Adverse Drug Reaction Risk": 56,
+    "Drug-Drug Interaction Risk": 180,
+    "Drug-Food Interaction Risk": 27,
+    "Dosage & Toxicity Risk": 61,
+    "Renal Impairment Risk": 32,
+    "Hepatic Impairment Risk": 31,
+    "Cardiac Impairment Risk": 77,
+    "Respiratory Impairment Risk": 24,
+    "Bleeding Risk": 26,
+    "Infection Risk": 22,
+    "Pregnancy & Breastfeeding Risk": 26,
+    "Alcohol Use Risk": 30,
+    "Tobacco Use Risk": 8,
+    "Substance Use Risk": 19,
+    "Caffeine Intake Risk": 2,
+    "Weight/BMI Risk": 12,
+    "Age Risk": 60
+  }
+}

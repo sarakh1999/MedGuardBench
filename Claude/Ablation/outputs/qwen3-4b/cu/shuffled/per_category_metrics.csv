@@ -1,0 +1,18 @@
+category,support,TP,FP,FN,precision,recall,f1
+Allergy & Adverse Drug Reaction Risk,58,0,0,58,0.0000,0.0000,0.0000
+Drug-Drug Interaction Risk,195,134,115,61,0.5382,0.6872,0.6036
+Drug-Food Interaction Risk,28,11,14,17,0.4400,0.3929,0.4151
+Dosage & Toxicity Risk,70,21,13,49,0.6176,0.3000,0.4038
+Renal Impairment Risk,33,17,39,16,0.3036,0.5152,0.3820
+Hepatic Impairment Risk,38,23,22,15,0.5111,0.6053,0.5542
+Cardiac Impairment Risk,80,30,41,50,0.4225,0.3750,0.3974
+Respiratory Impairment Risk,25,5,7,20,0.4167,0.2000,0.2703
+Bleeding Risk,26,9,9,17,0.5000,0.3462,0.4091
+Infection Risk,26,9,8,17,0.5294,0.3462,0.4186
+Pregnancy & Breastfeeding Risk,27,19,16,8,0.5429,0.7037,0.6129
+Alcohol Use Risk,31,23,11,8,0.6765,0.7419,0.7077
+Tobacco Use Risk,9,1,4,8,0.2000,0.1111,0.1429
+Substance Use Risk,19,11,15,8,0.4231,0.5789,0.4889
+Caffeine Intake Risk,3,0,5,3,0.0000,0.0000,0.0000
+Weight/BMI Risk,14,3,9,11,0.2500,0.2143,0.2308
+Age Risk,65,27,47,38,0.3649,0.4154,0.3885
