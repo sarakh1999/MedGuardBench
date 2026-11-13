@@ -29,21 +29,25 @@ D = os.path.join(ROOT, "Claude/DPO/outputs/partial_miss_audited")
 B = os.path.join(ROOT, "Claude/Base_Models/outputs_blind_v2")
 
 # model key -> (display name, SFT run dir, CU ontop dir, GRPO run prefix, DPO dir, base dir)
+# Order, display names, and markers match fig_operating_points_all.py (Figure 2).
 MODELS = {
-    "qwen3-4b":      ("Qwen3-4B",          "Qwen3-4B-Instruct",  "ontop",              "legacy_v1",                "qwen3-4b", "Qwen3-4B-Instruct"),
-    "qwen3-8b":      ("Qwen3-8B",          "Qwen3-8B-Instruct",  "ontop_8b",           "legacy_v1-qwen3-8b",       "qwen3-8b", None),
-    "qwen3-14b":     ("Qwen3-14B",         "Qwen3-14B-Instruct", "ontop_14b",          "legacy_v1-qwen3-14b",      None,       None),
-    "qwen3guard-4b": ("Qwen3Guard-4B",     "Qwen3Guard-Gen-4B",  "ontop_guard",        "legacy_v1-qwen3guard-4b",  None,       "Qwen3Guard-Gen-4B"),
-    "qwen3guard-8b": ("Qwen3Guard-8B",     "Qwen3Guard-Gen-8B",  "ontop_guard8b",      "legacy_v1-qwen3guard-8b",  None,       None),
-    "shieldgemma-2b": ("ShieldGemma-2B",   "ShieldGemma-2B",     "ontop_shieldgemma2b", "legacy_v1-shieldgemma-2b", None,      None),
-    "shieldgemma-9b": ("ShieldGemma-9B",   "ShieldGemma-9B",     "ontop_shieldgemma9b", "legacy_v1-shieldgemma-9b", None,      None),
-    "llamaguard2-8b": ("LlamaGuard-2-8B",  "Llama-Guard-2-8B",   "ontop_llamaguard2",  "legacy_v1-llamaguard2-8b", None,       None),
-    "llamaguard-7b": ("LlamaGuard-7B",     "LlamaGuard-7b",      "ontop_llamaguard7b", None,                       None,       None),
-    "llama31-8b":    ("Llama-3.1-8B",      "Llama-3.1-8B",       "ontop_llama31",      "legacy_v1-llama31-8b",     None,       None),
-    "wildguard-7b":  ("WildGuard-7B",      "WildGuard-7B",       "ontop_wildguard7b",  "legacy_v1-wildguard-7b",   None,       None),
-    "medgemma-4b":   ("MedGemma-4B",       "MedGemma-4B-it",     "ontop_medgemma4b",   "legacy_v1-medgemma-4b",    None,       None),
-    "llama3.3-70b":  ("Llama-3.3-70B (0-shot)", None,            None,                 None,                       None,       None),
+    "qwen3-4b":       ("Qwen3-4B",          "Qwen3-4B-Instruct",  "ontop",               "legacy_v1",                 "qwen3-4b", "Qwen3-4B-Instruct"),
+    "qwen3-8b":       ("Qwen3-8B",          "Qwen3-8B-Instruct",  "ontop_8b",            "legacy_v1-qwen3-8b",        "qwen3-8b", None),
+    "qwen3-14b":      ("Qwen3-14B",         "Qwen3-14B-Instruct", "ontop_14b",           "legacy_v1-qwen3-14b",       None,       None),
+    "qwen3guard-4b":  ("Qwen3Guard-4B",     "Qwen3Guard-Gen-4B",  "ontop_guard",         "legacy_v1-qwen3guard-4b",   None,       "Qwen3Guard-Gen-4B"),
+    "qwen3guard-8b":  ("Qwen3Guard-8B",     "Qwen3Guard-Gen-8B",  "ontop_guard8b",       "legacy_v1-qwen3guard-8b",   None,       None),
+    "llama31-8b":     ("Llama-3.1-8B",      "Llama-3.1-8B",       "ontop_llama31",       "legacy_v1-llama31-8b",      None,       None),
+    "llamaguard2-8b": ("Llama-Guard-2-8B",  "Llama-Guard-2-8B",   "ontop_llamaguard2",   "legacy_v1-llamaguard2-8b",  None,       None),
+    "llamaguard-7b":  ("Llama-Guard-7B",    "LlamaGuard-7b",      "ontop_llamaguard7b",  None,                        None,       None),
+    "shieldgemma-2b": ("ShieldGemma-2B",    "ShieldGemma-2B",     "ontop_shieldgemma2b", "legacy_v1-shieldgemma-2b",  None,       None),
+    "shieldgemma-9b": ("ShieldGemma-9B",    "ShieldGemma-9B",     "ontop_shieldgemma9b", "legacy_v1-shieldgemma-9b",  None,       None),
+    "wildguard-7b":   ("WildGuard-7B",      "WildGuard-7B",       "ontop_wildguard7b",   "legacy_v1-wildguard-7b",    None,       None),
+    "medgemma-4b":    ("MedGemma-4B",       "MedGemma-4B-it",     "ontop_medgemma4b",    "legacy_v1-medgemma-4b",     None,       None),
+    "llama3.3-70b":   ("Llama-3.3-70B",     None,                 None,                  None,                        None,       None),
 }
+# Same marker string as plot_operating_points_all.MARKERS, keyed by backbone so a
+# missing run cannot shift the shapes of the models that remain.
+MARKERS = dict(zip(MODELS, "osD^vP*Xh<>pd"))
 NOPROFILE_SFT = {"qwen3-4b": "Qwen3-4B-noprofile", "qwen3-8b": "Qwen3-8B-noprofile", "qwen3-14b": "Qwen3-14B-noprofile",
                  "qwen3guard-4b": "Qwen3Guard-4B-noprofile", "qwen3guard-8b": "Qwen3Guard-8B-noprofile",
                  "shieldgemma-2b": "ShieldGemma-2B-noprofile"}
@@ -90,8 +94,10 @@ def find_runs():
             if p:
                 runs[(key, arm)] = p
         for arm in ("base", "sft", "cu", "grpo"):
-            if (key, arm) in T1:
+            if (key, arm) in T1 and os.path.exists(T1[(key, arm)]):
                 runs[(key, arm)] = T1[(key, arm)]
+            elif (key, arm) in T1:
+                print(f"  table-1 file missing, keeping fallback if any: {key}/{arm}")
         if key in NOPROFILE_SFT:
             p = first(f"{S}/{NOPROFILE_SFT[key]}/test_predictions_sft.jsonl")
             if p:
@@ -115,13 +121,40 @@ def pr(gv, pv):
                 acc=(tp + tn) / len(gv), bal_acc=0.5 * (rec + tn / max(fp + tn, 1)))
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--out-dir", default=OUT_DIR)
-    args = ap.parse_args()
-    import matplotlib; matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
+def _norm_label(text):
+    return " ".join(text.replace("\n", " ").split())
 
+
+def rows_from_table(path):
+    """Replay the published precision/recall table so a redraw keeps those points."""
+    import re
+    text = open(path).read().split("## Best")[0]
+    name_to_key = {_norm_label(spec[0]): key for key, spec in MODELS.items()}
+    name_to_key.update({
+        "LlamaGuard-2-8B": "llamaguard2-8b",
+        "LlamaGuard-7B": "llamaguard-7b",
+        "Llama-3.3-70B (0-shot)": "llama3.3-70b",
+    })
+    label_to_arm = {_norm_label(label): arm for arm, label in ARM_LABEL.items()}
+    header = re.search(r"\(n=(\d+)\)", text)
+    n = int(header.group(1)) if header else 729
+    rows = []
+    for m in re.finditer(
+        r"\|\s*\d+\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([0-9.]+)\s*\|\s*([0-9.]+)\s*\|\s*\*\*([0-9.]+)\*\*\s*\|"
+        r"\s*([0-9.]+)\s*\|\s*([0-9.]+)\s*\|\s*([0-9.]+)\s*\|\s*([0-9.]+)\s*\|\s*(\d+)\s*\|\s*(\w+)\s*\|\s*`([^`]+)`\s*\|",
+        text,
+    ):
+        backbone, arm_label, prec, rec, f1, fpr, acc, bal, macro, unparsed, engine, rel = m.groups()
+        key = name_to_key[_norm_label(backbone)]
+        arm = label_to_arm[_norm_label(arm_label)]
+        metrics = dict(precision=float(prec) / 100, recall=float(rec) / 100, f1=float(f1) / 100,
+                       fpr=float(fpr) / 100, acc=float(acc) / 100, bal_acc=float(bal) / 100,
+                       macro_f1=float(macro) / 100, unparsed=int(unparsed), engine=engine)
+        rows.append((key, arm, metrics, rel))
+    return rows, n
+
+
+def score_runs():
     gold = load_gold("true"); n_full = len(gold)
     gv = np.array([g[0] for g in gold]); gc = np.array([[g[1][c] for c in RISK_CATEGORIES] for g in gold])
     import recompute_729 as R
@@ -133,6 +166,8 @@ def main():
     rows = []
     from audit_729 import load_any
     for (key, arm), p in sorted(runs.items()):
+        if not p or not os.path.exists(p):
+            print(f"  skip {key}/{arm}: missing file ({p})"); continue
         pv, pc, parsed, _, n_rows = load_any(p, RISK_CATEGORIES)
         if n_rows < n_full:
             print(f"  skip {key}/{arm}: {n_rows}/{n_full} rows ({p})"); continue
@@ -145,10 +180,30 @@ def main():
         m["macro_f1"] = f1c[present].mean(); m["unparsed"] = int((~parsed[idx]).sum())
         m["engine"] = "vLLM" if p.startswith(A) else "HF"
         rows.append((key, arm, m, os.path.relpath(p, ROOT)))
+    return rows, n
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out-dir", default=OUT_DIR)
+    ap.add_argument("--from-table", metavar="MD",
+                    help="redraw the figure from a saved precision_recall_table.md instead of rescoring")
+    args = ap.parse_args()
+    import matplotlib; matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    if args.from_table:
+        rows, n = rows_from_table(args.from_table)
+        print(f"redrawing {len(rows)} published points (n={n}) from {args.from_table}")
+    else:
+        rows, n = score_runs()
 
     # ------------------------------------------------------------ figure
     models = [k for k in MODELS if any(r[0] == k for r in rows)]
-    markers = dict(zip(models, "osD^vP*Xh<>pd8"))
+    missing = [MODELS[k][0] for k in MODELS if k not in models]
+    if missing:
+        print("WARNING: backbones with no plotted point:", ", ".join(missing))
+    print("legend order:", ", ".join(f"{MODELS[k][0]}={MARKERS[k]}" for k in models))
     XLIM, YLIM = (80, 100.5), (55, 101)
     fig, ax = plt.subplots(figsize=(10.5, 6.6))
 
@@ -162,7 +217,7 @@ def main():
                 a.text(100 * rr[ok][-1] - 0.3, 100 * pp[ok][-1] + 0.4, f"F1={f:.2f}", fontsize=7, color="grey", ha="right")
         for key, arm, m, _ in pts:
             hollow = arm in NP_ARMS
-            a.scatter(100 * m["recall"], 100 * m["precision"], s=size * (95 if not hollow else 80), marker=markers[key],
+            a.scatter(100 * m["recall"], 100 * m["precision"], s=size * (95 if not hollow else 80), marker=MARKERS[key],
                       facecolor="none" if hollow else ARM_COL[arm], edgecolor=ARM_COL[arm] if hollow else "k",
                       linewidth=1.4 if hollow else 0.5, zorder=3)
 
@@ -184,7 +239,7 @@ def main():
             h1.append(ax.scatter([], [], facecolor="none", edgecolor=ARM_COL[a], linewidth=1.4, s=60, label=ARM_LABEL[a]))
     leg1 = ax.legend(handles=h1, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 1.0), title="arm (colour)", title_fontsize=8, frameon=False)
     ax.add_artist(leg1)
-    h2 = [ax.scatter([], [], marker=markers[k], color="w", edgecolor="k", s=60, label=MODELS[k][0]) for k in models]
+    h2 = [ax.scatter([], [], marker=MARKERS[k], color="w", edgecolor="k", s=60, label=MODELS[k][0]) for k in models]
     ax.legend(handles=h2, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 0.60), title="backbone (marker)", title_fontsize=8, frameon=False)
     ax.set_xlabel("recall on unsafe prescriptions (%)"); ax.set_ylabel("precision of 'unsafe' verdicts (%)")
     ax.set_xlim(*XLIM); ax.set_ylim(*YLIM); ax.grid(alpha=0.3)
