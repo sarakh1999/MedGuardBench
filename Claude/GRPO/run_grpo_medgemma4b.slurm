@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 #SBATCH --account=PCS0289
 #SBATCH --job-name=grpo_medgemma4b
+# Ascend (nextgen) = A100 (compute capability 8.0). The default batch cluster
+# hands out V100s (CC 7.0), which the grpo_env torch/vLLM/Unsloth wheels do not
+# support ("no kernel image available for execution on the device").
+#SBATCH --clusters=ascend
+#SBATCH --partition=nextgen
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gpus-per-node=1
@@ -74,17 +79,12 @@ mkdir -p "$DATA"
 # is masked as truncated.
 if [[ ! -f "$MERGED/config.json" ]]; then
   echo "=== merge $ADAPTER -> $MERGED ==="
+  # merge_legacy.py merges the language-tower LoRA into the full Gemma3
+  # multimodal model and saves ONLY the extracted language tower as a
+  # standalone Gemma3ForCausalLM (pure text). No image-processor jsons are
+  # needed in the merged dir: vLLM/Unsloth load it as a text model.
   python merge_legacy.py
 fi
-# Unsloth loads MedGemma through its processor even in text_only mode; a merged
-# dir without the image-processor jsons fails at load time.
-BASE_SNAP=$(python -c "from huggingface_hub import snapshot_download as s; print(s('google/medgemma-4b-it', local_files_only=True))")
-for f in preprocessor_config.json processor_config.json tokenizer.model; do
-  if [[ ! -f "$MERGED/$f" && -f "$BASE_SNAP/$f" ]]; then
-    cp "$BASE_SNAP/$f" "$MERGED/$f"
-    echo "copied $f into merged dir"
-  fi
-done
 
 # ---- 2. Hard-example mining on the train split (v3: >= 40% gold-safe) ----
 if [[ ! -s "$MINED" ]]; then

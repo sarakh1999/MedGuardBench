@@ -61,11 +61,48 @@ def _load_tok(path):
         return AutoTokenizer.from_pretrained(tmp)
 
 tok = _load_tok(ADAPTER)
-base = AutoModelForCausalLM.from_pretrained(BASE, torch_dtype=torch.bfloat16, device_map="cuda")
-if len(tok) > base.get_input_embeddings().num_embeddings:
-    print(f"growing embeddings {base.get_input_embeddings().num_embeddings} -> {len(tok)}")
-    base.resize_token_embeddings(len(tok))
-model = PeftModel.from_pretrained(base, ADAPTER).merge_and_unload()
+IS_MEDGEMMA = "medgemma" in C.MODEL.lower()
+if IS_MEDGEMMA:
+    # MedGemma-4B is Gemma3ForConditionalGeneration (vision tower + language
+    # tower). AutoModelForCausalLM can't instantiate the multimodal checkpoint,
+    # and we don't want the vision tower in the GRPO policy anyway. Load the
+    # full model, merge the (language-only) LoRA, then lift the language tower
+    # out as a standalone Gemma3ForCausalLM so the saved checkpoint is pure
+    # text -- vLLM/Unsloth then load it with no image processor and no vision KV.
+    from transformers import Gemma3ForConditionalGeneration, Gemma3ForCausalLM
+    print("MedGemma: loading full Gemma3 multimodal model to merge the "
+          "language-tower LoRA, then extracting the text tower")
+    full = Gemma3ForConditionalGeneration.from_pretrained(
+        BASE, torch_dtype=torch.bfloat16, device_map="cuda")
+    if len(tok) > full.get_input_embeddings().num_embeddings:
+        print(f"growing embeddings {full.get_input_embeddings().num_embeddings} -> {len(tok)}")
+        full.resize_token_embeddings(len(tok))
+    full = PeftModel.from_pretrained(full, ADAPTER).merge_and_unload()
+    lm = full.model.language_model          # Gemma3TextModel == Gemma3ForCausalLM.model
+    n_emb = lm.get_input_embeddings().weight.shape[0]
+    text_cfg = full.config.text_config
+    model = Gemma3ForCausalLM(text_cfg).to(dtype=torch.bfloat16)
+    if model.get_input_embeddings().weight.shape[0] != n_emb:
+        model.resize_token_embeddings(n_emb)
+    model.model.load_state_dict(lm.state_dict())
+    model.lm_head.load_state_dict(full.lm_head.state_dict())
+    model.tie_weights()
+    try:
+        model.generation_config = full.generation_config
+    except Exception:
+        pass
+    del full
+    import gc; gc.collect(); torch.cuda.empty_cache()
+    model = model.to("cuda")                # was built on CPU; GPU for the sanity gen
+    print("MedGemma: extracted language tower ->", type(model).__name__,
+          "| vocab", n_emb, "| hidden", text_cfg.hidden_size,
+          "| layers", text_cfg.num_hidden_layers)
+else:
+    base = AutoModelForCausalLM.from_pretrained(BASE, torch_dtype=torch.bfloat16, device_map="cuda")
+    if len(tok) > base.get_input_embeddings().num_embeddings:
+        print(f"growing embeddings {base.get_input_embeddings().num_embeddings} -> {len(tok)}")
+        base.resize_token_embeddings(len(tok))
+    model = PeftModel.from_pretrained(base, ADAPTER).merge_and_unload()
 model.config.pad_token_id = tok.pad_token_id
 if getattr(C, "IS_GEMMA", False):
     # Make the turn terminator the eos everywhere vLLM / TRL look for it.

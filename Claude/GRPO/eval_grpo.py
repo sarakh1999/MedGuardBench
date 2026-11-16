@@ -163,6 +163,46 @@ def bootstrap_ci(per_item, metric_fn, n_boot=2000, seed=0):
 # Generation and prediction files
 # ============================================================
 
+def _merge_adapter_for_eval(adapter_path):
+    """Merge a GRPO LoRA adapter onto its SFT base and return the merged dir.
+
+    MedGemma's policy is the language tower lifted out of Gemma3 as a plain
+    Gemma3ForCausalLM (see merge_legacy.py). Unsloth's vLLM fast-inference path
+    does not expose the `load_lora` hook for it (FastLanguageModel returns a
+    PeftModelForCausalLM, which has no load_lora), so the adapter cannot be
+    applied through a vLLM lora_request. Instead we merge the adapter onto the
+    merged-SFT base with plain PEFT (CPU) and load the resulting full-weight
+    text model in vLLM -- the same path the SFT baseline already evaluates
+    through. The merged dir is cached under $MGB_EVAL_MERGE_ROOT (scratch) and
+    keyed with a 'medgemma' marker so apply_template_override applies the Gemma
+    turn template + <end_of_turn> eos.
+    """
+    import os
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    from peft import PeftModel
+
+    adapter_path = Path(adapter_path)
+    root = os.environ.get(
+        "MGB_EVAL_MERGE_ROOT",
+        str(Path(os.environ.get("HF_HOME", "/tmp")) / "mgb_eval_merges"))
+    out = Path(root) / "medgemma" / f"{adapter_path.parent.name}__{adapter_path.name}"
+    if (out / "config.json").exists():
+        print(f"reusing cached merged eval model -> {out}")
+        return out
+    out.mkdir(parents=True, exist_ok=True)
+    print(f"merging adapter {adapter_path} onto {C.SFT_MERGED_PATH} -> {out}")
+    base = AutoModelForCausalLM.from_pretrained(
+        str(C.SFT_MERGED_PATH), torch_dtype=torch.bfloat16)   # CPU, no vLLM contention
+    merged = PeftModel.from_pretrained(base, str(adapter_path)).merge_and_unload()
+    merged.save_pretrained(str(out), safe_serialization=True)
+    AutoTokenizer.from_pretrained(str(adapter_path)).save_pretrained(str(out))
+    del base, merged
+    import gc
+    gc.collect()
+    return out
+
+
 def generate(model_path, scenarios, max_new_tokens=2048, load_in_4bit=C.LOAD_IN_4BIT):
     """Greedy generation with vLLM, matching the SFT fair-comparison config.
 
@@ -172,14 +212,21 @@ def generate(model_path, scenarios, max_new_tokens=2048, load_in_4bit=C.LOAD_IN_
     from unsloth import FastLanguageModel
     from vllm import SamplingParams
 
+    # MedGemma: no vLLM load_lora hook -> pre-merge the adapter to full weights.
+    load_path = Path(model_path)
+    pre_merged = False
+    if (load_path / "adapter_config.json").exists() and "medgemma" in C.MODEL.lower():
+        load_path = _merge_adapter_for_eval(load_path)
+        pre_merged = True
+
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name=str(model_path),
+        model_name=str(load_path),
         max_seq_length=C.MAX_SEQ_LENGTH,
         load_in_4bit=load_in_4bit,
         fast_inference=True,
         gpu_memory_utilization=0.5,
     )
-    tokenizer = apply_template_override(tokenizer, str(model_path))
+    tokenizer = apply_template_override(tokenizer, str(load_path))
     FastLanguageModel.for_inference(model)
 
     # With fast_inference=True the vLLM engine holds the BASE weights only.
@@ -188,7 +235,9 @@ def generate(model_path, scenarios, max_new_tokens=2048, load_in_4bit=C.LOAD_IN_
     # happened to the first three GRPO evaluations, which were therefore
     # indistinguishable from SFT).
     lora_request = None
-    if (Path(model_path) / "adapter_config.json").exists():
+    if pre_merged:
+        print(f"MedGemma: generating with pre-merged full weights ({load_path})")
+    elif (Path(model_path) / "adapter_config.json").exists():
         lora_request = model.load_lora(str(model_path))
         print(f"Applying LoRA adapter from {model_path} to vLLM generation")
     else:

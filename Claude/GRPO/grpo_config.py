@@ -68,10 +68,31 @@ LEGACY_RUNS = {
     # llama_format.py: the whole stack switches to the native
     # "Reasoning: ... / safe|unsafe / O-codes" format for this backbone.
     "llamaguard2-8b": ("Llama-Guard-2-8B", "meta-llama/Meta-Llama-Guard-2-8B", "final_adapter"),
+    # Llama-Guard-7B (the ORIGINAL LlamaGuard, Llama-2-7B based). SFT by
+    # Claude/SFT/sft_llamaguard7b.py on the same new_data_chatml_llama_and_llamaguard
+    # rows as llamaguard2-8b, but rendered with the Llama-2 [INST] <<SYS>>
+    # template (LLAMA2_CHAT_TEMPLATE below) and the native </s> eos -- NOT the
+    # Llama-3 header format. data_utils.apply_template_override detects the
+    # "llamaguard-7b" tag and applies the Llama-2 template (keeping </s>), and
+    # merge_legacy.py records the true 4096 context window (the Hub mirror
+    # mislabels it 2048, which would trip Unsloth's RoPE-scaling + vLLM path).
+    "llamaguard-7b": ("LlamaGuard-7b", "llamas-community/LlamaGuard-7b", "final_adapter"),
     # Mistral lineage, SFT by Claude/SFT/blind/sft_train.py with the Mistral
     # [INST] template (MISTRAL_CHAT_TEMPLATE below) on the Qwen JSON rows.
     "mistral-7b":   ("Mistral-7B-Instruct-v0.3", "unsloth/Mistral-7B-Instruct-v0.3", "final_adapter"),
     "wildguard-7b": ("WildGuard-7B", "allenai/wildguard", "final_adapter"),
+    # MedGemma-4B-it (google/medgemma-4b-it): a Gemma3 MULTIMODAL checkpoint
+    # (Gemma3ForConditionalGeneration = vision tower + language tower). The SFT
+    # LoRA (sft_train.py, family=gemma, ShieldGemma ChatML rows) targets the
+    # LANGUAGE tower only -- its adapter_config target_modules regex matches
+    # "...(language|text)...self_attn/mlp...", so the vision tower is untouched.
+    # GRPO therefore runs TEXT-ONLY: merge_legacy.py merges the LoRA into the
+    # full multimodal model and then extracts just the language tower as a
+    # standalone Gemma3ForCausalLM, so Unsloth/vLLM load a pure text checkpoint
+    # (no image processor, no vision KV). Gemma turn format + <end_of_turn> eos
+    # are applied by the IS_GEMMA branch (data_utils.apply_template_override).
+    # Lowest eval_loss at checkpoint-900 (0.4653; train_summary.best_checkpoint).
+    "medgemma-4b": ("MedGemma-4B-it", "google/medgemma-4b-it", "checkpoint-900"),
 }
 
 # Model families whose SFT used the Gemma turn format rather than ChatML.
@@ -134,8 +155,16 @@ elif DATA_CONDITION == "legacy_v1":
     # precision; verified 2026-10-01).
     SFT_MERGED_PATH = SFT_RUN_DIR / f"{_best_ckpt}-merged"
     # Written by: python Claude/SFT/compute_metrics.py --pred <SFT_RUN_DIR>/test_predictions_w_schema.jsonl
-    SFT_METRICS_JSON = SFT_RUN_DIR / "test_predictions_w_schema_metrics.json"
-    SFT_PER_CATEGORY_CSV = SFT_RUN_DIR / "test_predictions_w_schema_per_category.csv"
+    # Newer backbones (MedGemma-4B, WildGuard-7B, LlamaGuard-7B) were evaluated
+    # with eval_sft.py + compute_metrics.py, which name the files
+    # test_predictions_sft_{metrics.json,per_category.csv} instead. Prefer the
+    # original *_w_schema_* files when present, else fall back to *_sft_*.
+    if (SFT_RUN_DIR / "test_predictions_w_schema_metrics.json").exists():
+        SFT_METRICS_JSON = SFT_RUN_DIR / "test_predictions_w_schema_metrics.json"
+        SFT_PER_CATEGORY_CSV = SFT_RUN_DIR / "test_predictions_w_schema_per_category.csv"
+    else:
+        SFT_METRICS_JSON = SFT_RUN_DIR / "test_predictions_sft_metrics.json"
+        SFT_PER_CATEGORY_CSV = SFT_RUN_DIR / "test_predictions_sft_per_category.csv"
 else:
     DATA_DIR = PROJECT_ROOT / "Claude" / "SFT" / f"chatml_{DATA_CONDITION}" / "qwen_and_qwenguard"
     # The SFT run GRPO starts from: the clean-data Qwen3-4B run written by
@@ -341,9 +370,14 @@ NUM_GENERATIONS = 8          # group size G. Below 4 the baseline is too noisy.
 
 # Prompts are <= ~700 tokens with the chat template; completions 750-1000.
 # 1536 leaves headroom for temperature-1.0 samples that run long.
-MAX_PROMPT_LENGTH = 1024
+# LlamaGuard-7B is Llama-2 (SentencePiece): it tokenizes the verbose LlamaGuard
+# task wrapper (17 O-coded categories) less efficiently than the Llama-3/Qwen
+# BPE tokenizers, so a couple of prompts reach ~1037 tokens (max observed).
+# Widen the budget to 1280 for that backbone; Llama-2's native 4096 window
+# leaves ample room (1280 + 1536 = 2816).
+MAX_PROMPT_LENGTH = 1280 if "llamaguard-7b" in MODEL.lower() else 1024
 MAX_COMPLETION_LENGTH = 1536
-MAX_SEQ_LENGTH = MAX_PROMPT_LENGTH + MAX_COMPLETION_LENGTH   # 2560
+MAX_SEQ_LENGTH = MAX_PROMPT_LENGTH + MAX_COMPLETION_LENGTH   # 2560 (2816 for LlamaGuard-7B)
 
 # Unique prompts per optimizer step = BATCH * GRAD_ACCUM / NUM_GENERATIONS.
 # 8 * 8 / 8 = 8 prompts (64 completions) per step. Fewer than ~8 prompts
@@ -495,6 +529,19 @@ def _load_sft_baseline():
         for r in _csv.DictReader(open(SFT_PER_CATEGORY_CSV)):
             base["per_category_f1"][r["category"]] = float(r["f1"])
             base["per_category_support"][r["category"]] = int(r["support_gt"])
+    elif m.get("per_category"):
+        # compute_metrics.py also embeds the per-category table in the metrics
+        # JSON; use it when the sidecar CSV was not written (e.g. MedGemma run).
+        for r in m["per_category"]:
+            f1 = r.get("f1")
+            try:
+                f1 = float(f1)
+            except (TypeError, ValueError):
+                f1 = 0.0
+            if f1 != f1:          # NaN (category with no GT positives)
+                f1 = 0.0
+            base["per_category_f1"][r["category"]] = f1
+            base["per_category_support"][r["category"]] = int(r.get("support_gt", 0))
     return base
 
 
@@ -611,6 +658,39 @@ MISTRAL_CHAT_TEMPLATE = (
     "{%- endfor %}"
 )
 MISTRAL_MARKERS = ("mistral", "Mistral", "wildguard", "WildGuard")
+
+# Llama-Guard-7B (Llama-2 lineage): byte-identical to the template
+# Claude/SFT/sft_llamaguard7b.py trained with. The system message is folded
+# into the first user turn between <<SYS>> markers (the GRPO llamaguard data
+# carries no system turn, so this branch is inert and each user turn renders
+# as "[INST] ... [/INST]"). Like Mistral, the user turn closes with [/INST],
+# so the generation prompt is implicit (no add_generation_prompt text) and
+# ASSISTANT_PREFIX is "". The assistant turn ends with the native </s> eos,
+# so no eos swap is needed (unlike the Llama-3 LlamaGuard-2 lineage, which
+# swaps to <|end_of_text|>).
+LLAMA2_CHAT_TEMPLATE = (
+    "{%- set ns = namespace(system='') %}"
+    "{%- for message in messages %}"
+    "{%- if message['role'] == 'system' %}"
+    "{%- set ns.system = message['content'] %}"
+    "{%- endif %}"
+    "{%- endfor %}"
+    "{%- set loop_messages = messages | rejectattr('role', 'equalto', 'system') | list %}"
+    "{%- for message in loop_messages %}"
+    "{%- if message['role'] == 'user' %}"
+    "{%- if loop.first and ns.system %}"
+    "{{- '[INST] <<SYS>>\n' + ns.system + '\n<</SYS>>\n\n' + message['content'] + ' [/INST]' }}"
+    "{%- else %}"
+    "{{- '[INST] ' + message['content'] + ' [/INST]' }}"
+    "{%- endif %}"
+    "{%- elif message['role'] == 'assistant' %}"
+    "{{- ' ' + message['content'] + eos_token }}"
+    "{%- endif %}"
+    "{%- endfor %}"
+)
+# Detected on the SFT run-dir / merged-path name ("LlamaGuard-7b"), which does
+# NOT collide with "Llama-Guard-2-8B" (hyphenated) or "Llama-3.1-8B".
+LLAMA2_MARKERS = ("llamaguard-7b",)
 
 # Text the SFT model was trained to emit at the very start of every answer,
 # before the JSON. It is placed in the generation prompt (right after
