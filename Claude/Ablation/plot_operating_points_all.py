@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """Figure 1 layout (recall on unsafe vs FPR on safe) for every backbone we have.
 
-Same systems and colours as fig_operating_points.png in personalization_report.py:
+Same systems and colors as fig_operating_points.png in personalization_report.py:
   zero-shot, no profile            (base, noprofile)
   zero-shot, with profile          (base, true)
-  non-personalized SFT             (sft-noprofile, nonpersonalized)   trained & tested without profiles
-  personalized SFT, profile withheld (sft, noprofile)
+  non-personalized SFT / CU / GRPO (trained and tested without profiles; Table 6)
+  personalized SFT / CU / GRPO, profile withheld or non-personalized prompt (Table 7)
   personalized SFT / CU / GRPO     (arm, true)
 Marker = backbone. Runs with no parsable verdict are dropped; points below the
 window are listed in a note instead of being cropped silently.
 
 Outputs (Claude/Ablation/report/):
-  fig_operating_points_all.png     colour = system, marker = backbone, shaded target / over-blocking zones
-  fig_operating_points_simple.png  colour = profile at inference vs not (zero-shot grey), one marker
+  fig_operating_points_all.png     color = system, marker = backbone, shaded target / over-blocking zones
+  fig_operating_points_simple.png  color = profile at inference vs not (zero-shot grey), one marker
   fig_operating_points_all.csv
 """
 import argparse
@@ -37,12 +37,42 @@ DISPLAY = {
 }
 MODEL_ORDER = list(DISPLAY)
 MARKERS = dict(zip(MODEL_ORDER, "osD^vP*Xh<>pd"))
-SYS_ORDER = ["zero-shot, no profile", "zero-shot, with profile", "non-personalized SFT (trained w/o profiles)",
-             "personalized SFT, profile withheld", "personalized SFT", "personalized CU", "personalized GRPO"]
-SYS_COL = {"zero-shot, no profile": "#bbbbbb", "zero-shot, with profile": "#777777",
-           "non-personalized SFT (trained w/o profiles)": "#E1812C", "personalized SFT, profile withheld": "#F2C572",
-           "personalized SFT": "#4C72B0", "personalized CU": "#55A868", "personalized GRPO": "#C44E52"}
-XLIM, YLIM = (0, 85), (60, 101)
+SYS_ORDER = [
+    "zero-shot, no profile", "zero-shot, with profile",
+    "non-personalized SFT (trained w/o profiles)",
+    "non-personalized CU (trained w/o profiles)",
+    "non-personalized GRPO (trained w/o profiles)",
+    "personalized SFT, profile withheld",
+    "personalized CU, profile withheld",
+    "personalized GRPO, profile withheld",
+    "personalized CU, non-personalized prompt",
+    "personalized GRPO, non-personalized prompt",
+    "personalized SFT", "personalized CU", "personalized GRPO",
+]
+SYS_COL = {
+    "zero-shot, no profile": "#bbbbbb", "zero-shot, with profile": "#777777",
+    "non-personalized SFT (trained w/o profiles)": "#E1812C",
+    "non-personalized CU (trained w/o profiles)": "#8172B3",
+    "non-personalized GRPO (trained w/o profiles)": "#64B5CD",
+    "personalized SFT, profile withheld": "#F2C572",
+    "personalized CU, profile withheld": "#A1D99B",
+    "personalized GRPO, profile withheld": "#FC9272",
+    "personalized CU, non-personalized prompt": "#6A51A3",
+    "personalized GRPO, non-personalized prompt": "#B15928",
+    "personalized SFT": "#4C72B0", "personalized CU": "#55A868", "personalized GRPO": "#C44E52",
+}
+# shorter names for the single-column legend
+SYS_SHORT = {
+    "non-personalized SFT (trained w/o profiles)": "NP SFT (trained w/o profile)",
+    "non-personalized CU (trained w/o profiles)": "NP CU (trained w/o profile)",
+    "non-personalized GRPO (trained w/o profiles)": "NP GRPO (trained w/o profile)",
+    "personalized SFT, profile withheld": "SFT, profile withheld",
+    "personalized CU, profile withheld": "CU, profile withheld",
+    "personalized GRPO, profile withheld": "GRPO, profile withheld",
+    "personalized CU, non-personalized prompt": "CU, non-pers. prompt",
+    "personalized GRPO, non-personalized prompt": "GRPO, non-pers. prompt",
+}
+XLIM, YLIM = (0, 85), (65, 101)
 TARGET = dict(recall=95, fpr=20)   # target box: recall >= 95, FPR <= 20
 OVERBLOCK_FPR = 40                 # over-blocking band: FPR >= 40
 
@@ -51,7 +81,13 @@ GROUP = {
     "zero-shot, no profile": "zero-shot",
     "zero-shot, with profile": "zero-shot",
     "non-personalized SFT (trained w/o profiles)": "no profile at inference",
+    "non-personalized CU (trained w/o profiles)": "no profile at inference",
+    "non-personalized GRPO (trained w/o profiles)": "no profile at inference",
     "personalized SFT, profile withheld": "no profile at inference",
+    "personalized CU, profile withheld": "no profile at inference",
+    "personalized GRPO, profile withheld": "no profile at inference",
+    "personalized CU, non-personalized prompt": "no profile at inference",
+    "personalized GRPO, non-personalized prompt": "no profile at inference",
     "personalized SFT": "profile at inference",
     "personalized CU": "profile at inference",
     "personalized GRPO": "profile at inference",
@@ -60,7 +96,7 @@ GROUP_ORDER = ["zero-shot", "no profile at inference", "profile at inference"]
 GROUP_COL = {"zero-shot": "#9a9a9a", "no profile at inference": "#E1812C", "profile at inference": "#4C72B0"}
 GROUP_LABEL = {
     "zero-shot": "zero-shot (with or without profile)",
-    "no profile at inference": "trained, no profile at inference\n(non-personalized SFT; personalized SFT with profile withheld)",
+    "no profile at inference": "trained, no profile at inference\n(NP SFT/CU/GRPO; personalized arms with the profile withheld or a non-personalized prompt)",
     "profile at inference": "trained, profile at inference\n(personalized SFT / CU / GRPO)",
 }
 
@@ -135,13 +171,46 @@ def main():
                 res[(DIRKEY[key], arm, "true")] = {"recall": c["rec"] / 100, "fpr": c["fpr"] / 100,
                                                    "acc": c["acc"] / 100, "macro_f1": c["mac"] / 100}
 
+    def _from_cell(c):
+        return {"recall": c["rec"] / 100, "fpr": c["fpr"] / 100,
+                "acc": c["acc"] / 100, "macro_f1": c["mac"] / 100}
+
+    # Table 6 (tab:noprofile_trained): CU/GRPO trained and tested without profiles.
+    # Only rows the table reports; personalized cells stay on the Table 1 scores above.
+    table_pts = set()
+    np_rows = json.load(open(os.path.join(R.OUT_DIR, "paper", "np_729_abstain.json")))["rows"]
+    for key, model in DIRKEY.items():
+        for src, arm in (("np_cu", "cu-np"), ("np_grpo", "grpo-np")):
+            c = np_rows.get(f"{key}|{src}")
+            if c and c.get("rec") is not None:
+                res[(model, arm, "trained")] = _from_cell(c)
+                table_pts.add((model, arm, "trained"))
+                print(f"  table 6 {DISPLAY[model]} {arm}: recall {c['rec']:.1f} FPR {c['fpr']:.1f}")
+
+    # Table 7 (tab:profile_ablation): personalized CU/GRPO with the profile removed
+    # at test time. Shuffled-profile rows are a sensitivity check and are not plotted.
+    for model in MODEL_ORDER:
+        for arm in ("cu", "grpo"):
+            for cond in ("noprofile", "nonpersonalized"):
+                c = prof.get(f"{model}|{arm}|{cond}")
+                if c and c.get("rec") is not None:
+                    res[(model, arm, cond)] = _from_cell(c)
+                    table_pts.add((model, arm, cond))
+                    print(f"  table 7 {DISPLAY[model]} {arm} {cond}: recall {c['rec']:.1f} FPR {c['fpr']:.1f}")
+
     pts = []  # (model, system, metrics)
     for model in MODEL_ORDER:
         systems = []
         if (model, "base", "noprofile") in res: systems.append(("zero-shot, no profile", (model, "base", "noprofile")))
         if (model, "base", "true") in res: systems.append(("zero-shot, with profile", (model, "base", "true")))
         if (model, "sft-noprofile", "nonpersonalized") in res: systems.append(("non-personalized SFT (trained w/o profiles)", (model, "sft-noprofile", "nonpersonalized")))
+        if (model, "cu-np", "trained") in table_pts: systems.append(("non-personalized CU (trained w/o profiles)", (model, "cu-np", "trained")))
+        if (model, "grpo-np", "trained") in table_pts: systems.append(("non-personalized GRPO (trained w/o profiles)", (model, "grpo-np", "trained")))
         if (model, "sft", "noprofile") in res: systems.append(("personalized SFT, profile withheld", (model, "sft", "noprofile")))
+        if (model, "cu", "noprofile") in table_pts: systems.append(("personalized CU, profile withheld", (model, "cu", "noprofile")))
+        if (model, "grpo", "noprofile") in table_pts: systems.append(("personalized GRPO, profile withheld", (model, "grpo", "noprofile")))
+        if (model, "cu", "nonpersonalized") in table_pts: systems.append(("personalized CU, non-personalized prompt", (model, "cu", "nonpersonalized")))
+        if (model, "grpo", "nonpersonalized") in table_pts: systems.append(("personalized GRPO, non-personalized prompt", (model, "grpo", "nonpersonalized")))
         for arm, name in (("sft", "personalized SFT"), ("cu", "personalized CU"), ("grpo", "personalized GRPO")):
             if (model, arm, "true") in res: systems.append((name, (model, arm, "true")))
         if len(systems) < 2:
@@ -195,15 +264,16 @@ def main():
                 fontsize=7.8, color="#2e4a7a", ha="left", va="center",
                 bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#4C72B0", lw=0.6, alpha=0.9))
         lo, hi, med = group_stats("no profile at inference")
-        ax.text(41.5, 77.5,
-                "orange / gold: trained models that do NOT see the\n"
-                "profile when they decide (non-personalized SFT;\n"
-                "personalized SFT with the profile withheld)\n"
+        ax.text(46.5, 68.5,
+                "other colors: trained models that do NOT see the\n"
+                "profile when they decide (NP SFT/CU/GRPO;\n"
+                "personalized arms, profile withheld or\n"
+                "non-personalized prompt)\n"
                 f"FPR {lo:.0f}–{hi:.0f}%, median {med:.0f}%",
                 fontsize=7.8, color="#9a4f12", ha="left", va="center",
                 bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#E1812C", lw=0.6, alpha=0.9))
 
-    # ---------------------------------------------------------------- full figure: colour = system, marker = backbone
+    # ---------------------------------------------------------------- full figure: color = system, marker = backbone
     fig, ax = plt.subplots(figsize=(10.2, 6.2))
     if not args.no_zones:
         draw_zones(ax, plt)
@@ -211,13 +281,11 @@ def main():
         ax.scatter(100 * m["fpr"], 100 * m["recall"], s=90, marker=MARKERS[model], color=SYS_COL[name],
                    edgecolor="k", linewidth=0.5, zorder=3)
     axes_common(ax)
-    if not args.no_zones:
-        cluster_labels(ax)
     ax.set_title("Operating points, all backbones: without the profile at inference, safety is only reachable by over-blocking", fontsize=10)
     off_note(ax)
     present_models = [m for m in MODEL_ORDER if any(p[0] == m for p in pts)]
     h1 = [ax.scatter([], [], color=SYS_COL[s], s=60, label=s) for s in SYS_ORDER if any(p[1] == s for p in pts)]
-    leg1 = ax.legend(handles=h1, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 1.0), title="system (colour)", title_fontsize=8, frameon=False)
+    leg1 = ax.legend(handles=h1, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 1.0), title="system (color)", title_fontsize=8, frameon=False)
     ax.add_artist(leg1)
     h2 = [ax.scatter([], [], marker=MARKERS[m], color="w", edgecolor="k", s=60, label=DISPLAY[m]) for m in present_models]
     ax.legend(handles=h2, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 0.62), title="backbone (marker)", title_fontsize=8, frameon=False)
@@ -227,16 +295,20 @@ def main():
     print(f"wrote {out}")
 
     # ---------------------------------------------------------------- single-column version (ACL \columnwidth ~ 3.03in)
-    # Same data and colours. Legends sit inside the empty lower-right area; the
-    # below-window runs are described in the caption instead of a note.
-    fig, ax = plt.subplots(figsize=(3.3, 3.5))
+    # Legends sit under the axes: the new Table 6/7 points occupy the lower-right
+    # area the previous in-axes legend used. Below-window runs go in the caption.
+    fig, ax = plt.subplots(figsize=(3.3, 3.55))
     if not args.no_zones:
         draw_zones(ax, plt)
         for t in ax.texts:
             t.set_fontsize(5.2)
+            if t.get_text().startswith("over-blocking"):
+                t.set_position((48, 67.2))
+                t.set_ha("left")
+                t.set_va("center")
     for model, name, m in inside:
-        ax.scatter(100 * m["fpr"], 100 * m["recall"], s=26, marker=MARKERS[model], color=SYS_COL[name],
-                   edgecolor="k", linewidth=0.35, zorder=3)
+        ax.scatter(100 * m["fpr"], 100 * m["recall"], s=13, marker=MARKERS[model], color=SYS_COL[name],
+                   edgecolor="k", linewidth=0.28, zorder=3)
     ax.axhline(95, color="grey", ls=":", lw=0.6); ax.text(26, 95.6, "95 % recall", fontsize=5.2, color="grey")
     ax.set_xlabel("false-positive rate on safe prescriptions (%)", fontsize=7, labelpad=2)
     ax.set_ylabel("recall on unsafe prescriptions (%)", fontsize=7, labelpad=2)
@@ -244,27 +316,29 @@ def main():
     ax.tick_params(labelsize=6, length=2, pad=1.5)
     for sp in ax.spines.values():
         sp.set_linewidth(0.6)
-    h1 = [ax.scatter([], [], color=SYS_COL[s], s=18, edgecolor="k", linewidth=0.35, label=s.replace(" (trained w/o profiles)", ""))
+    h1 = [ax.scatter([], [], color=SYS_COL[s], s=16, edgecolor="k", linewidth=0.35, label=SYS_SHORT.get(s, s))
           for s in SYS_ORDER if any(p[1] == s for p in pts)]
-    leg1 = ax.legend(handles=h1, fontsize=4.9, loc="lower right", bbox_to_anchor=(1.0, 0.0), frameon=True, framealpha=0.92,
-                     edgecolor="#cccccc", borderpad=0.4, labelspacing=0.3, handletextpad=0.3, handlelength=1.0,
-                     title="system (colour)", title_fontsize=5.3)
-    leg1.get_frame().set_linewidth(0.4)
-    ax.add_artist(leg1)
-    h2 = [ax.scatter([], [], marker=MARKERS[m], color="w", edgecolor="k", s=18, linewidth=0.5, label=DISPLAY[m]) for m in present_models]
-    leg2 = ax.legend(handles=h2, fontsize=4.9, loc="lower right", bbox_to_anchor=(1.0, 0.235), ncol=2, frameon=True,
-                     framealpha=0.92, edgecolor="#cccccc", borderpad=0.4, labelspacing=0.3, handletextpad=0.3,
-                     columnspacing=0.8, handlelength=1.0, title="backbone (marker)", title_fontsize=5.3)
-    leg2.get_frame().set_linewidth(0.4)
-    fig.tight_layout(pad=0.3)
+    h2 = [ax.scatter([], [], marker=MARKERS[m], color="w", edgecolor="k", s=10, linewidth=0.4, label=DISPLAY[m]) for m in present_models]
+    fig.tight_layout(pad=0.35)
+    fig.canvas.draw()
+    pos = ax.get_position()
+    mid = (pos.x0 + pos.x1) / 2
+    lab = ax.xaxis.label.get_window_extent(renderer=fig.canvas.get_renderer())
+    top = lab.transformed(fig.transFigure.inverted()).y0 - 0.012
+    fig.legend(handles=h1, fontsize=4.8, loc="upper right", bbox_to_anchor=(mid - 0.02, top), ncol=1,
+               frameon=False, borderpad=0.15, labelspacing=0.28, handletextpad=0.35,
+               handlelength=1.1, title="arm (color)", title_fontsize=5.2)
+    fig.legend(handles=h2, fontsize=4.8, loc="upper left", bbox_to_anchor=(mid + 0.02, top), ncol=1,
+               frameon=False, borderpad=0.15, labelspacing=0.28, handletextpad=0.35,
+               handlelength=1.1, title="backbone (marker)", title_fontsize=5.2)
     out = os.path.join(OUT_DIR, "fig_operating_points_all_col.png")
     fig.savefig(out, dpi=400, bbox_inches="tight", pad_inches=0.02); plt.close(fig)
     print(f"wrote {out}")
 
-    # ---------------------------------------------------------------- simplified figure: colour = profile at inference or not
+    # ---------------------------------------------------------------- simplified figure: color = profile at inference or not
     fig, ax = plt.subplots(figsize=(7.2, 5.6))
     draw_zones(ax, plt)
-    for g in GROUP_ORDER:  # draw grey first so the coloured groups sit on top
+    for g in GROUP_ORDER:  # draw grey first so the colored groups sit on top
         sel = [p for p in inside if GROUP[p[1]] == g]
         ax.scatter([100 * m["fpr"] for _, _, m in sel], [100 * m["recall"] for _, _, m in sel], s=62,
                    color=GROUP_COL[g], edgecolor="k", linewidth=0.5, zorder=3, alpha=0.9)

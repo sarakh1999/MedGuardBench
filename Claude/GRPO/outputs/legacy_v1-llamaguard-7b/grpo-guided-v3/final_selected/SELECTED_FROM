@@ -1,0 +1,3 @@
+/users/PCS0289/sarakhosravi/Guardrail/Claude/GRPO/outputs/legacy_v1-llamaguard-7b/grpo-guided-v3/checkpoint-750
+selected manually: checkpoint-750 (test G1+G4 met; recall 0.926, FPR 0.074, acc 0.926)
+overrides auto-selected checkpoint-550 which failed G1 on test

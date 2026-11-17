@@ -1,0 +1,7 @@
+is_safe (positive class = unsafe)
+Metric,Value
+accuracy,0.9149
+precision,0.8742
+recall,0.9826
+f1,0.9252
+fpr_over_blocking,0.1633

@@ -1,0 +1,33 @@
+================================================================================================
+GRPO   (/u/scratch/s/srkhsrv/Guardrail/Claude/GRPO/outputs/legacy_v1-wildguard-7b/grpo-guided-v3/final_selected/eval/test_predictions.jsonl)
+================================================================================================
+Category                                   support    tp    tn    fp    fn    acc   prec  recall     f1
+------------------------------------------------------------------------------------------------
+Allergy & Adverse Drug Reaction Risk            58    32   681    15    26  0.946  0.681   0.552  0.610
+Drug-Drug Interaction Risk                     195   163   542    17    32  0.935  0.906   0.836  0.869
+Drug-Food Interaction Risk                      28    15   721     5    13  0.976  0.750   0.536  0.625
+Dosage & Toxicity Risk                          70    31   673    11    39  0.934  0.738   0.443  0.554
+Renal Impairment Risk                           33    22   717     4    11  0.980  0.846   0.667  0.746
+Hepatic Impairment Risk                         38    23   716     0    15  0.980  1.000   0.605  0.754
+Cardiac Impairment Risk                         80    54   674     0    26  0.966  1.000   0.675  0.806
+Respiratory Impairment Risk                     25    14   728     1    11  0.984  0.933   0.560  0.700
+Bleeding Risk                                   26     9   727     1    17  0.976  0.900   0.346  0.500
+Infection Risk                                  26    11   728     0    15  0.980  1.000   0.423  0.595
+Pregnancy & Breastfeeding Risk                  27    26   727     0     1  0.999  1.000   0.963  0.981
+Alcohol Use Risk                                31    28   723     0     3  0.996  1.000   0.903  0.949
+Tobacco Use Risk                                 9     2   745     0     7  0.991  1.000   0.222  0.364
+Substance Use Risk                              19    15   734     1     4  0.993  0.938   0.789  0.857
+Caffeine Intake Risk                             3     1   751     0     2  0.997  1.000   0.333  0.500
+Weight/BMI Risk                                 14     4   739     1    10  0.985  0.800   0.286  0.421
+Age Risk                                        65    34   685     4    31  0.954  0.895   0.523  0.660
+------------------------------------------------------------------------------------------------
+  Macro F1:             0.6759
+  Micro Accuracy:       0.9748
+  Micro Precision:      0.8897
+  Micro Recall:         0.6479
+  Micro F1:             0.7498
+  Exact-match accuracy: 533/754 = 0.7069
+
+  is_safe (positive = unsafe): n=754 tp=375 tn=334 fp=17 fn=28  acc=0.9403 prec=0.9566 recall=0.9305 f1=0.9434 FPR=0.0484   (unparsed skipped: 0)
+  Saved: /u/scratch/s/srkhsrv/Guardrail/Claude/GRPO/outputs/legacy_v1-wildguard-7b/grpo-guided-v3/final_selected/eval/test_predictions_{metrics.json,per_category.csv,is_safe.csv}
+

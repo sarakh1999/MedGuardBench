@@ -1,0 +1,90 @@
+{
+ "l31|grpo": {
+  "acc": 86.0082304526749,
+  "rec": 98.68073878627969,
+  "fpr": 27.714285714285715,
+  "mic": 71.15384615384616,
+  "mac": 62.70780083301828,
+  "em": 61.72839506172839,
+  "n": 729,
+  "unparsed": 6,
+  "file": "Claude/GRPO/outputs/legacy_v1-llama31-8b/grpo-guided-v2/final/eval/test_predictions.jsonl"
+ },
+ "lg2|grpo": {
+  "acc": 92.45541838134432,
+  "rec": 97.62532981530343,
+  "fpr": 13.142857142857142,
+  "mic": 75.76687116564416,
+  "mac": 68.4166520773994,
+  "em": 69.82167352537722,
+  "n": 729,
+  "unparsed": 0,
+  "file": "Claude/GRPO/outputs/legacy_v1-llamaguard2-8b/grpo-guided-v2/final/eval/test_predictions.jsonl"
+ },
+ "lg7|grpo": {
+  "acc": 90.6721536351166,
+  "rec": 87.0712401055409,
+  "fpr": 5.428571428571429,
+  "mic": 68.63226863226863,
+  "mac": 60.42174363688464,
+  "em": 66.80384087791495,
+  "n": 729,
+  "unparsed": 0,
+  "file": "Claude/GRPO/outputs/legacy_v1-llamaguard-7b/grpo-guided-v3/final_selected/eval/test_predictions.jsonl"
+ },
+ "mg|cu": {
+  "acc": 90.26063100137173,
+  "rec": 97.36147757255937,
+  "fpr": 17.42857142857143,
+  "mic": 74.03072421360645,
+  "mac": 69.1703876744763,
+  "em": 65.4320987654321,
+  "n": 729,
+  "unparsed": 0,
+  "file": "context_unrolling/outputs/ontop_medgemma4b/sft+1ep_unrolled_v4pro/test_predictions.jsonl"
+ },
+ "mg|grpo": {
+  "acc": 91.22085048010973,
+  "rec": 98.15303430079155,
+  "fpr": 16.28571428571429,
+  "mic": 72.27369921596578,
+  "mac": 67.34402535798782,
+  "em": 63.64883401920439,
+  "n": 729,
+  "unparsed": 2,
+  "file": "Claude/GRPO/outputs/legacy_v1-medgemma-4b/grpo-guided-v3/eval_sofar/test_predictions.jsonl"
+ },
+ "wg|sft": {
+  "acc": 91.49519890260632,
+  "rec": 87.0712401055409,
+  "fpr": 3.7142857142857144,
+  "mic": 74.9211356466877,
+  "mac": 71.56450487755727,
+  "em": 68.86145404663924,
+  "n": 729,
+  "unparsed": 0,
+  "file": "Claude/SFT/new_outputs/WildGuard-7B_hoffman/test_predictions_sft.jsonl"
+ },
+ "wg|cu": {
+  "acc": 90.80932784636488,
+  "rec": 95.77836411609498,
+  "fpr": 14.571428571428571,
+  "mic": 72.49626307922271,
+  "mac": 65.91269966905257,
+  "em": 65.29492455418381,
+  "n": 729,
+  "unparsed": 0,
+  "file": "context_unrolling/outputs/ontop_wildguard7b/sft+1ep_unrolled_v4pro/test_predictions.jsonl"
+ },
+ "wg|grpo": {
+  "acc": 93.96433470507544,
+  "rec": 92.87598944591029,
+  "fpr": 4.857142857142857,
+  "mic": 75.29021558872306,
+  "mac": 68.49668484228263,
+  "em": 71.87928669410151,
+  "n": 729,
+  "unparsed": 0,
+  "file": "Claude/GRPO/outputs/legacy_v1-wildguard-7b/grpo-guided-v3/final_selected/eval/test_predictions.jsonl"
+ }
+}

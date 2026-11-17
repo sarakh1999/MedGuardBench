@@ -1,0 +1,29 @@
+Patient ID,split,Matched_Drug,home_split,Is_Safe,Recommended Medication
+1162,train,Atorvastatin,Validation,False,Colchicine
+1167,train,Atorvastatin,Validation,False,Ketoconazole
+1179,train,Atorvastatin,Validation,False,Telaprevir
+348,test,Acetaminophen,Train,False,Self-medicating combination
+351,test,Acetaminophen,Train,False,Tylenol Extra Strength 1000 mg
+353,test,Acetaminophen,Train,False,Infants' Tylenol 40 mg (parent self-medicating)
+354,test,Acetaminophen,Train,False,Tylenol Extra Strength 500 mg adult caplets
+361,test,Acetaminophen,Train,False,Self-medicating OTC Tylenol
+368,test,Acetaminophen,Train,False,Continues all three products
+725,test,Propranolol,Train,False,Hemangeol
+734,test,Propranolol,Train,False,Hemangeol
+776,test,Propranolol,Train,True,Hemangeol
+865,test,Dapagliflozin,Train,False,Add gatifloxacin
+1156,test,Atorvastatin,Validation,False,Gemfibrozil
+1158,test,Atorvastatin,Validation,False,Itraconazole
+1170,test,Atorvastatin,Validation,False,Fenofibrate
+1173,test,Atorvastatin,Validation,False,Rifampin (in RIPE regimen)
+1174,test,Atorvastatin,Validation,False,Danazol
+1175,test,Atorvastatin,Validation,False,Simvastatin
+1176,test,Atorvastatin,Validation,False,Voriconazole
+1178,test,Atorvastatin,Validation,False,Continue current regimen
+1180,test,Atorvastatin,Validation,False,Nefazodone
+1350,test,Warfarin,Train,False,Continue both as prescribed
+1351,test,Warfarin,Train,False,Continue both as-is
+1498,test,Bupropion,Train,False,Bupropion SR
+1500,test,Bupropion,Train,False,Bupropion SR
+1504,test,Bupropion,Train,False,Bupropion SR
+5194,test,Erythromycin,Train,False,Supportive care

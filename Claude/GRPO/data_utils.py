@@ -30,6 +30,7 @@ from grpo_config import (
     RISK_CATEGORIES, STANDARD_CHATML_TEMPLATE, NEEDS_TEMPLATE_OVERRIDE,
     ASSISTANT_PREFIX, GEMMA_CHAT_TEMPLATE, GEMMA_MARKERS, GEMMA_EOS,
     MISTRAL_CHAT_TEMPLATE, MISTRAL_MARKERS,
+    LLAMA2_CHAT_TEMPLATE, LLAMA2_MARKERS,
 )
 
 # Accepted key spellings for each label field
@@ -234,6 +235,17 @@ def apply_template_override(tokenizer, model_name):
         tokenizer.chat_template = MISTRAL_CHAT_TEMPLATE
         print(f"  applied Mistral template override; eos={tokenizer.eos_token!r}")
         return tokenizer      # ASSISTANT_PREFIX is "" for Mistral
+    if any(marker.lower() in name for marker in LLAMA2_MARKERS):
+        # Llama-Guard-7B is Llama-2, not Llama-3: the [INST] <<SYS>> format
+        # Claude/SFT/sft_llamaguard7b.py trained with, closing each user turn
+        # with [/INST] (implicit generation prompt, like Mistral). Keep the
+        # native </s> eos -- the Llama-3 specials (<|end_of_text|>) are not in
+        # this SentencePiece tokenizer. Must come BEFORE the generic "llama"
+        # branch below.
+        tokenizer.chat_template = LLAMA2_CHAT_TEMPLATE
+        print(f"  applied Llama-2 template override (LlamaGuard-7B backbone); "
+              f"eos={tokenizer.eos_token!r} id={tokenizer.eos_token_id}")
+        return tokenizer      # ASSISTANT_PREFIX is "" for Llama
     if "llama" in name:
         # Plain Llama-3 chat format, as in Claude/SFT/sft_llamaguard2-8b.py
         # (LlamaGuard-2 ships a classifier template that drops the assistant

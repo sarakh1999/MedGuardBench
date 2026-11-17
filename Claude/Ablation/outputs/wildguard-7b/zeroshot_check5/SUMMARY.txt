@@ -1,0 +1,49 @@
+{
+  "paper_probe": {
+    "n": 5,
+    "n_parsed": 0,
+    "raw_prefixes": [
+      "no",
+      "no",
+      "no",
+      "no",
+      "no"
+    ]
+  },
+  "native_request": {
+    "n": 5,
+    "n_parsed": 5,
+    "parse_rate": 1.0,
+    "accuracy": 0.2,
+    "precision_unsafe": 1.0,
+    "recall_unsafe": 0.2,
+    "f1_unsafe": 0.33333333333333337,
+    "fpr": 0.0,
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 4,
+    "seconds": 3.2184741497039795,
+    "skipped_ctx": 0,
+    "yes": 1,
+    "no": 4
+  },
+  "native_response": {
+    "n": 5,
+    "n_parsed": 5,
+    "parse_rate": 1.0,
+    "accuracy": 0.2,
+    "precision_unsafe": 1.0,
+    "recall_unsafe": 0.2,
+    "f1_unsafe": 0.33333333333333337,
+    "fpr": 0.0,
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 4,
+    "seconds": 2.9108896255493164,
+    "skipped_ctx": 0,
+    "yes": 1,
+    "no": 4
+  }
+}

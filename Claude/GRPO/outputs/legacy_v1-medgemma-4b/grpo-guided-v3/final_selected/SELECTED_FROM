@@ -1,0 +1,3 @@
+/users/PCS0289/sarakhosravi/Guardrail/Claude/GRPO/outputs/legacy_v1-medgemma-4b/grpo-guided-v3/checkpoint-900
+val score 1.2601
+meets_recall=True beats_sft=True forced=False
