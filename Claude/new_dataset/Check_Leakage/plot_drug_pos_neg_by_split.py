@@ -19,6 +19,7 @@ SPLITS = {
 
 # Active medications, as listed in new_medications.txt (includes Prednisolone and Bupropion).
 DRUGS = [ln.strip() for ln in open(REPO_ROOT / "new_medications.txt") if ln.strip()]
+DRUGS += [d for d in ("Prednisolone", "Bupropion") if d not in DRUGS]
 OTHER = "Other"
 
 # Brand names, abbreviations, and combination products that are the same substance
@@ -82,6 +83,8 @@ def match_row(row) -> str:
 
 def get_split_drug_pos_neg(csv_path: Path) -> pd.DataFrame:
     df = pd.read_csv(csv_path, dtype=str, keep_default_na=False)
+    if csv_path == SPLITS["Test"]:
+        df = df.loc[test_keep_mask(len(df))].copy()
     df["Matched_Drug"] = df.apply(match_row, axis=1)
     df["Is_Safe_Bool"] = df["Is_Safe"].map(lambda x: str(x).strip().lower() == "true")
 
@@ -117,10 +120,24 @@ HOME_SPLIT = {
 }
 
 
+def test_keep_mask(n):
+    """The 729 evaluated test rows (same mask as the paper's result tables)."""
+    import sys
+    sys.path.insert(0, str(REPO_ROOT / "Claude" / "Ablation"))
+    import abstain_paper_729 as A
+    from rescore_regen_base_729 import DRIFT_ROWS
+    keep = np.asarray(A.KEEP, dtype=bool).copy()
+    keep[DRIFT_ROWS] = False
+    assert len(keep) == n and keep.sum() == 729
+    return keep
+
+
 def load_split_frame(split_name, path):
     """Rows counted in the figure: aliases resolved, each of the seven
     cross-split drugs kept only in its home split."""
     df = pd.read_csv(path, dtype=str, keep_default_na=False)
+    if split_name == "Test":
+        df = df.loc[test_keep_mask(len(df))].copy()
     df["Matched_Drug"] = df.apply(match_row, axis=1)
     home = df["Matched_Drug"].map(HOME_SPLIT)
     keep = home.isna() | (home == split_name)
@@ -187,7 +204,7 @@ def main():
             x - width / 2,
             pos_vals,
             width,
-            label="Positive (+ / Safe, Is_Safe = True)",
+            label="Safe",
             color="#2ca02c",
             edgecolor="white",
             linewidth=0.4,
@@ -196,7 +213,7 @@ def main():
             x + width / 2,
             neg_vals,
             width,
-            label="Negative (- / Unsafe, Is_Safe = False)",
+            label="Unsafe",
             color="#d62728",
             edgecolor="white",
             linewidth=0.4,
@@ -248,7 +265,7 @@ def main():
         ax.set_ylabel("Number of Samples", fontsize=11)
         ax.set_title(
             f"{split_name} Split — {n_drugs} Drugs "
-            f"(+ / Safe: {int(pos_vals.sum()):,},  - / Unsafe: {int(neg_vals.sum()):,},  Total: {int(tbl['Total'].sum()):,})",
+            f"(Safe: {int(pos_vals.sum()):,},  Unsafe: {int(neg_vals.sum()):,},  Total: {int(tbl['Total'].sum()):,})",
             fontsize=12.5,
             fontweight="bold",
             pad=10,
@@ -260,14 +277,6 @@ def main():
         ax.legend(loc="upper right", frameon=True, fontsize=9.5)
 
     n_listed = len(DRUGS)
-    fig.suptitle(
-        "Positive (+ / True) and Negative (- / False) Samples per Drug Grouped by Split\n"
-        f"({n_listed} Listed Drugs; Brand Names and Aliases Counted with the Listed Drug)",
-        fontsize=15,
-        fontweight="bold",
-        y=0.98,
-    )
-
     out_path = BASE_DIR / "drug_pos_neg_by_split.png"
     plt.savefig(out_path, dpi=200, bbox_inches="tight")
     print(f"Saved plot to: {out_path}")

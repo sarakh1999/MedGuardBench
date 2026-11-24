@@ -230,6 +230,7 @@ def main():
 
     inside = [p for p in pts if XLIM[0] <= 100 * p[2]["fpr"] <= XLIM[1] and YLIM[0] <= 100 * p[2]["recall"] <= YLIM[1]]
     off = [p for p in pts if p not in inside]
+    print('below window:', [(DISPLAY[mo], na, round(100*m['recall'],1), round(100*m['fpr'],1)) for mo, na, m in off])
 
     # FPR range per group, printed so the caption can quote it
     for g in GROUP_ORDER:
@@ -301,19 +302,19 @@ def main():
     if not args.no_zones:
         draw_zones(ax, plt)
         for t in ax.texts:
-            t.set_fontsize(5.2)
+            t.set_fontsize(6.2)
             if t.get_text().startswith("over-blocking"):
-                t.set_position((48, 67.2))
+                t.set_position((42, 67.2))
                 t.set_ha("left")
                 t.set_va("center")
     for model, name, m in inside:
-        ax.scatter(100 * m["fpr"], 100 * m["recall"], s=13, marker=MARKERS[model], color=SYS_COL[name],
-                   edgecolor="k", linewidth=0.28, zorder=3)
-    ax.axhline(95, color="grey", ls=":", lw=0.6); ax.text(26, 95.6, "95 % recall", fontsize=5.2, color="grey")
-    ax.set_xlabel("false-positive rate on safe prescriptions (%)", fontsize=7, labelpad=2)
-    ax.set_ylabel("recall on unsafe prescriptions (%)", fontsize=7, labelpad=2)
+        ax.scatter(100 * m["fpr"], 100 * m["recall"], s=18, marker=MARKERS[model], color=SYS_COL[name],
+                   edgecolor="k", linewidth=0.3, zorder=3)
+    ax.axhline(95, color="grey", ls=":", lw=0.6); ax.text(26, 95.6, "95 % recall", fontsize=6.2, color="grey")
+    ax.set_xlabel("false-positive rate on safe prescriptions (%)", fontsize=8, labelpad=2)
+    ax.set_ylabel("recall on unsafe prescriptions (%)", fontsize=8, labelpad=2)
     ax.set_xlim(*XLIM); ax.set_ylim(*YLIM); ax.grid(alpha=0.3, lw=0.5); ax.set_axisbelow(True)
-    ax.tick_params(labelsize=6, length=2, pad=1.5)
+    ax.tick_params(labelsize=7, length=2, pad=1.5)
     for sp in ax.spines.values():
         sp.set_linewidth(0.6)
     h1 = [ax.scatter([], [], color=SYS_COL[s], s=16, edgecolor="k", linewidth=0.35, label=SYS_SHORT.get(s, s))
@@ -325,12 +326,12 @@ def main():
     mid = (pos.x0 + pos.x1) / 2
     lab = ax.xaxis.label.get_window_extent(renderer=fig.canvas.get_renderer())
     top = lab.transformed(fig.transFigure.inverted()).y0 - 0.012
-    fig.legend(handles=h1, fontsize=4.8, loc="upper right", bbox_to_anchor=(mid - 0.02, top), ncol=1,
+    fig.legend(handles=h1, fontsize=6, loc="upper right", bbox_to_anchor=(mid - 0.02, top), ncol=1,
                frameon=False, borderpad=0.15, labelspacing=0.28, handletextpad=0.35,
-               handlelength=1.1, title="arm (color)", title_fontsize=5.2)
-    fig.legend(handles=h2, fontsize=4.8, loc="upper left", bbox_to_anchor=(mid + 0.02, top), ncol=1,
+               handlelength=1.1, title="arm (color)", title_fontsize=6.5)
+    fig.legend(handles=h2, fontsize=6, loc="upper left", bbox_to_anchor=(mid + 0.02, top), ncol=1,
                frameon=False, borderpad=0.15, labelspacing=0.28, handletextpad=0.35,
-               handlelength=1.1, title="backbone (marker)", title_fontsize=5.2)
+               handlelength=1.1, title="backbone (marker)", title_fontsize=6.5)
     out = os.path.join(OUT_DIR, "fig_operating_points_all_col.png")
     fig.savefig(out, dpi=400, bbox_inches="tight", pad_inches=0.02); plt.close(fig)
     print(f"wrote {out}")

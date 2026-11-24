@@ -1,0 +1,129 @@
+\begin{table*}[t]
+\centering
+\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}[t]{@{}lllcccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Arm} & \textbf{Test Condition} & \textbf{Acc} & \textbf{Rec} & \textbf{FPR} & \textbf{Mic} & \textbf{Mac} & \textbf{EM} \\
+\midrule
+\multirow{16}{*}{Qwen3-4B}
+& \multirow{4}{*}{Zero-Shot}
+  & True Profile & \textbf{82.3} & 75.2 & \textbf{10.0} & \textbf{54.3} & \textbf{50.3} & \textbf{25.1} \\
+& & No Profile & 81.2 & \textbf{81.3} & 18.9 & 50.7 & 45.9 & 22.2 \\
+& & Shuffled Profile & 61.8 & 69.8 & 47.1 & 29.0 & 23.9 & 11.4 \\
+& & Non-Personalized & 65.8 & 63.0 & 31.1 & 27.6 & 27.4 & 7.7 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ SFT}
+  & True Profile & \textbf{87.4} & 98.4 & \textbf{24.6} & \textbf{72.3} & \textbf{65.4} & \textbf{48.8} \\
+& & No Profile & 72.3 & \textbf{99.7} & 57.4 & 50.9 & 31.4 & 30.3 \\
+& & Shuffled Profile & 66.7 & 95.0 & 64.0 & 52.7 & 46.5 & 35.9 \\
+& & Non-Personalized & 72.4 & 74.7 & 30.0 & 28.3 & 21.0 & 10.6 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ CU}
+  & True Profile & \textbf{90.3} & 97.1 & \textbf{17.1} & \textbf{75.5} & \textbf{70.0} & \textbf{52.2} \\
+& & No Profile & 73.3 & \textbf{99.5} & 55.7 & 50.9 & 34.0 & 31.1 \\
+& & Shuffled Profile & 65.1 & 98.5 & 70.2 & 48.5 & 39.7 & 29.2 \\
+& & Non-Personalized & 69.4 & 82.3 & 44.7 & 31.0 & 25.6 & 14.9 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ GRPO}
+  & True Profile & \textbf{91.5} & 95.5 & \textbf{12.9} & \textbf{75.3} & \textbf{69.2} & \textbf{48.4} \\
+& & No Profile & 84.8 & \textbf{99.2} & 30.9 & 56.6 & 38.0 & 33.8 \\
+& & Shuffled Profile & 78.3 & 95.5 & 40.4 & 56.2 & 51.0 & 37.3 \\
+& & Non-Personalized & 70.3 & 77.5 & 37.5 & 32.0 & 26.7 & 13.8 \\
+\midrule
+\multirow{16}{*}{Qwen3-8B}
+& \multirow{4}{*}{Zero-Shot}
+  & True Profile & \textbf{75.5} & 95.8 & 47.7 & \textbf{50.2} & \textbf{45.9} & \textbf{22.8} \\
+& & No Profile & 74.9 & 95.9 & 48.9 & 49.0 & 45.2 & -- \\
+& & Shuffled Profile & 65.6 & \textbf{96.9} & 74.6 & 41.9 & 35.9 & 19.9 \\
+& & Non-Personalized & 67.3 & 76.1 & \textbf{42.7} & 27.1 & 23.3 & 8.3 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ SFT}
+  & True Profile & \textbf{90.9} & 97.4 & \textbf{16.0} & \textbf{74.6} & \textbf{67.6} & \textbf{49.1} \\
+& & No Profile & 79.0 & \textbf{98.2} & 41.7 & 55.0 & 38.8 & 35.4 \\
+& & Shuffled Profile & 71.7 & 97.6 & 56.3 & 55.7 & 50.5 & 38.8 \\
+& & Non-Personalized & 77.1 & 77.6 & 23.4 & 39.6 & 32.5 & 17.2 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ CU}
+  & True Profile & \textbf{94.0} & 97.4 & \textbf{9.7} & \textbf{76.6} & \textbf{69.8} & \textbf{50.9} \\
+& & No Profile & 85.9 & \textbf{98.6} & 29.8 & 58.9 & 40.4 & 35.0 \\
+& & Shuffled Profile & 82.8 & 96.7 & 36.6 & 58.2 & 51.5 & 33.9 \\
+& & Non-Personalized & 77.2 & 69.1 & 13.6 & 36.9 & 28.3 & 14.5 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ GRPO}
+  & True Profile & \textbf{91.1} & 97.4 & \textbf{15.7} & \textbf{76.6} & \textbf{68.4} & \textbf{55.4} \\
+& & No Profile & 86.6 & \textbf{98.2} & 26.0 & 55.8 & 36.9 & 34.6 \\
+& & Shuffled Profile & 79.3 & 96.8 & 39.7 & 59.6 & 53.5 & 40.2 \\
+& & Non-Personalized & 76.0 & 70.7 & 18.1 & 30.1 & 23.5 & 13.1 \\
+\bottomrule
+\end{tabular}
+\hspace{1.5em}
+\begin{tabular}[t]{@{}lllcccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Arm} & \textbf{Test Condition} & \textbf{Acc} & \textbf{Rec} & \textbf{FPR} & \textbf{Mic} & \textbf{Mac} & \textbf{EM} \\
+\midrule
+\multirow{16}{*}{Qwen3Guard-4B}
+& \multirow{4}{*}{Zero-Shot}
+  & True Profile & 78.2 & 70.7 & 13.7 & \textbf{52.5} & \textbf{48.1} & 22.4 \\
+& & No Profile & \textbf{78.4} & 72.9 & 15.8 & 52.3 & \textbf{48.1} & \textbf{24.4} \\
+& & Shuffled Profile & 73.2 & \textbf{80.0} & 34.6 & 45.3 & 40.0 & 20.3 \\
+& & Non-Personalized & 67.7 & 45.0 & \textbf{8.2} & 34.9 & 31.7 & 8.8 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ SFT}
+  & True Profile & \textbf{87.0} & 96.3 & 23.1 & \textbf{72.1} & \textbf{66.5} & \textbf{48.8} \\
+& & No Profile & 78.5 & \textbf{98.9} & 43.7 & 52.6 & 31.7 & 31.1 \\
+& & Shuffled Profile & 75.6 & 95.0 & 45.4 & 55.0 & 47.4 & 36.1 \\
+& & Non-Personalized & 73.9 & 68.3 & \textbf{20.0} & 30.6 & 21.3 & 9.8 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ CU}
+  & True Profile & \textbf{92.2} & 96.3 & \textbf{12.3} & \textbf{75.5} & \textbf{70.0} & \textbf{50.4} \\
+& & No Profile & 78.7 & \textbf{99.5} & 43.7 & 49.7 & 27.6 & 29.0 \\
+& & Shuffled Profile & 72.2 & 97.6 & 55.4 & 53.3 & 44.5 & 34.8 \\
+& & Non-Personalized & 76.0 & 73.6 & 21.4 & 27.8 & 18.0 & 10.8 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ GRPO}
+  & True Profile & \textbf{87.8} & 98.9 & \textbf{24.3} & \textbf{74.4} & \textbf{67.4} & \textbf{52.5} \\
+& & No Profile & 75.1 & \textbf{99.7} & 51.4 & 52.8 & 32.7 & 32.5 \\
+& & Shuffled Profile & 72.6 & 98.9 & 56.0 & 57.6 & 49.9 & 40.1 \\
+& & Non-Personalized & 68.0 & 78.4 & 43.4 & 29.7 & 23.4 & 12.9 \\
+\midrule
+\multirow{16}{*}{Qwen3Guard-8B}
+& \multirow{4}{*}{Zero-Shot}
+  & True Profile & 79.6 & 86.5 & 28.0 & 53.0 & 41.2 & \textbf{35.4} \\
+& & No Profile & \textbf{81.4} & 90.7 & 28.6 & \textbf{56.7} & \textbf{46.5} & 34.8 \\
+& & Shuffled Profile & 71.9 & \textbf{91.3} & 49.2 & 47.5 & 38.1 & 28.0 \\
+& & Non-Personalized & 68.3 & 62.7 & \textbf{25.7} & 31.0 & 27.4 & 13.1 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ SFT}
+  & True Profile & \textbf{90.0} & 96.3 & \textbf{16.9} & \textbf{73.3} & \textbf{65.9} & \textbf{46.7} \\
+& & No Profile & 74.6 & \textbf{98.9} & 51.9 & 53.9 & 36.1 & 33.8 \\
+& & Shuffled Profile & 70.2 & 98.2 & 60.0 & 52.0 & 46.1 & 33.5 \\
+& & Non-Personalized & 76.5 & 75.1 & 22.0 & 32.0 & 25.3 & 11.6 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ CU}
+  & True Profile & \textbf{93.0} & 96.6 & \textbf{10.9} & \textbf{75.4} & \textbf{69.4} & \textbf{49.3} \\
+& & No Profile & 78.0 & \textbf{98.9} & 45.0 & 52.4 & 33.2 & 34.6 \\
+& & Shuffled Profile & 76.6 & 97.9 & 46.7 & 55.2 & 48.0 & 35.6 \\
+& & Non-Personalized & 75.8 & 76.6 & 25.1 & 30.9 & 22.8 & 14.1 \\
+\cmidrule(lr){2-9}
+& \multirow{4}{*}{Pers.\ GRPO}
+  & True Profile & \textbf{85.6} & 98.4 & 28.3 & \textbf{72.8} & \textbf{64.2} & \textbf{54.4} \\
+& & No Profile & 71.8 & 98.9 & 57.6 & 51.3 & 31.5 & 34.1 \\
+& & Shuffled Profile & 70.6 & \textbf{99.7} & 60.9 & 59.9 & 52.2 & 46.7 \\
+& & Non-Personalized & 76.2 & 77.8 & \textbf{25.5} & 29.8 & 22.6 & 14.2 \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Test-time profile perturbation ablations ($n{=}729$): each model is trained once and evaluated
+under four input conditions, \textbf{True Profile} (real profile), \textbf{No Profile} (profile blank),
+\textbf{Shuffled Profile} (another patient's profile), and \textbf{Non-Personalized} (no profile and no
+patient framing in the prompt). All rows are scored against the original patient's labels; for Shuffled
+Profile these labels may not be correct for the donor patient, so those rows measure sensitivity to
+profile content (agreement with the original-patient decision), not counterfactual accuracy. True Profile
+rows are the Table~\ref{tab:main_results} checkpoints. Unparsable outputs are excluded from every metric
+(Appendix~\ref{app:parsing}). \textbf{Acc}: verdict accuracy; \textbf{Rec}: unsafe recall;
+\textbf{FPR}: false-positive rate on safe prescriptions; \textbf{Mic/Mac}: 17-category micro- and
+macro-F1; \textbf{EM}: 17-category exact match on unsafe cases only (--: prediction file incomplete).
+Bold marks the best value within each arm.}
+\label{tab:profile_ablation}
+\end{table*}

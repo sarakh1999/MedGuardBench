@@ -58,10 +58,15 @@ NOPROFILE_GRPO = {"qwen3-4b": "legacy_v1-noprofile", "qwen3-14b": "legacy_v1-qwe
                   "qwen3guard-4b": "legacy_v1-qwen3guard-4b-noprofile"}
 ARMS = ["base", "sft", "dpo", "cu", "grpo"]
 NP_ARMS = ["sft-noprofile", "cu-noprofile", "grpo-noprofile"]
-ARM_LABEL = {"base": "zero-shot (base)", "sft": "SFT", "dpo": "DPO", "cu": "CU v4pro", "grpo": "guided GRPO",
-             "sft-noprofile": "non-personalised SFT\n(no profile at train & test)",
-             "cu-noprofile": "non-personalised CU\n(no profile at train & test)",
-             "grpo-noprofile": "non-personalised GRPO\n(no profile at train & test)"}
+ARM_LABEL = {"base": "zero-shot (base)", "sft": "SFT", "dpo": "DPO", "cu": "CU", "grpo": "guided GRPO",
+             "sft-noprofile": "NP SFT (no profile)",
+             "cu-noprofile": "NP CU (no profile)",
+             "grpo-noprofile": "NP GRPO (no profile)"}
+LEGACY_LABEL = {"CU v4pro": "cu", "NP SFT (no profile at train & test)": "sft-noprofile",
+                "NP CU (no profile at train & test)": "cu-noprofile", "NP GRPO (no profile at train & test)": "grpo-noprofile",
+                "non-personalised SFT (no profile at train & test)": "sft-noprofile",
+                "non-personalised CU (no profile at train & test)": "cu-noprofile",
+                "non-personalised GRPO (no profile at train & test)": "grpo-noprofile"}
 ARM_COL = {"base": "#9e9e9e", "sft": "#1f77b4", "dpo": "#9467bd", "cu": "#2ca02c", "grpo": "#d62728",
            "sft-noprofile": "#ff7f0e", "cu-noprofile": "#2ca02c", "grpo-noprofile": "#d62728"}
 
@@ -136,6 +141,7 @@ def rows_from_table(path):
         "Llama-3.3-70B (0-shot)": "llama3.3-70b",
     })
     label_to_arm = {_norm_label(label): arm for arm, label in ARM_LABEL.items()}
+    label_to_arm.update({_norm_label(label): arm for label, arm in LEGACY_LABEL.items()})
     header = re.search(r"\(n=(\d+)\)", text)
     n = int(header.group(1)) if header else 729
     rows = []
@@ -204,8 +210,13 @@ def main():
     if missing:
         print("WARNING: backbones with no plotted point:", ", ".join(missing))
     print("legend order:", ", ".join(f"{MODELS[k][0]}={MARKERS[k]}" for k in models))
-    XLIM, YLIM = (80, 100.5), (55, 101)
-    fig, ax = plt.subplots(figsize=(10.5, 6.6))
+    # Broken recall axis: the far-left zero-shot outliers get narrow panels so the dense
+    # 80-100 region keeps its resolution and every run stays inside the axes.
+    SEGMENTS = [(-0.5, 1.5), (43.0, 46.5), (66.0, 100.5)]
+    YLIM = (55, 101)
+    fig, axes = plt.subplots(1, len(SEGMENTS), sharey=True, figsize=(7.6, 5.0),
+                             gridspec_kw=dict(width_ratios=[1.1, 1.1, 12], wspace=0))
+    ax = axes[-1]
 
     def draw(a, pts, iso_labels=True, size=1.0):
         # iso-F1 curves
@@ -214,37 +225,49 @@ def main():
             pp = f * rr / np.maximum(2 * rr - f, 1e-9); ok = (pp <= 1) & (pp >= 0.3)
             a.plot(100 * rr[ok], 100 * pp[ok], color="lightgrey", lw=0.8, ls="--", zorder=1)
             if iso_labels:
-                a.text(100 * rr[ok][-1] - 0.3, 100 * pp[ok][-1] + 0.4, f"F1={f:.2f}", fontsize=7, color="grey", ha="right")
+                a.text(100 * rr[ok][-1] - 0.3, 100 * pp[ok][-1] + 0.4, f"F1={f:.2f}", fontsize=8, color="grey", ha="right")
         for key, arm, m, _ in pts:
             hollow = arm in NP_ARMS
             a.scatter(100 * m["recall"], 100 * m["precision"], s=size * (95 if not hollow else 80), marker=MARKERS[key],
                       facecolor="none" if hollow else ARM_COL[arm], edgecolor=ARM_COL[arm] if hollow else "k",
                       linewidth=1.4 if hollow else 0.5, zorder=3)
 
-    draw(ax, rows)
+    for i, (a, (lo, hi)) in enumerate(zip(axes, SEGMENTS)):
+        draw(a, [r for r in rows if lo <= 100 * r[2]["recall"] <= hi], iso_labels=(a is ax))
+        a.set_xlim(lo, hi); a.set_ylim(*YLIM); a.grid(alpha=0.3); a.patch.set_alpha(0)
+        if a is not ax:
+            a.set_xticks([round((lo + hi) / 2)])
+        if i > 0:
+            a.spines["left"].set_visible(False); a.tick_params(axis="y", left=False)
+        if i < len(axes) - 1:
+            a.spines["right"].set_visible(False)
+    for key, arm, m, _ in rows:
+        if 100 * m["recall"] < SEGMENTS[-1][0]:
+            a = next(a for a, (lo, hi) in zip(axes, SEGMENTS) if lo <= 100 * m["recall"] <= hi)
+            a.annotate(f"{MODELS[key][0]}\n{ARM_LABEL[arm].split(' (')[0]}", annotation_clip=False, zorder=5, xy=(100 * m["recall"], 100 * m["precision"]),
+                       xytext=(0, -12), textcoords="offset points", fontsize=7, ha="center", va="top", color="#333333")
+    missed = [r for r in rows if not any(lo <= 100 * r[2]["recall"] <= hi for lo, hi in SEGMENTS)
+              or not YLIM[0] <= 100 * r[2]["precision"] <= YLIM[1]]
+    if missed:
+        print("WARNING: points outside every panel:", [(MODELS[k][0], a) for k, a, _, _ in missed])
+
     best = max((r for r in rows if r[1] not in NP_ARMS), key=lambda r: r[2]["f1"])
     ax.annotate(f"best F1: {MODELS[best[0]][0]} {ARM_LABEL[best[1]]}\nP={100*best[2]['precision']:.1f} R={100*best[2]['recall']:.1f}",
-                xy=(100 * best[2]["recall"], 100 * best[2]["precision"]), xytext=(80.6, 99), fontsize=8,
+                xy=(100 * best[2]["recall"], 100 * best[2]["precision"]), xytext=(76, 100.5), fontsize=9,
                 arrowprops=dict(arrowstyle="->", color="k", lw=0.8), ha="left", va="top")
-
-    # points outside the window (e.g. Llama-Guard-7B zero-shot calls almost everything safe)
-    off = [r for r in rows if not (XLIM[0] <= 100 * r[2]["recall"] <= XLIM[1] and YLIM[0] <= 100 * r[2]["precision"] <= YLIM[1])]
-    if off:
-        txt = "outside window:\n" + "\n".join(f"{MODELS[k][0]} {ARM_LABEL[a].splitlines()[0]}: P={100*m['precision']:.1f} R={100*m['recall']:.1f}" for k, a, m, _ in off)
-        ax.text(1.02, 0.0, txt, transform=ax.transAxes, fontsize=6.8, ha="left", va="bottom", color="#333333")
 
     h1 = [ax.scatter([], [], color=ARM_COL[a], s=60, label=ARM_LABEL[a]) for a in ARMS if any(r[1] == a for r in rows)]
     for a in NP_ARMS:
         if any(r[1] == a for r in rows):
             h1.append(ax.scatter([], [], facecolor="none", edgecolor=ARM_COL[a], linewidth=1.4, s=60, label=ARM_LABEL[a]))
-    leg1 = ax.legend(handles=h1, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 1.0), title="arm (colour)", title_fontsize=8, frameon=False)
+    leg1 = ax.legend(handles=h1, fontsize=8.5, loc="upper left", bbox_to_anchor=(1.01, 1.02), title="arm (color)", title_fontsize=9, labelspacing=0.3, frameon=False)
     ax.add_artist(leg1)
     h2 = [ax.scatter([], [], marker=MARKERS[k], color="w", edgecolor="k", s=60, label=MODELS[k][0]) for k in models]
-    ax.legend(handles=h2, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 0.60), title="backbone (marker)", title_fontsize=8, frameon=False)
-    ax.set_xlabel("recall on unsafe prescriptions (%)"); ax.set_ylabel("precision of 'unsafe' verdicts (%)")
-    ax.set_xlim(*XLIM); ax.set_ylim(*YLIM); ax.grid(alpha=0.3)
-    ax.set_title("Precision vs recall, every backbone x arm, true-profile test set (n=%d)" % n, fontsize=10)
-    fig.tight_layout(); out = os.path.join(args.out_dir, "fig_precision_recall.png"); fig.savefig(out, dpi=160, bbox_inches="tight"); plt.close(fig)
+    leg2 = ax.legend(handles=h2, fontsize=8.5, loc="lower left", bbox_to_anchor=(1.01, -0.04), title="backbone (marker)", title_fontsize=9, labelspacing=0.3, frameon=False)
+    xlab = fig.supxlabel("recall on unsafe prescriptions (%)  —  broken axis", fontsize=11, y=0.0)
+    axes[0].set_ylabel("precision of 'unsafe' verdicts (%)", fontsize=11)
+    out = os.path.join(args.out_dir, "fig_precision_recall.png")
+    fig.savefig(out, dpi=160, bbox_inches="tight", bbox_extra_artists=[leg1, leg2, xlab]); plt.close(fig)
 
     # ------------------------------------------------------------ table
     rows.sort(key=lambda r: -r[2]["f1"])
