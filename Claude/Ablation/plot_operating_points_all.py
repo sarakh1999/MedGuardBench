@@ -63,14 +63,16 @@ SYS_COL = {
 }
 # shorter names for the single-column legend
 SYS_SHORT = {
-    "non-personalized SFT (trained w/o profiles)": "NP SFT (trained w/o profile)",
-    "non-personalized CU (trained w/o profiles)": "NP CU (trained w/o profile)",
-    "non-personalized GRPO (trained w/o profiles)": "NP GRPO (trained w/o profile)",
-    "personalized SFT, profile withheld": "SFT, profile withheld",
-    "personalized CU, profile withheld": "CU, profile withheld",
-    "personalized GRPO, profile withheld": "GRPO, profile withheld",
-    "personalized CU, non-personalized prompt": "CU, non-pers. prompt",
-    "personalized GRPO, non-personalized prompt": "GRPO, non-pers. prompt",
+    "zero-shot, no profile": "zero-shot, blank profile",
+    "non-personalized SFT (trained w/o profiles)": "NP SFT",
+    "non-personalized CU (trained w/o profiles)": "NP CU",
+    "non-personalized GRPO (trained w/o profiles)": "NP GRPO",
+    "personalized SFT, profile withheld": "SFT, blank profile",
+    "personalized CU, profile withheld": "CU, blank profile",
+    "personalized GRPO, profile withheld": "GRPO, blank profile",
+    "personalized CU, non-personalized prompt": "CU, no patient context",
+    "personalized GRPO, non-personalized prompt": "GRPO, no patient context",
+    "personalized SFT": "SFT", "personalized CU": "CU", "personalized GRPO": "Guided GRPO",
 }
 XLIM, YLIM = (0, 85), (65, 101)
 TARGET = dict(recall=95, fpr=20)   # target box: recall >= 95, FPR <= 20
@@ -197,6 +199,20 @@ def main():
                     res[(model, arm, cond)] = _from_cell(c)
                     table_pts.add((model, arm, cond))
                     print(f"  table 7 {DISPLAY[model]} {arm} {cond}: recall {c['rec']:.1f} FPR {c['fpr']:.1f}")
+
+    # Typeset cells win: Table 1 for the with-profile rows, Table 5 for the perturbation rows.
+    t1 = json.load(open(os.path.join(R.OUT_DIR, "paper", "table1_all_729.json")))
+    for key, arms in t1.items():
+        for arm, c in zip(ARMS, arms):
+            if c and c.get("rec") is not None:
+                res[(DIRKEY[key], arm, "true")] = _from_cell(c)
+    t5 = json.load(open(os.path.join(R.OUT_DIR, "paper", "table5_all_729.json")))
+    for k, c in t5.items():
+        model, arm, cond = k.split("|")
+        if cond != "true" and c.get("rec") is not None:
+            res[(model, arm, cond)] = _from_cell(c)
+            if arm in ("cu", "grpo"):
+                table_pts.add((model, arm, cond))
 
     pts = []  # (model, system, metrics)
     for model in MODEL_ORDER:

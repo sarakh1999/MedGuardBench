@@ -22,8 +22,8 @@ T3 = os.path.expanduser("~/acl-paper/ARR/Results/per_category_F1_Table.tex")
 P_MODELS = [("qwen3-4b", "Qwen3-4B"), ("qwen3-8b", "Qwen3-8B"),
             ("qwen3guard-4b", "Qwen3Guard-4B"), ("qwen3guard-8b", "Qwen3Guard-8B")]
 P_ARMS = [("base", "Zero-Shot"), ("sft", "Pers. SFT"), ("cu", "Pers. CU"), ("grpo", "Pers. GRPO")]
-P_CONDS = [("true", "True Profile", "#4C9BE8"), ("noprofile", "No Profile", "#5CB85C"),
-           ("shuffled", "Shuffled Profile", "#F08DB0"), ("nonpersonalized", "Non-Personalized", "#C9A000")]
+P_CONDS = [("true", "True Profile", "#4C9BE8"), ("noprofile", "Blank Profile", "#5CB85C"),
+           ("shuffled", "Shuffled Profile", "#F08DB0"), ("nonpersonalized", "No Patient Context", "#C9A000")]
 P_AXES = [("acc", "Acc"), ("rec", "Rec"), ("fpr", "100$-$FPR"), ("mic", "Mic-F1"), ("mac", "Mac-F1")]
 
 C_MODELS = ["Qwen3-4B", "Qwen3-8B", "Qwen3-14B", "Qwen3Guard-4B", "Qwen3Guard-8B", "WildGuard-7B",
@@ -88,7 +88,7 @@ def read_table3():
         models = re.findall(r"\\multicolumn\{4\}\{c\|?\}\{\\textbf\{([^}]*)\}\}", b)
         for line in b.splitlines():
             cells = [c.strip() for c in re.split(r"(?<!\\)&", line.rstrip("\\ "))]
-            name = cells[0].replace("\\&", "&")
+            name = cells[0].replace("\\&", "&").replace("Allergy & ADR", "Allergy & Adverse Drug Reaction")
             if name not in C_SHORT:
                 continue
             vals = [float(re.sub(r"\\textbf\{([^}]*)\}", r"\1", c)) for c in cells[1:]]
