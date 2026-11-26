@@ -22,13 +22,13 @@ T3 = os.path.expanduser("~/acl-paper/ARR/Results/per_category_F1_Table.tex")
 P_MODELS = [("qwen3-4b", "Qwen3-4B"), ("qwen3-8b", "Qwen3-8B"),
             ("qwen3guard-4b", "Qwen3Guard-4B"), ("qwen3guard-8b", "Qwen3Guard-8B")]
 P_ARMS = [("base", "Zero-Shot"), ("sft", "Pers. SFT"), ("cu", "Pers. CU"), ("grpo", "Pers. GRPO")]
-P_CONDS = [("true", "True Profile", "#4C9BE8"), ("noprofile", "Blank Profile", "#5CB85C"),
-           ("shuffled", "Shuffled Profile", "#F08DB0"), ("nonpersonalized", "No Patient Context", "#C9A000")]
+P_CONDS = [("true", "True Profile", "#4E79A7"), ("noprofile", "Blank Profile", "#76B7B2"),
+           ("shuffled", "Shuffled Profile", "#E8879C"), ("nonpersonalized", "No Patient Context", "#F2C14E")]
 P_AXES = [("acc", "Acc"), ("rec", "Rec"), ("fpr", "100$-$FPR"), ("mic", "Mic-F1"), ("mac", "Mac-F1")]
 
 C_MODELS = ["Qwen3-4B", "Qwen3-8B", "Qwen3-14B", "Qwen3Guard-4B", "Qwen3Guard-8B", "WildGuard-7B",
             "Llama-3.1-8B", "Llama-Guard-7B", "Llama-Guard-2-8B", "ShieldGemma-2B", "ShieldGemma-9B", "MedGemma-4B"]
-C_ARMS = [("SFT", "#4C72B0"), ("CU", "#55A868"), ("GRPO", "#C44E52")]
+C_ARMS = [("SFT", "#4E79A7"), ("CU", "#F2C14E"), ("GRPO", "#E15759")]
 C_SHORT = {"Drug-Drug Interaction": "DDI", "Cardiac Impairment": "Card", "Dosage & Toxicity": "Dose", "Age": "Age",
            "Allergy & Adverse Drug Reaction": "Alrg", "Hepatic Impairment": "Hep", "Renal Impairment": "Renal",
            "Alcohol Use": "Alc", "Drug-Food Interaction": "DFI", "Pregnancy & Breastfeeding": "Preg",
