@@ -34,7 +34,7 @@ def main():
     keep[DRIFT_ROWS] = False
     A.KEEP, A.KEPT = keep, np.flatnonzero(keep)
     assert len(A.KEPT) == 729
-    t5 = json.load(open(os.path.join(A.PAPER, "table5_all_729.json")))
+    t5 = json.load(open(os.path.join(A.PAPER, "table5_full729.json")))
     res = {}
     for model in MODELS:
         for arm in ARMS:

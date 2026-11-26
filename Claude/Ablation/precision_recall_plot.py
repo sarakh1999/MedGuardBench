@@ -161,32 +161,38 @@ def rows_from_table(path):
 
 
 def score_runs():
-    gold = load_gold("true"); n_full = len(gold)
-    gv = np.array([g[0] for g in gold]); gc = np.array([[g[1][c] for c in RISK_CATEGORIES] for g in gold])
-    import recompute_729 as R
-    _, keep = R.keep_mask()
-    idx = np.flatnonzero(keep)
-    n = len(idx)
-    print(f"precision-recall on the {n}-row drug-disjoint test split")
-    runs = find_runs()
+    """Points from the same full-729 cells as Tables 1 and 3 (379 unsafe / 350 safe rows;
+    a completion with no verdict counts as a wrong verdict). No-profile arms come from
+    the NP cells, rescored the same way when they had unparsable rows."""
+    import json
+    from full729_rescore import cell_full
+    paper = os.path.join(OUT_DIR, "recompute_729", "paper")
+    t1 = json.load(open(os.path.join(paper, "table1_full729.json")))
+    npr = json.load(open(os.path.join(paper, "np_729_abstain.json")))["rows"]
+    code = {"qwen3-4b": "q4", "qwen3-8b": "q8", "qwen3-14b": "q14", "qwen3guard-4b": "g4", "qwen3guard-8b": "g8",
+            "llama31-8b": "l31", "llamaguard2-8b": "lg2", "llamaguard-7b": "lg7", "shieldgemma-2b": "s2",
+            "shieldgemma-9b": "s9", "wildguard-7b": "wg", "medgemma-4b": "mg", "llama3.3-70b": "l70"}
+    n_u, n_s = 379, 350
+
+    def metrics(c):
+        tp, fp = c["rec"] / 100 * n_u, c["fpr"] / 100 * n_s
+        prec = tp / (tp + fp) if tp + fp else 0.0
+        rec = c["rec"] / 100
+        return dict(precision=prec, recall=rec, f1=2 * prec * rec / max(prec + rec, 1e-9), fpr=c["fpr"] / 100,
+                    acc=c["acc"] / 100, bal_acc=0.5 * (rec + 1 - c["fpr"] / 100), macro_f1=c["mac"] / 100,
+                    unparsed=0, engine="table")
     rows = []
-    from audit_729 import load_any
-    for (key, arm), p in sorted(runs.items()):
-        if not p or not os.path.exists(p):
-            print(f"  skip {key}/{arm}: missing file ({p})"); continue
-        pv, pc, parsed, _, n_rows = load_any(p, RISK_CATEGORIES)
-        if n_rows < n_full:
-            print(f"  skip {key}/{arm}: {n_rows}/{n_full} rows ({p})"); continue
-        if not parsed[idx].any():
-            print(f"  skip {key}/{arm}: no parsable verdicts ({p})"); continue
-        gv_i, gc_i, pv_i, pc_i = gv[idx], gc[idx], pv[idx], pc[idx]
-        m = pr(gv_i, pv_i)
-        ctp = np.sum(gc_i & pc_i, axis=0); cfp = np.sum(~gc_i & pc_i, axis=0); cfn = np.sum(gc_i & ~pc_i, axis=0)
-        f1c = 2 * ctp / np.maximum(2 * ctp + cfp + cfn, 1); present = (ctp + cfn) > 0
-        m["macro_f1"] = f1c[present].mean(); m["unparsed"] = int((~parsed[idx]).sum())
-        m["engine"] = "vLLM" if p.startswith(A) else "HF"
-        rows.append((key, arm, m, os.path.relpath(p, ROOT)))
-    return rows, n
+    for key, k in code.items():
+        for arm, c in zip(("base", "sft", "cu", "grpo"), t1[k]):
+            if c and c.get("rec") is not None and (c["rec"] > 0 or c["fpr"] > 0):
+                rows.append((key, arm, metrics(c), c.get("file", "")))
+        for src, arm in (("np_sft", "sft-noprofile"), ("np_cu", "cu-noprofile"), ("np_grpo", "grpo-noprofile")):
+            c = npr.get(f"{k}|{src}")
+            if c and c.get("n_unpars"):
+                c = cell_full(c["file"], c) or c
+            if c and c.get("rec") is not None:
+                rows.append((key, arm, metrics(c), c.get("file", "")))
+    return rows, n_u + n_s
 
 
 def main():
@@ -212,10 +218,10 @@ def main():
     print("legend order:", ", ".join(f"{MODELS[k][0]}={MARKERS[k]}" for k in models))
     # Broken recall axis: the far-left zero-shot outliers get narrow panels so the dense
     # 80-100 region keeps its resolution and every run stays inside the axes.
-    SEGMENTS = [(-0.5, 1.5), (43.0, 46.5), (66.0, 100.5)]
-    YLIM = (55, 101)
+    SEGMENTS = [(-0.5, 1.5), (68.0, 100.5)]
+    YLIM = (50, 101)
     fig, axes = plt.subplots(1, len(SEGMENTS), sharey=True, figsize=(7.6, 5.0),
-                             gridspec_kw=dict(width_ratios=[1.1, 1.1, 12], wspace=0))
+                             gridspec_kw=dict(width_ratios=[1.1, 12], wspace=0))
     ax = axes[-1]
 
     def draw(a, pts, iso_labels=True, size=1.0):

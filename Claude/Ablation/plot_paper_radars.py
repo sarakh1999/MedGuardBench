@@ -2,7 +2,7 @@
 """Redraw the two paper radar figures from the numbers printed in the paper's tables.
 
   personalization_effect_radar.pdf  test-time profile perturbation (Table 5 cells,
-                                    report/recompute_729/paper/table5_all_729.json)
+                                    report/recompute_729/paper/table5_full729.json)
   radar.pdf                         per-category F1 of SFT / CU / GRPO (Table 3,
                                     read from the paper's per_category_F1_Table.tex)
 
@@ -16,12 +16,12 @@ import re
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-T5 = os.path.join(HERE, "report/recompute_729/paper/table5_all_729.json")
+T5 = os.path.join(HERE, "report/recompute_729/paper/table5_full729.json")
 T3 = os.path.expanduser("~/acl-paper/ARR/Results/per_category_F1_Table.tex")
 
 P_MODELS = [("qwen3-4b", "Qwen3-4B"), ("qwen3-8b", "Qwen3-8B"),
             ("qwen3guard-4b", "Qwen3Guard-4B"), ("qwen3guard-8b", "Qwen3Guard-8B")]
-P_ARMS = [("base", "Zero-Shot"), ("sft", "Pers. SFT"), ("cu", "Pers. CU"), ("grpo", "Pers. GRPO")]
+P_ARMS = [("base", "Zero-Shot"), ("sft", "SFT"), ("cu", "CU"), ("grpo", "Guided GRPO")]
 P_CONDS = [("true", "True Profile", "#4E79A7"), ("noprofile", "Blank Profile", "#76B7B2"),
            ("shuffled", "Shuffled Profile", "#E8879C"), ("nonpersonalized", "No Patient Context", "#F2C14E")]
 P_AXES = [("acc", "Acc"), ("rec", "Rec"), ("fpr", "100$-$FPR"), ("mic", "Mic-F1"), ("mac", "Mac-F1")]

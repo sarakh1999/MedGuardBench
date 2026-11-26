@@ -74,7 +74,7 @@ SYS_SHORT = {
     "personalized GRPO, non-personalized prompt": "GRPO, no patient context",
     "personalized SFT": "SFT", "personalized CU": "CU", "personalized GRPO": "Guided GRPO",
 }
-XLIM, YLIM = (0, 85), (65, 101)
+XLIM, YLIM = (0, 85), (50, 101)
 TARGET = dict(recall=95, fpr=20)   # target box: recall >= 95, FPR <= 20
 OVERBLOCK_FPR = 40                 # over-blocking band: FPR >= 40
 
@@ -152,7 +152,11 @@ def main():
             print(f"  skip {k}: {n_rows}/{n} rows"); continue
         if not parsed.any():
             print(f"  skip {k}: no parsable verdicts"); continue
-        res[k] = metrics(gv, gc, pv, pc, idx[parsed[idx]])  # unparsable rows excluded, as in the tables
+        bad = idx[~parsed[idx]]
+        pv, pc = np.array(pv, copy=True), np.array(pc, copy=True)
+        pv[bad] = ~gv[bad]  # no verdict counts as a wrong verdict, as in the tables
+        pc[bad] = False
+        res[k] = metrics(gv, gc, pv, pc, idx)
 
     # Truncated prediction files: fall back to the Table 7 (profile perturbation) scores
     prof = json.load(open(os.path.join(R.OUT_DIR, "paper", "profile_729_abstain.json")))
@@ -184,6 +188,9 @@ def main():
     for key, model in DIRKEY.items():
         for src, arm in (("np_cu", "cu-np"), ("np_grpo", "grpo-np")):
             c = np_rows.get(f"{key}|{src}")
+            if c and c.get("n_unpars"):
+                from full729_rescore import cell_full
+                c = cell_full(c["file"], c) or c
             if c and c.get("rec") is not None:
                 res[(model, arm, "trained")] = _from_cell(c)
                 table_pts.add((model, arm, "trained"))
@@ -201,12 +208,13 @@ def main():
                     print(f"  table 7 {DISPLAY[model]} {arm} {cond}: recall {c['rec']:.1f} FPR {c['fpr']:.1f}")
 
     # Typeset cells win: Table 1 for the with-profile rows, Table 5 for the perturbation rows.
-    t1 = json.load(open(os.path.join(R.OUT_DIR, "paper", "table1_all_729.json")))
+    t1 = json.load(open(os.path.join(R.OUT_DIR, "paper", "table1_full729.json")))
     for key, arms in t1.items():
         for arm, c in zip(ARMS, arms):
             if c and c.get("rec") is not None:
                 res[(DIRKEY[key], arm, "true")] = _from_cell(c)
-    t5 = json.load(open(os.path.join(R.OUT_DIR, "paper", "table5_all_729.json")))
+    res[(DIRKEY["wg"], "base", "true")] = {"recall": 0.0, "fpr": 0.0, "acc": 0.48, "macro_f1": 0.0}  # native verdict: Safe on every row
+    t5 = json.load(open(os.path.join(R.OUT_DIR, "paper", "table5_full729.json")))
     for k, c in t5.items():
         model, arm, cond = k.split("|")
         if cond != "true" and c.get("rec") is not None:
